@@ -4,35 +4,24 @@ import {
   MessageCircle,
   Wifi,
   Clock,
-  Shield,
-  Coffee,
-  Shirt,
-  Bell,
-  MapPin,
   AlertCircle,
-  ConciergeBell,
   Plane,
-} from 'lucide-react';
+  getServiceIcon,
+} from '@/config/icons';
 import { generatePageMetadata, breadcrumbJsonLd } from '@/lib/seo';
-import { brand, guestInfo, nearbyAttractions } from '@/lib/content';
+import { STRINGS } from '@/config/strings';
 import { whatsappUrl, phoneUrl } from '@/lib/utils';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Guest Information',
-  description: `Essential information for guests staying at ${brand.name} — services, facilities, house rules, and contact details.`,
+  title: STRINGS.seo.pages.guestInfo.title,
+  description: STRINGS.seo.pages.guestInfo.description,
   path: '/guest-information',
 });
 
-const serviceIcons: Record<string, React.ReactNode> = {
-  'Room Service': <Coffee className="h-5 w-5" />,
-  'Laundry Service': <Shirt className="h-5 w-5" />,
-  'Wake-up Call': <Bell className="h-5 w-5" />,
-  'Travel Assistance': <MapPin className="h-5 w-5" />,
-  'Medical Assistance': <Shield className="h-5 w-5" />,
-};
-
 export default function GuestInformationPage() {
+  const { guestInfo, contact, location } = STRINGS;
+
   return (
     <>
       <script
@@ -40,7 +29,7 @@ export default function GuestInformationPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             breadcrumbJsonLd([
-              { name: 'Guest Information', href: '/guest-information' },
+              { name: guestInfo.header.title, href: '/guest-information' },
             ])
           ),
         }}
@@ -51,10 +40,10 @@ export default function GuestInformationPage() {
         <div className="mx-auto max-w-lg px-4 text-center sm:px-6">
           <AnimatedSection>
             <h1 className="font-serif text-3xl font-bold text-white md:text-4xl">
-              Welcome to {brand.name}
+              {guestInfo.header.title}
             </h1>
             <p className="mx-auto mt-3 max-w-sm text-sm text-white/70 md:text-base">
-              Everything you need to know during your stay
+              {guestInfo.header.subtitle}
             </p>
           </AnimatedSection>
         </div>
@@ -65,14 +54,14 @@ export default function GuestInformationPage() {
         <AnimatedSection>
           <div className="mb-8 grid grid-cols-2 gap-3">
             <a
-              href={whatsappUrl('Hi, I am a guest at Liv.inn and need assistance.')}
+              href={whatsappUrl(contact.prefilledMessages.guestAssistance)}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 rounded-xl bg-green-600 px-4 py-3.5 text-sm font-medium text-white transition-all duration-200 hover:bg-green-700 active:scale-[0.98]"
               id="guest-whatsapp"
             >
               <MessageCircle className="h-4 w-4" />
-              WhatsApp
+              {guestInfo.quickContact.whatsapp}
             </a>
             <a
               href={phoneUrl()}
@@ -80,7 +69,7 @@ export default function GuestInformationPage() {
               id="guest-call"
             >
               <Phone className="h-4 w-4" />
-              Call Reception
+              {guestInfo.quickContact.call}
             </a>
           </div>
         </AnimatedSection>
@@ -90,23 +79,23 @@ export default function GuestInformationPage() {
           <div className="mb-6 rounded-2xl border border-border-light bg-white p-5 shadow-sm">
             <h2 className="flex items-center gap-2 font-serif text-lg font-semibold text-charcoal">
               <Clock className="h-5 w-5 text-accent" />
-              Timing
+              {guestInfo.timing.title}
             </h2>
             <div className="mt-4 grid grid-cols-2 gap-4">
               <div className="rounded-xl bg-cream/60 p-4 text-center">
                 <p className="text-xs font-medium uppercase tracking-wider text-slate-medium">
-                  Check-in
+                  {guestInfo.timing.checkIn}
                 </p>
                 <p className="mt-1 text-xl font-semibold text-charcoal">
-                  {guestInfo.checkInTime}
+                  {guestInfo.timing.checkInTime}
                 </p>
               </div>
               <div className="rounded-xl bg-cream/60 p-4 text-center">
                 <p className="text-xs font-medium uppercase tracking-wider text-slate-medium">
-                  Check-out
+                  {guestInfo.timing.checkOut}
                 </p>
                 <p className="mt-1 text-xl font-semibold text-charcoal">
-                  {guestInfo.checkOutTime}
+                  {guestInfo.timing.checkOutTime}
                 </p>
               </div>
             </div>
@@ -118,11 +107,10 @@ export default function GuestInformationPage() {
           <div className="mb-6 rounded-2xl border border-border-light bg-white p-5 shadow-sm">
             <h2 className="flex items-center gap-2 font-serif text-lg font-semibold text-charcoal">
               <Wifi className="h-5 w-5 text-accent" />
-              Wi-Fi
+              {guestInfo.wifi.title}
             </h2>
             <p className="mt-2 text-sm text-slate-deep">
-              Complimentary high-speed Wi-Fi is available throughout the property. 
-              Ask at the front desk for the network name and password.
+              {guestInfo.wifi.description}
             </p>
           </div>
         </AnimatedSection>
@@ -131,20 +119,18 @@ export default function GuestInformationPage() {
         <AnimatedSection delay={0.15}>
           <div className="mb-6 rounded-2xl border border-border-light bg-white p-5 shadow-sm">
             <h2 className="flex items-center gap-2 font-serif text-lg font-semibold text-charcoal">
-              <ConciergeBell className="h-5 w-5 text-accent" />
-              Hotel Services
+              <Clock className="h-5 w-5 text-accent" />
+              {guestInfo.services.title}
             </h2>
             <div className="mt-4 space-y-3">
-              {guestInfo.services.map((service) => (
+              {guestInfo.services.items.map((service) => (
                 <div
                   key={service.name}
                   className="flex items-center justify-between rounded-lg bg-cream/40 px-4 py-3"
                 >
                   <div className="flex items-center gap-3">
                     <span className="text-accent">
-                      {serviceIcons[service.name] ?? (
-                        <ConciergeBell className="h-5 w-5" />
-                      )}
+                      {getServiceIcon(service.name)}
                     </span>
                     <span className="text-sm font-medium text-charcoal">
                       {service.name}
@@ -164,10 +150,10 @@ export default function GuestInformationPage() {
           <div className="mb-6 rounded-2xl border border-border-light bg-white p-5 shadow-sm">
             <h2 className="flex items-center gap-2 font-serif text-lg font-semibold text-charcoal">
               <AlertCircle className="h-5 w-5 text-accent" />
-              House Rules
+              {guestInfo.houseRules.title}
             </h2>
             <ul className="mt-4 space-y-2.5">
-              {guestInfo.houseRules.map((rule, i) => (
+              {guestInfo.houseRules.items.map((rule, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-slate-deep">
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-muted text-[10px] font-semibold text-accent">
                     {i + 1}
@@ -184,10 +170,10 @@ export default function GuestInformationPage() {
           <div className="mb-6 rounded-2xl border border-border-light bg-white p-5 shadow-sm">
             <h2 className="flex items-center gap-2 font-serif text-lg font-semibold text-charcoal">
               <Plane className="h-5 w-5 text-accent" />
-              Nearby
+              {guestInfo.nearby.title}
             </h2>
             <div className="mt-4 space-y-3">
-              {nearbyAttractions.map((place) => (
+              {location.attractions.items.map((place) => (
                 <div
                   key={place.name}
                   className="flex items-center justify-between rounded-lg bg-cream/40 px-4 py-3"
@@ -207,9 +193,9 @@ export default function GuestInformationPage() {
         {/* Footer note */}
         <AnimatedSection delay={0.3}>
           <p className="text-center text-xs text-slate-medium">
-            For any assistance during your stay, please don&apos;t hesitate to contact us.
+            {guestInfo.footerNote.line1}
             <br />
-            We hope you have a wonderful experience at {brand.name}!
+            {guestInfo.footerNote.line2}
           </p>
         </AnimatedSection>
       </div>

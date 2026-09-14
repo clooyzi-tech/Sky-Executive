@@ -1,7 +1,10 @@
 import { cn } from '@/lib/utils';
+import { PlaceholderImageIcon } from '@/config/icons';
+import { IMAGES } from '@/config/image';
 
 interface ImagePlaceholderProps {
   alt: string;
+  src?: string;
   className?: string;
   aspectRatio?: 'video' | 'square' | 'portrait' | 'wide';
   icon?: React.ReactNode;
@@ -16,10 +19,32 @@ const aspects = {
 
 export default function ImagePlaceholder({
   alt,
+  src,
   className,
   aspectRatio = 'video',
   icon,
 }: ImagePlaceholderProps) {
+  // If a valid image source exists, render the image
+  if (src && src.trim().length > 0) {
+    return (
+      <div
+        className={cn(
+          'relative overflow-hidden rounded-xl bg-cream',
+          aspects[aspectRatio],
+          className
+        )}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={src}
+          alt={alt}
+          className="h-full w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+    );
+  }
+
   return (
     <div
       className={cn(
@@ -31,27 +56,15 @@ export default function ImagePlaceholder({
       aria-label={alt}
     >
       {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 opacity-10" style={{
-        backgroundImage: 'radial-gradient(circle at 1px 1px, var(--accent) 1px, transparent 0)',
-        backgroundSize: '24px 24px',
-      }} />
+      <div
+        className="absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: IMAGES.patterns.accentDots,
+          backgroundSize: '24px 24px',
+        }}
+      />
       <div className="relative flex flex-col items-center gap-3 text-accent/40">
-        {icon ?? (
-          <svg
-            width="48"
-            height="48"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-            <circle cx="8.5" cy="8.5" r="1.5" />
-            <polyline points="21 15 16 10 5 21" />
-          </svg>
-        )}
+        {icon ?? <PlaceholderImageIcon className="h-10 w-10 stroke-1" />}
         <span className="max-w-[200px] text-center text-xs font-medium uppercase tracking-wider">
           {alt}
         </span>

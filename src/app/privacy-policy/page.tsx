@@ -1,15 +1,17 @@
 import type { Metadata } from 'next';
 import { generatePageMetadata, breadcrumbJsonLd } from '@/lib/seo';
-import { brand, contact } from '@/lib/content';
+import { STRINGS } from '@/config/strings';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Privacy Policy',
-  description: `Privacy Policy for ${brand.name}. Learn how we collect, use, and protect your personal information.`,
+  title: STRINGS.seo.pages.privacy.title,
+  description: STRINGS.seo.pages.privacy.description,
   path: '/privacy-policy',
 });
 
 export default function PrivacyPolicyPage() {
+  const { privacy, contact } = STRINGS;
+
   return (
     <>
       <script
@@ -17,7 +19,7 @@ export default function PrivacyPolicyPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             breadcrumbJsonLd([
-              { name: 'Privacy Policy', href: '/privacy-policy' },
+              { name: privacy.header.title, href: '/privacy-policy' },
             ])
           ),
         }}
@@ -28,10 +30,10 @@ export default function PrivacyPolicyPage() {
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <AnimatedSection>
             <h1 className="font-serif text-4xl font-bold text-white md:text-5xl">
-              Privacy Policy
+              {privacy.header.title}
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-base text-white/70 md:text-lg">
-              How we handle and protect your information
+              {privacy.header.subtitle}
             </p>
           </AnimatedSection>
         </div>
@@ -43,14 +45,11 @@ export default function PrivacyPolicyPage() {
           <AnimatedSection>
             <div className="prose prose-slate max-w-none space-y-8 text-slate-deep [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-charcoal [&_h2]:mt-10 [&_h2]:mb-4 [&_h3]:font-serif [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-charcoal [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:leading-relaxed [&_ul]:space-y-2 [&_li]:leading-relaxed">
               <p className="text-sm text-slate-medium">
-                Last updated: September 2026
+                {privacy.lastUpdated}
               </p>
 
               <p>
-                {brand.name} (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) is committed to protecting the privacy 
-                of our guests and website visitors. This Privacy Policy explains how we collect, 
-                use, store, and protect your personal information when you visit our website 
-                or stay at our hotel.
+                {privacy.intro}
               </p>
 
               <h2>1. Information We Collect</h2>

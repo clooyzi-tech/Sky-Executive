@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu } from 'lucide-react';
-import { brand, navLinks } from '@/lib/content';
+import { Menu } from '@/config/icons';
+import { STRINGS } from '@/config/strings';
 import { cn } from '@/lib/utils';
 import CTAButton from '@/components/ui/CTAButton';
 import MobileMenu from './MobileMenu';
@@ -27,12 +27,12 @@ export default function Header() {
             className="font-serif text-2xl font-bold tracking-tight text-charcoal transition-colors hover:text-accent"
             id="header-logo"
           >
-            {brand.name}
+            {STRINGS.brand.name}
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
-            {navLinks.map((link) => (
+          <nav className="hidden items-center gap-1 lg:flex" aria-label={STRINGS.nav.aria.mainNavigation}>
+            {STRINGS.nav.links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -57,13 +57,13 @@ export default function Header() {
               className="hidden lg:inline-flex"
               id="header-enquire-cta"
             >
-              Enquire Now
+              {STRINGS.common.buttons.enquireNow}
             </CTAButton>
 
             <button
               onClick={() => setMobileOpen(true)}
               className="flex h-10 w-10 items-center justify-center rounded-md text-charcoal transition-colors hover:bg-cream lg:hidden"
-              aria-label="Open menu"
+              aria-label={STRINGS.nav.aria.openMenu}
               id="mobile-menu-toggle"
             >
               <Menu className="h-5 w-5" />

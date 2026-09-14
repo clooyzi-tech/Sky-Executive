@@ -1,13 +1,15 @@
 'use client';
 
-import { MapPin, ArrowRight } from 'lucide-react';
-import { contact } from '@/lib/content';
+import { MapPin, ArrowRight } from '@/config/icons';
+import { STRINGS } from '@/config/strings';
 import { formatAddress } from '@/lib/utils';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import SectionHeading from '@/components/ui/SectionHeading';
 import CTAButton from '@/components/ui/CTAButton';
 
 export default function LocationPreview() {
+  const { locationPreview } = STRINGS.home;
+
   return (
     <section className="py-20 md:py-28" id="location-preview">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -16,14 +18,14 @@ export default function LocationPreview() {
           <AnimatedSection direction="left">
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <iframe
-                src={contact.googleMapsEmbed}
+                src={STRINGS.contact.googleMapsEmbed}
                 width="100%"
                 height="400"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Liv.inn Hotel Location"
+                title={locationPreview.mapTitle}
                 className="w-full"
               />
             </div>
@@ -32,8 +34,8 @@ export default function LocationPreview() {
           {/* Info */}
           <AnimatedSection direction="right">
             <SectionHeading
-              title="Find Us"
-              subtitle="Centrally located for your convenience"
+              title={locationPreview.title}
+              subtitle={locationPreview.subtitle}
               centered={false}
             />
 
@@ -44,11 +46,11 @@ export default function LocationPreview() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <CTAButton
-                href={contact.googleMapsUrl}
+                href={STRINGS.contact.googleMapsUrl}
                 external
                 id="location-directions"
               >
-                Get Directions
+                {locationPreview.ctaDirections}
                 <ArrowRight className="h-4 w-4" />
               </CTAButton>
               <CTAButton
@@ -56,7 +58,7 @@ export default function LocationPreview() {
                 variant="outline"
                 id="location-more"
               >
-                More Details
+                {locationPreview.ctaDetails}
               </CTAButton>
             </div>
           </AnimatedSection>

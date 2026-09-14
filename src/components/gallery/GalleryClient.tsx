@@ -1,22 +1,22 @@
 'use client';
 
 import { useState, useCallback, useEffect } from 'react';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from '@/config/icons';
 import { motion, AnimatePresence } from 'framer-motion';
-import { galleryImages } from '@/lib/content';
+import { IMAGES } from '@/config/image';
+import { STRINGS } from '@/config/strings';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import ImagePlaceholder from '@/components/ui/ImagePlaceholder';
 
-const categories = ['All', 'Hotel', 'Rooms', 'Interiors', 'Exterior'] as const;
-
 export default function GalleryClient() {
+  const { gallery } = STRINGS;
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const filtered =
     activeCategory === 'All'
-      ? galleryImages
-      : galleryImages.filter(
+      ? IMAGES.gallery
+      : IMAGES.gallery.filter(
           (img) => img.category === activeCategory.toLowerCase()
         );
 
@@ -49,7 +49,7 @@ export default function GalleryClient() {
     <>
       {/* Filters */}
       <div className="flex flex-wrap justify-center gap-2">
-        {categories.map((cat) => (
+        {gallery.categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
@@ -75,6 +75,7 @@ export default function GalleryClient() {
               aria-label={`View ${img.alt}`}
             >
               <ImagePlaceholder
+                src={img.src}
                 alt={img.alt}
                 aspectRatio={i % 3 === 0 ? 'portrait' : i % 3 === 1 ? 'square' : 'video'}
               />
@@ -97,7 +98,7 @@ export default function GalleryClient() {
             <button
               onClick={closeLightbox}
               className="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-              aria-label="Close lightbox"
+              aria-label={gallery.lightbox.close}
               id="lightbox-close"
             >
               <X className="h-5 w-5" />
@@ -107,7 +108,7 @@ export default function GalleryClient() {
             <button
               onClick={(e) => { e.stopPropagation(); goPrev(); }}
               className="absolute left-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-              aria-label="Previous image"
+              aria-label={gallery.lightbox.prev}
               id="lightbox-prev"
             >
               <ChevronLeft className="h-5 w-5" />
@@ -117,7 +118,7 @@ export default function GalleryClient() {
             <button
               onClick={(e) => { e.stopPropagation(); goNext(); }}
               className="absolute right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-              aria-label="Next image"
+              aria-label={gallery.lightbox.next}
               id="lightbox-next"
             >
               <ChevronRight className="h-5 w-5" />
@@ -134,12 +135,14 @@ export default function GalleryClient() {
               className="relative max-h-[80vh] max-w-[90vw]"
             >
               <ImagePlaceholder
+                src={filtered[lightboxIndex].src}
                 alt={filtered[lightboxIndex].alt}
                 aspectRatio="video"
                 className="max-h-[80vh] w-auto rounded-xl"
               />
               <p className="mt-3 text-center text-sm text-white/70">
-                {filtered[lightboxIndex].alt} — {lightboxIndex + 1} / {filtered.length}
+                {filtered[lightboxIndex].alt} —{' '}
+                {gallery.lightbox.counter(lightboxIndex + 1, filtered.length)}
               </p>
             </motion.div>
           </motion.div>

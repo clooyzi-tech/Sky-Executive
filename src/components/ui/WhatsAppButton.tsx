@@ -1,15 +1,16 @@
 'use client';
 
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle } from '@/config/icons';
+import { STRINGS } from '@/config/strings';
 import { whatsappUrl } from '@/lib/utils';
 
 export default function WhatsAppButton() {
   return (
     <a
-      href={whatsappUrl('Hi! I would like to know more about Liv.inn Hotel.')}
+      href={whatsappUrl(STRINGS.contact.prefilledMessages.floatingWhatsApp)}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat with us on WhatsApp"
+      aria-label={STRINGS.common.buttons.chatWhatsApp}
       id="whatsapp-float"
       className="fixed right-5 bottom-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-[#25D366]/30 transition-transform duration-300 hover:scale-110 hover:shadow-xl hover:shadow-[#25D366]/40"
     >
