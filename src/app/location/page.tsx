@@ -5,13 +5,10 @@ import {
   Phone,
   Mail,
   ExternalLink,
-  Train,
-  Plane,
-  ShoppingBag,
-  Waves,
-} from 'lucide-react';
+  getAttractionIcon,
+} from '@/config/icons';
 import { generatePageMetadata, breadcrumbJsonLd, hotelJsonLd } from '@/lib/seo';
-import { brand, contact, nearbyAttractions } from '@/lib/content';
+import { STRINGS } from '@/config/strings';
 import { phoneUrl } from '@/lib/utils';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import SectionHeading from '@/components/ui/SectionHeading';
@@ -19,26 +16,21 @@ import CTAButton from '@/components/ui/CTAButton';
 import BookingCTA from '@/components/home/BookingCTA';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Location',
-  description: `Find ${brand.name} in Mumbai. Get directions, view our address, and explore nearby attractions.`,
+  title: STRINGS.seo.pages.location.title,
+  description: STRINGS.seo.pages.location.description,
   path: '/location',
 });
 
-const attractionIcons: Record<string, React.ReactNode> = {
-  'Chhatrapati Shivaji Maharaj International Airport': <Plane className="h-5 w-5" />,
-  'Andheri Railway Station': <Train className="h-5 w-5" />,
-  'Infinity Mall': <ShoppingBag className="h-5 w-5" />,
-  'Versova Beach': <Waves className="h-5 w-5" />,
-};
-
 export default function LocationPage() {
+  const { location, contact, brand } = STRINGS;
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
-            breadcrumbJsonLd([{ name: 'Location', href: '/location' }])
+            breadcrumbJsonLd([{ name: location.header.title, href: '/location' }])
           ),
         }}
       />
@@ -54,10 +46,10 @@ export default function LocationPage() {
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <AnimatedSection>
             <h1 className="font-serif text-4xl font-bold text-white md:text-5xl">
-              Our Location
+              {location.header.title}
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-base text-white/70 md:text-lg">
-              Conveniently located in the heart of Mumbai
+              {location.header.subtitle}
             </p>
           </AnimatedSection>
         </div>
@@ -72,7 +64,7 @@ export default function LocationPage() {
               <div className="space-y-8">
                 <div>
                   <h2 className="font-serif text-2xl font-semibold text-charcoal md:text-3xl">
-                    Find Us
+                    {location.findUs.title}
                   </h2>
                   <div className="mt-1 h-px w-12 bg-accent" />
                 </div>
@@ -82,7 +74,7 @@ export default function LocationPage() {
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-charcoal">Address</h3>
+                    <h3 className="font-medium text-charcoal">{location.findUs.addressLabel}</h3>
                     <p className="mt-1 text-slate-deep leading-relaxed">
                       {contact.address.line1}<br />
                       {contact.address.line2}<br />
@@ -97,7 +89,7 @@ export default function LocationPage() {
                     <Phone className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-charcoal">Phone</h3>
+                    <h3 className="font-medium text-charcoal">{location.findUs.phoneLabel}</h3>
                     <a
                       href={phoneUrl()}
                       className="mt-1 block text-accent transition-colors hover:text-accent-dark"
@@ -112,7 +104,7 @@ export default function LocationPage() {
                     <Mail className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-charcoal">Email</h3>
+                    <h3 className="font-medium text-charcoal">{location.findUs.emailLabel}</h3>
                     <a
                       href={`mailto:${contact.email}`}
                       className="mt-1 block text-accent transition-colors hover:text-accent-dark"
@@ -129,7 +121,7 @@ export default function LocationPage() {
                   id="location-get-directions"
                 >
                   <Navigation className="h-4 w-4" />
-                  Get Directions
+                  {location.findUs.ctaDirections}
                   <ExternalLink className="h-3.5 w-3.5" />
                 </CTAButton>
               </div>
@@ -160,19 +152,17 @@ export default function LocationPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <SectionHeading
-              title="Nearby Attractions"
-              subtitle="Explore what's around us"
+              title={location.attractions.title}
+              subtitle={location.attractions.subtitle}
             />
           </AnimatedSection>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {nearbyAttractions.map((attraction, i) => (
+            {location.attractions.items.map((attraction, i) => (
               <AnimatedSection key={attraction.name} delay={0.08 * i}>
                 <div className="rounded-2xl border border-border-light bg-white p-6 text-center transition-all duration-300 hover:shadow-md">
                   <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-accent-muted text-accent">
-                    {attractionIcons[attraction.name] ?? (
-                      <MapPin className="h-5 w-5" />
-                    )}
+                    {getAttractionIcon(attraction.name)}
                   </div>
                   <h3 className="mt-4 font-medium text-charcoal">
                     {attraction.name}

@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { Phone, Mail, MapPin } from 'lucide-react';
-import { brand, contact, social, navLinks } from '@/lib/content';
+import { Phone, Mail, MapPin, InstagramIcon } from '@/config/icons';
+import { STRINGS } from '@/config/strings';
 import { formatAddress, phoneUrl } from '@/lib/utils';
 
 export default function Footer() {
@@ -17,27 +17,23 @@ export default function Footer() {
               className="font-serif text-2xl font-bold text-charcoal"
               id="footer-logo"
             >
-              {brand.name}
+              {STRINGS.brand.name}
             </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-slate-medium">
-              {brand.description}
+              {STRINGS.brand.description}
             </p>
             {/* Social */}
             <div className="mt-4 flex gap-3">
-              {social.instagram && (
+              {STRINGS.contact.social.instagram && (
                 <a
-                  href={social.instagram}
+                  href={STRINGS.contact.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Follow us on Instagram"
+                  aria-label={STRINGS.footer.instagramAria}
                   className="flex h-9 w-9 items-center justify-center rounded-full bg-cream-dark text-slate-deep transition-colors hover:bg-accent hover:text-white"
                   id="footer-instagram"
                 >
-                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                  </svg>
+                  <InstagramIcon className="h-4 w-4" />
                 </a>
               )}
             </div>
@@ -46,10 +42,10 @@ export default function Footer() {
           {/* Navigation */}
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-charcoal">
-              Quick Links
+              {STRINGS.footer.quickLinks}
             </h3>
             <ul className="space-y-2">
-              {navLinks.map((link) => (
+              {STRINGS.nav.links.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -65,22 +61,22 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-charcoal">
-              Contact
+              {STRINGS.footer.contact}
             </h3>
             <ul className="space-y-3 text-sm text-slate-medium">
               <li className="flex items-start gap-2">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <a href={phoneUrl()} className="hover:text-accent transition-colors">
-                  {contact.phone}
+                  {STRINGS.contact.phone}
                 </a>
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <a
-                  href={`mailto:${contact.email}`}
+                  href={`mailto:${STRINGS.contact.email}`}
                   className="hover:text-accent transition-colors"
                 >
-                  {contact.email}
+                  {STRINGS.contact.email}
                 </a>
               </li>
               <li className="flex items-start gap-2">
@@ -93,7 +89,7 @@ export default function Footer() {
           {/* Legal */}
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-charcoal">
-              Legal
+              {STRINGS.footer.legal}
             </h3>
             <ul className="space-y-2">
               <li>
@@ -101,7 +97,7 @@ export default function Footer() {
                   href="/privacy-policy"
                   className="text-sm text-slate-medium transition-colors hover:text-accent"
                 >
-                  Privacy Policy
+                  {STRINGS.footer.privacyPolicy}
                 </Link>
               </li>
               <li>
@@ -109,7 +105,7 @@ export default function Footer() {
                   href="/terms"
                   className="text-sm text-slate-medium transition-colors hover:text-accent"
                 >
-                  Terms & Conditions
+                  {STRINGS.footer.termsConditions}
                 </Link>
               </li>
               <li>
@@ -117,7 +113,7 @@ export default function Footer() {
                   href="/guest-information"
                   className="text-sm text-slate-medium transition-colors hover:text-accent"
                 >
-                  Guest Information
+                  {STRINGS.footer.guestInformation}
                 </Link>
               </li>
             </ul>
@@ -126,7 +122,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="mt-10 border-t border-border-light pt-6 text-center text-xs text-slate-medium">
-          © {currentYear} {brand.name}. All rights reserved.
+          {STRINGS.footer.copyright(currentYear, STRINGS.brand.name)}
         </div>
       </div>
     </footer>

@@ -1,15 +1,17 @@
 import type { Metadata } from 'next';
 import { generatePageMetadata, breadcrumbJsonLd } from '@/lib/seo';
-import { brand, contact } from '@/lib/content';
+import { STRINGS } from '@/config/strings';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Terms & Conditions',
-  description: `Terms and Conditions for staying at ${brand.name}. Read our booking, cancellation, and property policies.`,
+  title: STRINGS.seo.pages.terms.title,
+  description: STRINGS.seo.pages.terms.description,
   path: '/terms',
 });
 
 export default function TermsPage() {
+  const { terms, contact } = STRINGS;
+
   return (
     <>
       <script
@@ -17,7 +19,7 @@ export default function TermsPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             breadcrumbJsonLd([
-              { name: 'Terms & Conditions', href: '/terms' },
+              { name: terms.header.title, href: '/terms' },
             ])
           ),
         }}
@@ -28,10 +30,10 @@ export default function TermsPage() {
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <AnimatedSection>
             <h1 className="font-serif text-4xl font-bold text-white md:text-5xl">
-              Terms &amp; Conditions
+              {terms.header.title}
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-base text-white/70 md:text-lg">
-              Please review our policies before your stay
+              {terms.header.subtitle}
             </p>
           </AnimatedSection>
         </div>
@@ -43,12 +45,11 @@ export default function TermsPage() {
           <AnimatedSection>
             <div className="prose prose-slate max-w-none space-y-8 text-slate-deep [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-charcoal [&_h2]:mt-10 [&_h2]:mb-4 [&_h3]:font-serif [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-charcoal [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:leading-relaxed [&_ul]:space-y-2 [&_li]:leading-relaxed">
               <p className="text-sm text-slate-medium">
-                Last updated: September 2026
+                {terms.lastUpdated}
               </p>
 
               <p>
-                By making a reservation at or staying at {brand.name} (&quot;the Hotel&quot;), 
-                you agree to the following terms and conditions. Please read them carefully.
+                {terms.intro}
               </p>
 
               <h2>1. Reservations &amp; Booking</h2>

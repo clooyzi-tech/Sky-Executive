@@ -3,16 +3,12 @@ import {
   Users,
   Bed,
   ArrowRight,
-  Wifi,
-  ShieldCheck,
-  ConciergeBell,
-  Car,
-  Sparkles,
-  Luggage,
   Check,
-} from 'lucide-react';
+  getFacilityIcon,
+} from '@/config/icons';
 import { generatePageMetadata, breadcrumbJsonLd } from '@/lib/seo';
-import { brand, rooms, facilities } from '@/lib/content';
+import { STRINGS } from '@/config/strings';
+import { getRoomImage } from '@/config/image';
 import { whatsappUrl } from '@/lib/utils';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import SectionHeading from '@/components/ui/SectionHeading';
@@ -21,28 +17,21 @@ import CTAButton from '@/components/ui/CTAButton';
 import BookingCTA from '@/components/home/BookingCTA';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Rooms & Facilities',
-  description: `Explore the rooms and facilities at ${brand.name}. Choose from Standard, Deluxe, and Premium rooms — all designed for comfort and equipped with modern amenities.`,
+  title: STRINGS.seo.pages.rooms.title,
+  description: STRINGS.seo.pages.rooms.description,
   path: '/rooms',
 });
 
-const facilityIcons: Record<string, React.ReactNode> = {
-  Wifi: <Wifi className="h-5 w-5" />,
-  ShieldCheck: <ShieldCheck className="h-5 w-5" />,
-  ConciergeBell: <ConciergeBell className="h-5 w-5" />,
-  Car: <Car className="h-5 w-5" />,
-  Sparkles: <Sparkles className="h-5 w-5" />,
-  Luggage: <Luggage className="h-5 w-5" />,
-};
-
 export default function RoomsPage() {
+  const { rooms, facilities, common } = STRINGS;
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
-            breadcrumbJsonLd([{ name: 'Rooms & Facilities', href: '/rooms' }])
+            breadcrumbJsonLd([{ name: rooms.header.title, href: '/rooms' }])
           ),
         }}
       />
@@ -52,10 +41,10 @@ export default function RoomsPage() {
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <AnimatedSection>
             <h1 className="font-serif text-4xl font-bold text-white md:text-5xl">
-              Rooms & Facilities
+              {rooms.header.title}
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-base text-white/70 md:text-lg">
-              Thoughtfully designed spaces equipped with modern amenities
+              {rooms.header.subtitle}
             </p>
           </AnimatedSection>
         </div>
@@ -65,7 +54,7 @@ export default function RoomsPage() {
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="space-y-16">
-            {rooms.map((room, i) => (
+            {rooms.list.map((room, i) => (
               <AnimatedSection key={room.id} delay={0.1 * i}>
                 <div
                   className={`grid items-center gap-10 lg:grid-cols-2 ${
@@ -75,6 +64,7 @@ export default function RoomsPage() {
                   {/* Image */}
                   <div className={i % 2 !== 0 ? 'lg:col-start-2' : ''}>
                     <ImagePlaceholder
+                      src={getRoomImage(room.id)}
                       alt={room.name}
                       aspectRatio="video"
                       className="shadow-lg"
@@ -98,14 +88,14 @@ export default function RoomsPage() {
                       </span>
                       <span className="flex items-center gap-1.5">
                         <Users className="h-4 w-4 text-accent" />
-                        Up to {room.maxOccupancy} guests
+                        {common.labels.upTo} {room.maxOccupancy} {rooms.guestsSuffix}
                       </span>
                     </div>
 
                     {/* Amenities list */}
                     <div className="mt-6">
                       <h4 className="text-sm font-semibold uppercase tracking-wider text-charcoal">
-                        Amenities
+                        {rooms.amenitiesTitle}
                       </h4>
                       <ul className="mt-3 grid grid-cols-2 gap-2">
                         {room.amenities.map((amenity) => (
@@ -122,13 +112,13 @@ export default function RoomsPage() {
 
                     <CTAButton
                       href={whatsappUrl(
-                        `Hi! I'm interested in the ${room.name} at Liv.inn. Could you share availability and pricing?`
+                        STRINGS.contact.prefilledMessages.roomEnquiry(room.name)
                       )}
                       external
                       className="mt-6"
                       id={`room-enquire-${room.id}`}
                     >
-                      Enquire About This Room
+                      {STRINGS.home.roomsPreview.ctaEnquire}
                       <ArrowRight className="h-4 w-4" />
                     </CTAButton>
                   </div>
@@ -144,8 +134,8 @@ export default function RoomsPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <SectionHeading
-              title="Hotel Facilities"
-              subtitle="Everything you need for a comfortable stay"
+              title={rooms.facilitiesTitle}
+              subtitle={rooms.facilitiesSubtitle}
             />
           </AnimatedSection>
 
@@ -154,7 +144,7 @@ export default function RoomsPage() {
               <AnimatedSection key={f.title} delay={0.08 * i}>
                 <div className="flex items-start gap-4 rounded-xl bg-white p-5 shadow-sm">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-muted text-accent">
-                    {facilityIcons[f.icon] ?? <Sparkles className="h-5 w-5" />}
+                    {getFacilityIcon(f.icon, 'h-5 w-5')}
                   </div>
                   <div>
                     <h3 className="font-medium text-charcoal">{f.title}</h3>

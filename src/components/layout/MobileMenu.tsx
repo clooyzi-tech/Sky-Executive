@@ -2,9 +2,9 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { X } from 'lucide-react';
+import { X } from '@/config/icons';
 import { motion, AnimatePresence } from 'framer-motion';
-import { navLinks, brand } from '@/lib/content';
+import { STRINGS } from '@/config/strings';
 import { cn } from '@/lib/utils';
 import CTAButton from '@/components/ui/CTAButton';
 
@@ -40,12 +40,12 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
             {/* Header */}
             <div className="flex items-center justify-between border-b border-border-light px-6 py-4">
               <span className="font-serif text-xl font-bold text-charcoal">
-                {brand.name}
+                {STRINGS.brand.name}
               </span>
               <button
                 onClick={onClose}
                 className="flex h-10 w-10 items-center justify-center rounded-md text-slate-deep transition-colors hover:bg-cream"
-                aria-label="Close menu"
+                aria-label={STRINGS.nav.aria.closeMenu}
                 id="mobile-menu-close"
               >
                 <X className="h-5 w-5" />
@@ -53,9 +53,9 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
             </div>
 
             {/* Navigation links */}
-            <nav className="flex-1 overflow-y-auto px-6 py-6" aria-label="Mobile navigation">
+            <nav className="flex-1 overflow-y-auto px-6 py-6" aria-label={STRINGS.nav.aria.mobileNavigation}>
               <ul className="space-y-1">
-                {navLinks.map((link, i) => (
+                {STRINGS.nav.links.map((link, i) => (
                   <motion.li
                     key={link.href}
                     initial={{ opacity: 0, x: 20 }}
@@ -87,7 +87,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                 onClick={onClose}
                 id="mobile-enquire-cta"
               >
-                Enquire Now
+                {STRINGS.common.buttons.enquireNow}
               </CTAButton>
             </div>
           </motion.div>

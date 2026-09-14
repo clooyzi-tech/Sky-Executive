@@ -1,10 +1,10 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
-import { Send, Loader2, CheckCircle } from 'lucide-react';
+import { Send, Loader2, CheckCircle } from '@/config/icons';
 import CTAButton from '@/components/ui/CTAButton';
 import AnimatedSection from '@/components/ui/AnimatedSection';
-import { rooms } from '@/lib/content';
+import { STRINGS } from '@/config/strings';
 
 interface FormData {
   name: string;
@@ -29,6 +29,10 @@ const initialForm: FormData = {
 };
 
 export default function ContactForm() {
+  const { form: formStrings } = STRINGS.contactPage;
+  const { list: roomsList } = STRINGS.rooms;
+  const { required } = STRINGS.common.labels;
+
   const [form, setForm] = useState<FormData>(initialForm);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -53,11 +57,10 @@ export default function ContactForm() {
             <CheckCircle className="h-8 w-8 text-green-600" />
           </div>
           <h3 className="font-serif text-2xl font-semibold text-charcoal">
-            Thank You!
+            {formStrings.successTitle}
           </h3>
           <p className="max-w-md text-slate-deep">
-            We&apos;ve received your enquiry and will get back to you within 24 hours.
-            For urgent queries, please call or WhatsApp us directly.
+            {formStrings.successMessage}
           </p>
           <CTAButton
             onClick={() => {
@@ -68,7 +71,7 @@ export default function ContactForm() {
             className="mt-4"
             id="contact-send-another"
           >
-            Send Another Enquiry
+            {formStrings.sendAnotherBtn}
           </CTAButton>
         </div>
       </AnimatedSection>
@@ -89,13 +92,13 @@ export default function ContactForm() {
         <div className="grid gap-6 sm:grid-cols-2">
           <div>
             <label htmlFor="contact-name" className={labelClass}>
-              Full Name <span className="text-red-500">*</span>
+              {formStrings.nameLabel} <span className="text-red-500">{required}</span>
             </label>
             <input
               id="contact-name"
               type="text"
               required
-              placeholder="Your name"
+              placeholder={formStrings.namePlaceholder}
               value={form.name}
               onChange={(e) => update('name', e.target.value)}
               className={inputClass}
@@ -103,13 +106,13 @@ export default function ContactForm() {
           </div>
           <div>
             <label htmlFor="contact-email" className={labelClass}>
-              Email Address <span className="text-red-500">*</span>
+              {formStrings.emailLabel} <span className="text-red-500">{required}</span>
             </label>
             <input
               id="contact-email"
               type="email"
               required
-              placeholder="your@email.com"
+              placeholder={formStrings.emailPlaceholder}
               value={form.email}
               onChange={(e) => update('email', e.target.value)}
               className={inputClass}
@@ -120,12 +123,12 @@ export default function ContactForm() {
         {/* Phone */}
         <div>
           <label htmlFor="contact-phone" className={labelClass}>
-            Phone Number
+            {formStrings.phoneLabel}
           </label>
           <input
             id="contact-phone"
             type="tel"
-            placeholder="+91 98765 43210"
+            placeholder={formStrings.phonePlaceholder}
             value={form.phone}
             onChange={(e) => update('phone', e.target.value)}
             className={inputClass}
@@ -136,7 +139,7 @@ export default function ContactForm() {
         <div className="grid gap-6 sm:grid-cols-2">
           <div>
             <label htmlFor="contact-checkin" className={labelClass}>
-              Check-in Date
+              {formStrings.checkInLabel}
             </label>
             <input
               id="contact-checkin"
@@ -148,7 +151,7 @@ export default function ContactForm() {
           </div>
           <div>
             <label htmlFor="contact-checkout" className={labelClass}>
-              Check-out Date
+              {formStrings.checkOutLabel}
             </label>
             <input
               id="contact-checkout"
@@ -164,7 +167,7 @@ export default function ContactForm() {
         <div className="grid gap-6 sm:grid-cols-2">
           <div>
             <label htmlFor="contact-room" className={labelClass}>
-              Room Preference
+              {formStrings.roomPrefLabel}
             </label>
             <select
               id="contact-room"
@@ -172,8 +175,8 @@ export default function ContactForm() {
               onChange={(e) => update('roomPreference', e.target.value)}
               className={inputClass}
             >
-              <option value="">No preference</option>
-              {rooms.map((room) => (
+              <option value="">{formStrings.noPrefOption}</option>
+              {roomsList.map((room) => (
                 <option key={room.id} value={room.id}>
                   {room.name}
                 </option>
@@ -182,7 +185,7 @@ export default function ContactForm() {
           </div>
           <div>
             <label htmlFor="contact-guests" className={labelClass}>
-              Number of Guests
+              {formStrings.guestsLabel}
             </label>
             <select
               id="contact-guests"
@@ -192,7 +195,7 @@ export default function ContactForm() {
             >
               {[1, 2, 3, 4, 5].map((n) => (
                 <option key={n} value={n}>
-                  {n} {n === 1 ? 'Guest' : 'Guests'}
+                  {n} {n === 1 ? formStrings.guestSingular : formStrings.guestPlural}
                 </option>
               ))}
             </select>
@@ -202,12 +205,12 @@ export default function ContactForm() {
         {/* Message */}
         <div>
           <label htmlFor="contact-message" className={labelClass}>
-            Message
+            {formStrings.messageLabel}
           </label>
           <textarea
             id="contact-message"
             rows={4}
-            placeholder="Tell us about your requirements, special requests, or questions..."
+            placeholder={formStrings.messagePlaceholder}
             value={form.message}
             onChange={(e) => update('message', e.target.value)}
             className={`${inputClass} resize-none`}
@@ -219,12 +222,12 @@ export default function ContactForm() {
           {submitting ? (
             <>
               <Loader2 className="h-4 w-4 animate-spin" />
-              Sending...
+              {formStrings.submittingBtn}
             </>
           ) : (
             <>
               <Send className="h-4 w-4" />
-              Send Enquiry
+              {formStrings.submitBtn}
             </>
           )}
         </CTAButton>

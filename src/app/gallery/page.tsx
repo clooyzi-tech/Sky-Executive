@@ -1,23 +1,25 @@
 import type { Metadata } from 'next';
 import { generatePageMetadata, breadcrumbJsonLd } from '@/lib/seo';
-import { brand } from '@/lib/content';
+import { STRINGS } from '@/config/strings';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import GalleryClient from '@/components/gallery/GalleryClient';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Gallery',
-  description: `Explore photos of ${brand.name} — our rooms, interiors, amenities, and building exterior in Mumbai.`,
+  title: STRINGS.seo.pages.gallery.title,
+  description: STRINGS.seo.pages.gallery.description,
   path: '/gallery',
 });
 
 export default function GalleryPage() {
+  const { gallery } = STRINGS;
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
-            breadcrumbJsonLd([{ name: 'Gallery', href: '/gallery' }])
+            breadcrumbJsonLd([{ name: gallery.header.title, href: '/gallery' }])
           ),
         }}
       />
@@ -27,10 +29,10 @@ export default function GalleryPage() {
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <AnimatedSection>
             <h1 className="font-serif text-4xl font-bold text-white md:text-5xl">
-              Gallery
+              {gallery.header.title}
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-base text-white/70 md:text-lg">
-              A glimpse into the {brand.name} experience
+              {gallery.header.subtitle}
             </p>
           </AnimatedSection>
         </div>

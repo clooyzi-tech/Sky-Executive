@@ -1,7 +1,8 @@
 'use client';
 
-import { Users, Bed, ArrowRight } from 'lucide-react';
-import { rooms } from '@/lib/content';
+import { Users, Bed, ArrowRight } from '@/config/icons';
+import { STRINGS } from '@/config/strings';
+import { getRoomImage } from '@/config/image';
 import { whatsappUrl } from '@/lib/utils';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import SectionHeading from '@/components/ui/SectionHeading';
@@ -9,23 +10,28 @@ import ImagePlaceholder from '@/components/ui/ImagePlaceholder';
 import CTAButton from '@/components/ui/CTAButton';
 
 export default function RoomsPreview() {
+  const { roomsPreview } = STRINGS.home;
+  const { list } = STRINGS.rooms;
+  const { labels } = STRINGS.common;
+
   return (
     <section className="bg-cream/40 py-20 md:py-28" id="rooms-preview">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
           <SectionHeading
-            title="Our Rooms"
-            subtitle="Thoughtfully designed spaces for a restful stay"
+            title={roomsPreview.title}
+            subtitle={roomsPreview.subtitle}
           />
         </AnimatedSection>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {rooms.map((room, i) => (
+          {list.map((room, i) => (
             <AnimatedSection key={room.id} delay={0.1 * i}>
               <div className="group overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                 {/* Image */}
                 <div className="overflow-hidden">
                   <ImagePlaceholder
+                    src={getRoomImage(room.id)}
                     alt={room.name}
                     aspectRatio="video"
                     className="rounded-none transition-transform duration-500 group-hover:scale-105"
@@ -49,7 +55,7 @@ export default function RoomsPreview() {
                     </span>
                     <span className="flex items-center gap-1">
                       <Users className="h-3.5 w-3.5" />
-                      Up to {room.maxOccupancy}
+                      {labels.upTo} {room.maxOccupancy}
                     </span>
                   </div>
 
@@ -65,20 +71,22 @@ export default function RoomsPreview() {
                     ))}
                     {room.amenities.length > 4 && (
                       <span className="rounded-full bg-cream px-2.5 py-0.5 text-[11px] font-medium text-accent">
-                        +{room.amenities.length - 4} more
+                        +{room.amenities.length - 4} {labels.more}
                       </span>
                     )}
                   </div>
 
                   {/* CTA */}
                   <CTAButton
-                    href={whatsappUrl(`Hi! I'm interested in the ${room.name} at Liv.inn.`)}
+                    href={whatsappUrl(
+                      STRINGS.contact.prefilledMessages.roomEnquiryShort(room.name)
+                    )}
                     external
                     variant="ghost"
                     size="sm"
                     className="mt-4 w-full"
                   >
-                    Enquire About This Room
+                    {roomsPreview.ctaEnquire}
                     <ArrowRight className="h-4 w-4" />
                   </CTAButton>
                 </div>
@@ -90,7 +98,7 @@ export default function RoomsPreview() {
         <AnimatedSection delay={0.3}>
           <div className="mt-12 text-center">
             <CTAButton href="/rooms" variant="outline" id="rooms-view-all">
-              View All Rooms & Facilities
+              {roomsPreview.ctaViewAll}
               <ArrowRight className="h-4 w-4" />
             </CTAButton>
           </div>
