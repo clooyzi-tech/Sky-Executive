@@ -81,6 +81,7 @@ export const STRINGS = {
       { label: 'Home', href: '/' },
       { label: 'About', href: '/about' },
       { label: 'Rooms & Facilities', href: '/rooms' },
+      { label: 'Gallery', href: '/gallery' },
       { label: 'Location', href: '/location' },
       { label: 'Contact & Enquiry', href: '/contact' },
     ],

@@ -80,6 +80,53 @@ export function InstagramIcon({ className = 'h-4 w-4', ...props }: React.SVGProp
 }
 
 /**
+ * Custom SVG: Facebook Icon
+ */
+export function FacebookIcon({ className = 'h-4 w-4', ...props }: React.SVGProps<SVGSVGElement>) {
+  return React.createElement(
+    'svg',
+    {
+      className,
+      viewBox: '0 0 24 24',
+      fill: 'none',
+      stroke: 'currentColor',
+      strokeWidth: 2,
+      strokeLinecap: 'round',
+      strokeLinejoin: 'round',
+      'aria-hidden': 'true',
+      ...props,
+    },
+    React.createElement('path', { d: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z' })
+  );
+}
+
+/**
+ * Custom SVG: TripAdvisor Icon
+ */
+export function TripAdvisorIcon({ className = 'h-4 w-4', ...props }: React.SVGProps<SVGSVGElement>) {
+  return React.createElement(
+    'svg',
+    {
+      className,
+      viewBox: '0 0 24 24',
+      fill: 'none',
+      stroke: 'currentColor',
+      strokeWidth: 1.8,
+      strokeLinecap: 'round',
+      strokeLinejoin: 'round',
+      'aria-hidden': 'true',
+      ...props,
+    },
+    React.createElement('circle', { cx: 6.5, cy: 13.5, r: 3.5 }),
+    React.createElement('circle', { cx: 17.5, cy: 13.5, r: 3.5 }),
+    React.createElement('path', { d: 'M12 5c-3.5 0-6.5 2-8 5 1.5 3 4.5 5 8 5s6.5-2 8-5c-1.5-3-4.5-5-8-5z' }),
+    React.createElement('circle', { cx: 6.5, cy: 13.5, r: 1.2, fill: 'currentColor' }),
+    React.createElement('circle', { cx: 17.5, cy: 13.5, r: 1.2, fill: 'currentColor' }),
+    React.createElement('path', { d: 'M12 9v3' })
+  );
+}
+
+/**
  * Custom SVG: Placeholder Image Icon
  */
 export function PlaceholderImageIcon({ className = 'h-10 w-10', ...props }: React.SVGProps<SVGSVGElement>) {

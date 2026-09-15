@@ -39,20 +39,10 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-5xl px-4 py-20 text-center sm:px-6 lg:px-8">
-        {/* Official Liv.inn Logo - Strict 1:1 circular badge */}
+        {/* Verified Badge Pill */}
         <AnimatedSection delay={0.05} direction="none">
-          <div className="mx-auto mb-6 flex flex-col items-center">
-            <div className="relative h-24 w-24 sm:h-28 sm:w-28 overflow-hidden rounded-full border-2 border-accent/80 shadow-2xl ring-4 ring-black/40 transition-transform duration-500 hover:scale-105">
-              <Image
-                src={STRINGS.brand.logoPath}
-                alt={STRINGS.brand.logoAlt}
-                fill
-                priority
-                sizes="(max-width: 640px) 96px, 112px"
-                className="object-contain"
-              />
-            </div>
-            <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-black/50 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-accent-gold backdrop-blur-md">
+          <div className="mx-auto mb-6 flex justify-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-black/50 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-accent-gold backdrop-blur-md shadow-md">
               <Sparkles className="h-3.5 w-3.5 text-accent" />
               <span>{hero.badge}</span>
             </div>
