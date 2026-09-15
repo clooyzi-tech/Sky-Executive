@@ -31,6 +31,17 @@ export const IMAGES = {
   hero: '/images/property/hero.jpg',
   natureView: '/images/property/nature_view.jpg',
   cloudKitchen: '/images/property/cloud_kitchen.jpg',
+  services: {
+    rooms: '/images/rooms/premium_room.jpg',
+    housekeeping: '/images/services/housekeeping.jpg',
+    reception: '/images/services/reception.jpg',
+    wifi: '/images/services/wifi_desk.jpg',
+    parking: '/images/services/parking.jpg',
+    dining: '/images/property/cloud_kitchen.jpg',
+    bathroom: '/images/services/bathroom.jpg',
+    ac: '/images/services/ac.jpg',
+    banner: '/images/services/banner.jpg',
+  },
   rooms: {
     'premium-room': '/images/rooms/premium_room.jpg',
     premium: '/images/rooms/premium_room.jpg',

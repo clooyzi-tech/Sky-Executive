@@ -173,6 +173,114 @@ export const STRINGS = {
       p1: hotelInfo.story.paragraphs[0],
       p2: hotelInfo.story.paragraphs[1],
     },
+    experience: {
+      stamp: ['COMFORT', 'IN EVERY', 'DETAIL'],
+      script: 'Stay Relax Recharge',
+      eyebrow: 'THE LIV.INN EXPERIENCE',
+      title: 'More Than a Stay, A Better Experience',
+      subtitle:
+        'Thoughtfully curated services and facilities to make your stay comfortable, convenient and memorable.',
+      heroRoom: {
+        category: 'ROOMS & ACCOMMODATION',
+        title: 'Comfortable Rooms',
+        description:
+          'Thoughtfully designed rooms with modern amenities to make your stay relaxing and memorable.',
+        linkText: 'EXPLORE ROOMS',
+        href: '/rooms',
+        image: '/images/rooms/premium_room.jpg',
+      },
+      housekeeping: {
+        category: 'HOUSEKEEPING',
+        title: 'Daily Housekeeping',
+        description:
+          'Careful daily housekeeping to keep your space fresh, clean and comfortable throughout your stay.',
+        linkText: 'LEARN MORE',
+        href: '/rooms#facilities',
+        image: '/images/services/housekeeping.jpg',
+      },
+      gridServices: [
+        {
+          id: 'assistance',
+          category: 'GUEST SUPPORT',
+          title: '24/7 Guest Assistance',
+          description:
+            'Our team is always available to assist you whenever you need support during your stay.',
+          linkText: 'LEARN MORE',
+          href: '/contact',
+          icon: 'Users',
+          image: '/images/services/reception.jpg',
+        },
+        {
+          id: 'wifi',
+          category: 'CONNECTIVITY',
+          title: 'High-Speed Wi-Fi',
+          description:
+            'Stay connected with reliable and high-speed internet access throughout the hotel.',
+          linkText: 'LEARN MORE',
+          href: '/rooms#facilities',
+          icon: 'Wifi',
+          image: '/images/services/wifi_desk.jpg',
+        },
+        {
+          id: 'parking',
+          category: 'PARKING',
+          title: 'Convenient Parking',
+          description:
+            'Easy and secure parking facilities for guests arriving by car.',
+          linkText: 'LEARN MORE',
+          href: '/location',
+          icon: 'Car',
+          image: '/images/services/parking.jpg',
+        },
+        {
+          id: 'dining',
+          category: 'DINING',
+          title: 'Room Service',
+          description:
+            'Enjoy delicious meals and refreshments from the comfort of your room.',
+          linkText: 'LEARN MORE',
+          href: '/rooms#facilities',
+          icon: 'Bell',
+          image: '/images/property/cloud_kitchen.jpg',
+        },
+        {
+          id: 'hotwater',
+          category: 'HOT WATER',
+          title: 'Always Refreshing',
+          description:
+            'Enjoy a comfortable and refreshing experience with reliable hot water.',
+          linkText: 'LEARN MORE',
+          href: '/rooms#facilities',
+          icon: 'Droplets',
+          image: '/images/services/bathroom.jpg',
+        },
+        {
+          id: 'ac',
+          category: 'AIR CONDITIONING',
+          title: 'Cool Comfort',
+          description:
+            'Relax in a comfortable environment maintained at the temperature you prefer.',
+          linkText: 'LEARN MORE',
+          href: '/rooms#facilities',
+          icon: 'Wind',
+          image: '/images/services/ac.jpg',
+        },
+      ],
+      banner: {
+        title: 'Experience Comfort at Every Step',
+        subtitle:
+          'Discover all the services and facilities designed for your perfect stay at Liv.inn.',
+        btnText: 'VIEW ALL SERVICES',
+        href: '/rooms#facilities',
+        image: '/images/services/banner.jpg',
+      },
+      highlights: [
+        { icon: 'MapPin', label: 'A Boutique Stay in Pune' },
+        { icon: 'Bed', label: 'Comfortable & Clean Spaces' },
+        { icon: 'Heart', label: 'Warm Hospitality' },
+        { icon: 'Sparkles', label: 'Memorable Experiences' },
+      ],
+    },
     roomsPreview: {
       title: 'Our Premium Rooms',
       subtitle: '25 thoughtfully designed rooms with 5 rooms on each floor for quiet comfort',

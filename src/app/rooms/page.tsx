@@ -101,7 +101,7 @@ export default function RoomsPage() {
       </section>
 
       {/* Property Facilities & Services */}
-      <section className="bg-cream/40 py-20 md:py-28 border-t border-border">
+      <section className="bg-cream/40 py-20 md:py-28 border-t border-border" id="facilities">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <SectionHeading
