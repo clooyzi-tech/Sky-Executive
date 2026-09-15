@@ -265,6 +265,39 @@ export const STRINGS = {
           icon: 'Wind',
           image: '/images/services/ac.jpg',
         },
+        {
+          id: 'cloudkitchen',
+          category: 'DINING & KITCHEN',
+          title: 'In-House Cloud Kitchen',
+          description:
+            'Wholesome meals and breakfast prepared on order and delivered directly to your room.',
+          linkText: 'LEARN MORE',
+          href: '/contact',
+          icon: 'UtensilsCrossed',
+          image: '/images/property/cloud_kitchen.jpg',
+        },
+        {
+          id: 'nature',
+          category: 'ENVIRONMENT',
+          title: 'Nature-Oriented Views',
+          description:
+            'Restful green panoramas and open fresh air perspectives overlooking Pune scenery.',
+          linkText: 'LEARN MORE',
+          href: '/gallery',
+          icon: 'Trees',
+          image: '/images/property/nature_view.jpg',
+        },
+        {
+          id: 'luggage',
+          category: 'CONCIERGE',
+          title: 'Luggage & Front Desk Care',
+          description:
+            'Secure luggage storage and seamless assistance for early check-ins or late departures.',
+          linkText: 'LEARN MORE',
+          href: '/contact',
+          icon: 'Luggage',
+          image: '/images/services/reception.jpg',
+        },
       ],
       banner: {
         title: 'Experience Comfort at Every Step',

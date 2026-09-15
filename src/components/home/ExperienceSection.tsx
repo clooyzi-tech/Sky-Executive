@@ -11,6 +11,9 @@ import {
   Bell,
   Droplets,
   Wind,
+  UtensilsCrossed,
+  Trees,
+  Luggage,
   MapPin,
   Heart,
   ArrowRight,
@@ -18,8 +21,20 @@ import {
 import { STRINGS } from '@/config/strings';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 
-export default function ExperienceSection() {
+interface ExperienceSectionProps {
+  id?: string;
+  isAllServicesPage?: boolean;
+}
+
+export default function ExperienceSection({
+  id = 'experience-services',
+  isAllServicesPage = false,
+}: ExperienceSectionProps) {
   const { experience } = STRINGS.home;
+
+  const servicesToDisplay = isAllServicesPage
+    ? experience.gridServices
+    : experience.gridServices.slice(0, 6);
 
   const iconResolver = (iconName: string) => {
     switch (iconName) {
@@ -35,6 +50,12 @@ export default function ExperienceSection() {
         return <Droplets className="h-5 w-5 text-[#C9A227]" />;
       case 'Wind':
         return <Wind className="h-5 w-5 text-[#C9A227]" />;
+      case 'UtensilsCrossed':
+        return <UtensilsCrossed className="h-5 w-5 text-[#C9A227]" />;
+      case 'Trees':
+        return <Trees className="h-5 w-5 text-[#C9A227]" />;
+      case 'Luggage':
+        return <Luggage className="h-5 w-5 text-[#C9A227]" />;
       case 'MapPin':
         return <MapPin className="h-4 w-4 text-[#C9A227]" />;
       case 'Bed':
@@ -51,7 +72,7 @@ export default function ExperienceSection() {
   return (
     <section
       className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F3] via-[#F8F5EE] to-[#F4EFE6] py-20 md:py-28"
-      id="experience-services"
+      id={id}
     >
       {/* ------------------------------------------------------------- */}
       {/* 1. LUXURY BOTANICAL BRANCHES & CALLIGRAPHY IN CORNERS         */}
@@ -124,17 +145,19 @@ export default function ExperienceSection() {
             <div className="flex items-center justify-center gap-3">
               <span className="h-px w-10 bg-[#C9A227]" />
               <span className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C9A227]">
-                {experience.eyebrow}
+                {isAllServicesPage ? 'ALL HOTEL SERVICES & AMENITIES' : experience.eyebrow}
               </span>
               <span className="h-px w-10 bg-[#C9A227]" />
             </div>
 
             <h2 className="mt-4 font-serif text-3xl font-bold tracking-tight text-[#1C1C1C] sm:text-4xl md:text-5xl">
-              {experience.title}
+              {isAllServicesPage ? 'Everything You Need for a Seamless Stay' : experience.title}
             </h2>
 
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-[#5F5A50] sm:text-base">
-              {experience.subtitle}
+              {isAllServicesPage
+                ? 'Thoughtfully curated facilities and verified services across our 25-room boutique hotel in Pune.'
+                : experience.subtitle}
             </p>
           </AnimatedSection>
         </div>
@@ -244,11 +267,11 @@ export default function ExperienceSection() {
         </div>
 
         {/* ------------------------------------------------------------- */}
-        {/* 4. ROWS 2 & 3: 6 BALANCED SERVICES (3-Column Grid)            */}
+        {/* 4. BALANCED SERVICES (3-Column Grid)                          */}
         {/* ------------------------------------------------------------- */}
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {experience.gridServices.map((service, idx) => (
-            <AnimatedSection key={service.id} delay={0.08 * (idx + 1)}>
+          {servicesToDisplay.map((service, idx) => (
+            <AnimatedSection key={service.id} delay={0.06 * (idx + 1)}>
               <div className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[#DED8CC] bg-white shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                 {/* Service Card Top Image */}
                 <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-cream">
@@ -298,7 +321,7 @@ export default function ExperienceSection() {
         </div>
 
         {/* ------------------------------------------------------------- */}
-        {/* 5. ROW 4: WIDE BANNER CTA CARD (Experience Comfort at Every Step)*/}
+        {/* 5. WIDE BANNER CTA CARD                                       */}
         {/* ------------------------------------------------------------- */}
         <AnimatedSection delay={0.3}>
           <div className="mt-10 sm:mt-12 overflow-hidden rounded-2xl sm:rounded-3xl border border-[#DED8CC] bg-[#F5EFEB] shadow-xs hover:shadow-lg transition-all duration-300">
@@ -310,16 +333,18 @@ export default function ExperienceSection() {
                 </h3>
 
                 <p className="mt-3 text-xs sm:text-sm text-[#5F5A50] leading-relaxed max-w-sm">
-                  {experience.banner.subtitle}
+                  {isAllServicesPage
+                    ? 'Ready to experience boutique comfort at liv.inn Pune? Connect directly with our front desk team.'
+                    : experience.banner.subtitle}
                 </p>
 
                 <div className="mt-6 sm:mt-8">
                   <Link
-                    href={experience.banner.href}
+                    href={isAllServicesPage ? '/contact' : experience.banner.href}
                     className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#C9A227] via-[#D4AF37] to-[#B88A2A] px-7 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1C1C1C] shadow-sm transition-all duration-300 hover:brightness-105 hover:shadow-md active:scale-95"
                     id="experience-banner-btn"
                   >
-                    <span>{experience.banner.btnText}</span>
+                    <span>{isAllServicesPage ? 'ENQUIRE ABOUT STAY' : experience.banner.btnText}</span>
                     <ArrowRight className="h-3.5 w-3.5 text-[#1C1C1C]" />
                   </Link>
                 </div>
@@ -340,7 +365,7 @@ export default function ExperienceSection() {
         </AnimatedSection>
 
         {/* ------------------------------------------------------------- */}
-        {/* 6. ROW 5: BOTTOM FEATURE STRIP / HIGHLIGHTS BAR               */}
+        {/* 6. BOTTOM FEATURE STRIP / HIGHLIGHTS BAR                      */}
         {/* ------------------------------------------------------------- */}
         <div className="mt-14 sm:mt-16 pt-8 border-t border-[#DED8CC] flex flex-wrap items-center justify-between gap-4 sm:gap-6 text-xs text-[#5F5A50]">
           {experience.highlights.map((item, i) => (
