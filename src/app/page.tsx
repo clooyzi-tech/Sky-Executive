@@ -1,8 +1,8 @@
 import Hero from '@/components/home/Hero';
 import Introduction from '@/components/home/Introduction';
+import ExperienceSection from '@/components/home/ExperienceSection';
 import RoomsPreview from '@/components/home/RoomsPreview';
 import NatureViewSection from '@/components/home/NatureViewSection';
-import ServicesSection from '@/components/home/ServicesSection';
 import WhyChoose from '@/components/home/WhyChoose';
 import LocationPreview from '@/components/home/LocationPreview';
 import BookingCTA from '@/components/home/BookingCTA';
@@ -19,9 +19,9 @@ export default function Home() {
       />
       <Hero />
       <Introduction />
+      <ExperienceSection />
       <RoomsPreview />
       <NatureViewSection />
-      <ServicesSection />
       <WhyChoose />
       <LocationPreview />
       <BookingCTA />

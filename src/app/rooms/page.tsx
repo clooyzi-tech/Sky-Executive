@@ -3,11 +3,10 @@ import Image from 'next/image';
 import { generatePageMetadata, breadcrumbJsonLd } from '@/lib/seo';
 import { STRINGS } from '@/config/strings';
 import { IMAGES } from '@/config/image';
-import { rooms, facilities } from '@/lib/content';
-import { getFacilityIcon, Building2, Trees, ShieldCheck } from '@/config/icons';
+import { Building2, Trees } from '@/config/icons';
 import AnimatedSection from '@/components/ui/AnimatedSection';
-import SectionHeading from '@/components/ui/SectionHeading';
-import RoomCard from '@/components/ui/RoomCard';
+import RoomsPreview from '@/components/home/RoomsPreview';
+import ExperienceSection from '@/components/home/ExperienceSection';
 import BookingCTA from '@/components/home/BookingCTA';
 
 export const metadata: Metadata = generatePageMetadata({
@@ -17,7 +16,7 @@ export const metadata: Metadata = generatePageMetadata({
 });
 
 export default function RoomsPage() {
-  const { rooms: roomsStrings, facilities: facilitiesStrings } = STRINGS;
+  const { rooms: roomsStrings } = STRINGS;
 
   return (
     <>
@@ -77,19 +76,13 @@ export default function RoomsPage() {
         </div>
       </section>
 
-      {/* Room Showcase - Reusable Architecture */}
-      <section className="py-20 md:py-28 bg-white" id="room-showcase">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="space-y-12">
-            {rooms.map((room, i) => (
-              <AnimatedSection key={room.id} delay={0.1 * i}>
-                <RoomCard room={room} detailed={true} />
-              </AnimatedSection>
-            ))}
-          </div>
+      {/* Room Showcase — Premium UI matching Reference Design */}
+      <RoomsPreview id="room-showcase" isAllRoomsPage={true} />
 
-          {/* Pricing Policy Disclaimer */}
-          <div className="mt-12 rounded-2xl border border-border bg-cream/50 p-6 text-center text-xs text-slate-deep">
+      {/* Pricing Policy Disclaimer */}
+      <section className="bg-white pb-16">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-2xl border border-border bg-cream/50 p-6 text-center text-xs text-slate-deep">
             <p className="font-semibold text-charcoal text-sm">
               Room Pricing & Availability Confirmation
             </p>
@@ -100,38 +93,8 @@ export default function RoomsPage() {
         </div>
       </section>
 
-      {/* Property Facilities & Services */}
-      <section className="bg-cream/40 py-20 md:py-28 border-t border-border">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <SectionHeading
-              title={roomsStrings.facilitiesTitle}
-              subtitle={roomsStrings.facilitiesSubtitle}
-            />
-          </AnimatedSection>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {facilities.map((f, i) => (
-              <AnimatedSection key={f.title} delay={0.08 * i}>
-                <div className="flex items-start gap-4 rounded-2xl border border-border bg-white p-6 shadow-2xs transition-all duration-300 hover:border-accent/40 hover:shadow-md">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent-muted text-accent">
-                    {getFacilityIcon(f.icon, 'h-6 w-6')}
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-base font-bold text-charcoal">{f.title}</h3>
-                    <p className="mt-1.5 text-sm text-slate-deep leading-relaxed">
-                      {f.description}
-                    </p>
-                    <p className="mt-3 text-xs font-semibold text-accent-dark">
-                      {f.availability}
-                    </p>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Property Facilities & Services — Premium Experience UI with All Available Services */}
+      <ExperienceSection id="facilities" isAllServicesPage={true} />
 
       <BookingCTA />
     </>
