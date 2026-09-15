@@ -44,9 +44,11 @@ export const IMAGES = {
   },
   rooms: {
     'premium-room': '/images/rooms/premium_room.jpg',
-    premium: '/images/rooms/premium_room.jpg',
-    standard: '/images/rooms/premium_room.jpg',
     deluxe: '/images/rooms/premium_room.jpg',
+    executive: '/images/rooms/executive_room.jpg',
+    twin: '/images/rooms/twin_room.jpg',
+    suite: '/images/rooms/suite_room.jpg',
+    standard: '/images/rooms/premium_room.jpg',
   } as Record<string, string>,
   gallery: [
     {

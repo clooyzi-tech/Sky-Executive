@@ -3,11 +3,9 @@ import Image from 'next/image';
 import { generatePageMetadata, breadcrumbJsonLd } from '@/lib/seo';
 import { STRINGS } from '@/config/strings';
 import { IMAGES } from '@/config/image';
-import { rooms } from '@/lib/content';
 import { Building2, Trees } from '@/config/icons';
 import AnimatedSection from '@/components/ui/AnimatedSection';
-import SectionHeading from '@/components/ui/SectionHeading';
-import RoomCard from '@/components/ui/RoomCard';
+import RoomsPreview from '@/components/home/RoomsPreview';
 import ExperienceSection from '@/components/home/ExperienceSection';
 import BookingCTA from '@/components/home/BookingCTA';
 
@@ -78,19 +76,13 @@ export default function RoomsPage() {
         </div>
       </section>
 
-      {/* Room Showcase - Reusable Architecture */}
-      <section className="py-20 md:py-28 bg-white" id="room-showcase">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="space-y-12">
-            {rooms.map((room, i) => (
-              <AnimatedSection key={room.id} delay={0.1 * i}>
-                <RoomCard room={room} detailed={true} />
-              </AnimatedSection>
-            ))}
-          </div>
+      {/* Room Showcase — Premium UI matching Reference Design */}
+      <RoomsPreview id="room-showcase" isAllRoomsPage={true} />
 
-          {/* Pricing Policy Disclaimer */}
-          <div className="mt-12 rounded-2xl border border-border bg-cream/50 p-6 text-center text-xs text-slate-deep">
+      {/* Pricing Policy Disclaimer */}
+      <section className="bg-white pb-16">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-2xl border border-border bg-cream/50 p-6 text-center text-xs text-slate-deep">
             <p className="font-semibold text-charcoal text-sm">
               Room Pricing & Availability Confirmation
             </p>
