@@ -26,13 +26,16 @@ export default function PrivacyPolicyPage() {
       />
 
       {/* Page Header */}
-      <section className="bg-gradient-to-br from-charcoal to-accent-dark py-20 md:py-28">
+      <section className="bg-charcoal py-20 md:py-28 text-white">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <AnimatedSection>
-            <h1 className="font-serif text-4xl font-bold text-white md:text-5xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-black/40 px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-accent-gold backdrop-blur-sm">
+              Data Protection & Privacy
+            </div>
+            <h1 className="mt-4 font-serif text-4xl font-bold text-white md:text-5xl lg:text-6xl">
               {privacy.header.title}
             </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-base text-white/70 md:text-lg">
+            <p className="mx-auto mt-4 max-w-2xl text-base text-white/80 md:text-lg font-light">
               {privacy.header.subtitle}
             </p>
           </AnimatedSection>
@@ -40,7 +43,7 @@ export default function PrivacyPolicyPage() {
       </section>
 
       {/* Content */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="prose prose-slate max-w-none space-y-8 text-slate-deep [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-charcoal [&_h2]:mt-10 [&_h2]:mb-4 [&_h3]:font-serif [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-charcoal [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:leading-relaxed [&_ul]:space-y-2 [&_li]:leading-relaxed">
@@ -53,97 +56,42 @@ export default function PrivacyPolicyPage() {
               </p>
 
               <h2>1. Information We Collect</h2>
-              <p>We may collect the following types of information:</p>
+              <p>We may collect the following types of information when you submit stay enquiries:</p>
 
               <h3>Personal Information</h3>
               <ul className="list-disc pl-5">
-                <li>Full name and title</li>
+                <li>Full name</li>
                 <li>Email address</li>
                 <li>Phone number</li>
-                <li>Postal address</li>
-                <li>Government-issued photo ID (as required by law for hotel check-in)</li>
-                <li>Nationality</li>
+                <li>Stay dates and preferences</li>
+                <li>Government-issued photo ID (at property check-in as required by law)</li>
               </ul>
 
-              <h3>Booking Information</h3>
+              <h3>Stay Enquiry Details</h3>
               <ul className="list-disc pl-5">
-                <li>Check-in and check-out dates</li>
-                <li>Room preferences</li>
-                <li>Special requests</li>
-                <li>Number of guests</li>
-              </ul>
-
-              <h3>Technical Information</h3>
-              <ul className="list-disc pl-5">
-                <li>IP address and browser type</li>
-                <li>Pages visited on our website</li>
-                <li>Cookies and usage data</li>
+                <li>Preferred check-in and check-out dates</li>
+                <li>Room requirements</li>
+                <li>Number of accompanying guests</li>
+                <li>Special requests or arrival notes</li>
               </ul>
 
               <h2>2. How We Use Your Information</h2>
-              <p>We use your personal information to:</p>
+              <p>We use guest information strictly to:</p>
               <ul className="list-disc pl-5">
-                <li>Process and manage your hotel reservation</li>
-                <li>Communicate with you regarding your stay</li>
-                <li>Comply with legal requirements (e.g., guest registration under Indian law)</li>
-                <li>Improve our services and guest experience</li>
-                <li>Send promotional communications (only with your consent)</li>
-                <li>Respond to your enquiries and feedback</li>
+                <li>Respond to your stay inquiries and verify room availability</li>
+                <li>Communicate with you regarding your stay in Pune</li>
+                <li>Comply with statutory guest registration requirements under Indian law</li>
+                <li>Continuously refine our hospitality services and cleanliness standards</li>
               </ul>
 
-              <h2>3. Information Sharing</h2>
+              <h2>3. Data Security &amp; Sharing</h2>
               <p>
-                We do not sell, rent, or trade your personal information to third parties. 
-                We may share your information with:
-              </p>
-              <ul className="list-disc pl-5">
-                <li>Law enforcement or government agencies when required by Indian law</li>
-                <li>Service providers who assist us in operating our hotel (e.g., payment processors), under strict confidentiality agreements</li>
-                <li>Professional advisors (legal, accounting) as necessary</li>
-              </ul>
-
-              <h2>4. Data Security</h2>
-              <p>
-                We implement appropriate technical and organisational measures to protect 
-                your personal information against unauthorised access, alteration, disclosure, 
-                or destruction. However, no method of transmission over the internet is 100% 
-                secure.
+                We do not sell, rent, or trade your personal data. Information is retained solely for reservation handling and statutory guest register compliance under applicable Indian regulations.
               </p>
 
-              <h2>5. Data Retention</h2>
+              <h2>4. Contact Us</h2>
               <p>
-                We retain your personal information only for as long as necessary to fulfil 
-                the purposes outlined in this policy, or as required by law. Guest registration 
-                records are retained as required under Indian hotel regulations.
-              </p>
-
-              <h2>6. Your Rights</h2>
-              <p>You have the right to:</p>
-              <ul className="list-disc pl-5">
-                <li>Access the personal information we hold about you</li>
-                <li>Request correction of inaccurate information</li>
-                <li>Request deletion of your information (subject to legal requirements)</li>
-                <li>Opt out of promotional communications</li>
-              </ul>
-
-              <h2>7. Cookies</h2>
-              <p>
-                Our website may use cookies to enhance your browsing experience. You can 
-                control cookie settings through your browser preferences. Essential cookies 
-                required for website functionality cannot be disabled.
-              </p>
-
-              <h2>8. Changes to This Policy</h2>
-              <p>
-                We may update this Privacy Policy from time to time. Any changes will be 
-                posted on this page with an updated revision date. We encourage you to 
-                review this policy periodically.
-              </p>
-
-              <h2>9. Contact Us</h2>
-              <p>
-                If you have any questions about this Privacy Policy or how we handle your 
-                personal information, please contact us:
+                For questions regarding data handling or our privacy practices, please reach out:
               </p>
               <ul className="list-none pl-0 space-y-1">
                 <li>
@@ -156,18 +104,7 @@ export default function PrivacyPolicyPage() {
                   </a>
                 </li>
                 <li>
-                  <strong>Phone:</strong>{' '}
-                  <a
-                    href={`tel:${contact.phone.replace(/[^0-9+]/g, '')}`}
-                    className="text-accent hover:text-accent-dark"
-                  >
-                    {contact.phone}
-                  </a>
-                </li>
-                <li>
-                  <strong>Address:</strong> {contact.address.line1},{' '}
-                  {contact.address.line2}, {contact.address.city},{' '}
-                  {contact.address.state} {contact.address.pincode}
+                  <strong>Location:</strong> Pune, Maharashtra, India
                 </li>
               </ul>
             </div>

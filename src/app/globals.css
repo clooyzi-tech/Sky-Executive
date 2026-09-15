@@ -1,21 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FDFBF7;
-  --foreground: #2D2D2D;
-  --ivory: #FDFBF7;
-  --cream: #F5F0E8;
-  --cream-dark: #EDE5D8;
-  --charcoal: #2D2D2D;
-  --slate-deep: #4A4A4A;
-  --slate-medium: #6B6B6B;
-  --accent: #8B7355;
-  --accent-light: #A8956D;
-  --accent-dark: #6E5A42;
-  --accent-muted: rgba(139, 115, 85, 0.1);
+  --background: #FBF9F5;
+  --foreground: #1E2024;
+  --ivory: #FBF9F5;
+  --cream: #F5F0E6;
+  --cream-dark: #EDE5D6;
+  --charcoal: #121316;
+  --charcoal-surface: #1A1B20;
+  --charcoal-card: #23252B;
+  --slate-deep: #3D4049;
+  --slate-medium: #686D7A;
+  --accent: #C59B27;
+  --accent-light: #D4AF37;
+  --accent-gold: #DFB756;
+  --accent-dark: #9A751A;
+  --accent-muted: rgba(197, 155, 39, 0.12);
   --white: #FFFFFF;
-  --border: #E8E0D4;
-  --border-light: #F0EBE3;
+  --border: #E6DFD3;
+  --border-light: #EFE9DE;
+  --border-gold: rgba(197, 155, 39, 0.28);
 }
 
 @theme inline {
@@ -25,14 +29,18 @@
   --color-cream: var(--cream);
   --color-cream-dark: var(--cream-dark);
   --color-charcoal: var(--charcoal);
+  --color-charcoal-surface: var(--charcoal-surface);
+  --color-charcoal-card: var(--charcoal-card);
   --color-slate-deep: var(--slate-deep);
   --color-slate-medium: var(--slate-medium);
   --color-accent: var(--accent);
   --color-accent-light: var(--accent-light);
+  --color-accent-gold: var(--accent-gold);
   --color-accent-dark: var(--accent-dark);
   --color-accent-muted: var(--accent-muted);
   --color-border: var(--border);
   --color-border-light: var(--border-light);
+  --color-border-gold: var(--border-gold);
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
 }
@@ -69,7 +77,7 @@ html {
 *:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 /* Selection */
@@ -94,4 +102,15 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
+}
+
+/* Gold Gradient Utilities */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #DFB756 0%, #C59B27 50%, #9A751A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-border {
+  border-image: linear-gradient(135deg, rgba(223, 183, 86, 0.6), rgba(197, 155, 39, 0.2)) 1;
 }

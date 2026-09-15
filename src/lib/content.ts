@@ -1,12 +1,18 @@
 /* ==========================================================================
-   Liv.inn — Content Layer
+   liv.inn — Content Layer
    
-   Synchronized with centralized src/config/ (strings.ts, image.ts, icons.ts).
-   Provides backward compatibility and structured typings for existing utilities.
+   Synchronized with centralized src/content/ and src/config/
+   Strictly verified for liv.inn Pune (25 rooms, nature views, verified amenities).
    ========================================================================== */
 
 import { STRINGS } from '@/config/strings';
-import { IMAGES, type GalleryCategory } from '@/config/image';
+import { IMAGES } from '@/config/image';
+import {
+  hotelInfo,
+  roomsList,
+  allFacilitiesAndServices,
+  contactConfig,
+} from '@/content';
 
 // ---------------------------------------------------------------------------
 // Types
@@ -15,31 +21,41 @@ import { IMAGES, type GalleryCategory } from '@/config/image';
 export interface Room {
   id: string;
   name: string;
+  category: string;
   description: string;
+  shortDescription: string;
+  natureViewHighlight: string;
   amenities: string[];
+  keyFeatures: string[];
   bedType: string;
   maxOccupancy: number;
   image: string;
-  /** Short label shown on cards, e.g. "From ₹2,500/night" — leave empty to hide */
   priceLabel: string;
+  pricingNote: string;
+  availabilityLabel: string;
 }
 
 export interface Facility {
-  icon: string; // lucide-react icon name or identifier
+  id: string;
+  icon: string;
   title: string;
+  category: 'facility' | 'service';
   description: string;
+  fullDescription: string;
+  availability: string;
 }
 
 export interface NearbyAttraction {
   name: string;
   distance: string;
   description: string;
+  icon?: string;
 }
 
 export interface GalleryImage {
   src: string;
   alt: string;
-  category: GalleryCategory;
+  category: string;
 }
 
 export interface NavLink {
@@ -53,18 +69,31 @@ export interface NavLink {
 
 export const brand = {
   name: STRINGS.brand.name,
+  legalName: STRINGS.brand.legalName,
   tagline: STRINGS.brand.tagline,
   description: STRINGS.brand.description,
   logoPath: IMAGES.brand.logo,
 } as const;
 
 export const contact = {
-  phone: STRINGS.contact.phone,
-  whatsapp: STRINGS.contact.whatsapp,
-  email: STRINGS.contact.email,
-  address: STRINGS.contact.address,
-  googleMapsUrl: STRINGS.contact.googleMapsUrl,
-  googleMapsEmbed: STRINGS.contact.googleMapsEmbed,
+  phone: contactConfig.phone,
+  whatsapp: contactConfig.whatsapp,
+  email: contactConfig.email,
+  address: {
+    property: contactConfig.address.property,
+    street: contactConfig.address.street,
+    locality: contactConfig.address.locality,
+    city: contactConfig.address.city,
+    state: contactConfig.address.state,
+    pincode: contactConfig.address.pincode,
+    country: contactConfig.address.country,
+    landmark: contactConfig.address.landmark,
+    fullAddressDisplay: contactConfig.address.fullAddressDisplay,
+    note: contactConfig.address.note,
+  },
+  googleMapsUrl: contactConfig.maps.googleMapsSearchUrl,
+  googleMapsEmbed: contactConfig.maps.puneCityEmbedUrl,
+  social: contactConfig.social,
 } as const;
 
 export const social = STRINGS.contact.social;
@@ -82,25 +111,35 @@ export const navLinks: NavLink[] = STRINGS.nav.links.map((link) => ({
 // Rooms
 // ---------------------------------------------------------------------------
 
-export const rooms: Room[] = STRINGS.rooms.list.map((r) => ({
+export const rooms: Room[] = roomsList.map((r) => ({
   id: r.id,
   name: r.name,
-  description: r.description,
+  category: r.category,
+  description: r.fullDescription,
+  shortDescription: r.shortDescription,
+  natureViewHighlight: r.natureViewHighlight,
   amenities: [...r.amenities],
+  keyFeatures: [...r.keyFeatures],
   bedType: r.bedType,
   maxOccupancy: r.maxOccupancy,
-  image: IMAGES.rooms[r.id] || '',
-  priceLabel: r.priceLabel,
+  image: r.image || IMAGES.rooms[r.id] || '/images/rooms/premium_room.jpg',
+  priceLabel: r.priceDisplay,
+  pricingNote: r.pricingNote,
+  availabilityLabel: r.availabilityDisplay,
 }));
 
 // ---------------------------------------------------------------------------
 // Facilities & Why Choose
 // ---------------------------------------------------------------------------
 
-export const facilities: Facility[] = STRINGS.facilities.map((f) => ({
+export const facilities: Facility[] = allFacilitiesAndServices.map((f) => ({
+  id: f.id,
   icon: f.icon,
   title: f.title,
-  description: f.description,
+  category: f.category,
+  description: f.shortDescription,
+  fullDescription: f.fullDescription,
+  availability: f.availability,
 }));
 
 export const whyChooseFeatures = STRINGS.home.whyChoose.features.map((w) => ({
@@ -120,18 +159,20 @@ export const galleryImages: GalleryImage[] = IMAGES.gallery.map((g) => ({
 }));
 
 // ---------------------------------------------------------------------------
-// Nearby Attractions
+// Nearby Establishments (Pune)
 // ---------------------------------------------------------------------------
 
-export const nearbyAttractions: NearbyAttraction[] =
-  STRINGS.location.attractions.items.map((item) => ({
-    name: item.name,
-    distance: item.distance,
+export const nearbyAttractions: NearbyAttraction[] = contactConfig.nearbyCategories.map(
+  (item) => ({
+    name: item.category,
+    distance: item.statusText,
     description: item.description,
-  }));
+    icon: item.icon,
+  })
+);
 
 // ---------------------------------------------------------------------------
-// Guest Information (QR page)
+// Guest Information
 // ---------------------------------------------------------------------------
 
 export const guestInfo = STRINGS.guestInfo;
@@ -147,3 +188,5 @@ export const seoConfig = {
   defaultDescription: STRINGS.seo.defaultDescription,
   defaultKeywords: [...STRINGS.seo.defaultKeywords],
 } as const;
+
+export { hotelInfo, roomsList, allFacilitiesAndServices, contactConfig };

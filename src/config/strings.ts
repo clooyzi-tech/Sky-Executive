@@ -1,20 +1,30 @@
 /**
- * Centralized Strings Configuration for Liv.inn
+ * Centralized Strings Configuration for liv.inn (Pune)
  * 
- * All UI strings, labels, headers, copy, buttons, forms, and message templates
- * are centralized here for full globalization (i18n ready) and optimization.
+ * Synchronized directly with verified domain content under src/content/
+ * - Single source of truth
+ * - Zero references to other properties or Mumbai
+ * - Strictly verified information from developer document
  */
+
+import {
+  hotelInfo,
+  roomsList,
+  allFacilitiesAndServices,
+  contactConfig,
+} from '@/content';
 
 export const STRINGS = {
   // ---------------------------------------------------------------------------
-  // Brand
+  // Brand Identity
   // ---------------------------------------------------------------------------
   brand: {
-    name: 'Liv.inn',
-    tagline: 'Your Stay, Made Comfortable',
-    description:
-      'A modern boutique hotel in Mumbai offering comfortable stays, warm hospitality, and a convenient location for business and leisure travellers.',
-    logoAlt: 'Liv.inn Boutique Hotel',
+    name: hotelInfo.name,
+    legalName: hotelInfo.legalName,
+    tagline: hotelInfo.tagline,
+    description: hotelInfo.shortDescription,
+    logoAlt: 'liv.inn Boutique Hotel — Pune',
+    logoPath: '/livinn_logo.jpg',
   },
 
   // ---------------------------------------------------------------------------
@@ -24,35 +34,42 @@ export const STRINGS = {
     buttons: {
       enquireNow: 'Enquire Now',
       exploreRooms: 'Explore Rooms',
-      viewAllRooms: 'View All Rooms & Facilities',
-      viewFullGallery: 'View Full Gallery',
-      getDirections: 'Get Directions',
+      viewAllRooms: 'Explore Premium Rooms',
+      viewFullGallery: 'View Gallery',
+      getDirections: 'View Pune Area',
       moreDetails: 'More Details',
-      chatWhatsApp: 'Chat on WhatsApp',
-      callNow: 'Call Now',
+      chatWhatsApp: 'Enquire on WhatsApp',
+      callNow: 'Call Front Desk',
       callReception: 'Call Reception',
-      sendEnquiry: 'Send Enquiry',
-      sending: 'Sending...',
-      sendAnotherEnquiry: 'Send Another Enquiry',
+      sendEnquiry: 'Submit Stay Enquiry',
+      sending: 'Submitting Enquiry...',
+      sendAnotherEnquiry: 'Submit Another Enquiry',
     },
     labels: {
-      checkIn: 'Check-in',
-      checkOut: 'Check-out',
-      timing: 'Timing',
-      amenities: 'Amenities',
-      facilities: 'Facilities',
-      hotelFacilities: 'Hotel Facilities',
-      houseRules: 'House Rules',
-      services: 'Hotel Services',
-      nearby: 'Nearby',
+      checkIn: 'Check-in (11:00 AM — To be confirmed)',
+      checkOut: 'Check-out (10:00 AM — To be confirmed)',
+      timing: 'Timings (11:00 AM to 10:00 AM — To be confirmed)',
+      amenities: 'Room Amenities',
+      facilities: 'Verified Amenities',
+      hotelFacilities: 'Hotel Facilities & Services',
+      houseRules: 'Guest Guidelines',
+      services: 'Guest Services',
+      nearby: 'Nearby Establishments',
       guests: 'Guests',
       guest: 'Guest',
       upTo: 'Up to',
       more: 'more',
       required: '*',
+      tbcBadge: 'To be confirmed',
+      verifiedBadge: 'Verified',
+      natureViewBadge: 'Nature-Oriented View',
+      inventoryBadge: '25 Rooms • 5 Floors',
     },
     badges: {
-      welcomeTo: 'Welcome to',
+      welcomeTo: 'Welcome to liv.inn',
+      city: 'Pune, Maharashtra',
+      natureView: 'Nature-Oriented Views',
+      roomDistribution: '5 Rooms on Each Floor',
     },
   },
 
@@ -64,9 +81,8 @@ export const STRINGS = {
       { label: 'Home', href: '/' },
       { label: 'About', href: '/about' },
       { label: 'Rooms & Facilities', href: '/rooms' },
-      { label: 'Gallery', href: '/gallery' },
       { label: 'Location', href: '/location' },
-      { label: 'Contact', href: '/contact' },
+      { label: 'Contact & Enquiry', href: '/contact' },
     ],
     aria: {
       mainNavigation: 'Main navigation',
@@ -77,55 +93,58 @@ export const STRINGS = {
   },
 
   // ---------------------------------------------------------------------------
-  // Contact & Social
+  // Contact & Connectivity
   // ---------------------------------------------------------------------------
   contact: {
-    phone: '+91 98765 43210',
-    whatsapp: '+919876543210',
-    email: 'stay@livinn.in',
+    phone: contactConfig.phone,
+    whatsapp: contactConfig.whatsapp,
+    email: contactConfig.email,
     address: {
-      line1: 'Liv.inn Hotel',
-      line2: 'Andheri West',
-      city: 'Mumbai',
-      state: 'Maharashtra',
-      pincode: '400053',
-      country: 'India',
+      line1: contactConfig.address.property,
+      line2: contactConfig.address.street,
+      locality: contactConfig.address.locality,
+      city: contactConfig.address.city,
+      state: contactConfig.address.state,
+      pincode: '412207',
+      country: contactConfig.address.country,
+      landmark: contactConfig.address.landmark,
+      full: contactConfig.address.fullAddressDisplay,
+      note: contactConfig.address.note,
     },
-    googleMapsUrl: 'https://maps.google.com/?q=Mumbai+Andheri+West',
-    googleMapsEmbed:
-      'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.9!2d72.83!3d19.13!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA3JzQ4LjAiTiA3MsKwNDknNDguMCJF!5e0!3m2!1sen!2sin!4v1',
+    googleMapsUrl: contactConfig.maps.googleMapsSearchUrl,
+    googleMapsEmbed: contactConfig.maps.puneCityEmbedUrl,
     social: {
-      instagram: 'https://www.instagram.com/livinn69/',
+      instagram: contactConfig.social.instagram,
       facebook: '',
     },
     cards: {
       whatsapp: {
         title: 'WhatsApp',
-        subtitle: 'Tap to chat — instant response',
+        subtitle: 'Direct enquiry & chat',
       },
       call: {
-        title: 'Call Us',
-        subtitle: 'Available 24/7',
+        title: 'Front Desk',
+        subtitle: '24/7 Guest Assistance',
       },
       email: {
-        title: 'Email',
-        subtitle: 'We reply within 24 hours',
+        title: 'Email Enquiry',
+        subtitle: 'We reply promptly to all inquiries',
       },
       address: {
-        title: 'Address',
-        viewMap: 'View on Google Maps',
+        title: 'Location',
+        viewMap: 'View Pune Overview',
       },
     },
     prefilledMessages: {
-      heroEnquiry: 'Hi! I would like to make a booking enquiry at Liv.inn.',
-      bookingCTA: 'Hi! I would like to check room availability at Liv.inn.',
-      floatingWhatsApp: 'Hi! I would like to know more about Liv.inn Hotel.',
+      heroEnquiry: 'Hi! I would like to make a stay enquiry at liv.inn in Pune.',
+      bookingCTA: 'Hi! I would like to check room availability and rates for liv.inn Pune.',
+      floatingWhatsApp: 'Hi! I would like to know more about liv.inn Hotel in Pune.',
       roomEnquiry: (roomName: string) =>
-        `Hi! I'm interested in the ${roomName} at Liv.inn. Could you share availability and pricing?`,
+        `Hi! I'm interested in the ${roomName} at liv.inn Pune. Could you share availability and details?`,
       roomEnquiryShort: (roomName: string) =>
-        `Hi! I'm interested in the ${roomName} at Liv.inn.`,
-      guestAssistance: 'Hi, I am a guest at Liv.inn and need assistance.',
-      contactPageEnquiry: "Hi! I'd like to enquire about rooms at Liv.inn.",
+        `Hi! I'm interested in the ${roomName} at liv.inn Pune.`,
+      guestAssistance: 'Hi, I am a guest at liv.inn Pune and need assistance.',
+      contactPageEnquiry: "Hi! I'd like to enquire about staying at liv.inn Pune.",
     },
   },
 
@@ -134,85 +153,110 @@ export const STRINGS = {
   // ---------------------------------------------------------------------------
   home: {
     hero: {
-      badge: 'Welcome to Liv.inn',
-      title: 'Your Stay, Made Comfortable',
+      badge: 'Boutique Hotel in Pune • 25 Premium Rooms',
+      title: 'A Serene, Nature-Oriented Stay in Pune',
       description:
-        'A modern boutique hotel in Mumbai offering comfortable stays, warm hospitality, and a convenient location for business and leisure travellers.',
+        'Experience calm comfort at liv.inn — an intimate 25-room boutique hotel in Pune with 5 rooms on each floor, scenic nature views, in-house cloud kitchen, and 24/7 guest assistance.',
       ctaEnquire: 'Enquire Now',
       ctaExplore: 'Explore Rooms',
+      stats: [
+        { label: 'Total Rooms', value: '25' },
+        { label: 'Rooms Per Floor', value: '5' },
+        { label: 'Setting', value: 'Nature Views' },
+        { label: 'Guest Support', value: '24/7' },
+      ],
     },
     introduction: {
-      title: 'Welcome to Liv.inn',
-      subtitle: 'A place where comfort meets convenience',
-      p1: "Nestled in the vibrant heart of Mumbai, Liv.inn is more than just a hotel — it's your home away from home. We believe that every traveller deserves a comfortable, clean, and welcoming space, whether you're visiting for business, leisure, or just passing through.",
-      p2: 'Our thoughtfully designed rooms, attentive service, and prime location make Liv.inn the ideal choice for discerning guests who value quality without compromise. From the moment you step through our doors, expect nothing less than genuine warmth and modern comfort.',
+      title: 'Welcome to liv.inn',
+      subtitle: 'Where peaceful nature views meet thoughtful boutique hospitality',
+      p1: hotelInfo.story.paragraphs[0],
+      p2: hotelInfo.story.paragraphs[1],
     },
     roomsPreview: {
-      title: 'Our Rooms',
-      subtitle: 'Thoughtfully designed spaces for a restful stay',
+      title: 'Our Premium Rooms',
+      subtitle: '25 thoughtfully designed rooms with 5 rooms on each floor for quiet comfort',
       ctaEnquire: 'Enquire About This Room',
-      ctaViewAll: 'View All Rooms & Facilities',
+      ctaViewAll: 'View Rooms & Facilities',
+    },
+    galleryPreview: {
+      title: 'A Glimpse of liv.inn',
+      subtitle: 'Explore our premium rooms, green surroundings, and verified amenities in Pune',
+      ctaViewAll: 'View Full Gallery',
+    },
+    natureHighlight: {
+      badge: 'Tranquil Environment',
+      title: 'Nature-Oriented Surroundings',
+      description:
+        'Unlike crowded city stays, liv.inn provides a refreshing perspective with pleasant nature-facing views. Wake up to natural daylight and verdant scenery that restores balance to your travels in Pune.',
+      bulletPoints: [
+        'Green, nature-oriented perspectives from rooms',
+        'Quiet atmosphere with only 5 rooms per floor',
+        'Abundant natural daylight and fresh ventilation',
+        'A peaceful retreat after a busy day in Pune',
+      ],
     },
     whyChoose: {
-      title: 'Why Choose Liv.inn',
-      subtitle: 'Everything you need for a perfect stay',
+      title: 'Why Choose liv.inn',
+      subtitle: 'Verified amenities and services designed around your comfort',
       features: [
         {
-          icon: 'MapPin',
-          title: 'Prime Location',
+          icon: 'Trees',
+          title: 'Nature-Oriented Views',
           description:
-            'Centrally located in Mumbai with easy access to business hubs, shopping, and entertainment.',
+            'Tranquil greenery views designed to provide a restful stay away from city noise.',
         },
         {
-          icon: 'Heart',
-          title: 'Warm Hospitality',
+          icon: 'Building2',
+          title: 'Boutique Exclusivity',
           description:
-            'Experience genuine care and personalised attention from our dedicated team.',
+            'Only 25 rooms total, with 5 rooms per floor ensuring privacy and personalized attention.',
         },
         {
-          icon: 'Shield',
-          title: 'Safe & Secure',
+          icon: 'UtensilsCrossed',
+          title: 'In-House Cloud Kitchen',
           description:
-            'Your safety is our priority with 24/7 security, CCTV, and secure access.',
+            'Freshly prepared meals and dining convenience made accessible directly to your room.',
         },
         {
-          icon: 'Sparkles',
-          title: 'Spotless Rooms',
+          icon: 'Clock',
+          title: '24/7 Guest Assistance',
           description:
-            'Meticulously maintained rooms that meet the highest hygiene standards.',
+            'Dedicated front desk and service support available around the clock for any request.',
         },
         {
           icon: 'Wifi',
-          title: 'Stay Connected',
+          title: 'Complimentary High-Speed Wi-Fi',
           description:
-            'Complimentary high-speed Wi-Fi to keep you connected throughout your stay.',
+            'Fast and dependable Wi-Fi connection throughout the hotel for work and relaxation.',
         },
         {
-          icon: 'IndianRupee',
-          title: 'Great Value',
+          icon: 'Car',
+          title: 'On-Site Parking',
           description:
-            'Premium comfort and service at competitive rates — the best value in the neighbourhood.',
+            'Dedicated on-premises parking space for guests arriving by personal vehicle.',
         },
       ],
     },
-    galleryPreview: {
-      title: 'A Glimpse Inside',
-      subtitle: 'Take a peek at our thoughtfully curated spaces',
-      ctaViewAll: 'View Full Gallery',
+    servicesOverview: {
+      badge: 'Dedicated Care',
+      title: 'Guest Services & Amenities',
+      subtitle: 'Verified facilities provided to enhance every aspect of your stay in Pune',
     },
     locationPreview: {
-      title: 'Find Us',
-      subtitle: 'Centrally located for your convenience',
-      ctaDirections: 'Get Directions',
-      ctaDetails: 'More Details',
-      mapTitle: 'Liv.inn Hotel Location',
+      title: 'Location & Connectivity',
+      subtitle: 'Situated in Upper Kharadi, Wagholi, Pune with peaceful green surroundings',
+      ctaDirections: 'Open Google Maps',
+      ctaDetails: 'View Landmark Details',
+      mapTitle: 'liv.inn Hotel Location — Wagholi, Pune',
+      addressNotice: 'Plot No-31, Lane No-4, Infinity Greens Society, Near VTP Altair Phase-1, Gat No- 1251, Upper Kharadi, Wagholi, Pune-412207, Wagholi 412207',
     },
     bookingCTA: {
-      title: 'Planning Your Stay?',
+      title: 'Plan Your Stay at liv.inn',
       description:
-        "Get in touch with us to check availability, request a quote, or make a reservation. We're always happy to help.",
-      whatsappBtn: 'Chat on WhatsApp',
-      callBtn: 'Call Now',
+        'Submit a stay enquiry or reach out directly to check room availability, arrival arrangements, or group requirements. Our team is here 24/7 to assist you.',
+      whatsappBtn: 'Enquire on WhatsApp',
+      callBtn: 'Call Front Desk',
+      enquireBtn: 'Submit Stay Enquiry',
     },
   },
 
@@ -221,176 +265,92 @@ export const STRINGS = {
   // ---------------------------------------------------------------------------
   about: {
     header: {
-      title: 'About Liv.inn',
-      subtitle: 'Our story, our values, and what makes us different',
+      title: 'About liv.inn',
+      subtitle: 'Intimate boutique hospitality and nature-oriented comfort in Pune',
     },
     story: {
-      title: 'Our Story',
-      p1: 'Liv.inn was born from a simple yet powerful idea: every traveller deserves a space that feels like home — clean, comfortable, and genuinely welcoming. In a city as dynamic as Mumbai, we saw an opportunity to create a hotel that blends modern comfort with the warmth of Indian hospitality.',
-      p2: 'Our property has been thoughtfully designed to cater to both business and leisure travellers. Every detail, from the quality of our bedding to the efficiency of our service, reflects our commitment to making your stay exceptional.',
-      p3: "Whether you're in Mumbai for a conference, exploring the city's rich culture, or simply need a comfortable place to rest, Liv.inn is here to ensure you feel at ease from the moment you arrive.",
+      title: hotelInfo.story.title,
+      p1: hotelInfo.story.paragraphs[0],
+      p2: hotelInfo.story.paragraphs[1],
+      p3: hotelInfo.story.paragraphs[2],
     },
+    overviewStats: [
+      { label: 'Total Rooms', value: '25 Rooms' },
+      { label: 'Distribution', value: '5 Rooms per Floor' },
+      { label: 'Floors', value: '5 Floors' },
+      { label: 'Primary Category', value: 'Premium Rooms' },
+      { label: 'View Type', value: 'Nature-Oriented' },
+      { label: 'Location', value: 'Wagholi, Pune' },
+    ],
     values: {
-      title: 'What We Stand For',
-      subtitle: 'The values that guide everything we do',
-      items: [
-        {
-          title: 'Genuine Hospitality',
-          text: 'We treat every guest like family. Our team goes above and beyond to ensure your comfort and satisfaction.',
-        },
-        {
-          title: 'Uncompromising Cleanliness',
-          text: 'Hygiene is non-negotiable. Our rooms are meticulously cleaned and maintained to the highest standards.',
-        },
-        {
-          title: 'Thoughtful Design',
-          text: 'Every space in our hotel is designed with purpose — to provide functionality, comfort, and aesthetic appeal.',
-        },
-        {
-          title: 'Local Connection',
-          text: 'We help guests experience the best of Mumbai through curated local recommendations and travel assistance.',
-        },
-        {
-          title: 'Transparent Service',
-          text: 'No hidden charges, no surprises. We believe in honest pricing and transparent communication.',
-        },
-        {
-          title: 'Continuous Improvement',
-          text: 'We actively seek guest feedback to refine our services and stay ahead of expectations.',
-        },
-      ],
+      title: 'Our Commitments',
+      subtitle: 'The principles guiding every guest interaction at liv.inn',
+      items: hotelInfo.values.map((v) => ({
+        title: v.title,
+        text: v.description,
+      })),
     },
     facilities: {
-      title: 'Our Facilities',
-      subtitle: 'Everything you need under one roof',
+      title: 'Verified Facilities',
+      subtitle: 'Practical, reliable amenities curated for staying guests',
     },
   },
 
   // ---------------------------------------------------------------------------
-  // Rooms & Facilities
+  // Rooms Page
   // ---------------------------------------------------------------------------
   rooms: {
     header: {
-      title: 'Rooms & Facilities',
-      subtitle: 'Thoughtfully designed spaces equipped with modern amenities',
+      title: 'Premium Rooms',
+      subtitle: '25 thoughtfully appointed rooms with tranquil nature-oriented views',
     },
-    amenitiesTitle: 'Amenities',
+    amenitiesTitle: 'Verified In-Room Amenities',
     guestsSuffix: 'guests',
-    facilitiesTitle: 'Hotel Facilities',
-    facilitiesSubtitle: 'Everything you need for a comfortable stay',
-    list: [
-      {
-        id: 'standard',
-        name: 'Standard Room',
-        description:
-          'A well-appointed room designed for comfort and convenience, featuring modern amenities and a serene ambience perfect for a restful stay.',
-        amenities: [
-          'Air Conditioning',
-          'Free Wi-Fi',
-          'Flat-screen TV',
-          'Attached Bathroom',
-          'Daily Housekeeping',
-          'Wardrobe',
-        ],
-        bedType: 'Double Bed',
-        maxOccupancy: 2,
-        priceLabel: '',
-      },
-      {
-        id: 'deluxe',
-        name: 'Deluxe Room',
-        description:
-          'Spacious and elegantly furnished, our Deluxe Room offers an elevated experience with premium bedding, a work desk, and thoughtful touches throughout.',
-        amenities: [
-          'Air Conditioning',
-          'Free Wi-Fi',
-          'Flat-screen TV',
-          'Attached Bathroom',
-          'Daily Housekeeping',
-          'Wardrobe',
-          'Work Desk',
-          'Mini Fridge',
-          'Complimentary Toiletries',
-        ],
-        bedType: 'Queen Bed',
-        maxOccupancy: 2,
-        priceLabel: '',
-      },
-      {
-        id: 'premium',
-        name: 'Premium Room',
-        description:
-          'Our finest accommodation, the Premium Room combines luxury with functionality — featuring a king-size bed, premium furnishings, and a curated in-room experience.',
-        amenities: [
-          'Air Conditioning',
-          'Free Wi-Fi',
-          'Flat-screen TV',
-          'Attached Bathroom',
-          'Daily Housekeeping',
-          'Wardrobe',
-          'Work Desk',
-          'Mini Fridge',
-          'Complimentary Toiletries',
-          'Bathrobe & Slippers',
-          'In-room Safe',
-          'Tea/Coffee Maker',
-        ],
-        bedType: 'King Bed',
-        maxOccupancy: 3,
-        priceLabel: '',
-      },
-    ],
+    facilitiesTitle: 'Property Facilities & Services',
+    facilitiesSubtitle: 'Everything available to make your time in Pune effortless',
+    list: roomsList.map((r) => ({
+      id: r.id,
+      name: r.name,
+      category: r.category,
+      description: r.fullDescription,
+      shortDescription: r.shortDescription,
+      natureViewHighlight: r.natureViewHighlight,
+      amenities: [...r.amenities],
+      keyFeatures: [...r.keyFeatures],
+      bedType: r.bedType,
+      maxOccupancy: r.maxOccupancy,
+      priceLabel: r.priceDisplay,
+      pricingNote: r.pricingNote,
+      availabilityLabel: r.availabilityDisplay,
+    })),
   },
 
   // ---------------------------------------------------------------------------
-  // Facilities
+  // Facilities & Services
   // ---------------------------------------------------------------------------
-  facilities: [
-    {
-      icon: 'Wifi',
-      title: 'Free High-Speed Wi-Fi',
-      description: 'Stay connected with complimentary high-speed internet throughout the property.',
-    },
-    {
-      icon: 'ShieldCheck',
-      title: '24/7 Security',
-      description: 'Round-the-clock security and CCTV surveillance for your peace of mind.',
-    },
-    {
-      icon: 'ConciergeBell',
-      title: '24-Hour Front Desk',
-      description: 'Our friendly staff is available around the clock to assist with your needs.',
-    },
-    {
-      icon: 'Car',
-      title: 'Parking',
-      description: 'Convenient parking space available for guests.',
-    },
-    {
-      icon: 'Sparkles',
-      title: 'Daily Housekeeping',
-      description: 'Immaculately maintained rooms with daily housekeeping service.',
-    },
-    {
-      icon: 'Luggage',
-      title: 'Luggage Storage',
-      description: 'Secure luggage storage facility for early arrivals or late departures.',
-    },
-  ],
+  facilities: allFacilitiesAndServices.map((f) => ({
+    id: f.id,
+    icon: f.icon,
+    title: f.title,
+    category: f.category,
+    description: f.shortDescription,
+    fullDescription: f.fullDescription,
+    availability: f.availability,
+  })),
 
   // ---------------------------------------------------------------------------
   // Gallery Page
   // ---------------------------------------------------------------------------
   gallery: {
     header: {
-      title: 'Gallery',
-      subtitle: 'A glimpse into the Liv.inn experience',
+      title: 'Property Gallery',
+      subtitle: 'A preview of liv.inn, our premium rooms, and peaceful Pune surroundings',
     },
-    categories: ['All', 'Hotel', 'Rooms', 'Interiors', 'Exterior'] as const,
+    categories: ['All', 'Property', 'Rooms', 'Nature', 'Dining'] as const,
     lightbox: {
-      close: 'Close lightbox',
-      prev: 'Previous image',
-      next: 'Next image',
+      close: 'Close preview',
+      prev: 'Previous',
+      next: 'Next',
       counter: (current: number, total: number) => `${current} / ${total}`,
     },
   },
@@ -400,80 +360,65 @@ export const STRINGS = {
   // ---------------------------------------------------------------------------
   location: {
     header: {
-      title: 'Our Location',
-      subtitle: 'Conveniently located in the heart of Mumbai',
+      title: 'Location & Connectivity',
+      subtitle: 'Located in Pune, Maharashtra with serene nature views and city accessibility',
     },
     findUs: {
-      title: 'Find Us',
-      addressLabel: 'Address',
-      phoneLabel: 'Phone',
-      emailLabel: 'Email',
-      ctaDirections: 'Get Directions',
-      mapTitle: 'Liv.inn location on Google Maps',
+      title: 'Property Location',
+      addressLabel: 'Official Address',
+      phoneLabel: 'Front Desk',
+      emailLabel: 'Email Enquiry',
+      ctaDirections: 'Open Google Maps',
+      mapTitle: 'liv.inn Hotel Location Map — Wagholi, Pune',
+      note: 'Situated near VTP Altair Phase-1 in Infinity Greens Society, Gat No- 1251, Upper Kharadi, Wagholi, Pune-412207, Wagholi 412207.',
     },
     attractions: {
-      title: 'Nearby Attractions',
-      subtitle: "Explore what's around us",
-      items: [
-        {
-          name: 'Chhatrapati Shivaji Maharaj International Airport',
-          distance: '5 km',
-          description: "Quick and easy access to Mumbai's international airport.",
-        },
-        {
-          name: 'Andheri Railway Station',
-          distance: '1.5 km',
-          description: 'Major western line railway station with local and long-distance trains.',
-        },
-        {
-          name: 'Infinity Mall',
-          distance: '2 km',
-          description: 'Popular shopping and entertainment destination.',
-        },
-        {
-          name: 'Versova Beach',
-          distance: '4 km',
-          description: 'A peaceful beach getaway, perfect for evening walks.',
-        },
-      ],
+      title: 'Nearby Establishments & Connectivity',
+      subtitle: 'Convenient connectivity across Upper Kharadi, Wagholi, and East Pune',
+      items: contactConfig.nearbyCategories.map((c) => ({
+        name: c.category,
+        distance: c.statusText,
+        description: c.description,
+        icon: c.icon,
+      })),
     },
   },
 
   // ---------------------------------------------------------------------------
-  // Contact Page & Form
+  // Contact & Enquiry Page
   // ---------------------------------------------------------------------------
   contactPage: {
     header: {
-      title: 'Contact Us',
-      subtitle: "We'd love to hear from you — reach out anytime",
+      title: 'Contact & Enquiry',
+      subtitle: 'Enquire about room availability, rates, or property details in Pune',
     },
     sidebar: {
-      title: 'Get in Touch',
+      title: 'Reach Out to Us',
       description:
-        'Whether you have a question about availability, pricing, or anything else, our team is ready to help.',
+        'Have a question about staying at liv.inn? Send an enquiry or connect with our team. We respond promptly with verified details.',
     },
     form: {
-      nameLabel: 'Full Name',
-      namePlaceholder: 'Your name',
-      emailLabel: 'Email Address',
-      emailPlaceholder: 'your@email.com',
-      phoneLabel: 'Phone Number',
-      phonePlaceholder: '+91 98765 43210',
-      checkInLabel: 'Check-in Date',
-      checkOutLabel: 'Check-out Date',
-      roomPrefLabel: 'Room Preference',
-      noPrefOption: 'No preference',
-      guestsLabel: 'Number of Guests',
+      nameLabel: contactConfig.formStrings.nameLabel,
+      namePlaceholder: contactConfig.formStrings.namePlaceholder,
+      emailLabel: contactConfig.formStrings.emailLabel,
+      emailPlaceholder: contactConfig.formStrings.emailPlaceholder,
+      phoneLabel: contactConfig.formStrings.phoneLabel,
+      phonePlaceholder: contactConfig.formStrings.phonePlaceholder,
+      checkInLabel: contactConfig.formStrings.checkInLabel,
+      checkOutLabel: contactConfig.formStrings.checkOutLabel,
+      roomPrefLabel: 'Room Category',
+      noPrefOption: 'Premium Room (25 Rooms Total)',
+      guestsLabel: contactConfig.formStrings.guestsLabel,
       guestSingular: 'Guest',
       guestPlural: 'Guests',
-      messageLabel: 'Message',
-      messagePlaceholder: 'Tell us about your requirements, special requests, or questions...',
-      submitBtn: 'Send Enquiry',
-      submittingBtn: 'Sending...',
-      successTitle: 'Thank You!',
-      successMessage:
-        "We've received your enquiry and will get back to you within 24 hours. For urgent queries, please call or WhatsApp us directly.",
-      sendAnotherBtn: 'Send Another Enquiry',
+      messageLabel: contactConfig.formStrings.messageLabel,
+      messagePlaceholder: contactConfig.formStrings.messagePlaceholder,
+      submitBtn: contactConfig.formStrings.submitBtn,
+      submittingBtn: contactConfig.formStrings.submittingBtn,
+      successTitle: contactConfig.formStrings.successTitle,
+      successMessage: contactConfig.formStrings.successMessage,
+      disclaimer: contactConfig.formStrings.disclaimer,
+      sendAnotherBtn: contactConfig.formStrings.sendAnotherBtn,
     },
   },
 
@@ -482,93 +427,91 @@ export const STRINGS = {
   // ---------------------------------------------------------------------------
   guestInfo: {
     header: {
-      title: 'Welcome to Liv.inn',
-      subtitle: 'Everything you need to know during your stay',
+      title: 'Guest Information',
+      subtitle: 'Helpful details and verified amenities for your stay at liv.inn',
     },
     quickContact: {
-      whatsapp: 'WhatsApp',
-      call: 'Call Reception',
+      whatsapp: 'WhatsApp Front Desk',
+      call: 'Call Front Desk (24/7)',
     },
     timing: {
-      title: 'Timing',
+      title: 'Timings (To Be Confirmed)',
       checkIn: 'Check-in',
       checkOut: 'Check-out',
-      checkInTime: '12:00 PM',
-      checkOutTime: '11:00 AM',
+      providedTiming: hotelInfo.timings.providedTiming,
+      checkInTime: '11:00 AM (To be confirmed)',
+      checkOutTime: '10:00 AM (To be confirmed)',
+      note: hotelInfo.timings.note,
     },
     wifi: {
-      title: 'Wi-Fi',
+      title: 'Complimentary Wi-Fi',
       description:
-        'Complimentary high-speed Wi-Fi is available throughout the property. Ask at the front desk for the network name and password.',
+        'High-speed Wi-Fi is provided complimentary throughout all 5 floors of the property. Network credentials are provided upon arrival.',
     },
     services: {
-      title: 'Hotel Services',
+      title: 'Verified Property Services',
       items: [
-        { name: 'Room Service', availability: 'Available on request' },
+        { name: '24/7 Guest Assistance', availability: 'Available round the clock' },
+        { name: 'In-House Cloud Kitchen', availability: 'Meal service available' },
         { name: 'Laundry Service', availability: 'Available on request' },
-        { name: 'Wake-up Call', availability: 'Available 24/7' },
-        { name: 'Travel Assistance', availability: 'Available at front desk' },
-        { name: 'Medical Assistance', availability: 'Available on request' },
+        { name: 'Housekeeping & Cleanliness', availability: 'Daily service' },
+        { name: 'On-Site Parking', availability: 'Available for registered guests' },
       ],
     },
     houseRules: {
-      title: 'House Rules',
+      title: 'Guest Guidelines',
       items: [
-        'Valid government-issued photo ID is mandatory at check-in.',
-        'Smoking is strictly prohibited inside the rooms.',
-        'Outside food is allowed in rooms.',
-        'Visitors must register at the front desk.',
-        'Please maintain silence after 10:00 PM for the comfort of all guests.',
-        'Any damage to hotel property will be charged to the guest.',
+        'Valid government-issued photo ID is required for all adult guests at arrival.',
+        'Smoking is strictly prohibited inside the guest rooms.',
+        'Please maintain quiet hours after 10:00 PM to ensure restful comfort for all 5 rooms per floor.',
+        'Contact the 24/7 front desk for any housekeeping, dining, or assistance requirements.',
       ],
     },
     nearby: {
-      title: 'Nearby',
+      title: 'Nearby Establishments (Pune)',
     },
     footerNote: {
-      line1: "For any assistance during your stay, please don't hesitate to contact us.",
-      line2: 'We hope you have a wonderful experience at Liv.inn!',
+      line1: 'For any assistance during your stay in Pune, our front desk team is ready to help 24/7.',
+      line2: 'We wish you a pleasant and restful stay at liv.inn.',
     },
   },
 
   // ---------------------------------------------------------------------------
-  // Privacy Policy
+  // Privacy Policy & Terms
   // ---------------------------------------------------------------------------
   privacy: {
     header: {
       title: 'Privacy Policy',
-      subtitle: 'How we handle and protect your information',
+      subtitle: 'How liv.inn handles and protects your personal information',
     },
     lastUpdated: 'Last updated: September 2026',
     intro:
-      'Liv.inn ("we", "us", "our") is committed to protecting the privacy of our guests and website visitors. This Privacy Policy explains how we collect, use, store, and protect your personal information when you visit our website or stay at our hotel.',
+      'liv.inn ("we", "us", "our") is dedicated to protecting the privacy of our guests and website visitors. This policy outlines how enquiry information is collected and processed for our Pune property.',
   },
 
-  // ---------------------------------------------------------------------------
-  // Terms & Conditions
-  // ---------------------------------------------------------------------------
   terms: {
     header: {
       title: 'Terms & Conditions',
-      subtitle: 'Please review our policies before your stay',
+      subtitle: 'General policies for staying at liv.inn, Pune',
     },
     lastUpdated: 'Last updated: September 2026',
     intro:
-      'By making a reservation at or staying at Liv.inn ("the Hotel"), you agree to the following terms and conditions. Please read them carefully.',
+      'By submitting an enquiry or residing at liv.inn, guests agree to the following guidelines. Detailed booking terms and cancellation policies will be confirmed prior to reservation confirmation.',
   },
 
   // ---------------------------------------------------------------------------
   // Footer
   // ---------------------------------------------------------------------------
   footer: {
-    quickLinks: 'Quick Links',
-    contact: 'Contact',
-    legal: 'Legal',
+    quickLinks: 'Navigation',
+    contact: 'Contact & Location',
+    legal: 'Information & Policies',
     privacyPolicy: 'Privacy Policy',
     termsConditions: 'Terms & Conditions',
     guestInformation: 'Guest Information',
-    copyright: (year: number, brandName: string) => `© ${year} ${brandName}. All rights reserved.`,
-    instagramAria: 'Follow us on Instagram',
+    copyright: (year: number, brandName: string) =>
+      `© ${year} ${brandName} Hotel, Pune. All rights reserved.`,
+    instagramAria: 'Follow liv.inn on Instagram',
   },
 
   // ---------------------------------------------------------------------------
@@ -576,66 +519,63 @@ export const STRINGS = {
   // ---------------------------------------------------------------------------
   seo: {
     siteUrl: 'https://livinn.in',
-    defaultTitle: 'Liv.inn — Boutique Hotel in Mumbai',
-    titleTemplate: '%s | Liv.inn — Hotel in Mumbai',
+    defaultTitle: 'liv.inn — Boutique Hotel in Pune | Nature-Oriented Stay',
+    titleTemplate: '%s | liv.inn — Boutique Hotel in Pune',
     defaultDescription:
-      'Liv.inn is a modern boutique hotel in Mumbai offering comfortable rooms, warm hospitality, and a prime location for business and leisure travellers.',
+      'liv.inn is a 25-room boutique hotel in Pune offering premium rooms with tranquil nature views, 5 rooms per floor, cloud kitchen, free Wi-Fi, on-site parking, and 24/7 guest assistance.',
     defaultKeywords: [
-      'hotel in Mumbai',
-      'boutique hotel Mumbai',
-      'Andheri hotel',
-      'Liv.inn',
-      'Livinn hotel',
-      'budget hotel Mumbai',
-      'hotel near Mumbai airport',
-      'hotel Andheri West',
-      'comfortable stay Mumbai',
+      'hotel in Pune',
+      'boutique hotel Pune',
+      'liv.inn Pune',
+      'livinn hotel',
+      'nature view hotel Pune',
+      'premium rooms Pune',
+      'cloud kitchen hotel Pune',
+      'hotel with parking Pune',
+      'peaceful stay Pune',
     ],
     pages: {
       about: {
         title: 'About',
         description:
-          'Learn about Liv.inn — a modern boutique hotel in Mumbai dedicated to providing comfortable stays, warm hospitality, and excellent service.',
+          'Learn about liv.inn — a modern 25-room boutique hotel in Pune with 5 rooms per floor, serene nature views, and dedicated 24/7 hospitality.',
       },
       rooms: {
-        title: 'Rooms & Facilities',
+        title: 'Premium Rooms & Facilities',
         description:
-          'Explore the rooms and facilities at Liv.inn. Choose from Standard, Deluxe, and Premium rooms — all designed for comfort and equipped with modern amenities.',
+          'Discover our 25 premium rooms in Pune featuring serene nature-oriented views, modern en-suite amenities, free Wi-Fi, and 24/7 guest care.',
       },
       gallery: {
-        title: 'Gallery',
+        title: 'Property Preview',
         description:
-          'Explore photos of Liv.inn — our rooms, interiors, amenities, and building exterior in Mumbai.',
+          'Explore images of liv.inn Pune, our premium rooms, green surroundings, and verified amenities.',
       },
       location: {
-        title: 'Location',
+        title: 'Location in Pune',
         description:
-          'Find Liv.inn in Mumbai. Get directions, view our address, and explore nearby attractions.',
+          'Find liv.inn in Pune, Maharashtra. Explore our nature-oriented setting and connectivity to hospitals, corporate hubs, and schools.',
       },
       contact: {
-        title: 'Contact',
+        title: 'Contact & Stay Enquiry',
         description:
-          'Get in touch with Liv.inn. Send an enquiry, call us, or message us on WhatsApp for room availability and bookings.',
+          'Submit a stay enquiry for liv.inn Pune. Check room availability, group requests, and verified hotel information.',
       },
       guestInfo: {
         title: 'Guest Information',
         description:
-          'Essential information for guests staying at Liv.inn — services, facilities, house rules, and contact details.',
+          'Essential guest guidance for staying at liv.inn Pune: Wi-Fi, cloud kitchen, laundry, parking, and 24/7 front desk support.',
       },
       privacy: {
         title: 'Privacy Policy',
-        description:
-          'Privacy Policy for Liv.inn. Learn how we collect, use, and protect your personal information.',
+        description: 'Privacy Policy for liv.inn hotel in Pune.',
       },
       terms: {
         title: 'Terms & Conditions',
-        description:
-          'Terms and Conditions for staying at Liv.inn. Read our booking, cancellation, and property policies.',
+        description: 'Terms and conditions for guest stays and enquiries at liv.inn Pune.',
       },
     },
   },
 } as const;
 
 export type Strings = typeof STRINGS;
-
 export default STRINGS;

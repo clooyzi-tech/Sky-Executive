@@ -1,0 +1,14 @@
+/**
+ * Central Content Index for liv.inn (Pune)
+ * 
+ * Aggregates all verified domain content modules:
+ * - hotelInfo (property metadata, story, values, 25 rooms, 5 floors)
+ * - roomsList, roomsOverview (premium room category, nature view, pricing note)
+ * - allFacilitiesAndServices (Wi-Fi, parking, cloud kitchen, laundry, housekeeping, 24/7 assistance)
+ * - contactConfig (Pune location, placeholders for unverified fields, nearby categories)
+ */
+
+export * from './hotel';
+export * from './rooms';
+export * from './facilities';
+export * from './contact';

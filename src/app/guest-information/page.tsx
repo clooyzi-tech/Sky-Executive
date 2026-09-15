@@ -1,16 +1,18 @@
 import type { Metadata } from 'next';
 import {
   Phone,
-  MessageCircle,
+  Mail,
   Wifi,
   Clock,
   AlertCircle,
-  Plane,
+  Compass,
   getServiceIcon,
+  getAttractionIcon,
+  Sparkles,
 } from '@/config/icons';
 import { generatePageMetadata, breadcrumbJsonLd } from '@/lib/seo';
 import { STRINGS } from '@/config/strings';
-import { whatsappUrl, phoneUrl } from '@/lib/utils';
+import { phoneUrl } from '@/lib/utils';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 
 export const metadata: Metadata = generatePageMetadata({
@@ -35,14 +37,17 @@ export default function GuestInformationPage() {
         }}
       />
 
-      {/* Page Header — designed for mobile QR scanning */}
-      <section className="bg-gradient-to-br from-charcoal to-accent-dark py-16 md:py-24">
+      {/* Page Header — optimized for guest access & QR scanning */}
+      <section className="bg-charcoal py-16 md:py-24 text-white">
         <div className="mx-auto max-w-lg px-4 text-center sm:px-6">
           <AnimatedSection>
-            <h1 className="font-serif text-3xl font-bold text-white md:text-4xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-black/40 px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-accent-gold backdrop-blur-sm">
+              liv.inn • Pune Guest Portal
+            </div>
+            <h1 className="mt-4 font-serif text-3xl font-bold text-white md:text-4xl">
               {guestInfo.header.title}
             </h1>
-            <p className="mx-auto mt-3 max-w-sm text-sm text-white/70 md:text-base">
+            <p className="mx-auto mt-3 max-w-sm text-sm text-white/80 md:text-base font-light">
               {guestInfo.header.subtitle}
             </p>
           </AnimatedSection>
@@ -50,93 +55,108 @@ export default function GuestInformationPage() {
       </section>
 
       <div className="mx-auto max-w-lg px-4 py-8 sm:px-6 md:max-w-2xl md:py-12">
-        {/* Quick Contact */}
+        {/* Front Desk Support */}
         <AnimatedSection>
-          <div className="mb-8 grid grid-cols-2 gap-3">
-            <a
-              href={whatsappUrl(contact.prefilledMessages.guestAssistance)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded-xl bg-green-600 px-4 py-3.5 text-sm font-medium text-white transition-all duration-200 hover:bg-green-700 active:scale-[0.98]"
-              id="guest-whatsapp"
-            >
-              <MessageCircle className="h-4 w-4" />
-              {guestInfo.quickContact.whatsapp}
-            </a>
-            <a
-              href={phoneUrl()}
-              className="flex items-center justify-center gap-2 rounded-xl bg-accent px-4 py-3.5 text-sm font-medium text-white transition-all duration-200 hover:bg-accent-dark active:scale-[0.98]"
-              id="guest-call"
-            >
-              <Phone className="h-4 w-4" />
-              {guestInfo.quickContact.call}
-            </a>
-          </div>
-        </AnimatedSection>
-
-        {/* Check-in / Check-out */}
-        <AnimatedSection delay={0.05}>
-          <div className="mb-6 rounded-2xl border border-border-light bg-white p-5 shadow-sm">
-            <h2 className="flex items-center gap-2 font-serif text-lg font-semibold text-charcoal">
-              <Clock className="h-5 w-5 text-accent" />
-              {guestInfo.timing.title}
-            </h2>
-            <div className="mt-4 grid grid-cols-2 gap-4">
-              <div className="rounded-xl bg-cream/60 p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-slate-medium">
-                  {guestInfo.timing.checkIn}
-                </p>
-                <p className="mt-1 text-xl font-semibold text-charcoal">
-                  {guestInfo.timing.checkInTime}
+          <div className="mb-8 rounded-2xl border border-border-gold bg-ivory p-5 shadow-xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-accent-dark">
+                  24/7 Front Desk Hotline
+                </span>
+                <h3 className="font-serif text-lg font-bold text-charcoal">
+                  {contact.phone}
+                </h3>
+                <p className="text-xs text-slate-deep mt-0.5">
+                  Available round the clock for room service, housekeeping & assistance.
                 </p>
               </div>
-              <div className="rounded-xl bg-cream/60 p-4 text-center">
-                <p className="text-xs font-medium uppercase tracking-wider text-slate-medium">
-                  {guestInfo.timing.checkOut}
-                </p>
-                <p className="mt-1 text-xl font-semibold text-charcoal">
-                  {guestInfo.timing.checkOutTime}
-                </p>
+              <div className="flex items-center gap-2">
+                <a
+                  href={phoneUrl()}
+                  className="flex items-center gap-2 rounded-xl bg-accent px-4 py-2.5 text-xs font-semibold text-charcoal shadow-xs hover:bg-accent-light"
+                  id="guest-call"
+                >
+                  <Phone className="h-4 w-4" />
+                  Call Now
+                </a>
+                <a
+                  href={`https://wa.me/918007724646?text=${encodeURIComponent(
+                    contact.prefilledMessages.guestAssistance
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-2.5 text-xs font-semibold text-white shadow-xs hover:bg-emerald-700"
+                  id="guest-whatsapp"
+                >
+                  WhatsApp
+                </a>
               </div>
             </div>
           </div>
         </AnimatedSection>
 
-        {/* Wi-Fi */}
+        {/* Check-in / Check-out Timing Notice */}
+        <AnimatedSection delay={0.05}>
+          <div className="mb-6 rounded-2xl border border-border bg-white p-5 shadow-xs">
+            <div className="flex items-center justify-between">
+              <h2 className="flex items-center gap-2 font-serif text-lg font-bold text-charcoal">
+                <Clock className="h-5 w-5 text-accent" />
+                {guestInfo.timing.title}
+              </h2>
+              <span className="rounded-full bg-amber-100 px-2.5 py-0.5 text-[10px] font-semibold text-amber-800 border border-amber-200">
+                To be confirmed
+              </span>
+            </div>
+
+            <div className="mt-4 rounded-xl border border-border-light bg-cream/40 p-4">
+              <p className="text-xs font-semibold uppercase tracking-wider text-accent-dark">
+                Official Document Notation
+              </p>
+              <p className="mt-1 text-base font-serif font-bold text-charcoal">
+                {guestInfo.timing.providedTiming}
+              </p>
+              <p className="mt-2 text-xs leading-relaxed text-slate-deep">
+                {guestInfo.timing.note}
+              </p>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Wi-Fi Access */}
         <AnimatedSection delay={0.1}>
-          <div className="mb-6 rounded-2xl border border-border-light bg-white p-5 shadow-sm">
-            <h2 className="flex items-center gap-2 font-serif text-lg font-semibold text-charcoal">
+          <div className="mb-6 rounded-2xl border border-border bg-white p-5 shadow-xs">
+            <h2 className="flex items-center gap-2 font-serif text-lg font-bold text-charcoal">
               <Wifi className="h-5 w-5 text-accent" />
               {guestInfo.wifi.title}
             </h2>
-            <p className="mt-2 text-sm text-slate-deep">
+            <p className="mt-2 text-sm text-slate-deep leading-relaxed">
               {guestInfo.wifi.description}
             </p>
           </div>
         </AnimatedSection>
 
-        {/* Services */}
+        {/* Verified Property Services */}
         <AnimatedSection delay={0.15}>
-          <div className="mb-6 rounded-2xl border border-border-light bg-white p-5 shadow-sm">
-            <h2 className="flex items-center gap-2 font-serif text-lg font-semibold text-charcoal">
-              <Clock className="h-5 w-5 text-accent" />
+          <div className="mb-6 rounded-2xl border border-border bg-white p-5 shadow-xs">
+            <h2 className="flex items-center gap-2 font-serif text-lg font-bold text-charcoal">
+              <Sparkles className="h-5 w-5 text-accent" />
               {guestInfo.services.title}
             </h2>
             <div className="mt-4 space-y-3">
               {guestInfo.services.items.map((service) => (
                 <div
                   key={service.name}
-                  className="flex items-center justify-between rounded-lg bg-cream/40 px-4 py-3"
+                  className="flex items-center justify-between rounded-xl bg-cream/40 px-4 py-3 border border-border-light"
                 >
                   <div className="flex items-center gap-3">
                     <span className="text-accent">
                       {getServiceIcon(service.name)}
                     </span>
-                    <span className="text-sm font-medium text-charcoal">
+                    <span className="text-sm font-semibold text-charcoal">
                       {service.name}
                     </span>
                   </div>
-                  <span className="text-xs text-slate-medium">
+                  <span className="text-xs font-medium text-accent-dark">
                     {service.availability}
                   </span>
                 </div>
@@ -145,43 +165,46 @@ export default function GuestInformationPage() {
           </div>
         </AnimatedSection>
 
-        {/* House Rules */}
+        {/* House Guidelines */}
         <AnimatedSection delay={0.2}>
-          <div className="mb-6 rounded-2xl border border-border-light bg-white p-5 shadow-sm">
-            <h2 className="flex items-center gap-2 font-serif text-lg font-semibold text-charcoal">
+          <div className="mb-6 rounded-2xl border border-border bg-white p-5 shadow-xs">
+            <h2 className="flex items-center gap-2 font-serif text-lg font-bold text-charcoal">
               <AlertCircle className="h-5 w-5 text-accent" />
               {guestInfo.houseRules.title}
             </h2>
             <ul className="mt-4 space-y-2.5">
               {guestInfo.houseRules.items.map((rule, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-slate-deep">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-muted text-[10px] font-semibold text-accent">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-muted text-[10px] font-semibold text-accent-dark">
                     {i + 1}
                   </span>
-                  {rule}
+                  <span>{rule}</span>
                 </li>
               ))}
             </ul>
           </div>
         </AnimatedSection>
 
-        {/* Nearby */}
+        {/* Nearby Establishments (Pune) */}
         <AnimatedSection delay={0.25}>
-          <div className="mb-6 rounded-2xl border border-border-light bg-white p-5 shadow-sm">
-            <h2 className="flex items-center gap-2 font-serif text-lg font-semibold text-charcoal">
-              <Plane className="h-5 w-5 text-accent" />
+          <div className="mb-6 rounded-2xl border border-border bg-white p-5 shadow-xs">
+            <h2 className="flex items-center gap-2 font-serif text-lg font-bold text-charcoal">
+              <Compass className="h-5 w-5 text-accent" />
               {guestInfo.nearby.title}
             </h2>
             <div className="mt-4 space-y-3">
               {location.attractions.items.map((place) => (
                 <div
                   key={place.name}
-                  className="flex items-center justify-between rounded-lg bg-cream/40 px-4 py-3"
+                  className="flex items-center justify-between rounded-xl bg-cream/40 px-4 py-3 border border-border-light"
                 >
-                  <span className="text-sm font-medium text-charcoal">
-                    {place.name}
-                  </span>
-                  <span className="rounded-full bg-accent-muted px-2.5 py-0.5 text-xs font-medium text-accent">
+                  <div className="flex items-center gap-2.5">
+                    {getAttractionIcon(place.name, 'h-4 w-4 text-accent')}
+                    <span className="text-sm font-medium text-charcoal">
+                      {place.name}
+                    </span>
+                  </div>
+                  <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold text-amber-800">
                     {place.distance}
                   </span>
                 </div>
@@ -190,13 +213,18 @@ export default function GuestInformationPage() {
           </div>
         </AnimatedSection>
 
-        {/* Footer note */}
+        {/* Footer note & Property Address */}
         <AnimatedSection delay={0.3}>
-          <p className="text-center text-xs text-slate-medium">
-            {guestInfo.footerNote.line1}
-            <br />
-            {guestInfo.footerNote.line2}
-          </p>
+          <div className="text-center text-xs text-slate-medium leading-relaxed">
+            <p>
+              {guestInfo.footerNote.line1}
+              <br />
+              {guestInfo.footerNote.line2}
+            </p>
+            <p className="mt-3 font-medium text-charcoal">
+              liv.inn Hotel • {contact.address.full}
+            </p>
+          </div>
         </AnimatedSection>
       </div>
     </>

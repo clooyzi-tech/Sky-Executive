@@ -1,8 +1,8 @@
 /**
- * Centralized Icons Configuration for Liv.inn
+ * Centralized Icons Configuration for liv.inn (Pune)
  * 
  * All icons (Lucide icons and custom SVGs) are managed and exported here.
- * Any screen or component can import icons directly from this config.
+ * Re-exports clean Lucide icons and resolvers for verified facilities and Pune categories.
  */
 
 import React from 'react';
@@ -36,18 +36,29 @@ import {
   Loader2,
   Clock,
   AlertCircle,
+  Info,
   Coffee,
   Shirt,
   Bell,
   Heart,
   Shield,
   IndianRupee,
+  UtensilsCrossed,
+  Building2,
+  Trees,
+  Sun,
+  Wind,
+  Eye,
+  HeartPulse,
+  Building,
+  GraduationCap,
+  Compass,
   type LucideIcon,
   type LucideProps,
 } from 'lucide-react';
 
 /**
- * Custom SVG: Instagram Icon (Pure TS createElement)
+ * Custom SVG: Instagram Icon
  */
 export function InstagramIcon({ className = 'h-4 w-4', ...props }: React.SVGProps<SVGSVGElement>) {
   return React.createElement(
@@ -60,7 +71,6 @@ export function InstagramIcon({ className = 'h-4 w-4', ...props }: React.SVGProp
       strokeWidth: 2,
       strokeLinecap: 'round',
       strokeLinejoin: 'round',
-      'aria-hidden': 'true',
       ...props,
     },
     React.createElement('rect', { width: 20, height: 20, x: 2, y: 2, rx: 5, ry: 5 }),
@@ -70,9 +80,9 @@ export function InstagramIcon({ className = 'h-4 w-4', ...props }: React.SVGProp
 }
 
 /**
- * Custom SVG: Image Placeholder Fallback Icon (Pure TS createElement)
+ * Custom SVG: Placeholder Image Icon
  */
-export function PlaceholderImageIcon({ className = 'w-12 h-12', ...props }: React.SVGProps<SVGSVGElement>) {
+export function PlaceholderImageIcon({ className = 'h-10 w-10', ...props }: React.SVGProps<SVGSVGElement>) {
   return React.createElement(
     'svg',
     {
@@ -85,17 +95,13 @@ export function PlaceholderImageIcon({ className = 'w-12 h-12', ...props }: Reac
       strokeLinejoin: 'round',
       ...props,
     },
-    React.createElement('rect', { x: 3, y: 3, width: 18, height: 18, rx: 2, ry: 2 }),
-    React.createElement('circle', { cx: 8.5, cy: 8.5, r: 1.5 }),
-    React.createElement('polyline', { points: '21 15 16 10 5 21' })
+    React.createElement('rect', { width: 18, height: 18, x: 3, y: 3, rx: 2, ry: 2 }),
+    React.createElement('circle', { cx: 9, cy: 9, r: 2 }),
+    React.createElement('path', { d: 'm21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21' })
   );
 }
 
-/**
- * Dictionary of all centralized icons
- */
 export const Icons = {
-  // Navigation & Directional
   ArrowRight,
   ChevronLeft,
   ChevronRight,
@@ -104,16 +110,12 @@ export const Icons = {
   Menu,
   Close: X,
   X,
-
-  // Communication & Contact
   Phone,
   Mail,
   MapPin,
   WhatsApp: MessageCircle,
   MessageCircle,
   Instagram: InstagramIcon,
-
-  // Hotel & Amenities
   Bed,
   Users,
   Wifi,
@@ -126,18 +128,16 @@ export const Icons = {
   Coffee,
   Shirt,
   Bell,
-
-  // Attractions & Nearby
-  Train,
-  Plane,
-  Airport: Plane,
-  Railway: Train,
-  ShoppingBag,
-  Mall: ShoppingBag,
-  Waves,
-  Beach: Waves,
-
-  // Status & Utility
+  UtensilsCrossed,
+  Building2,
+  Trees,
+  Sun,
+  Wind,
+  Eye,
+  HeartPulse,
+  Building,
+  GraduationCap,
+  Compass,
   Check,
   CheckCircle,
   Clock,
@@ -145,7 +145,6 @@ export const Icons = {
   Send,
   Loader2,
   Heart,
-  Rupee: IndianRupee,
   IndianRupee,
   Image: PlaceholderImageIcon,
 } as const;
@@ -156,11 +155,16 @@ export const Icons = {
 export function getFacilityIcon(name: string, className: string = 'h-6 w-6'): React.ReactNode {
   const map: Record<string, LucideIcon> = {
     Wifi,
+    Car,
+    UtensilsCrossed,
+    Shirt,
+    Sparkles,
+    Clock,
     ShieldCheck,
     ConciergeBell,
-    Car,
-    Sparkles,
     Luggage,
+    Trees,
+    Building2,
   };
   const IconComp = map[name] ?? Sparkles;
   return React.createElement(IconComp, { className });
@@ -171,12 +175,16 @@ export function getFacilityIcon(name: string, className: string = 'h-6 w-6'): Re
  */
 export function getWhyChooseIcon(name: string, className: string = 'h-6 w-6'): React.ReactNode {
   const map: Record<string, LucideIcon> = {
+    Trees,
+    Building2,
+    UtensilsCrossed,
+    Clock,
+    Wifi,
+    Car,
     MapPin,
     Heart,
     Shield,
     Sparkles,
-    Wifi,
-    IndianRupee,
   };
   const IconComp = map[name] ?? Sparkles;
   return React.createElement(IconComp, { className });
@@ -187,31 +195,35 @@ export function getWhyChooseIcon(name: string, className: string = 'h-6 w-6'): R
  */
 export function getServiceIcon(serviceName: string, className: string = 'h-5 w-5'): React.ReactNode {
   const map: Record<string, LucideIcon> = {
-    'Room Service': Coffee,
+    '24/7 Guest Assistance': Clock,
+    'In-House Cloud Kitchen': UtensilsCrossed,
     'Laundry Service': Shirt,
-    'Wake-up Call': Bell,
-    'Travel Assistance': MapPin,
-    'Medical Assistance': Shield,
+    'Housekeeping & Cleanliness': Sparkles,
+    'On-Site Parking': Car,
+    'Complimentary Wi-Fi': Wifi,
   };
   const IconComp = map[serviceName] ?? ConciergeBell;
   return React.createElement(IconComp, { className });
 }
 
 /**
- * Nearby Attraction Icon resolver
+ * Nearby Establishment Category Icon resolver (Pune)
  */
-export function getAttractionIcon(attractionName: string, className: string = 'h-5 w-5'): React.ReactNode {
+export function getAttractionIcon(categoryOrIconName: string, className: string = 'h-5 w-5'): React.ReactNode {
   const map: Record<string, LucideIcon> = {
-    'Chhatrapati Shivaji Maharaj International Airport': Plane,
-    'Andheri Railway Station': Train,
-    'Infinity Mall': ShoppingBag,
-    'Versova Beach': Waves,
+    HeartPulse,
+    Building,
+    GraduationCap,
+    Compass,
+    'Hospitals & Healthcare': HeartPulse,
+    'Corporate Offices & MNC Hubs': Building,
+    'Schools & Educational Institutions': GraduationCap,
+    'Other Nearby Establishments': Compass,
   };
-  const IconComp = map[attractionName] ?? MapPin;
+  const IconComp = map[categoryOrIconName] ?? MapPin;
   return React.createElement(IconComp, { className });
 }
 
-// Re-export individual Lucide components for convenience
 export {
   ArrowRight,
   Bed,
@@ -242,12 +254,23 @@ export {
   Loader2,
   Clock,
   AlertCircle,
+  Info,
   Coffee,
   Shirt,
   Bell,
   Heart,
   Shield,
   IndianRupee,
+  UtensilsCrossed,
+  Building2,
+  Trees,
+  Sun,
+  Wind,
+  Eye,
+  HeartPulse,
+  Building,
+  GraduationCap,
+  Compass,
   type LucideIcon,
   type LucideProps,
 };

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { seoConfig, brand, contact } from './content';
 
 /**
- * Generate page-specific metadata with sensible defaults.
+ * Generate page-specific metadata with sensible defaults for liv.inn Pune.
  */
 export function generatePageMetadata({
   title,
@@ -20,6 +20,7 @@ export function generatePageMetadata({
     : seoConfig.defaultTitle;
   const pageDescription = description ?? seoConfig.defaultDescription;
   const url = `${seoConfig.siteUrl}${path}`;
+  const image = ogImage || '/images/property/hero.jpg';
 
   return {
     title: pageTitle,
@@ -38,19 +39,21 @@ export function generatePageMetadata({
       title: pageTitle,
       description: pageDescription,
       siteName: brand.name,
-      ...(ogImage && { images: [{ url: ogImage, width: 1200, height: 630, alt: pageTitle }] }),
+      images: [{ url: image, width: 1200, height: 630, alt: pageTitle }],
     },
     twitter: {
       card: 'summary_large_image',
       title: pageTitle,
       description: pageDescription,
-      ...(ogImage && { images: [ogImage] }),
+      images: [image],
     },
   };
 }
 
 /**
  * Generate Hotel / LodgingBusiness JSON-LD structured data.
+ * Adheres strictly to verified information: Pune, Maharashtra.
+ * Excludes unverified address details, ratings, prices, or claims.
  */
 export function hotelJsonLd() {
   return {
@@ -60,21 +63,21 @@ export function hotelJsonLd() {
     description: brand.description,
     url: seoConfig.siteUrl,
     telephone: contact.phone,
-    email: contact.email,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: `${contact.address.line1}, ${contact.address.line2}`,
-      addressLocality: contact.address.city,
+      streetAddress: contact.address.street,
+      addressLocality: contact.address.locality,
       addressRegion: contact.address.state,
       postalCode: contact.address.pincode,
-      addressCountry: contact.address.country,
+      addressCountry: 'IN',
     },
-    // No fake ratings, reviews, or prices
+    numberOfRooms: 25,
+    petsAllowed: false,
   };
 }
 
 /**
- * Generate Organization JSON-LD structured data.
+ * Generate Organization JSON-LD structured data for liv.inn.
  */
 export function organizationJsonLd() {
   return {
@@ -82,19 +85,14 @@ export function organizationJsonLd() {
     '@type': 'Organization',
     name: brand.name,
     url: seoConfig.siteUrl,
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: contact.phone,
-      contactType: 'customer service',
-      availableLanguage: ['English', 'Hindi'],
-    },
+    telephone: contact.phone,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: `${contact.address.line1}, ${contact.address.line2}`,
-      addressLocality: contact.address.city,
+      streetAddress: contact.address.street,
+      addressLocality: contact.address.locality,
       addressRegion: contact.address.state,
       postalCode: contact.address.pincode,
-      addressCountry: contact.address.country,
+      addressCountry: 'IN',
     },
   };
 }
