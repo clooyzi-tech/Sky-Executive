@@ -59,6 +59,10 @@ import {
   Building,
   GraduationCap,
   Compass,
+  Play,
+  Pause,
+  Calendar,
+  Star,
   type LucideIcon,
   type LucideProps,
 } from 'lucide-react';
@@ -330,6 +334,10 @@ export {
   Building,
   GraduationCap,
   Compass,
+  Play,
+  Pause,
+  Calendar,
+  Star,
   type LucideIcon,
   type LucideProps,
 };
