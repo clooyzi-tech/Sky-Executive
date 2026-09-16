@@ -6,6 +6,7 @@ import { IMAGES } from '@/config/image';
 import { STRINGS } from '@/config/strings';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import CTAButton from '@/components/ui/CTAButton';
+import SectionDivider from '@/components/ui/SectionDivider';
 
 export default function NatureViewSection() {
   const { natureHighlight } = STRINGS.home;
@@ -34,9 +35,9 @@ export default function NatureViewSection() {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-white overflow-hidden" id="nature-views">
+    <section className="pt-[26px] pb-0 bg-white overflow-hidden" id="nature-views">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div className="grid items-center gap-[16px] lg:grid-cols-2">
           {/* Left Column: Image with layered elegance */}
           <AnimatedSection direction="left">
             <div className="relative">
@@ -84,16 +85,16 @@ export default function NatureViewSection() {
                 {natureHighlight.badge}
               </span>
 
-              <h2 className="mt-3 font-serif text-3xl font-bold text-charcoal sm:text-4xl md:text-5xl leading-tight">
+              <h2 className="mt-[16px] font-serif text-3xl font-bold text-charcoal sm:text-4xl md:text-5xl leading-tight">
                 {natureHighlight.title}
               </h2>
 
-              <p className="mt-4 text-base leading-relaxed text-slate-deep md:text-lg">
+              <p className="mt-[16px] text-base leading-relaxed text-slate-deep md:text-lg">
                 {natureHighlight.description}
               </p>
 
               {/* 4 Feature mini-cards */}
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <div className="mt-[16px] grid gap-[16px] sm:grid-cols-2">
                 {features.map((item) => (
                   <div
                     key={item.title}
@@ -112,7 +113,7 @@ export default function NatureViewSection() {
                 ))}
               </div>
 
-              <div className="mt-8 flex items-center gap-4">
+              <div className="mt-[16px] flex items-center gap-[16px]">
                 <CTAButton href="/contact" size="md" id="nature-enquire-cta">
                   Enquire for Stay
                   <ArrowRight className="h-4 w-4" />
@@ -130,6 +131,9 @@ export default function NatureViewSection() {
           </AnimatedSection>
         </div>
       </div>
+
+      {/* Luxury Section Divider */}
+      <SectionDivider />
     </section>
   );
 }
