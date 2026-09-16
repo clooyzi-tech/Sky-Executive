@@ -53,7 +53,7 @@ export default function Hero() {
       <div className="relative z-10 mx-auto max-w-5xl px-4 pt-20 pb-12 text-center sm:px-6 sm:pt-24 sm:pb-14 lg:px-8">
         {/* Verified Eyebrow Badge Pill */}
         <AnimatedSection delay={0.05} direction="none">
-          <div className="mx-auto mb-4 flex justify-center">
+          <div className="mx-auto mb-[16px] flex justify-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-black/60 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-accent-gold backdrop-blur-md shadow-lg transition-transform hover:scale-105">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
@@ -78,14 +78,14 @@ export default function Hero() {
 
         {/* Brief Introduction */}
         <AnimatedSection delay={0.25}>
-          <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base md:text-lg font-light leading-relaxed text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+          <p className="mx-auto mt-[16px] max-w-2xl text-sm sm:text-base md:text-lg font-light leading-relaxed text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
             {hero.description}
           </p>
         </AnimatedSection>
 
         {/* Glassmorphic Property Snapshot Chips */}
         <AnimatedSection delay={0.35}>
-          <div className="mx-auto mt-6 flex flex-wrap items-center justify-center gap-2.5 text-xs sm:text-sm text-white">
+          <div className="mx-auto mt-[16px] flex flex-wrap items-center justify-center gap-[16px] text-xs sm:text-sm text-white">
             <span className="inline-flex items-center gap-2 rounded-full bg-black/40 px-3.5 py-1.5 backdrop-blur-md border border-white/25 hover:border-accent/50 hover:bg-black/50 transition-all shadow-md">
               <Building2 className="h-4 w-4 text-accent-gold" />
               <span className="font-medium">25 Premium Rooms</span>
@@ -106,7 +106,7 @@ export default function Hero() {
 
         {/* Primary Call To Actions */}
         <AnimatedSection delay={0.45}>
-          <div className="mt-7 flex flex-col items-center gap-3.5 sm:flex-row sm:justify-center">
+          <div className="mt-[16px] flex flex-col items-center gap-[16px] sm:flex-row sm:justify-center">
             <CTAButton
               href="/contact"
               size="lg"
@@ -130,8 +130,8 @@ export default function Hero() {
 
         {/* Integrated Luxury Quick Reservation Strip */}
         <AnimatedSection delay={0.55}>
-          <div className="mx-auto mt-8 max-w-4xl rounded-2xl border border-white/20 bg-charcoal/80 sm:bg-charcoal/70 p-3.5 sm:p-4 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-            <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 items-center text-left">
+          <div className="mx-auto mt-[16px] max-w-4xl rounded-2xl border border-white/20 bg-charcoal/80 sm:bg-charcoal/70 p-3.5 sm:p-4 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <div className="grid grid-cols-1 sm:grid-cols-4 gap-[16px] items-center text-left">
               {/* Check-In Timing */}
               <div className="rounded-xl bg-white/[0.07] p-3 border border-white/10 transition-colors hover:border-accent/40 hover:bg-white/[0.12]">
                 <div className="flex items-center gap-1.5 text-[11px] uppercase tracking-wider text-accent-gold font-medium">

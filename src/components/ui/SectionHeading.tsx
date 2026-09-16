@@ -18,7 +18,7 @@ export default function SectionHeading({
   className,
 }: SectionHeadingProps) {
   return (
-    <div className={cn(centered && 'text-center', 'mb-12 md:mb-16', className)}>
+    <div className={cn(centered && 'text-center', 'mb-[16px]', className)}>
       {/* Decorative line */}
       <div
         className={cn(
@@ -38,7 +38,7 @@ export default function SectionHeading({
       {subtitle && (
         <p
           className={cn(
-            'mx-auto mt-4 max-w-2xl text-base leading-relaxed md:text-lg',
+            'mx-auto mt-[16px] max-w-2xl text-base leading-relaxed md:text-lg',
             light ? 'text-white/70' : 'text-slate-deep'
           )}
         >

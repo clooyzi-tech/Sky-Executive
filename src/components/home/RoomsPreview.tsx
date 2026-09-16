@@ -18,6 +18,7 @@ import {
 import { STRINGS } from '@/config/strings';
 import { whatsappUrl } from '@/lib/utils';
 import AnimatedSection from '@/components/ui/AnimatedSection';
+import SectionDivider from '@/components/ui/SectionDivider';
 
 interface RoomsShowcaseProps {
   id?: string;
@@ -56,12 +57,12 @@ export default function RoomsPreview({
   };
 
   return (
-    <section className="relative overflow-hidden bg-white py-20 md:py-28" id={id}>
+    <section className="relative overflow-hidden bg-white pt-[26px] pb-0" id={id}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* ============================================================ */}
         {/* 1. SECTION HEADER (Matching Rooms-image.png)                */}
         {/* ============================================================ */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-[16px] pb-[16px]">
           {/* Left Title & Subtitle */}
           <AnimatedSection>
             <div>
@@ -69,11 +70,11 @@ export default function RoomsPreview({
                 {roomsPreview.eyebrow}
               </span>
 
-              <h2 className="mt-2 font-serif text-3xl font-bold tracking-tight text-[#1C1C1C] sm:text-4xl lg:text-5xl">
+              <h2 className="mt-[16px] font-serif text-3xl font-bold tracking-tight text-[#1C1C1C] sm:text-4xl lg:text-5xl">
                 {roomsPreview.title}
               </h2>
 
-              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#5F5A50] sm:text-base">
+              <p className="mt-[16px] max-w-2xl text-sm leading-relaxed text-[#5F5A50] sm:text-base">
                 {roomsPreview.subtitle}
               </p>
             </div>
@@ -95,7 +96,7 @@ export default function RoomsPreview({
         {/* ============================================================ */}
         {/* 2. THE 4 ALTERNATING ROOM SHOWCASE CARDS                     */}
         {/* ============================================================ */}
-        <div className="mt-12 space-y-8 sm:space-y-12 lg:space-y-14">
+        <div className="mt-[16px] space-y-[16px]">
           {roomsPreview.rooms.map((room, idx) => {
             const isReversed = idx % 2 === 1; // Odd indices (02, 04) have content on left, image on right
 
@@ -155,17 +156,17 @@ export default function RoomsPreview({
                         </div>
 
                         {/* Room Name */}
-                        <h3 className="mt-3 font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1C1C1C]">
+                        <h3 className="mt-[16px] font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1C1C1C]">
                           {room.name}
                         </h3>
 
                         {/* Description */}
-                        <p className="mt-3 text-xs sm:text-sm leading-relaxed text-[#5F5A50] sm:text-base font-normal">
+                        <p className="mt-[16px] text-xs sm:text-sm leading-relaxed text-[#5F5A50] sm:text-base font-normal">
                           {room.description}
                         </p>
 
                         {/* 6 Amenities Grid with Icons */}
-                        <div className="mt-6 sm:mt-8 pt-6 border-t border-[#F3EFE6] grid grid-cols-2 sm:grid-cols-3 gap-y-3.5 gap-x-4">
+                        <div className="mt-[16px] pt-[16px] border-t border-[#F3EFE6] grid grid-cols-2 sm:grid-cols-3 gap-[16px]">
                           {room.amenities.map((amenity) => (
                             <div
                               key={amenity.label}
@@ -181,7 +182,7 @@ export default function RoomsPreview({
                       </div>
 
                       {/* Bottom Row: CTA Button + Occupancy Indicator */}
-                      <div className="mt-8 pt-6 border-t border-[#F3EFE6] flex flex-wrap items-center justify-between gap-4">
+                      <div className="mt-[16px] pt-[16px] border-t border-[#F3EFE6] flex flex-wrap items-center justify-between gap-[16px]">
                         <Link
                           href={actionHref}
                           target={isAllRoomsPage ? '_blank' : undefined}
@@ -211,12 +212,12 @@ export default function RoomsPreview({
         {/* 3. BOTTOM CONSULTATION / HELP BANNER                          */}
         {/* ============================================================ */}
         <AnimatedSection delay={0.3}>
-          <div className="mt-12 sm:mt-16 rounded-2xl sm:rounded-3xl border border-[#DED8CC] bg-[#F5EFEB] p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs hover:shadow-sm transition-all">
+          <div className="mt-[16px] rounded-2xl sm:rounded-3xl border border-[#DED8CC] bg-[#F5EFEB] p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-[16px] shadow-xs hover:shadow-sm transition-all">
             <div>
               <h4 className="font-serif text-xl sm:text-2xl font-bold text-[#1C1C1C]">
                 {roomsPreview.consultationBanner.title}
               </h4>
-              <p className="mt-1.5 text-xs sm:text-sm text-[#5F5A50]">
+              <p className="mt-[16px] text-xs sm:text-sm text-[#5F5A50]">
                 {roomsPreview.consultationBanner.subtitle}
               </p>
             </div>
@@ -232,6 +233,9 @@ export default function RoomsPreview({
           </div>
         </AnimatedSection>
       </div>
+
+      {/* Luxury Section Divider */}
+      <SectionDivider />
     </section>
   );
 }

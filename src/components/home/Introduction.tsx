@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { STRINGS } from '@/config/strings';
 import { IMAGES } from '@/config/image';
 import AnimatedSection from '@/components/ui/AnimatedSection';
+import SectionDivider from '@/components/ui/SectionDivider';
 import {
   Building2,
   Trees,
@@ -54,14 +55,14 @@ export default function Introduction() {
   ];
 
   return (
-    <section className="relative py-24 md:py-32 bg-background overflow-hidden" id="hotel-overview">
+    <section className="relative pt-[26px] pb-0 bg-background overflow-hidden" id="hotel-overview">
       {/* Decorative Warm Ambient Glow */}
       <div className="absolute top-0 right-0 -mr-40 -mt-40 h-96 w-96 rounded-full bg-accent/5 blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 -ml-40 -mb-40 h-96 w-96 rounded-full bg-cream-dark/50 blur-3xl pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mx-auto max-w-3xl text-center mb-16 md:mb-20">
+        <div className="mx-auto max-w-3xl text-center mb-[16px]">
           <AnimatedSection>
             <div className="inline-flex items-center gap-2 rounded-full border border-border-gold bg-cream px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent-dark shadow-xs">
               <Trees className="h-3.5 w-3.5 text-accent" />
@@ -70,23 +71,23 @@ export default function Introduction() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.1}>
-            <h2 className="mt-4 font-serif text-3xl font-bold text-charcoal sm:text-4xl lg:text-5xl tracking-tight">
+            <h2 className="mt-[16px] font-serif text-3xl font-bold text-charcoal sm:text-4xl lg:text-5xl tracking-tight">
               Welcome to <span className="gold-gradient-text">liv.inn</span>
             </h2>
           </AnimatedSection>
 
           <AnimatedSection delay={0.15}>
-            <p className="mt-3 text-base sm:text-lg text-slate-medium font-light max-w-xl mx-auto">
+            <p className="mt-[16px] text-base sm:text-lg text-slate-medium font-light max-w-xl mx-auto">
               {introduction.subtitle}
             </p>
-            <div className="mx-auto mt-4 h-0.5 w-16 bg-gradient-to-r from-transparent via-accent to-transparent" />
+            <div className="mx-auto mt-[16px] h-0.5 w-16 bg-gradient-to-r from-transparent via-accent to-transparent" />
           </AnimatedSection>
         </div>
 
         {/* 2-Column Editorial Storytelling Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-[16px] items-center mb-[16px]">
           {/* Left Column: Story & Philosophy */}
-          <div className="lg:col-span-6 space-y-6">
+          <div className="lg:col-span-6 space-y-[16px]">
             <AnimatedSection delay={0.2}>
               <div className="border-l-2 border-accent pl-5 py-1">
                 <p className="font-serif text-lg sm:text-xl text-charcoal leading-snug italic">
@@ -96,7 +97,7 @@ export default function Introduction() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.25}>
-              <div className="space-y-4 text-base leading-relaxed text-slate-deep">
+              <div className="space-y-[16px] text-base leading-relaxed text-slate-deep">
                 <p>{introduction.p1}</p>
                 <p>{introduction.p2}</p>
               </div>
@@ -104,7 +105,7 @@ export default function Introduction() {
 
             {/* Curated Highlights List */}
             <AnimatedSection delay={0.3}>
-              <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="pt-[16px] grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
                 {highlights.map((item) => (
                   <div key={item} className="flex items-start gap-2.5">
                     <CheckCircle className="h-4 w-4 text-accent mt-1 shrink-0" />
@@ -118,7 +119,7 @@ export default function Introduction() {
 
             {/* Read Story CTA */}
             <AnimatedSection delay={0.35}>
-              <div className="pt-4 flex items-center gap-4">
+              <div className="pt-[16px] flex items-center gap-[16px]">
                 <Link
                   href="/about"
                   className="inline-flex items-center gap-2 text-sm font-semibold text-accent-dark hover:text-accent transition-colors group"
@@ -188,16 +189,16 @@ export default function Introduction() {
 
         {/* 4 Pillars of liv.inn Pune (Refined Cards) */}
         <div>
-          <div className="text-center mb-10">
+          <div className="text-center mb-[16px]">
             <h3 className="font-serif text-2xl font-bold text-charcoal sm:text-3xl">
               Why Guests Love liv.inn
             </h3>
-            <p className="mt-2 text-sm text-slate-medium">
+            <p className="mt-[16px] text-sm text-slate-medium">
               Carefully designed essentials for a restful and seamless stay
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-[16px] sm:grid-cols-2 lg:grid-cols-4">
             {keyPillars.map((pillar, idx) => (
               <AnimatedSection key={pillar.title} delay={0.1 * idx}>
                 <div className="group relative h-full rounded-2xl border border-border bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/50 hover:shadow-xl">
@@ -212,10 +213,10 @@ export default function Introduction() {
                   </div>
 
                   {/* Card Content */}
-                  <h4 className="mt-5 font-serif text-lg font-semibold text-charcoal group-hover:text-accent-dark transition-colors">
+                  <h4 className="mt-[16px] font-serif text-lg font-semibold text-charcoal group-hover:text-accent-dark transition-colors">
                     {pillar.title}
                   </h4>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-deep">
+                  <p className="mt-[16px] text-sm leading-relaxed text-slate-deep">
                     {pillar.desc}
                   </p>
                 </div>
@@ -224,6 +225,9 @@ export default function Introduction() {
           </div>
         </div>
       </div>
+
+      {/* Luxury Section Divider */}
+      <SectionDivider />
     </section>
   );
 }
