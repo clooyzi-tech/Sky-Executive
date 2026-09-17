@@ -77,7 +77,7 @@ export const contactConfig: ContactConfig = {
   whatsapp: '+918007724646',
   whatsappStatus: 'verified',
 
-  email: 'stay@livinn.in',
+  email: 'help.livinn@gmail.com',
   emailStatus: 'verified',
 
   social: {
@@ -101,23 +101,31 @@ export const contactConfig: ContactConfig = {
   },
 
   maps: {
-    // Exact embedded map query for Infinity Greens Society / Wagholi Pune 412207
+    // Exact embedded map query for 18°33'03.6"N 73°58'26.3"E (18.5510123, 73.9739785)
     puneCityEmbedUrl:
-      'https://maps.google.com/maps?q=Infinity+Greens+Society+Wagholi+Pune+412207&t=&z=15&ie=UTF8&iwloc=&output=embed',
+      'https://maps.google.com/maps?q=18.5510123,73.9739785&t=&z=16&ie=UTF8&iwloc=&output=embed',
     googleMapsSearchUrl:
-      'https://www.google.com/maps/search/?api=1&query=Plot+No-31+Lane+No-4+Infinity+Greens+Society+Near+VTP+Altair+Phase-1+Gat+No-1251+Upper+Kharadi+Wagholi+Pune+412207',
+      "https://www.google.com/maps/place/18%C2%B033'03.6%22N+73%C2%B058'26.3%22E/@18.5510123,73.9714036,17z/data=!3m1!4b1!4m4!3m3!8m2!3d18.5510123!4d73.9739785!5m1!1e4?hl=en&entry=ttu&g_ep=EgoyMDI2MDkxMy4wIKXMDSoASAFQAw%3D%3D",
     disclaimer:
       'Exact address: Plot No-31, Lane No-4, Infinity Greens Society, Near VTP Altair Phase-1, Gat No- 1251, Upper Kharadi, Wagholi, Pune-412207, Wagholi 412207.',
   },
 
   nearbyCategories: [
     {
-      id: 'hospitals',
-      category: 'Hospitals & Healthcare',
-      icon: 'HeartPulse',
-      statusText: 'Nearby',
-      description: 'Multi-specialty hospitals and medical centres serving the Wagholi and Kharadi corridor.',
-      samplePlaceholder: 'Accessible healthcare facilities located within convenient driving distance.',
+      id: 'airport',
+      category: 'Pune International Airport',
+      icon: 'Plane',
+      statusText: '11.2 km (~20 mins)',
+      description: 'Direct transit connectivity to Pune International Airport via Nagar Road / Kharadi bypass.',
+      samplePlaceholder: 'Approx. 11.2 km (20 min drive). Local taxi booking assistance available at front desk.',
+    },
+    {
+      id: 'railway',
+      category: 'Railway Station',
+      icon: 'Train',
+      statusText: '5 km (~10 mins)',
+      description: 'Convenient rail transit access located within short driving distance from the hotel.',
+      samplePlaceholder: 'Approx. 5 km (10 min drive) for easy rail connections.',
     },
     {
       id: 'mnc-offices',
@@ -128,20 +136,20 @@ export const contactConfig: ContactConfig = {
       samplePlaceholder: 'Ideal base for business travelers working in Kharadi & Wagholi corporate districts.',
     },
     {
-      id: 'schools',
-      category: 'Schools & Educational Institutions',
-      icon: 'GraduationCap',
-      statusText: 'Nearby Institutions',
-      description: 'Reputed schools, colleges, and educational academies situated in and around Wagholi.',
-      samplePlaceholder: 'Convenient transit to prominent educational institutes in East Pune.',
+      id: 'hospitals',
+      category: 'Hospitals & Healthcare',
+      icon: 'HeartPulse',
+      statusText: 'Nearby',
+      description: 'Multi-specialty hospitals and medical centres serving the Wagholi and Kharadi corridor.',
+      samplePlaceholder: 'Accessible healthcare facilities located within convenient driving distance.',
     },
     {
       id: 'conveniences',
       category: 'Local Conveniences & Transit',
       icon: 'Compass',
       statusText: 'Upper Kharadi / Wagholi',
-      description: 'Supermarkets, pharmacies, dining spots, and easy access to Nagar Road and Pune Airport corridor.',
-      samplePlaceholder: 'Daily guest essentials and local shopping easily accessible.',
+      description: 'Supermarkets, pharmacies, local taxi booking, and direct access to Nagar Road.',
+      samplePlaceholder: 'Daily guest essentials, local transport booking, and shopping easily accessible.',
     },
   ],
 

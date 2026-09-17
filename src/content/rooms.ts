@@ -19,6 +19,7 @@ export interface RoomItem {
   id: string;
   name: string;
   category: string;
+  roomSize?: string;
   shortDescription: string;
   fullDescription: string;
   natureViewHighlight: string;
@@ -26,6 +27,7 @@ export interface RoomItem {
   distribution: string;
   bedType: string;
   maxOccupancy: number;
+  extraBedInfo?: string;
   amenities: string[];
   keyFeatures: string[];
   priceStatus: 'tbc' | 'verified';
@@ -41,32 +43,41 @@ export const roomsList: RoomItem[] = [
     id: 'premium-room',
     name: 'Premium Room',
     category: 'Premium Accommodation',
+    roomSize: '200 sq. ft.',
     shortDescription:
-      'A refined, calm living space featuring peaceful nature-oriented views, comfortable bedding, and dedicated amenities designed for restful stays in Pune.',
+      'A 200 sq. ft. refined, peaceful room with serene nature views, queen-size bed (180 cm wide), modern en-suite bathroom with 24/7 hot water, and dedicated room service.',
     fullDescription:
-      'Our Premium Rooms are thoughtfully arranged across all five floors of liv.inn, with five rooms per floor to maintain privacy and tranquility. Each room is positioned to offer pleasant nature-oriented views, bringing natural light and verdant serenity indoors. Equipped with high-speed Wi-Fi, air conditioning, modern en-suite bathroom, and dedicated room care.',
+      'Our Premium Rooms are thoughtfully arranged across all five floors of liv.inn, with five rooms per floor (comprising 6 single rooms and 19 double rooms) to maintain quiet comfort and privacy. Each 200 sq. ft. room features a queen-size bed (180 cm wide) or single bed configuration, balcony/window nature view, attached bathroom with round-the-clock hot water, work table, wardrobe, Wi-Fi, air conditioning, and access to our in-house cloud kitchen room service.',
     natureViewHighlight: 'Pleasant nature-oriented view facing tranquil greenery',
     totalRooms: 25,
-    distribution: '5 rooms on each floor (Floors 1 to 5)',
-    bedType: 'King / Queen Bed',
-    maxOccupancy: 2,
+    distribution: '5 rooms per floor across 5 floors (6 Single Bed & 19 Double Bed rooms)',
+    bedType: 'Queen Size (180 cm wide) / Single Bed',
+    maxOccupancy: 3,
+    extraBedInfo: 'Complimentary extra bed available upon request at no extra charge',
     amenities: [
-      'Nature-Oriented Greenery View',
+      '200 sq. ft. Room Layout',
+      'Queen-Size Bed (180 cm wide)',
+      'Nature-Facing Balcony / Window View',
+      'Attached Bathroom with 24/7 Hot Water',
       'Complimentary High-Speed Wi-Fi',
       'Air Conditioning & Climate Control',
-      'Private En-Suite Bathroom',
-      'Daily Housekeeping & Linen Refresh',
-      'Laundry Service Available',
       'Flat-Screen Television',
-      'Work Desk & Seating Area',
-      '24/7 Guest Assistance Support',
-      'Cloud Kitchen In-Room Dining Access',
+      'Wardrobe & Clothes Storage',
+      'Work Table & Seating Chair',
+      'Daily Housekeeping & Fresh Towels',
+      'Complimentary Toiletries',
+      'In-House Cloud Kitchen Room Service (Breakfast, Lunch & Dinner)',
+      'Extra Bed Available (No Additional Charge)',
+      '24/7 Front Desk Assistance Support',
     ],
     keyFeatures: [
-      '25 rooms total inventory',
-      '5 rooms per floor intimacy',
-      'Direct nature outlook',
-      'Quiet, clean ambiance',
+      '200 sq. ft. room with Queen Bed (180 cm)',
+      'Accommodates 2 + 1 Guests (Extra bed free)',
+      '25 rooms total inventory across 5 floors',
+      '6 Single & 19 Double rooms configuration',
+      'Direct nature-facing greenery view',
+      'Elevator access across all 5 floors',
+      '100% full power backup',
     ],
     priceStatus: 'tbc',
     priceDisplay: 'Pricing to be confirmed upon enquiry',

@@ -63,6 +63,7 @@ import {
   Pause,
   Calendar,
   Star,
+  Zap,
   type LucideIcon,
   type LucideProps,
 } from 'lucide-react';
@@ -218,10 +219,14 @@ export function getFacilityIcon(name: string, className: string = 'h-6 w-6'): Re
     Sparkles,
     Clock,
     ShieldCheck,
+    Shield,
     ConciergeBell,
     Luggage,
     Trees,
     Building2,
+    Building,
+    Zap,
+    Heart,
   };
   const IconComp = map[name] ?? Sparkles;
   return React.createElement(IconComp, { className });
@@ -234,6 +239,7 @@ export function getWhyChooseIcon(name: string, className: string = 'h-6 w-6'): R
   const map: Record<string, LucideIcon> = {
     Trees,
     Building2,
+    Building,
     UtensilsCrossed,
     Clock,
     Wifi,
@@ -242,6 +248,7 @@ export function getWhyChooseIcon(name: string, className: string = 'h-6 w-6'): R
     Heart,
     Shield,
     Sparkles,
+    Zap,
   };
   const IconComp = map[name] ?? Sparkles;
   return React.createElement(IconComp, { className });
@@ -258,6 +265,10 @@ export function getServiceIcon(serviceName: string, className: string = 'h-5 w-5
     'Housekeeping & Cleanliness': Sparkles,
     'On-Site Parking': Car,
     'Complimentary Wi-Fi': Wifi,
+    'Elevator / Lift Facility': Building,
+    '100% Power Backup': Zap,
+    'Pet-Friendly Stay': Heart,
+    'Security & CCTV': ShieldCheck,
   };
   const IconComp = map[serviceName] ?? ConciergeBell;
   return React.createElement(IconComp, { className });
@@ -272,6 +283,10 @@ export function getAttractionIcon(categoryOrIconName: string, className: string 
     Building,
     GraduationCap,
     Compass,
+    Plane,
+    Train,
+    'Pune International Airport': Plane,
+    'Railway Station': Train,
     'Hospitals & Healthcare': HeartPulse,
     'Corporate Offices & MNC Hubs': Building,
     'Schools & Educational Institutions': GraduationCap,
@@ -338,6 +353,7 @@ export {
   Pause,
   Calendar,
   Star,
+  Zap,
   type LucideIcon,
   type LucideProps,
 };

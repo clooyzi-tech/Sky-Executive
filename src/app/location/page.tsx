@@ -9,6 +9,8 @@ import {
   Building,
   GraduationCap,
   Compass,
+  Plane,
+  Train,
 } from '@/config/icons';
 import { generatePageMetadata, breadcrumbJsonLd, hotelJsonLd } from '@/lib/seo';
 import { STRINGS } from '@/config/strings';
@@ -29,6 +31,8 @@ export default function LocationPage() {
   const { location, contact } = STRINGS;
 
   const categoryIcons: Record<string, React.ReactNode> = {
+    airport: <Plane className="h-6 w-6 text-accent" />,
+    railway: <Train className="h-6 w-6 text-accent" />,
     hospitals: <HeartPulse className="h-6 w-6 text-accent" />,
     'mnc-offices': <Building className="h-6 w-6 text-accent" />,
     schools: <GraduationCap className="h-6 w-6 text-accent" />,
@@ -160,10 +164,10 @@ export default function LocationPage() {
                 <div className="rounded-xl border border-border-gold bg-accent-muted/30 p-4 text-xs text-slate-deep">
                   <div className="flex items-center gap-2 font-semibold text-charcoal">
                     <Clock className="h-4 w-4 text-accent" />
-                    <span>Check-in & Check-out Timing Notice</span>
+                    <span>Check-in & Check-out Schedule</span>
                   </div>
                   <p className="mt-1 leading-relaxed text-slate-deep">
-                    Provided timing: <strong>11:00 AM to 10:00 AM</strong>. Please note: Final sequence (whether check-in at 11:00 AM and check-out at 10:00 AM) is pending final confirmation by hotel management.
+                    Standard Check-in: <strong>11:00 AM</strong> • Standard Check-out: <strong>10:00 AM</strong>. Front desk reception is active 24/7 for guest check-in, key handover, and local travel assistance.
                   </p>
                 </div>
 

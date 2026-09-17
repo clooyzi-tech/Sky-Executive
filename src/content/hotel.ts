@@ -67,18 +67,18 @@ export const hotelInfo: HotelInfo = {
   },
   inventory: {
     totalRooms: 25,
-    roomDistribution: '5 rooms on each floor across 5 floors',
+    roomDistribution: '5 rooms on each floor across 5 floors (6 Single Bed & 19 Double Bed rooms)',
     floors: 5,
     roomsPerFloor: 5,
-    primaryCategory: 'Premium rooms',
+    primaryCategory: 'Premium rooms (200 sq. ft., Queen bed)',
     viewType: 'Nature-oriented view',
   },
   timings: {
-    providedTiming: '11:00 AM to 10:00 AM',
-    note: 'Timing provided as 11:00 AM to 10:00 AM. Exact check-in and check-out order to be confirmed by hotel management.',
-    status: 'pending_confirmation',
-    checkInPlaceholder: 'To be confirmed (e.g. 11:00 AM)',
-    checkOutPlaceholder: 'To be confirmed (e.g. 10:00 AM)',
+    providedTiming: 'Check-in: 11:00 AM | Check-out: 10:00 AM',
+    note: 'Check-in time is 11:00 AM and check-out time is 10:00 AM. Front desk reception is open 24 hours.',
+    status: 'verified',
+    checkInPlaceholder: '11:00 AM',
+    checkOutPlaceholder: '10:00 AM',
   },
   highlights: [
     {
@@ -92,13 +92,23 @@ export const hotelInfo: HotelInfo = {
       icon: 'Trees',
     },
     {
-      title: 'Cloud Kitchen Facility',
-      description: 'Freshly prepared food service delivered directly through our dedicated in-house cloud kitchen.',
+      title: 'Elevator / Lift Access',
+      description: 'Effortless guest accessibility across all 5 floors with a modern elevator facility.',
+      icon: 'Building',
+    },
+    {
+      title: '100% Power Backup',
+      description: 'Continuous energy and power backup ensuring uninterrupted lighting, Wi-Fi, and comfort.',
+      icon: 'Zap',
+    },
+    {
+      title: 'In-House Cloud Kitchen',
+      description: 'Freshly prepared Breakfast, Lunch, and Dinner (Veg & Non-Veg) served directly to your room.',
       icon: 'UtensilsCrossed',
     },
     {
       title: '24/7 Guest Assistance',
-      description: 'Round-the-clock service support and dedicated staff ready to assist at any hour.',
+      description: 'Round-the-clock front desk support, security surveillance, and dedicated service at any hour.',
       icon: 'Clock',
     },
     {
@@ -107,8 +117,8 @@ export const hotelInfo: HotelInfo = {
       icon: 'Wifi',
     },
     {
-      title: 'On-Site Parking',
-      description: 'Convenient and secure parking facilities available directly on property for staying guests.',
+      title: 'Free On-Site Parking',
+      description: 'Convenient 24-hour on-premises vehicular parking for staying guests at no charge.',
       icon: 'Car',
     },
   ],

@@ -103,22 +103,33 @@ export default function GuestInformationPage() {
                 <Clock className="h-5 w-5 text-accent" />
                 {guestInfo.timing.title}
               </h2>
-              <span className="rounded-full bg-amber-100 px-2.5 py-0.5 text-[10px] font-semibold text-amber-800 border border-amber-200">
-                To be confirmed
+              <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-[10px] font-semibold text-emerald-800 border border-emerald-200">
+                Verified Schedule
               </span>
             </div>
 
-            <div className="mt-4 rounded-xl border border-border-light bg-cream/40 p-4">
-              <p className="text-xs font-semibold uppercase tracking-wider text-accent-dark">
-                Official Document Notation
-              </p>
-              <p className="mt-1 text-base font-serif font-bold text-charcoal">
-                {guestInfo.timing.providedTiming}
-              </p>
-              <p className="mt-2 text-xs leading-relaxed text-slate-deep">
-                {guestInfo.timing.note}
-              </p>
+            <div className="mt-4 grid grid-cols-2 gap-3">
+              <div className="rounded-xl border border-border-light bg-cream/40 p-3 text-center">
+                <p className="text-[10px] font-semibold uppercase tracking-wider text-accent-dark">
+                  Check-in Time
+                </p>
+                <p className="mt-1 text-base font-serif font-bold text-charcoal">
+                  11:00 AM
+                </p>
+              </div>
+              <div className="rounded-xl border border-border-light bg-cream/40 p-3 text-center">
+                <p className="text-[10px] font-semibold uppercase tracking-wider text-accent-dark">
+                  Check-out Time
+                </p>
+                <p className="mt-1 text-base font-serif font-bold text-charcoal">
+                  10:00 AM
+                </p>
+              </div>
             </div>
+
+            <p className="mt-3 text-xs leading-relaxed text-slate-deep">
+              {guestInfo.timing.note}
+            </p>
           </div>
         </AnimatedSection>
 

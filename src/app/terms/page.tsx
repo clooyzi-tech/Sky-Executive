@@ -63,28 +63,37 @@ export default function TermsPage() {
                 <li>The hotel reserves the right to refuse admission if mandatory identification is not presented upon arrival.</li>
               </ul>
 
-              <h2>2. Check-in &amp; Check-out Timings (To Be Confirmed)</h2>
+              <h2>2. Check-in &amp; Check-out Timings</h2>
               <ul className="list-disc pl-5">
-                <li>Provided operational timing: <strong>{guestInfo.timing.providedTiming}</strong>.</li>
-                <li><em>Notice:</em> Final confirmation whether this specifies Check-in at 11:00 AM and Check-out at 10:00 AM is pending formal hotel management confirmation.</li>
-                <li>Early check-in and late check-out requests remain strictly subject to availability.</li>
+                <li>Standard Check-in time: <strong>11:00 AM</strong>.</li>
+                <li>Standard Check-out time: <strong>10:00 AM</strong>.</li>
+                <li>Front desk reception and guest assistance are operational <strong>24 hours a day</strong>.</li>
+                <li>Early check-in and late check-out requests remain subject to room availability upon request.</li>
               </ul>
 
-              <h2>3. Pricing &amp; Cancellation Policies</h2>
+              <h2>3. Payment Methods &amp; Tariffs</h2>
               <ul className="list-disc pl-5">
-                <li>Room tariffs, seasonal rates, applicable taxes, and cancellation policies are confirmed upon enquiry.</li>
-                <li>Detailed cancellation and refund guidelines will be communicated prior to booking finalization.</li>
+                <li>Accepted payment methods: <strong>UPI (GPay / PhonePe / Paytm), Cash, Credit/Debit Cards, and Bank Transfer</strong>.</li>
+                <li>Room tariffs, seasonal rates, applicable taxes, and cancellation policies are confirmed upon reservation enquiry.</li>
               </ul>
 
-              <h2>4. In-House Cloud Kitchen &amp; Food Facility</h2>
+              <h2>4. Guest Identification &amp; Pet Policy</h2>
               <ul className="list-disc pl-5">
-                <li>liv.inn operates an in-house cloud kitchen for guest dining convenience.</li>
-                <li>Operating hours, menu selections, and order guidelines are provided at the property.</li>
+                <li>A valid government-issued photo ID is mandatory at check-in for all adult guests. Local IDs are accepted.</li>
+                <li>liv.inn is a verified couple-friendly property welcoming couples, families, and solo travellers.</li>
+                <li><strong>Pet-Friendly:</strong> Pets are warmly permitted to accompany staying guests with no additional charges.</li>
+                <li>Complimentary extra bed is available upon request (subject to prior notice).</li>
               </ul>
 
-              <h2>5. Property Care &amp; Cleanliness</h2>
+              <h2>5. In-House Cloud Kitchen (Food &amp; Dining)</h2>
               <ul className="list-disc pl-5">
-                <li>Smoking is strictly prohibited inside all 25 guest rooms.</li>
+                <li>liv.inn operates a dedicated in-house cloud kitchen delivering fresh meals directly to guest rooms (no dine-in restaurant).</li>
+                <li>Breakfast, lunch, and dinner services are available with both vegetarian and non-vegetarian selections.</li>
+              </ul>
+
+              <h2>6. Smoke-Free Environment &amp; Quiet Hours</h2>
+              <ul className="list-disc pl-5">
+                <li><strong>100% Smoke-Free Property:</strong> Smoking is strictly prohibited inside all 25 guest rooms and shared interior corridors.</li>
                 <li>Guests are requested to observe quiet hours after 10:00 PM to maintain a tranquil stay environment for all 5 rooms per floor.</li>
                 <li>Any intentional damage to hotel property will be assessed and billed accordingly.</li>
               </ul>

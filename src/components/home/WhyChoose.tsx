@@ -10,7 +10,7 @@ export default function WhyChoose() {
   const { whyChoose } = STRINGS.home;
 
   return (
-    <section className="pt-[26px] pb-0" id="why-choose">
+    <section className="pt-[26px] pb-0 overflow-hidden" id="why-choose">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
           <SectionHeading
