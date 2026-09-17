@@ -11,14 +11,14 @@ export default function LocationPreview() {
   const { locationPreview } = STRINGS.home;
 
   const nearbyPreviews = [
-    { label: 'Hospitals & Healthcare', note: 'Medical centres along Wagholi-Kharadi corridor' },
-    { label: 'Corporate & MNC Hubs', note: 'Upper Kharadi IT parks, EON & WTC Pune proximity' },
-    { label: 'Schools & Academies', note: 'Educational institutes in Wagholi zone' },
-    { label: 'Transit & Conveniences', note: 'Direct access to Nagar Road & Pune Airport link' },
+    { label: 'Pune International Airport', note: '11.2 km (~20 mins drive) via Nagar Road' },
+    { label: 'Railway Station', note: '5 km (~10 mins drive) easy transit connectivity' },
+    { label: 'Corporate & IT Hubs', note: 'Upper Kharadi IT corridor, EON & WTC Pune proximity' },
+    { label: 'Local Taxi Assistance', note: 'Front desk cab booking assistance available 24/7' },
   ];
 
   return (
-    <section className="pt-[26px] pb-0 bg-white" id="location-preview">
+    <section className="pt-[26px] pb-0 bg-white overflow-hidden" id="location-preview">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-[16px] lg:grid-cols-2">
           {/* Map Embed of Wagholi Pune */}

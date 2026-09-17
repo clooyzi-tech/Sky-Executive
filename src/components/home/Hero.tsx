@@ -50,24 +50,24 @@ export default function Hero() {
       </div>
 
       {/* Main Hero Content */}
-      <div className="relative z-10 mx-auto max-w-5xl px-4 pt-20 pb-12 text-center sm:px-6 sm:pt-24 sm:pb-14 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-5xl px-3.5 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-10 sm:pb-14 text-center w-full">
         {/* Verified Eyebrow Badge Pill */}
         <AnimatedSection delay={0.05} direction="none">
-          <div className="mx-auto mb-[16px] flex justify-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-black/60 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-accent-gold backdrop-blur-md shadow-lg transition-transform hover:scale-105">
-              <span className="relative flex h-2 w-2">
+          <div className="mx-auto mb-[16px] flex justify-center px-1">
+            <div className="inline-flex max-w-full items-center justify-center gap-1.5 sm:gap-2 rounded-full border border-accent/40 bg-black/60 px-3 py-1.5 sm:px-4 text-[10px] sm:text-xs font-medium uppercase tracking-normal sm:tracking-widest text-accent-gold backdrop-blur-md shadow-lg transition-transform hover:scale-105">
+              <span className="relative flex h-2 w-2 shrink-0">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
               </span>
-              <Sparkles className="h-3.5 w-3.5 text-accent" />
-              <span>{hero.badge}</span>
+              <Sparkles className="h-3.5 w-3.5 text-accent shrink-0" />
+              <span className="text-center">{hero.badge}</span>
             </div>
           </div>
         </AnimatedSection>
 
         {/* Main Headline with Serif Typography & Gold Shimmer Accent */}
         <AnimatedSection delay={0.15}>
-          <h1 className="font-serif text-3xl font-bold leading-[1.15] text-white sm:text-5xl md:text-5xl lg:text-6xl tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
+          <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.2] sm:leading-[1.15] text-white tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] break-words">
             A Serene,{' '}
             <span className="gold-gradient-text italic font-normal">
               Nature-Oriented
@@ -78,27 +78,27 @@ export default function Hero() {
 
         {/* Brief Introduction */}
         <AnimatedSection delay={0.25}>
-          <p className="mx-auto mt-[16px] max-w-2xl text-sm sm:text-base md:text-lg font-light leading-relaxed text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+          <p className="mx-auto mt-[16px] max-w-2xl text-xs sm:text-base md:text-lg font-light leading-relaxed text-white/95 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] break-words px-2 sm:px-0">
             {hero.description}
           </p>
         </AnimatedSection>
 
         {/* Glassmorphic Property Snapshot Chips */}
         <AnimatedSection delay={0.35}>
-          <div className="mx-auto mt-[16px] flex flex-wrap items-center justify-center gap-[16px] text-xs sm:text-sm text-white">
-            <span className="inline-flex items-center gap-2 rounded-full bg-black/40 px-3.5 py-1.5 backdrop-blur-md border border-white/25 hover:border-accent/50 hover:bg-black/50 transition-all shadow-md">
-              <Building2 className="h-4 w-4 text-accent-gold" />
+          <div className="mx-auto mt-[16px] flex flex-wrap items-center justify-center gap-2 sm:gap-[16px] text-[11px] sm:text-sm text-white px-1">
+            <span className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-black/40 px-3 py-1 sm:px-3.5 sm:py-1.5 backdrop-blur-md border border-white/25 hover:border-accent/50 hover:bg-black/50 transition-all shadow-md">
+              <Building2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-accent-gold shrink-0" />
               <span className="font-medium">25 Premium Rooms</span>
             </span>
-            <span className="inline-flex items-center gap-2 rounded-full bg-black/40 px-3.5 py-1.5 backdrop-blur-md border border-white/25 hover:border-accent/50 hover:bg-black/50 transition-all shadow-md">
+            <span className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-black/40 px-3 py-1 sm:px-3.5 sm:py-1.5 backdrop-blur-md border border-white/25 hover:border-accent/50 hover:bg-black/50 transition-all shadow-md">
               <span className="font-medium">5 Rooms Per Floor (Privacy)</span>
             </span>
-            <span className="inline-flex items-center gap-2 rounded-full bg-black/40 px-3.5 py-1.5 backdrop-blur-md border border-white/25 hover:border-accent/50 hover:bg-black/50 transition-all shadow-md">
-              <Trees className="h-4 w-4 text-accent-gold" />
+            <span className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-black/40 px-3 py-1 sm:px-3.5 sm:py-1.5 backdrop-blur-md border border-white/25 hover:border-accent/50 hover:bg-black/50 transition-all shadow-md">
+              <Trees className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-accent-gold shrink-0" />
               <span className="font-medium">Scenic Nature Views</span>
             </span>
-            <span className="inline-flex items-center gap-2 rounded-full bg-black/40 px-3.5 py-1.5 backdrop-blur-md border border-white/25 hover:border-accent/50 hover:bg-black/50 transition-all shadow-md">
-              <MapPin className="h-4 w-4 text-accent-gold" />
+            <span className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-black/40 px-3 py-1 sm:px-3.5 sm:py-1.5 backdrop-blur-md border border-white/25 hover:border-accent/50 hover:bg-black/50 transition-all shadow-md">
+              <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-accent-gold shrink-0" />
               <span className="font-medium">Upper Kharadi, Wagholi</span>
             </span>
           </div>
@@ -106,21 +106,21 @@ export default function Hero() {
 
         {/* Primary Call To Actions */}
         <AnimatedSection delay={0.45}>
-          <div className="mt-[16px] flex flex-col items-center gap-[16px] sm:flex-row sm:justify-center">
+          <div className="mt-[16px] flex flex-col items-center gap-3 sm:gap-[16px] sm:flex-row sm:justify-center w-full max-w-xs sm:max-w-none mx-auto">
             <CTAButton
               href="/contact"
               size="lg"
-              className="bg-accent text-charcoal font-semibold hover:bg-accent-light shadow-xl hover:shadow-accent/30 w-full sm:w-auto transition-transform hover:-translate-y-0.5"
+              className="bg-accent text-charcoal font-semibold hover:bg-accent-light shadow-xl hover:shadow-accent/30 w-full sm:w-auto transition-transform hover:-translate-y-0.5 text-sm sm:text-base py-3 sm:py-4"
               id="hero-enquire-cta"
             >
               {hero.ctaEnquire}
-              <ArrowRight className="h-5 w-5" />
+              <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
             </CTAButton>
             <CTAButton
               href="/rooms"
               variant="outline"
               size="lg"
-              className="border-white/30 bg-black/50 text-white backdrop-blur-md hover:bg-black/70 hover:border-white/60 hover:text-white w-full sm:w-auto transition-transform hover:-translate-y-0.5 shadow-lg"
+              className="border-white/30 bg-black/50 text-white backdrop-blur-md hover:bg-black/70 hover:border-white/60 hover:text-white w-full sm:w-auto transition-transform hover:-translate-y-0.5 shadow-lg text-sm sm:text-base py-3 sm:py-4"
               id="hero-explore-cta"
             >
               {hero.ctaExplore}
@@ -130,10 +130,10 @@ export default function Hero() {
 
         {/* Integrated Luxury Quick Reservation Strip */}
         <AnimatedSection delay={0.55}>
-          <div className="mx-auto mt-[16px] max-w-4xl rounded-2xl border border-white/20 bg-charcoal/80 sm:bg-charcoal/70 p-3.5 sm:p-4 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-            <div className="grid grid-cols-1 sm:grid-cols-4 gap-[16px] items-center text-left">
+          <div className="mx-auto mt-[16px] max-w-4xl rounded-2xl border border-white/20 bg-charcoal/80 sm:bg-charcoal/70 p-3 sm:p-4 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-4 gap-2.5 sm:gap-[16px] items-center text-left">
               {/* Check-In Timing */}
-              <div className="rounded-xl bg-white/[0.07] p-3 border border-white/10 transition-colors hover:border-accent/40 hover:bg-white/[0.12]">
+              <div className="rounded-xl bg-white/[0.07] p-2.5 sm:p-3 border border-white/10 transition-colors hover:border-accent/40 hover:bg-white/[0.12]">
                 <div className="flex items-center gap-1.5 text-[11px] uppercase tracking-wider text-accent-gold font-medium">
                   <Calendar className="h-3.5 w-3.5" />
                   <span>Check-In</span>
@@ -143,7 +143,7 @@ export default function Hero() {
               </div>
 
               {/* Room Inventory */}
-              <div className="rounded-xl bg-white/[0.07] p-3 border border-white/10 transition-colors hover:border-accent/40 hover:bg-white/[0.12]">
+              <div className="rounded-xl bg-white/[0.07] p-2.5 sm:p-3 border border-white/10 transition-colors hover:border-accent/40 hover:bg-white/[0.12]">
                 <div className="flex items-center gap-1.5 text-[11px] uppercase tracking-wider text-accent-gold font-medium">
                   <Building2 className="h-3.5 w-3.5" />
                   <span>Rooms</span>
@@ -153,7 +153,7 @@ export default function Hero() {
               </div>
 
               {/* Privacy & Floors */}
-              <div className="rounded-xl bg-white/[0.07] p-3 border border-white/10 transition-colors hover:border-accent/40 hover:bg-white/[0.12]">
+              <div className="rounded-xl bg-white/[0.07] p-2.5 sm:p-3 border border-white/10 transition-colors hover:border-accent/40 hover:bg-white/[0.12]">
                 <div className="flex items-center gap-1.5 text-[11px] uppercase tracking-wider text-accent-gold font-medium">
                   <Users className="h-3.5 w-3.5" />
                   <span>Boutique Privacy</span>
@@ -166,7 +166,7 @@ export default function Hero() {
               <div>
                 <CTAButton
                   href="/contact#enquiry"
-                  className="w-full justify-center bg-accent text-charcoal font-semibold hover:bg-accent-light py-3.5 shadow-md hover:shadow-accent/20"
+                  className="w-full justify-center bg-accent text-charcoal font-semibold hover:bg-accent-light py-3 sm:py-3.5 shadow-md hover:shadow-accent/20 text-xs sm:text-sm"
                   id="hero-quick-check-cta"
                 >
                   <span>Check Rates</span>

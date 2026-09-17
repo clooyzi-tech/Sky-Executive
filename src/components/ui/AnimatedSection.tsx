@@ -12,10 +12,10 @@ interface AnimatedSectionProps {
 }
 
 const directionOffsets = {
-  up: { y: 40 },
-  down: { y: -40 },
-  left: { x: 40 },
-  right: { x: -40 },
+  up: { y: 30 },
+  down: { y: -30 },
+  left: { x: 20 },
+  right: { x: -20 },
   none: {},
 };
 
@@ -26,7 +26,7 @@ export default function AnimatedSection({
   direction = 'up',
 }: AnimatedSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '-40px' });
 
   return (
     <motion.div
@@ -34,11 +34,11 @@ export default function AnimatedSection({
       initial={{ opacity: 0, ...directionOffsets[direction] }}
       animate={isInView ? { opacity: 1, x: 0, y: 0 } : {}}
       transition={{
-        duration: 0.6,
+        duration: 0.5,
         delay,
         ease: [0.21, 0.47, 0.32, 0.98],
       }}
-      className={cn(className)}
+      className={cn('max-w-full', className)}
     >
       {children}
     </motion.div>

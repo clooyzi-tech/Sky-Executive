@@ -70,43 +70,44 @@ export default function Header() {
       {/* 1. TOP UTILITY BAR (Rules.md Warm Ivory #FAF8F3 Theme)       */}
       {/* WhatsApp and Phone Number live here on the right, not navbar  */}
       {/* ============================================================ */}
-      <div className="w-full border-b border-[#DED8CC] bg-[#FAF8F3] text-[#5F5A50] text-[11px] select-none">
-        <div className="w-full max-w-[1600px] mx-auto flex h-10 items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-12">
+      <div className="w-full border-b border-[#DED8CC] bg-[#FAF8F3] text-[#5F5A50] text-[11px] select-none overflow-hidden">
+        <div className="w-full max-w-[1600px] mx-auto flex h-9 sm:h-10 items-center justify-between px-3 sm:px-6 lg:px-8 xl:px-12">
           {/* Left: Location & Luxury Tagline */}
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1.5 font-medium text-[#1C1C1C]">
-              <MapPin className="h-3.5 w-3.5 text-[#C9A227]" />
-              <span>Pune, Maharashtra</span>
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            <div className="flex items-center gap-1 sm:gap-1.5 font-medium text-[#1C1C1C]">
+              <MapPin className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#C9A227] shrink-0" />
+              <span className="hidden sm:inline">Pune, Maharashtra</span>
+              <span className="sm:hidden text-[10px]">Pune</span>
             </div>
-            <span className="text-[#DED8CC]">|</span>
+            <span className="hidden sm:inline text-[#DED8CC]">|</span>
             <span className="hidden sm:inline font-serif italic text-[#8A8478]">
               A Stay Beyond Ordinary
             </span>
           </div>
 
           {/* Right: WhatsApp, Phone Number, 24/7 Support & Socials */}
-          <div className="flex items-center gap-3 sm:gap-4">
-            {/* WhatsApp Link/Button in Top Bar */}
+          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
+            {/* WhatsApp Link/Button in Top Bar - hidden on mobile screens to prevent overflow */}
             <a
               href={whatsappUrl(STRINGS.contact.prefilledMessages.heroEnquiry)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 font-medium text-[#1C1C1C] hover:text-[#C9A227] transition-colors"
+              className="hidden sm:inline-flex items-center gap-1.5 font-medium text-[#1C1C1C] hover:text-[#C9A227] transition-colors"
               id="topbar-whatsapp"
             >
               <MessageCircle className="h-3.5 w-3.5 text-[#25D366]" />
               <span>WhatsApp</span>
             </a>
 
-            <span className="text-[#DED8CC]">|</span>
+            <span className="hidden sm:inline text-[#DED8CC]">|</span>
 
             {/* Phone Number in Top Bar */}
             <a
               href={phoneUrl()}
-              className="inline-flex items-center gap-1.5 font-semibold text-[#1C1C1C] hover:text-[#C9A227] transition-colors"
+              className="inline-flex items-center gap-1 sm:gap-1.5 font-semibold text-[#1C1C1C] hover:text-[#C9A227] transition-colors text-[10px] sm:text-[11px]"
               id="topbar-phone"
             >
-              <Phone className="h-3.5 w-3.5 text-[#C9A227]" />
+              <Phone className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#C9A227] shrink-0" />
               <span>{STRINGS.contact.phone}</span>
             </a>
 
@@ -178,8 +179,8 @@ export default function Header() {
                 className={cn(
                   'relative flex items-center justify-center rounded-full bg-white border border-[#DED8CC] transition-all duration-300 ease-out group-hover:scale-105',
                   scrolled
-                    ? 'h-14 w-14 p-1 shadow-md'
-                    : 'h-24 w-24 sm:h-28 sm:w-28 p-1.5 shadow-xl translate-y-3 sm:translate-y-4'
+                    ? 'h-12 w-12 sm:h-14 sm:w-14 p-1 shadow-md'
+                    : 'h-16 w-16 sm:h-24 sm:w-24 md:h-28 md:w-28 p-1 sm:p-1.5 shadow-xl translate-y-1.5 sm:translate-y-3 md:translate-y-4'
                 )}
               >
                 {/* Inner Gold Ring & Black Brand Emblem */}
@@ -282,19 +283,20 @@ export default function Header() {
           {/* -------------------------------------------------------- */}
           <div className="flex xl:hidden w-full items-center justify-between">
             {/* Left: Quick Call / WhatsApp */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2">
               <a
                 href={phoneUrl()}
-                className="flex items-center gap-1.5 rounded-full border border-[#DED8CC] bg-[#FAF8F3] px-3 py-1.5 text-xs font-semibold text-[#1C1C1C]"
+                className="flex items-center gap-1 sm:gap-1.5 rounded-full border border-[#DED8CC] bg-[#FAF8F3] px-2.5 sm:px-3 py-1.5 text-xs font-semibold text-[#1C1C1C]"
                 id="mobile-header-call"
+                aria-label="Call Front Desk"
               >
-                <Phone className="h-3.5 w-3.5 text-[#C9A227]" />
+                <Phone className="h-3.5 w-3.5 text-[#C9A227] shrink-0" />
                 <span className="hidden sm:inline">{STRINGS.contact.phone}</span>
               </a>
             </div>
 
             {/* Spacer for center logo emblem on mobile */}
-            <div className="w-16" />
+            <div className="w-14 sm:w-20" />
 
             {/* Right: Enquire CTA & Mobile Hamburger */}
             <div className="flex items-center gap-2">
@@ -306,7 +308,7 @@ export default function Header() {
               </Link>
               <button
                 onClick={() => setMobileOpen(true)}
-                className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#DED8CC] bg-[#FAF8F3] text-[#1C1C1C] hover:bg-[#F3EFE6] transition-colors"
+                className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg border border-[#DED8CC] bg-[#FAF8F3] text-[#1C1C1C] hover:bg-[#F3EFE6] transition-colors"
                 aria-label={STRINGS.nav.aria.openMenu}
                 id="mobile-menu-toggle"
               >
