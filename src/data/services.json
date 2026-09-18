@@ -1,0 +1,106 @@
+{
+  "title": "Guest Services",
+  "subtitle": "Request any service and we'll attend to it promptly",
+  "whatsappNumber": "+918007724646",
+  "hotelName": "liv.inn",
+  "services": [
+    {
+      "id": "housekeeping",
+      "name": "Housekeeping",
+      "icon": "Sparkles",
+      "category": "room",
+      "description": "Room cleaning and tidying",
+      "hasQuantity": false,
+      "hasNote": true
+    },
+    {
+      "id": "extra-towels",
+      "name": "Extra Towels",
+      "icon": "Bath",
+      "category": "room",
+      "description": "Fresh towels delivered to your room",
+      "hasQuantity": true,
+      "defaultQuantity": 1,
+      "maxQuantity": 5,
+      "hasNote": true
+    },
+    {
+      "id": "extra-pillow",
+      "name": "Extra Pillow",
+      "icon": "Bed",
+      "category": "room",
+      "description": "Additional pillows for comfort",
+      "hasQuantity": true,
+      "defaultQuantity": 1,
+      "maxQuantity": 3,
+      "hasNote": true
+    },
+    {
+      "id": "water",
+      "name": "Drinking Water",
+      "icon": "GlassWater",
+      "category": "room",
+      "description": "Bottled drinking water",
+      "hasQuantity": true,
+      "defaultQuantity": 1,
+      "maxQuantity": 5,
+      "hasNote": true
+    },
+    {
+      "id": "toiletries",
+      "name": "Toiletries",
+      "icon": "Droplets",
+      "category": "room",
+      "description": "Soap, shampoo, and essentials",
+      "hasQuantity": false,
+      "hasNote": true
+    },
+    {
+      "id": "laundry",
+      "name": "Laundry Service",
+      "icon": "Shirt",
+      "category": "service",
+      "description": "Laundry and garment care",
+      "hasQuantity": false,
+      "hasNote": true
+    },
+    {
+      "id": "maintenance",
+      "name": "Maintenance",
+      "icon": "Wrench",
+      "category": "service",
+      "description": "Report any room maintenance issue",
+      "hasQuantity": false,
+      "hasNote": true
+    },
+    {
+      "id": "room-cleaning",
+      "name": "Room Cleaning",
+      "icon": "SprayCan",
+      "category": "room",
+      "description": "Deep cleaning of your room",
+      "hasQuantity": false,
+      "hasNote": true
+    },
+    {
+      "id": "extra-bed",
+      "name": "Extra Bed",
+      "icon": "BedDouble",
+      "category": "room",
+      "description": "Complimentary extra bed on request",
+      "hasQuantity": true,
+      "defaultQuantity": 1,
+      "maxQuantity": 1,
+      "hasNote": true
+    },
+    {
+      "id": "other",
+      "name": "Other Request",
+      "icon": "MessageSquare",
+      "category": "other",
+      "description": "Any other service or assistance",
+      "hasQuantity": false,
+      "hasNote": true
+    }
+  ]
+}

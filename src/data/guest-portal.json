@@ -1,0 +1,83 @@
+{
+  "welcome": {
+    "hotelName": "liv.inn",
+    "greeting": "Welcome to liv.inn",
+    "subtitle": "Your serene, nature-oriented stay in Pune",
+    "message": "We're delighted to have you. Explore services, request amenities, or find nearby places — all from your phone."
+  },
+  "wifi": {
+    "title": "Wi-Fi & Connectivity",
+    "note": "Complimentary high-speed Wi-Fi is available across all 5 floors for staying guests. For security, network access credentials are provided directly at reception upon check-in.",
+    "instructions": [
+      "Network credentials provided upon check-in",
+      "Available across all 5 floors",
+      "For connection assistance, contact reception 24/7"
+    ]
+  },
+  "roomInfo": {
+    "title": "Your Room",
+    "features": [
+      { "icon": "Bed", "label": "Queen / Single Bed", "detail": "Premium bedding with fresh linen" },
+      { "icon": "Wind", "label": "Air Conditioning", "detail": "Individual room temperature control" },
+      { "icon": "Tv", "label": "Smart TV", "detail": "In-room entertainment" },
+      { "icon": "Bath", "label": "Attached Bathroom", "detail": "24/7 hot water supply" },
+      { "icon": "Wifi", "label": "Free Wi-Fi", "detail": "High-speed connectivity" },
+      { "icon": "Zap", "label": "Power Backup", "detail": "100% uninterrupted power" }
+    ],
+    "checkIn": "11:00 AM",
+    "checkOut": "10:00 AM",
+    "receptionHours": "24/7"
+  },
+  "hotelGuide": {
+    "title": "Hotel Guide",
+    "sections": [
+      {
+        "title": "Check-in & Check-out",
+        "icon": "Clock",
+        "content": "Check-in begins at 11:00 AM and check-out is at 10:00 AM. Front desk reception is available 24 hours."
+      },
+      {
+        "title": "Dining",
+        "icon": "UtensilsCrossed",
+        "content": "Our in-house cloud kitchen serves Breakfast, Lunch & Dinner (Veg & Non-Veg). Meals are delivered directly to your room."
+      },
+      {
+        "title": "Parking",
+        "icon": "Car",
+        "content": "Free on-site parking is available 24/7 for all staying guests."
+      },
+      {
+        "title": "Elevator",
+        "icon": "Building",
+        "content": "Modern elevator facility providing seamless access across all 5 floors."
+      },
+      {
+        "title": "Pets",
+        "icon": "Heart",
+        "content": "liv.inn is a pet-friendly property. Pets are welcome at no additional charge."
+      },
+      {
+        "title": "Quiet Hours",
+        "icon": "Moon",
+        "content": "Please maintain quiet hours after 10:00 PM for the comfort of all guests."
+      },
+      {
+        "title": "Payment Methods",
+        "icon": "CreditCard",
+        "content": "We accept UPI (Google Pay, PhonePe, Paytm), Cash, Credit/Debit Cards, and Bank Transfer."
+      },
+      {
+        "title": "ID Requirement",
+        "icon": "BadgeCheck",
+        "content": "Valid government-issued photo ID is required for all adult guests at check-in."
+      }
+    ]
+  },
+  "reception": {
+    "phone": "+918007724646",
+    "phoneDisplay": "+91 80077 24646",
+    "whatsapp": "+918007724646",
+    "email": "help.livinn@gmail.com",
+    "address": "Plot No-31, Lane No-4, Infinity Greens Society, Near VTP Altair Phase-1, Upper Kharadi, Wagholi, Pune-412207"
+  }
+}

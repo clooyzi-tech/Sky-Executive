@@ -126,3 +126,17 @@ body {
 .gold-gradient-border {
   border-image: linear-gradient(135deg, rgba(223, 183, 86, 0.6), rgba(197, 155, 39, 0.2)) 1;
 }
+
+/* Safe area for iOS devices with notch/home indicator */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Hide scrollbar for horizontal scroll areas */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

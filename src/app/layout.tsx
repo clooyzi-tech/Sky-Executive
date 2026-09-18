@@ -6,6 +6,7 @@ import { websiteJsonLd, organizationJsonLd } from '@/lib/seo';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
+import ChatbotWidget from '@/components/chatbot/ChatbotWidget';
 
 export const metadata: Metadata = {
   title: STRINGS.seo.defaultTitle,
@@ -54,6 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="flex-1 overflow-x-clip">{children}</main>
         <Footer />
         <WhatsAppButton />
+        <ChatbotWidget />
       </body>
     </html>
   );

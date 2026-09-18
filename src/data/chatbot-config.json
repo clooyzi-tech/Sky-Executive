@@ -1,0 +1,65 @@
+{
+  "botName": "liv.inn Assistant",
+  "avatar": "/livinn_logo.jpg",
+  "greeting": "Hello! 👋 Welcome to liv.inn. How can I help you today?",
+  "fallback": "I can help you with rooms, facilities, location, dining, and contacting our team. Please select an option below.",
+  "whatsappNumber": "+918007724646",
+  "phone": "+918007724646",
+  "menuTree": {
+    "main": {
+      "message": "What would you like to know?",
+      "options": [
+        { "id": "rooms", "label": "🛏️ Rooms & Rates", "icon": "Bed" },
+        { "id": "facilities", "label": "✨ Facilities & Amenities", "icon": "Sparkles" },
+        { "id": "dining", "label": "🍽️ Dining & Kitchen", "icon": "UtensilsCrossed" },
+        { "id": "location", "label": "📍 Location & Directions", "icon": "MapPin" },
+        { "id": "policies", "label": "📋 Check-in & Policies", "icon": "Clock" },
+        { "id": "contact", "label": "📞 Contact Reception", "icon": "Phone" }
+      ]
+    },
+    "rooms": {
+      "message": "We have **25 premium rooms** across 5 floors, each with nature-oriented views.\n\n🛏️ **Double Room (Queen Bed)** — 200 sq. ft., Queen bed, nature view. 19 rooms.\n\n🛏️ **Single Room** — 200 sq. ft., ideal for solo/corporate. 6 rooms.\n\n**All rooms include**: AC, Smart TV, High-Speed Wi-Fi, Attached Bath with 24/7 hot water, fresh linen.\n\n📋 *Rates are available on enquiry.*",
+      "options": [
+        { "id": "enquire_room", "label": "💬 Enquire on WhatsApp", "action": "whatsapp", "message": "Hi! I'd like to check room availability and rates at liv.inn Pune." },
+        { "id": "call_room", "label": "📞 Call Front Desk", "action": "call" },
+        { "id": "main", "label": "⬅️ Back to Menu", "action": "navigate" }
+      ]
+    },
+    "facilities": {
+      "message": "**Verified Facilities at liv.inn:**\n\n📶 Free High-Speed Wi-Fi\n🅿️ Free On-Site Parking\n🍳 In-House Cloud Kitchen (Veg & Non-Veg)\n🛗 Elevator / Lift Facility\n⚡ 100% Power Backup\n📹 24/7 Security & CCTV\n🐾 Pet-Friendly (No Extra Charge)\n👔 Laundry & Garment Care\n🧹 Daily Housekeeping\n🕐 24/7 Guest Assistance",
+      "options": [
+        { "id": "enquire_facility", "label": "💬 Ask on WhatsApp", "action": "whatsapp", "message": "Hi! I have a question about facilities at liv.inn Pune." },
+        { "id": "main", "label": "⬅️ Back to Menu", "action": "navigate" }
+      ]
+    },
+    "dining": {
+      "message": "**In-House Cloud Kitchen** 🍳\n\nFreshly prepared meals delivered directly to your room:\n\n☕ **Breakfast**: 7:30 AM – 10:30 AM\n🍛 **Lunch**: 12:00 PM – 3:00 PM\n🌙 **Dinner**: 7:00 PM – 10:30 PM\n\nBoth **Veg & Non-Veg** options available.\n\n*Note: There is no dine-in restaurant. All meals are room-delivered.*",
+      "options": [
+        { "id": "enquire_dining", "label": "💬 Order via WhatsApp", "action": "whatsapp", "message": "Hi! I'd like to order food from the cloud kitchen at liv.inn Pune." },
+        { "id": "main", "label": "⬅️ Back to Menu", "action": "navigate" }
+      ]
+    },
+    "location": {
+      "message": "**liv.inn Hotel**\n📍 Plot No-31, Lane No-4, Infinity Greens Society, Near VTP Altair Phase-1, Upper Kharadi, Wagholi, Pune-412207\n\n✈️ Pune Airport: ~11.2 km (20 mins)\n🚂 Railway Station: ~5 km (10 mins)\n🏢 Kharadi IT Hub: ~4 km",
+      "options": [
+        { "id": "directions", "label": "🗺️ Get Directions", "action": "maps", "url": "https://www.google.com/maps/place/18%C2%B033'03.6%22N+73%C2%B058'26.3%22E" },
+        { "id": "main", "label": "⬅️ Back to Menu", "action": "navigate" }
+      ]
+    },
+    "policies": {
+      "message": "**Stay Information & Policies** 📋\n\n🕐 **Check-in**: 11:00 AM\n🕙 **Check-out**: 10:00 AM\n📞 **Front Desk**: Open 24/7\n\n🪪 **ID Requirement**: Valid government photo ID required at check-in.\n🐾 **Pet Friendly**: Pets welcome at no extra charge.\n🚭 **Non-Smoking**: 100% smoke-free property indoors.\n💳 **Payment**: UPI, Cards, Net Banking & Cash accepted.",
+      "options": [
+        { "id": "enquire_policies", "label": "💬 Ask on WhatsApp", "action": "whatsapp", "message": "Hi! I have a question regarding stay policies at liv.inn Pune." },
+        { "id": "main", "label": "⬅️ Back to Menu", "action": "navigate" }
+      ]
+    },
+    "contact": {
+      "message": "**Contact liv.inn Reception** 📞\n\n📱 Phone: +91 80077 24646\n💬 WhatsApp: +91 80077 24646\n📧 Email: help.livinn@gmail.com\n\n🕐 Front desk is available **24 hours**.",
+      "options": [
+        { "id": "call_contact", "label": "📞 Call Now", "action": "call" },
+        { "id": "whatsapp_contact", "label": "💬 WhatsApp", "action": "whatsapp", "message": "Hi! I'd like to enquire about staying at liv.inn Pune." },
+        { "id": "main", "label": "⬅️ Back to Menu", "action": "navigate" }
+      ]
+    }
+  }
+}

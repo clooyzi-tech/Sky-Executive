@@ -64,6 +64,10 @@ export default function Header() {
     { label: 'CONTACT & ENQUIRY', href: '/contact' },
   ];
 
+  if (pathname?.startsWith('/guest') || pathname === '/chat') {
+    return null;
+  }
+
   return (
     <>
       {/* ============================================================ */}

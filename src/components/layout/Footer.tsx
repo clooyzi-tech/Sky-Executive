@@ -1,11 +1,19 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Phone, Mail, MapPin, InstagramIcon, Sparkles } from '@/config/icons';
 import { STRINGS } from '@/config/strings';
 import { phoneUrl } from '@/lib/utils';
 
 export default function Footer() {
+  const pathname = usePathname();
   const currentYear = new Date().getFullYear();
+
+  if (pathname?.startsWith('/guest') || pathname === '/chat') {
+    return null;
+  }
 
   return (
     <footer className="border-t border-border bg-cream/70 overflow-hidden">
