@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import {
   ArrowRight,
@@ -10,44 +10,141 @@ import {
   MapPin,
   Calendar,
   Users,
+  ChevronLeft,
+  ChevronRight,
 } from '@/config/icons';
 import { STRINGS } from '@/config/strings';
 import { IMAGES } from '@/config/image';
 import CTAButton from '@/components/ui/CTAButton';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 
+const HERO_SLIDES = [
+  {
+    src: IMAGES.hero,
+    alt: 'liv.inn Boutique Hotel Pune nestled amidst verdant nature at twilight',
+    title: 'Twilight Architecture',
+  },
+  {
+    src: '/hero1.avif',
+    alt: 'liv.inn Nature & Serenity stay experience in Pune',
+    title: 'Nature & Tranquility',
+  },
+  {
+    src: IMAGES.natureView,
+    alt: 'Scenic verdant green hills view from liv.inn Pune',
+    title: 'Scenic Nature Views',
+  },
+  {
+    src: IMAGES.rooms['premium-room'] || '/images/rooms/premium_room.jpg',
+    alt: 'Premium Boutique Room with nature-facing perspective at liv.inn',
+    title: 'Premium Boutique Rooms',
+  },
+];
+
 export default function Hero() {
   const { hero } = STRINGS.home;
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
+  }, []);
+
+  // Automatic slideshow cycle (5.5 seconds)
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 5500);
+    return () => clearInterval(timer);
+  }, [nextSlide, isPaused]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStart === null) return;
+    const diff = touchStart - e.changedTouches[0].clientX;
+    if (diff > 45) {
+      nextSlide();
+    } else if (diff < -45) {
+      prevSlide();
+    }
+    setTouchStart(null);
+  };
 
   return (
     <section
       className="relative flex min-h-[90vh] lg:min-h-screen items-center justify-center overflow-hidden bg-charcoal"
       id="hero"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
-      {/* Background Media Container - Clean, vibrant, visible resort photography */}
+      {/* Background Slideshow Container */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <Image
-          src={IMAGES.hero}
-          alt="liv.inn Hotel Pune nestled amidst verdant nature"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center scale-100 transition-transform duration-1000 ease-out"
-        />
+        {HERO_SLIDES.map((slide, idx) => {
+          const isActive = idx === currentSlide;
+          return (
+            <div
+              key={slide.src}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                isActive ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
+              }`}
+            >
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                fill
+                priority={idx === 0}
+                sizes="100vw"
+                className={`object-cover object-center transition-transform duration-[7500ms] ease-out ${
+                  isActive ? 'scale-105' : 'scale-100'
+                }`}
+              />
+            </div>
+          );
+        })}
 
         {/* Lightweight, elegant luxury scrim: bright and luminous while keeping white text sharp */}
-        <div className="absolute inset-0 bg-black/30 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-black/40 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/35 pointer-events-none z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-black/50 pointer-events-none z-10" />
 
         {/* Subtle gold accent dot texture */}
         <div
-          className="absolute inset-0 opacity-10 pointer-events-none"
+          className="absolute inset-0 opacity-10 pointer-events-none z-10"
           style={{
             backgroundImage: IMAGES.patterns.heroDots,
             backgroundSize: '36px 36px',
           }}
         />
       </div>
+
+      {/* Slideshow Arrow Controls (Desktop) */}
+      <button
+        type="button"
+        onClick={prevSlide}
+        aria-label="Previous slide"
+        className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 h-11 w-11 items-center justify-center rounded-full border border-white/25 bg-black/40 text-white/85 backdrop-blur-md transition-all hover:bg-black/70 hover:border-accent hover:text-white active:scale-95 shadow-lg"
+      >
+        <ChevronLeft className="h-5 w-5" />
+      </button>
+
+      <button
+        type="button"
+        onClick={nextSlide}
+        aria-label="Next slide"
+        className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 h-11 w-11 items-center justify-center rounded-full border border-white/25 bg-black/40 text-white/85 backdrop-blur-md transition-all hover:bg-black/70 hover:border-accent hover:text-white active:scale-95 shadow-lg"
+      >
+        <ChevronRight className="h-5 w-5" />
+      </button>
 
       {/* Main Hero Content */}
       <div className="relative z-10 mx-auto max-w-5xl px-3.5 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-10 sm:pb-14 text-center w-full">
@@ -176,6 +273,39 @@ export default function Hero() {
             </div>
           </div>
         </AnimatedSection>
+
+        {/* Slideshow Indicator Dots & Slide Title */}
+        <div className="mt-5 flex items-center justify-center gap-2 sm:gap-3">
+          {HERO_SLIDES.map((slide, idx) => {
+            const isActive = idx === currentSlide;
+            return (
+              <button
+                key={slide.src}
+                type="button"
+                onClick={() => setCurrentSlide(idx)}
+                aria-label={`Go to slide ${idx + 1}: ${slide.title}`}
+                className="group relative flex items-center gap-2 py-1.5 focus:outline-none"
+              >
+                <span
+                  className={`block h-1.5 rounded-full transition-all duration-500 ${
+                    isActive
+                      ? 'w-8 sm:w-10 bg-accent shadow-sm shadow-accent/60'
+                      : 'w-2.5 bg-white/35 hover:bg-white/60 hover:w-4'
+                  }`}
+                />
+                <span
+                  className={`hidden md:inline text-[11px] font-medium transition-all duration-300 ${
+                    isActive
+                      ? 'text-accent-gold opacity-100'
+                      : 'text-white/40 opacity-0 group-hover:opacity-80'
+                  }`}
+                >
+                  {slide.title}
+                </span>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {/* Clean, Architectural Gold Hairline Divider at bottom */}

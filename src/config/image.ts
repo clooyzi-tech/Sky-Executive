@@ -29,6 +29,7 @@ export const IMAGES = {
     ctaDots: 'radial-gradient(circle at 2px 2px, rgba(212, 175, 55, 0.2) 1px, transparent 0)',
   },
   hero: '/images/property/hero.jpg',
+  hero1: '/hero1.avif',
   natureView: '/images/property/nature_view.jpg',
   cloudKitchen: '/images/property/cloud_kitchen.jpg',
   videos: {

@@ -1,0 +1,57 @@
+{
+  "title": "Food & Lounge",
+  "subtitle": "In-house Cloud Kitchen — Freshly prepared meals delivered to your room",
+  "note": "Veg & Non-Veg options available. Order via WhatsApp or call reception.",
+  "whatsappNumber": "+918007724646",
+  "ordering": {
+    "method": "whatsapp",
+    "swiggyUrl": "",
+    "zomatoUrl": "",
+    "showExternalLinks": false
+  },
+  "mealTimings": [
+    { "meal": "Breakfast", "timing": "7:30 AM – 10:30 AM", "icon": "Coffee" },
+    { "meal": "Lunch", "timing": "12:00 PM – 3:00 PM", "icon": "UtensilsCrossed" },
+    { "meal": "Dinner", "timing": "7:00 PM – 10:30 PM", "icon": "Moon" }
+  ],
+  "categories": [
+    {
+      "id": "breakfast",
+      "name": "Breakfast",
+      "items": [
+        { "name": "Poha", "description": "Flattened rice with peanuts & spices", "type": "veg", "price": "₹80" },
+        { "name": "Upma", "description": "Semolina dish with vegetables", "type": "veg", "price": "₹80" },
+        { "name": "Idli Sambhar", "description": "Steamed rice cakes with lentil soup", "type": "veg", "price": "₹90" },
+        { "name": "Bread Omelette", "description": "Fluffy omelette with toast", "type": "non-veg", "price": "₹100" },
+        { "name": "Aloo Paratha", "description": "Stuffed flatbread with curd & pickle", "type": "veg", "price": "₹100" },
+        { "name": "Tea / Coffee", "description": "Freshly brewed hot beverage", "type": "veg", "price": "₹30" }
+      ]
+    },
+    {
+      "id": "lunch-dinner",
+      "name": "Lunch & Dinner",
+      "items": [
+        { "name": "Veg Thali", "description": "Rice, dal, sabzi, roti, salad & sweet", "type": "veg", "price": "₹180" },
+        { "name": "Non-Veg Thali", "description": "Rice, dal, chicken curry, roti, salad", "type": "non-veg", "price": "₹220" },
+        { "name": "Dal Tadka + Rice", "description": "Tempered lentil curry with steamed rice", "type": "veg", "price": "₹140" },
+        { "name": "Chicken Curry + Rice", "description": "Home-style chicken curry with rice", "type": "non-veg", "price": "₹180" },
+        { "name": "Paneer Butter Masala", "description": "Rich cottage cheese curry", "type": "veg", "price": "₹160" },
+        { "name": "Egg Bhurji + Roti", "description": "Spiced scrambled eggs with flatbread", "type": "non-veg", "price": "₹120" },
+        { "name": "Plain Roti (2 pcs)", "description": "Fresh handmade wheat flatbread", "type": "veg", "price": "₹40" },
+        { "name": "Jeera Rice", "description": "Cumin-flavored basmati rice", "type": "veg", "price": "₹100" }
+      ]
+    },
+    {
+      "id": "snacks",
+      "name": "Snacks & Beverages",
+      "items": [
+        { "name": "Maggi Noodles", "description": "Classic instant noodles", "type": "veg", "price": "₹60" },
+        { "name": "Veg Sandwich", "description": "Grilled sandwich with fresh vegetables", "type": "veg", "price": "₹80" },
+        { "name": "French Fries", "description": "Crispy golden potato fries", "type": "veg", "price": "₹90" },
+        { "name": "Cold Coffee", "description": "Chilled blended coffee with ice cream", "type": "veg", "price": "₹80" },
+        { "name": "Fresh Lime Soda", "description": "Refreshing lime with soda water", "type": "veg", "price": "₹50" },
+        { "name": "Buttermilk", "description": "Spiced yogurt drink", "type": "veg", "price": "₹40" }
+      ]
+    }
+  ]
+}
