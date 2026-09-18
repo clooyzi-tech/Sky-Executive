@@ -102,7 +102,7 @@ export default function RoomsPreview({
   );
 
   return (
-    <section className="relative overflow-hidden bg-white pt-10 sm:pt-14 pb-0" id={id}>
+    <section className="relative overflow-hidden bg-white py-16 md:py-24" id={id}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* ============================================================ */}
         {/* 1. SECTION HEADER                                            */}
@@ -141,7 +141,7 @@ export default function RoomsPreview({
         {/* ============================================================ */}
         {/* 2. SIGNATURE MASTER ROOM SHOWCASE CARD (1 Unified Room Type) */}
         {/* ============================================================ */}
-        <div className="mt-8">
+        <div className="mt-10 sm:mt-12">
           <AnimatedSection delay={0.1}>
             <div
               id="double-room"
@@ -342,9 +342,6 @@ export default function RoomsPreview({
           </div>
         </AnimatedSection>
       </div>
-
-      {/* Luxury Section Divider */}
-      {/* <SectionDivider /> */}
     </section>
   );
 }

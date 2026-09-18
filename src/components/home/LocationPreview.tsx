@@ -17,9 +17,9 @@ export default function LocationPreview() {
   ];
 
   return (
-    <section className="pt-[26px] pb-0 bg-white overflow-hidden" id="location-preview">
+    <section className="py-16 md:py-24 bg-white overflow-hidden" id="location-preview">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-[16px] lg:grid-cols-2">
+        <div className="grid items-center gap-10 lg:gap-14 lg:grid-cols-2">
           {/* Map Embed of Wagholi Pune */}
           <AnimatedSection direction="left">
             <div className="relative overflow-hidden rounded-3xl border border-border shadow-xl">
@@ -54,16 +54,16 @@ export default function LocationPreview() {
                 Upper Kharadi, Wagholi, Pune
               </span>
 
-              <h2 className="mt-[16px] font-serif text-3xl font-bold text-charcoal sm:text-4xl">
+              <h2 className="mt-3 sm:mt-4 font-serif text-3xl font-bold text-charcoal sm:text-4xl">
                 {locationPreview.title}
               </h2>
 
-              <p className="mt-[16px] text-base leading-relaxed text-slate-deep">
+              <p className="mt-3 sm:mt-4 text-base leading-relaxed text-slate-deep">
                 {locationPreview.subtitle}. Nestled in a peaceful nature-oriented pocket with convenient connectivity to Kharadi corporate towers and Wagholi amenities.
               </p>
 
               {/* Verified Address Card */}
-              <div className="mt-[16px] rounded-2xl border border-border-gold bg-cream/40 p-4 sm:p-5 shadow-xs">
+              <div className="mt-6 sm:mt-8 rounded-2xl border border-border-gold bg-cream/40 p-4 sm:p-5 shadow-xs">
                 <div className="flex items-start gap-3">
                   <MapPin className="mt-1 h-5 w-5 shrink-0 text-accent" />
                   <div>
@@ -90,11 +90,11 @@ export default function LocationPreview() {
               </div>
 
               {/* Nearby Categories Preview */}
-              <div className="mt-[16px]">
+              <div className="mt-6 sm:mt-8">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-charcoal">
                   Surrounding Connectivity
                 </h4>
-                <div className="mt-[16px] grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
+                <div className="mt-3 sm:mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {nearbyPreviews.map((item) => (
                     <div
                       key={item.label}
@@ -107,7 +107,7 @@ export default function LocationPreview() {
                 </div>
               </div>
 
-              <div className="mt-[16px] flex flex-col sm:flex-row gap-[16px]">
+              <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4">
                 <CTAButton
                   href={STRINGS.contact.googleMapsUrl}
                   external

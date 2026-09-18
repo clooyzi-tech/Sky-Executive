@@ -12,7 +12,7 @@ export default function BookingCTA() {
 
   return (
     <section
-      className="relative overflow-hidden bg-charcoal pt-[26px] pb-0 text-white"
+      className="relative overflow-hidden bg-charcoal py-28 md:py-36 lg:py-32 text-white"
       id="booking-cta"
     >
       {/* Pattern & ambient glow */}
@@ -32,21 +32,21 @@ export default function BookingCTA() {
             Upper Kharadi, Wagholi, Pune
           </div>
 
-          <h2 className="mt-[16px] font-serif text-3xl font-bold sm:text-4xl md:text-5xl text-white">
+          <h2 className="mt-4 sm:mt-5 font-serif text-3xl font-bold sm:text-4xl md:text-5xl text-white tracking-tight">
             {bookingCTA.title}
           </h2>
 
-          <p className="mx-auto mt-[16px] max-w-2xl text-base leading-relaxed text-white/80 md:text-lg font-light">
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/85 md:text-lg font-light">
             {bookingCTA.description}
           </p>
 
-          <p className="mt-[16px] text-xs sm:text-sm text-accent-gold font-medium">
+          <p className="mt-3 text-xs sm:text-sm text-accent-gold font-medium max-w-xl mx-auto">
             Plot No-31, Lane No-4, Infinity Greens Society, Near VTP Altair Phase-1, Gat No- 1251, Upper Kharadi, Wagholi, Pune-412207, Wagholi 412207
           </p>
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>
-          <div className="mt-[16px] flex flex-col items-center gap-[16px] sm:flex-row sm:justify-center">
+          <div className="mt-8 sm:mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <CTAButton
               href="/contact"
               size="lg"
@@ -80,7 +80,7 @@ export default function BookingCTA() {
             </CTAButton>
           </div>
 
-          <div className="mt-[16px] flex flex-wrap items-center justify-center gap-[16px] text-xs text-white/70">
+          <div className="mt-10 sm:mt-12 pt-8 border-t border-white/15 flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-xs sm:text-sm text-white/80">
             <span>• 25 Premium Rooms</span>
             <span>• 5 Rooms Per Floor</span>
             <span>• Nature-Oriented Views</span>

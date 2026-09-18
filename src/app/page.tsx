@@ -18,13 +18,21 @@ export default function Home() {
         }}
       />
       <Hero />
+      <div className="h-16 md:h-24" />
       <Introduction />
+      <div className="h-16 md:h-24" />
       <ExperienceSection />
+      <div className="h-16 md:h-24" />
       <RoomsPreview />
+      <div className="h-16 md:h-24" />
       <NatureViewSection />
+      <div className="h-16 md:h-24" />
       <WhyChoose />
+      <div className="h-16 md:h-24" />
       <LocationPreview />
+      <div className="h-10 md:h-10" />
       <BookingCTA />
     </>
   );
 }
+
