@@ -41,8 +41,8 @@
   ],
   "gallery": {
     "images": [
-      { "src": "/images/rooms/premium_room.jpg", "alt": "Premium Room", "category": "Rooms" },
-      { "src": "/images/rooms/executive_room.jpg", "alt": "Single Room", "category": "Rooms" },
+      { "src": "/images/rooms/premium_room.jpg", "alt": "Double Bed Room", "category": "Rooms" },
+      { "src": "/images/rooms/executive_room.jpg", "alt": "Double Bed Room — Workspace", "category": "Rooms" },
       { "src": "/images/property/nature_view.jpg", "alt": "Nature View", "category": "Property" },
       { "src": "/images/property/cloud_kitchen.jpg", "alt": "Cloud Kitchen", "category": "Dining" },
       { "src": "/images/services/reception.jpg", "alt": "Reception", "category": "Property" }

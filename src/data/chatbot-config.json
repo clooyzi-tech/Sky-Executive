@@ -18,9 +18,9 @@
       ]
     },
     "rooms": {
-      "message": "We have **25 premium rooms** across 5 floors, each with nature-oriented views.\n\n🛏️ **Double Room (Queen Bed)** — 200 sq. ft., Queen bed, nature view. 19 rooms.\n\n🛏️ **Single Room** — 200 sq. ft., ideal for solo/corporate. 6 rooms.\n\n**All rooms include**: AC, Smart TV, High-Speed Wi-Fi, Attached Bath with 24/7 hot water, fresh linen.\n\n📋 *Rates are available on enquiry.*",
+      "message": "liv.inn features **25 Double Bed Rooms** across 5 floors (5 rooms per floor for quiet privacy), each with tranquil nature views.\n\n🛏️ **Double Bed Room** — 200 sq. ft., comfortable double bed (queen size 180 cm), attached en-suite bathroom with 24/7 hot water, individual AC, Smart TV, High-Speed Wi-Fi, work desk, and scenic nature views.\n\n👥 **Occupancy**: 2 Adults + 1 Extra Guest (Extra bed available on request).\n\n🍳 **In-Room Dining**: Freshly prepared meals delivered directly to your room from our in-house cloud kitchen.\n\n📋 *Rates and live availability are confirmed directly upon enquiry.*",
       "options": [
-        { "id": "enquire_room", "label": "💬 Enquire on WhatsApp", "action": "whatsapp", "message": "Hi! I'd like to check room availability and rates at liv.inn Pune." },
+        { "id": "enquire_room", "label": "💬 Enquire on WhatsApp", "action": "whatsapp", "message": "Hi! I'd like to check room availability and rates for a Double Bed Room at liv.inn Pune." },
         { "id": "call_room", "label": "📞 Call Front Desk", "action": "call" },
         { "id": "main", "label": "⬅️ Back to Menu", "action": "navigate" }
       ]
