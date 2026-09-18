@@ -20,7 +20,6 @@ import {
 } from '@/config/icons';
 import { STRINGS } from '@/config/strings';
 import AnimatedSection from '@/components/ui/AnimatedSection';
-import SectionDivider from '@/components/ui/SectionDivider';
 
 interface ExperienceSectionProps {
   id?: string;
@@ -72,7 +71,7 @@ export default function ExperienceSection({
 
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F3] via-[#F8F5EE] to-[#F4EFE6] pt-[26px] pb-0"
+      className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F3] via-[#F8F5EE] to-[#F4EFE6] py-16 md:py-24"
       id={id}
     >
       {/* ------------------------------------------------------------- */}
@@ -151,11 +150,11 @@ export default function ExperienceSection({
               <span className="h-px w-10 bg-[#C9A227]" />
             </div>
 
-            <h2 className="mt-[16px] font-serif text-3xl font-bold tracking-tight text-[#1C1C1C] sm:text-4xl md:text-5xl">
+            <h2 className="mt-3 sm:mt-4 font-serif text-3xl font-bold tracking-tight text-[#1C1C1C] sm:text-4xl md:text-5xl">
               {isAllServicesPage ? 'Everything You Need for a Seamless Stay' : experience.title}
             </h2>
 
-            <p className="mx-auto mt-[16px] max-w-2xl text-sm leading-relaxed text-[#5F5A50] sm:text-base">
+            <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-sm leading-relaxed text-[#5F5A50] sm:text-base">
               {isAllServicesPage
                 ? 'Thoughtfully curated facilities and verified services across our 25-room boutique hotel in Pune.'
                 : experience.subtitle}
@@ -166,7 +165,7 @@ export default function ExperienceSection({
         {/* ------------------------------------------------------------- */}
         {/* 3. ROW 1: HERO PAIR (Comfortable Rooms + Daily Housekeeping) */}
         {/* ------------------------------------------------------------- */}
-        <div className="mt-[16px] grid grid-cols-1 lg:grid-cols-12 gap-[16px] items-stretch">
+        <div className="mt-10 sm:mt-12 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
           {/* Card 1: Comfortable Rooms (7 columns - Large landscape photo with overlay badge) */}
           <div className="lg:col-span-7 xl:col-span-7">
             <AnimatedSection delay={0.1}>
@@ -270,7 +269,7 @@ export default function ExperienceSection({
         {/* ------------------------------------------------------------- */}
         {/* 4. BALANCED SERVICES (3-Column Grid)                          */}
         {/* ------------------------------------------------------------- */}
-        <div className="mt-[16px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[16px]">
+        <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {servicesToDisplay.map((service, idx) => (
             <AnimatedSection key={service.id} delay={0.06 * (idx + 1)}>
               <div className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[#DED8CC] bg-white shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col h-full">
@@ -325,7 +324,7 @@ export default function ExperienceSection({
         {/* 5. WIDE BANNER CTA CARD                                       */}
         {/* ------------------------------------------------------------- */}
         <AnimatedSection delay={0.3}>
-          <div className="mt-[16px] overflow-hidden rounded-2xl sm:rounded-3xl border border-[#DED8CC] bg-[#F5EFEB] shadow-xs hover:shadow-lg transition-all duration-300">
+          <div className="mt-10 sm:mt-12 overflow-hidden rounded-2xl sm:rounded-3xl border border-[#DED8CC] bg-[#F5EFEB] shadow-xs hover:shadow-lg transition-all duration-300">
             <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
               {/* Left Column (Copy & Button) */}
               <div className="lg:col-span-5 p-8 sm:p-12 lg:p-14">
@@ -339,7 +338,7 @@ export default function ExperienceSection({
                     : experience.banner.subtitle}
                 </p>
 
-                <div className="mt-[16px]">
+                <div className="mt-6 sm:mt-8">
                   <Link
                     href={isAllServicesPage ? '/contact' : experience.banner.href}
                     className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#C9A227] via-[#D4AF37] to-[#B88A2A] px-7 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1C1C1C] shadow-sm transition-all duration-300 hover:brightness-105 hover:shadow-md active:scale-95"
@@ -368,7 +367,7 @@ export default function ExperienceSection({
         {/* ------------------------------------------------------------- */}
         {/* 6. BOTTOM FEATURE STRIP / HIGHLIGHTS BAR                      */}
         {/* ------------------------------------------------------------- */}
-        <div className="mt-[16px] pt-[16px] border-t border-[#DED8CC] flex flex-wrap items-center justify-between gap-[16px] text-xs text-[#5F5A50]">
+        <div className="mt-12 sm:mt-16 pt-8 border-t border-[#DED8CC] flex flex-wrap items-center justify-between gap-4 sm:gap-6 text-xs text-[#5F5A50]">
           {experience.highlights.map((item, i) => (
             <div key={item.label} className="flex items-center gap-2">
               {iconResolver(item.icon)}
@@ -387,8 +386,6 @@ export default function ExperienceSection({
         </div>
       </div>
 
-      {/* Luxury Section Divider */}
-      <SectionDivider />
     </section>
   );
 }
