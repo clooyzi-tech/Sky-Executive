@@ -6,7 +6,6 @@ import { IMAGES } from '@/config/image';
 import { phoneUrl, whatsappUrl } from '@/lib/utils';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import CTAButton from '@/components/ui/CTAButton';
-import SectionDivider from '@/components/ui/SectionDivider';
 
 export default function BookingCTA() {
   const { bookingCTA } = STRINGS.home;
@@ -90,8 +89,6 @@ export default function BookingCTA() {
         </AnimatedSection>
       </div>
 
-      {/* Luxury Section Divider */}
-      <SectionDivider />
     </section>
   );
 }

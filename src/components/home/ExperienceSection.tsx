@@ -20,7 +20,6 @@ import {
 } from '@/config/icons';
 import { STRINGS } from '@/config/strings';
 import AnimatedSection from '@/components/ui/AnimatedSection';
-import SectionDivider from '@/components/ui/SectionDivider';
 
 interface ExperienceSectionProps {
   id?: string;
@@ -387,8 +386,6 @@ export default function ExperienceSection({
         </div>
       </div>
 
-      {/* Luxury Section Divider */}
-      <SectionDivider />
     </section>
   );
 }

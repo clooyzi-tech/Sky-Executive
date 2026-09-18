@@ -4,7 +4,6 @@ import { getWhyChooseIcon } from '@/config/icons';
 import { STRINGS } from '@/config/strings';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import SectionHeading from '@/components/ui/SectionHeading';
-import SectionDivider from '@/components/ui/SectionDivider';
 
 export default function WhyChoose() {
   const { whyChoose } = STRINGS.home;
@@ -38,8 +37,6 @@ export default function WhyChoose() {
         </div>
       </div>
 
-      {/* Luxury Section Divider */}
-      <SectionDivider />
     </section>
   );
 }

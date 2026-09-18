@@ -25,7 +25,6 @@ import {
 import { STRINGS } from '@/config/strings';
 import { whatsappUrl, phoneUrl } from '@/lib/utils';
 import AnimatedSection from '@/components/ui/AnimatedSection';
-import SectionDivider from '@/components/ui/SectionDivider';
 
 interface RoomsShowcaseProps {
   id?: string;
@@ -345,7 +344,7 @@ export default function RoomsPreview({
       </div>
 
       {/* Luxury Section Divider */}
-      <SectionDivider />
+      {/* <SectionDivider /> */}
     </section>
   );
 }

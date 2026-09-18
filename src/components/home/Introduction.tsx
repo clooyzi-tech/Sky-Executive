@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { STRINGS } from '@/config/strings';
 import { IMAGES } from '@/config/image';
 import AnimatedSection from '@/components/ui/AnimatedSection';
-import SectionDivider from '@/components/ui/SectionDivider';
 import {
   Building2,
   Trees,
@@ -226,8 +225,7 @@ export default function Introduction() {
         </div>
       </div>
 
-      {/* Luxury Section Divider */}
-      <SectionDivider />
+   
     </section>
   );
 }

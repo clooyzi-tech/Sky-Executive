@@ -6,7 +6,6 @@ import { IMAGES } from '@/config/image';
 import { STRINGS } from '@/config/strings';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import CTAButton from '@/components/ui/CTAButton';
-import SectionDivider from '@/components/ui/SectionDivider';
 
 export default function NatureViewSection() {
   const { natureHighlight } = STRINGS.home;
@@ -132,8 +131,6 @@ export default function NatureViewSection() {
         </div>
       </div>
 
-      {/* Luxury Section Divider */}
-      <SectionDivider />
     </section>
   );
 }

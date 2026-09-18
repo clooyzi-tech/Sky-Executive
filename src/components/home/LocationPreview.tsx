@@ -5,7 +5,6 @@ import { STRINGS } from '@/config/strings';
 import { phoneUrl } from '@/lib/utils';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import CTAButton from '@/components/ui/CTAButton';
-import SectionDivider from '@/components/ui/SectionDivider';
 
 export default function LocationPreview() {
   const { locationPreview } = STRINGS.home;
@@ -130,8 +129,6 @@ export default function LocationPreview() {
         </div>
       </div>
 
-      {/* Luxury Section Divider */}
-      <SectionDivider />
     </section>
   );
 }
