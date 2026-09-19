@@ -1,11 +1,10 @@
 import Hero from '@/components/home/Hero';
-import Introduction from '@/components/home/Introduction';
-import ExperienceSection from '@/components/home/ExperienceSection';
+import TimelineServices from '@/components/home/TimelineServices';
+import MomentsGallery from '@/components/home/MomentsGallery';
+import AmenitiesCarousel from '@/components/home/AmenitiesCarousel';
 import RoomsPreview from '@/components/home/RoomsPreview';
-import NatureViewSection from '@/components/home/NatureViewSection';
 import WhyChoose from '@/components/home/WhyChoose';
 import LocationPreview from '@/components/home/LocationPreview';
-import BookingCTA from '@/components/home/BookingCTA';
 import { hotelJsonLd } from '@/lib/seo';
 
 export default function Home() {
@@ -17,22 +16,26 @@ export default function Home() {
           __html: JSON.stringify(hotelJsonLd()),
         }}
       />
+      {/* 1. Hero Section with 5 Slides & Floating Booking Bar */}
       <Hero />
-      <div className="h-16 md:h-24" />
-      <Introduction />
-      <div className="h-16 md:h-24" />
-      <ExperienceSection />
-      <div className="h-16 md:h-24" />
+
+      {/* 2. Timeline Section: High Quality Services, 20+ Amenities, High Class Security */}
+      <TimelineServices />
+
+      {/* 3. Moments from Liv.inn: Dark Luxury Mosaic Gallery */}
+      <MomentsGallery />
+
+      {/* 4. Amenities Carousel: "Everything You Need" */}
+      <AmenitiesCarousel />
+
+      {/* 5. Signature Double Bed Room: "A Stay Designed for Your Comfort" */}
       <RoomsPreview />
-      <div className="h-16 md:h-24" />
-      <NatureViewSection />
-      <div className="h-16 md:h-24" />
+
+      {/* 6. Guest Testimonials: "What Our Guests Say" */}
       <WhyChoose />
-      <div className="h-16 md:h-24" />
+
+      {/* 7. Location & Directions Card */}
       <LocationPreview />
-      <div className="h-10 md:h-10" />
-      <BookingCTA />
     </>
   );
 }
-

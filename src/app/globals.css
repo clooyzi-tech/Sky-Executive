@@ -43,6 +43,11 @@
   --color-border-gold: var(--border-gold);
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
+  --font-script: var(--font-script);
+}
+
+.font-script {
+  font-family: var(--font-script), 'Alex Brush', cursive;
 }
 
 /* Smooth scrolling & overflow protection */

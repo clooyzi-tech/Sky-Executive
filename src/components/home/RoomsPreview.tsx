@@ -5,342 +5,231 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   Bed,
-  Wifi,
+  Trees,
   Wind,
   Tv,
   Bath,
-  Coffee,
-  Laptop,
-  Maximize2,
-  Armchair,
-  Users,
-  ArrowRight,
+  UtensilsCrossed,
   Sparkles,
+  ArrowRight,
   ChevronLeft,
   ChevronRight,
-  Building2,
-  Trees,
-  Phone,
-} from '@/config/icons';
-import { STRINGS } from '@/config/strings';
-import { whatsappUrl, phoneUrl } from '@/lib/utils';
-import AnimatedSection from '@/components/ui/AnimatedSection';
+  CheckCircle2,
+} from 'lucide-react';
 
-interface RoomsShowcaseProps {
-  id?: string;
-  isAllRoomsPage?: boolean;
-}
-
-const ROOM_GALLERY_PHOTOS = [
+const ROOM_PHOTOS = [
   {
     src: '/images/rooms/premium_room.jpg',
-    label: 'Plush Double Bed',
-    alt: 'liv.inn Double Bed Room Interior with plush bedding and warm lighting',
+    title: 'Double Bed Room',
+    subtitle: 'Queen Bed (180cm) with warm wood accents',
   },
   {
     src: '/images/services/bathroom.jpg',
-    label: 'Attached Bath (Hot Water)',
-    alt: 'Modern en-suite bathroom with 24/7 hot water supply',
+    title: 'En-Suite Bathroom',
+    subtitle: 'Attached bathroom with 24/7 hot water supply',
   },
   {
     src: '/images/services/wifi_desk.jpg',
-    label: 'Work Desk & Wi-Fi',
-    alt: 'Dedicated work desk with high-speed Wi-Fi in the Double Bed Room',
+    title: 'Work Desk & Fast Wi-Fi',
+    subtitle: 'Dedicated space for business travelers',
   },
   {
     src: '/images/property/nature_view.jpg',
-    label: 'Nature Window View',
-    alt: 'Scenic verdant green hills view from the Double Bed Room',
+    title: 'Scenic Nature Window View',
+    subtitle: 'Tranquil greenery facing Pune hills',
+  },
+];
+
+const ROOM_FEATURES = [
+  {
+    icon: Bed,
+    title: 'Double Bed (180 cm)',
+    desc: '200 sq. ft. room with plush queen mattress',
+  },
+  {
+    icon: Trees,
+    title: 'Nature-Oriented Views',
+    desc: 'Quiet greenery perspective in every room',
+  },
+  {
+    icon: Wind,
+    title: 'Individual Air Conditioning',
+    desc: 'Custom climate control for your comfort',
+  },
+  {
+    icon: Tv,
+    title: 'Smart TV & Fast Wi-Fi',
+    desc: 'High-speed internet & digital entertainment',
+  },
+  {
+    icon: Bath,
+    title: 'Attached Modern Bath',
+    desc: '24/7 instant hot water and fresh towels',
+  },
+  {
+    icon: UtensilsCrossed,
+    title: 'In-Room Cloud Kitchen',
+    desc: 'Fresh meals delivered right to your door',
   },
 ];
 
 export default function RoomsPreview({
   id = 'rooms-preview',
   isAllRoomsPage = false,
-}: RoomsShowcaseProps) {
-  const { roomsPreview } = STRINGS.home;
-  const masterRoom = roomsPreview.rooms[0];
-  const [activePhotoIdx, setActivePhotoIdx] = useState(0);
+}: {
+  id?: string;
+  isAllRoomsPage?: boolean;
+}) {
+  const [activePhoto, setActivePhoto] = useState(0);
 
   const nextPhoto = () => {
-    setActivePhotoIdx((prev) => (prev + 1) % ROOM_GALLERY_PHOTOS.length);
+    setActivePhoto((prev) => (prev + 1) % ROOM_PHOTOS.length);
   };
 
   const prevPhoto = () => {
-    setActivePhotoIdx((prev) => (prev - 1 + ROOM_GALLERY_PHOTOS.length) % ROOM_GALLERY_PHOTOS.length);
+    setActivePhoto((prev) => (prev - 1 + ROOM_PHOTOS.length) % ROOM_PHOTOS.length);
   };
 
-  const amenityIconResolver = (iconName: string) => {
-    switch (iconName) {
-      case 'Bed':
-        return <Bed className="h-4 w-4 text-[#C9A227]" />;
-      case 'Wifi':
-        return <Wifi className="h-4 w-4 text-[#C9A227]" />;
-      case 'Wind':
-        return <Wind className="h-4 w-4 text-[#C9A227]" />;
-      case 'Tv':
-        return <Tv className="h-4 w-4 text-[#C9A227]" />;
-      case 'Bath':
-        return <Bath className="h-4 w-4 text-[#C9A227]" />;
-      case 'Coffee':
-        return <Coffee className="h-4 w-4 text-[#C9A227]" />;
-      case 'Laptop':
-        return <Laptop className="h-4 w-4 text-[#C9A227]" />;
-      case 'Maximize2':
-        return <Maximize2 className="h-4 w-4 text-[#C9A227]" />;
-      case 'Armchair':
-        return <Armchair className="h-4 w-4 text-[#C9A227]" />;
-      case 'Sparkles':
-        return <Sparkles className="h-4 w-4 text-[#C9A227]" />;
-      default:
-        return <Bed className="h-4 w-4 text-[#C9A227]" />;
+  const handleBookNow = () => {
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(
+        new CustomEvent('open-booking-enquiry', {
+          detail: {
+            roomPreference: 'Double Bed Room',
+          },
+        })
+      );
     }
   };
 
-  const enquiryHref = whatsappUrl(
-    STRINGS.contact.prefilledMessages.roomEnquiry('Double Bed Room')
-  );
+  const current = ROOM_PHOTOS[activePhoto];
 
   return (
-    <section className="relative overflow-hidden bg-white py-16 md:py-24" id={id}>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* ============================================================ */}
-        {/* 1. SECTION HEADER                                            */}
-        {/* ============================================================ */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-[#F0EBE1]">
-          {/* Left Title & Subtitle */}
-          <AnimatedSection>
-            <div>
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#C9A227]">
-                {roomsPreview.eyebrow}
-              </span>
-
-              <h2 className="mt-3 font-serif text-3xl font-bold tracking-tight text-[#1C1C1C] sm:text-4xl lg:text-5xl">
-                {roomsPreview.title}
-              </h2>
-
-              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#5F5A50] sm:text-base">
-                {roomsPreview.subtitle}
-              </p>
+    <section className="py-20 sm:py-28 bg-[#FAF7F2] relative overflow-hidden" id={id}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+          {/* Left Column: Details & Features */}
+          <div className="lg:col-span-6 flex flex-col text-left">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF0E1] border border-[#E8DFC8] text-[#A67C37] text-xs font-semibold tracking-wider uppercase mb-3 w-fit">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Signature Accommodation</span>
             </div>
-          </AnimatedSection>
 
-          {/* Right Luxury Brand Stamp with Underline */}
-          <AnimatedSection delay={0.15}>
-            <div className="hidden md:flex flex-col items-end select-none">
-              <div className="text-right font-serif text-xs font-semibold tracking-[0.25em] text-[#B88A2A] uppercase leading-tight">
-                <div>A STAY</div>
-                <div>BEYOND</div>
-                <div>ORDINARY</div>
-              </div>
-              <div className="mt-2 h-px w-28 bg-[#C9A227]" />
-            </div>
-          </AnimatedSection>
-        </div>
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#2A241C] tracking-tight leading-tight">
+              A Stay Designed for Your Comfort
+            </h2>
 
-        {/* ============================================================ */}
-        {/* 2. SIGNATURE MASTER ROOM SHOWCASE CARD (1 Unified Room Type) */}
-        {/* ============================================================ */}
-        <div className="mt-10 sm:mt-12">
-          <AnimatedSection delay={0.1}>
-            <div
-              id="double-room"
-              className="overflow-hidden rounded-2xl sm:rounded-3xl border border-[#DED8CC] bg-white shadow-sm transition-all duration-300 hover:border-[#C9A227]/40 hover:shadow-xl"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
-                {/* -------------------------------------------------------- */}
-                {/* Left Column: Interactive Multi-Photo Room Gallery        */}
-                {/* -------------------------------------------------------- */}
-                <div className="relative min-h-[320px] sm:min-h-[420px] lg:min-h-[520px] w-full overflow-hidden bg-charcoal lg:col-span-6 flex flex-col justify-between">
-                  {/* Current Active Photo */}
-                  <div className="absolute inset-0">
-                    <Image
-                      src={ROOM_GALLERY_PHOTOS[activePhotoIdx].src}
-                      alt={ROOM_GALLERY_PHOTOS[activePhotoIdx].alt}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-cover transition-transform duration-700 ease-out"
-                    />
-                    {/* Top Scrim with Inventory Badge */}
-                    <div className="absolute inset-x-0 top-0 bg-gradient-to-b from-black/70 via-black/20 to-transparent p-4 sm:p-6 flex items-center justify-between z-10">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-black/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-accent-gold backdrop-blur-md border border-white/15">
-                        <Building2 className="h-3.5 w-3.5 text-accent" />
-                        <span>All 25 Rooms • Uniform Double Bed</span>
-                      </span>
-                      <span className="text-xs font-mono font-medium text-white/80">
-                        0{activePhotoIdx + 1} / 0{ROOM_GALLERY_PHOTOS.length}
-                      </span>
+            <p className="mt-3 text-xs sm:text-sm md:text-base text-[#6E6454] leading-relaxed">
+              liv.inn offers <strong>25 Double Bed Rooms</strong> thoughtfully distributed across 5 floors (5 rooms per floor for quiet privacy). Each room is an intimate sanctuary with calming nature views, plush bedding, and modern hospitality.
+            </p>
+
+            {/* 6 Feature Badges */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-8">
+              {ROOM_FEATURES.map((f, i) => {
+                const Icon = f.icon;
+                return (
+                  <div
+                    key={i}
+                    className="flex items-start gap-2.5 p-3 rounded-2xl bg-white border border-[#E8DFC8] shadow-2xs hover:border-[#B38E46] transition-colors"
+                  >
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#FAF5EC] text-[#A67C37]">
+                      <Icon className="w-4 h-4" />
                     </div>
-
-                    {/* Left/Right Photo Carousel Arrows */}
-                    <button
-                      type="button"
-                      onClick={prevPhoto}
-                      aria-label="Previous room photo"
-                      className="absolute left-3 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full border border-white/30 bg-black/50 text-white flex items-center justify-center backdrop-blur-md transition-all hover:bg-black/80 hover:border-accent"
-                    >
-                      <ChevronLeft className="h-5 w-5" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={nextPhoto}
-                      aria-label="Next room photo"
-                      className="absolute right-3 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full border border-white/30 bg-black/50 text-white flex items-center justify-center backdrop-blur-md transition-all hover:bg-black/80 hover:border-accent"
-                    >
-                      <ChevronRight className="h-5 w-5" />
-                    </button>
-
-                    {/* Bottom gradient overlay with clean tag badge & subtle dots */}
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent p-5 sm:p-6 flex items-center justify-between z-10">
-                      <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.24em] text-white/95">
-                        {masterRoom.tagBadge}
-                      </span>
-                      <div className="flex items-center gap-1.5">
-                        {ROOM_GALLERY_PHOTOS.map((_, pIdx) => (
-                          <button
-                            key={pIdx}
-                            type="button"
-                            onClick={() => setActivePhotoIdx(pIdx)}
-                            aria-label={`View photo ${pIdx + 1}`}
-                            className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                              pIdx === activePhotoIdx
-                                ? 'w-6 bg-accent'
-                                : 'w-1.5 bg-white/40 hover:bg-white/70'
-                            }`}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* -------------------------------------------------------- */}
-                {/* Right Column: Complete Features & Service Details         */}
-                {/* -------------------------------------------------------- */}
-                <div className="p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between bg-white lg:col-span-6">
-                  <div>
-                    {/* Eyebrow & Category */}
-                    <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                      <span className="font-serif text-3xl sm:text-4xl font-normal text-[#C9A227]/40 leading-none">
-                        01
-                      </span>
-                      <span className="h-px w-6 bg-[#C9A227]" />
-                      <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#C9A227]">
-                        {masterRoom.category}
-                      </span>
-                    </div>
-
-                    {/* Room Name */}
-                    <h3 className="mt-3 font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1C1C1C]">
-                      {masterRoom.name}
-                    </h3>
-
-                    {/* Snapshot Feature Chips */}
-                    <div className="mt-3 flex flex-wrap gap-2 text-[11px] sm:text-xs font-medium text-[#5F5A50]">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FAF7F2] border border-[#E6DFD3] px-3 py-1">
-                        <Bed className="h-3.5 w-3.5 text-accent" />
-                        Double Bed (Queen Size 180cm)
-                      </span>
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FAF7F2] border border-[#E6DFD3] px-3 py-1">
-                        <Maximize2 className="h-3.5 w-3.5 text-accent" />
-                        200 Sq. Ft.
-                      </span>
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FAF7F2] border border-[#E6DFD3] px-3 py-1">
-                        <Building2 className="h-3.5 w-3.5 text-accent" />
-                        5 Rooms Per Floor (Privacy)
-                      </span>
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FAF7F2] border border-[#E6DFD3] px-3 py-1">
-                        <Trees className="h-3.5 w-3.5 text-accent" />
-                        Scenic Nature View
-                      </span>
-                    </div>
-
-                    {/* Description */}
-                    <p className="mt-4 text-xs sm:text-sm leading-relaxed text-[#5F5A50] sm:text-base font-normal">
-                      {masterRoom.description}
-                    </p>
-
-                    {/* All Features & Services Consolidated Inside */}
-                    <div className="mt-6 pt-5 border-t border-[#F3EFE6]">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#1C1C1C] mb-3">
-                        Included In-Room Amenities & Services
+                    <div>
+                      <h4 className="text-xs font-bold text-[#2A241C] leading-snug">
+                        {f.title}
                       </h4>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3">
-                        {masterRoom.amenities.map((amenity) => (
-                          <div
-                            key={amenity.label}
-                            className="flex items-center gap-2 text-xs text-[#1C1C1C] rounded-lg bg-[#FAF8F5] border border-[#EFE9DE] p-2 transition-colors hover:border-accent/40"
-                          >
-                            {amenityIconResolver(amenity.icon)}
-                            <span className="font-medium text-[#1C1C1C] truncate">
-                              {amenity.label}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
+                      <p className="text-[10.5px] text-[#7E7465] leading-normal mt-0.5">
+                        {f.desc}
+                      </p>
                     </div>
                   </div>
+                );
+              })}
+            </div>
 
-                  {/* Bottom Row: Direct CTAs + Occupancy */}
-                  <div className="mt-8 pt-6 border-t border-[#F3EFE6] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
-                    <div className="flex flex-wrap items-center gap-2.5">
-                      <Link
-                        href={enquiryHref}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#C9A227] via-[#D4AF37] to-[#B88A2A] px-6 py-3 text-xs font-bold uppercase tracking-wider text-[#1C1C1C] shadow-sm transition-all duration-300 hover:brightness-105 hover:shadow-md active:scale-95 whitespace-nowrap"
-                        id="room-enquire-whatsapp"
-                      >
-                        <span>ENQUIRE VIA WHATSAPP</span>
-                        <ArrowRight className="h-3.5 w-3.5 text-[#1C1C1C]" />
-                      </Link>
+            {/* Action Buttons */}
+            <div className="mt-8 flex flex-col sm:flex-row items-center gap-3">
+              <button
+                onClick={handleBookNow}
+                className="w-full sm:w-auto px-7 py-3 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-bold uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
+              >
+                Book This Room
+              </button>
 
-                      <a
-                        href={phoneUrl(STRINGS.contact.phone)}
-                        className="inline-flex items-center justify-center gap-2 rounded-full border border-[#DED8CC] bg-white px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#1C1C1C] hover:bg-[#FAF8F3] hover:border-accent transition-all"
-                        id="room-call-frontdesk"
-                      >
-                        <Phone className="h-3.5 w-3.5 text-accent" />
-                        <span>CALL FRONT DESK</span>
-                      </a>
-                    </div>
+              <Link
+                href="/rooms"
+                className="w-full sm:w-auto px-6 py-3 rounded-full border border-[#DCD3C3] bg-white hover:bg-[#FAF5EC] text-[#2A241C] text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors group text-center"
+              >
+                <span>View Full Room Specs</span>
+                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 text-[#A67C37]" />
+              </Link>
+            </div>
+          </div>
 
-                    {/* Occupancy Indicator */}
-                    <div className="flex items-center gap-2 text-xs font-semibold text-[#5F5A50] bg-[#FAF8F5] px-3 py-2 rounded-full border border-[#EFE9DE] self-start sm:self-auto">
-                      <Users className="h-4 w-4 text-[#C9A227]" />
-                      <span>{masterRoom.occupancyText}</span>
-                    </div>
-                  </div>
+          {/* Right Column: Master Room Photo Showcase */}
+          <div className="lg:col-span-6">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#E8DFC8] bg-white p-2">
+              <div className="relative h-80 sm:h-96 md:h-[420px] rounded-2xl overflow-hidden">
+                <Image
+                  src={current.src}
+                  alt={current.title}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-center transition-all duration-500"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+
+                {/* Arrows */}
+                <button
+                  onClick={prevPhoto}
+                  aria-label="Previous photo"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-black/40 text-white hover:bg-[#B38E46] transition-colors cursor-pointer"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </button>
+                <button
+                  onClick={nextPhoto}
+                  aria-label="Next photo"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-black/40 text-white hover:bg-[#B38E46] transition-colors cursor-pointer"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+
+                {/* Caption */}
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <span className="text-[10px] uppercase font-bold tracking-widest text-[#DFB756]">
+                    liv.inn Pune
+                  </span>
+                  <h4 className="font-serif text-lg sm:text-xl font-bold">{current.title}</h4>
+                  <p className="text-xs text-white/80">{current.subtitle}</p>
                 </div>
               </div>
-            </div>
-          </AnimatedSection>
-        </div>
 
-        {/* ============================================================ */}
-        {/* 3. ASSISTANCE & GROUP BOOKING BANNER                         */}
-        {/* ============================================================ */}
-        <AnimatedSection delay={0.25}>
-          <div className="mt-10 rounded-2xl sm:rounded-3xl border border-[#DED8CC] bg-[#F5EFEB] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
-            <div>
-              <h4 className="font-serif text-lg sm:text-xl font-bold text-[#1C1C1C]">
-                {roomsPreview.consultationBanner.title}
-              </h4>
-              <p className="mt-1.5 text-xs sm:text-sm text-[#5F5A50]">
-                {roomsPreview.consultationBanner.subtitle}
-              </p>
+              {/* Thumbnails */}
+              <div className="grid grid-cols-4 gap-2 mt-2 px-1 pb-1">
+                {ROOM_PHOTOS.map((p, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActivePhoto(idx)}
+                    className={`relative h-14 sm:h-16 rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
+                      idx === activePhoto ? 'border-[#B38E46] scale-102 shadow-xs' : 'border-transparent opacity-60 hover:opacity-100'
+                    }`}
+                  >
+                    <Image
+                      src={p.src}
+                      alt={p.title}
+                      fill
+                      sizes="100px"
+                      className="object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
             </div>
-
-            <Link
-              href={roomsPreview.consultationBanner.href}
-              className="inline-flex items-center gap-2 rounded-full border border-[#C9A227] bg-white px-6 py-2.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#B88A2A] shadow-xs transition-all duration-300 hover:border-[#B88A2A] hover:bg-[#FAF8F3] hover:text-[#C9A227] hover:shadow-md whitespace-nowrap"
-              id="room-consultation-btn"
-            >
-              <span>{roomsPreview.consultationBanner.btnText}</span>
-              <ArrowRight className="h-4 w-4" />
-            </Link>
           </div>
-        </AnimatedSection>
+        </div>
       </div>
     </section>
   );
