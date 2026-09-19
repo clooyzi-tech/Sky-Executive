@@ -4,7 +4,7 @@
  * All typography definitions, font loaders, and CSS variables are managed here.
  */
 
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Inter, Playfair_Display, Alex_Brush } from 'next/font/google';
 
 export const fontInter = Inter({
   subsets: ['latin'],
@@ -18,18 +18,27 @@ export const fontPlayfair = Playfair_Display({
   display: 'swap',
 });
 
+export const fontAlexBrush = Alex_Brush({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-script',
+  display: 'swap',
+});
+
 /**
  * Combined font variable classes to attach to the root <html> element
  */
-export const fontVariables = `${fontInter.variable} ${fontPlayfair.variable}`;
+export const fontVariables = `${fontInter.variable} ${fontPlayfair.variable} ${fontAlexBrush.variable}`;
 
 export const FONTS = {
   inter: fontInter,
   playfair: fontPlayfair,
+  script: fontAlexBrush,
   variables: fontVariables,
   families: {
     sans: 'var(--font-inter), system-ui, -apple-system, sans-serif',
     serif: 'var(--font-playfair), Georgia, serif',
+    script: 'var(--font-script), cursive',
   },
 } as const;
 
