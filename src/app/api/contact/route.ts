@@ -59,17 +59,20 @@ export async function POST(request: Request) {
       ? process.env.SMTP_SECURE === 'true'
       : smtpPort === 465;
 
-  const smtpUser =
+  const smtpUser = (
     process.env.SMTP_USER ||
     process.env.EMAIL_USER ||
     process.env.MAIL_USER ||
-    '';
+    ''
+  ).trim();
 
-  const smtpPass =
+  const rawPass = (
     process.env.SMTP_PASS ||
     process.env.EMAIL_PASS ||
     process.env.MAIL_PASS ||
-    '';
+    ''
+  ).trim();
+  const smtpPass = rawPass.replace(/\s+/g, '');
 
   const receiverEmail =
     process.env.STAFF_RECEIVER_EMAIL ||

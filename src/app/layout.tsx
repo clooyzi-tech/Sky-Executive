@@ -7,6 +7,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import ChatbotWidget from '@/components/chatbot/ChatbotWidget';
+import EnquiryPopup from '@/components/ui/EnquiryPopup';
 
 export const metadata: Metadata = {
   title: STRINGS.seo.defaultTitle,
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <WhatsAppButton />
         <ChatbotWidget />
+        <EnquiryPopup />
       </body>
     </html>
   );
