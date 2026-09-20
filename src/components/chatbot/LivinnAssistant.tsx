@@ -14,9 +14,11 @@ import {
   Sparkles,
   UtensilsCrossed,
   RotateCcw,
+  AlertCircle,
 } from 'lucide-react';
 import chatbotConfig from '@/data/chatbot-config.json';
 import hotelInfo from '@/data/hotel-info.json';
+import AssistantBookingForm from './AssistantBookingForm';
 
 // --- SVG Icons matching Canva Design ---
 
@@ -243,16 +245,12 @@ export default function LivinnAssistant({
   const [previousTab, setPreviousTab] = useState<ActiveTab>('home');
   const [selectedServices, setSelectedServices] = useState<Record<string, boolean>>({});
 
-  // Form State
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [remark, setRemark] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   // Feedback State
   const [rating, setRating] = useState<number>(5);
   const [reaction, setReaction] = useState<'excellent' | 'good' | 'improvement'>('excellent');
+
+  // Service-selection gate error
+  const [noServiceError, setNoServiceError] = useState(false);
 
   // Toggle Checkbox helper
   const toggleService = (title: string) => {
@@ -260,56 +258,26 @@ export default function LivinnAssistant({
       ...prev,
       [title]: !prev[title],
     }));
+    setNoServiceError(false); // clear gate error when user taps a service
   };
 
-  // Navigate to Form
+  // Navigate to Form — requires at least one service selected
   const handleProceedToForm = (currentTab: ActiveTab) => {
-    setPreviousTab(currentTab);
-    setActiveTab('form');
-  };
-
-  // Submit Form
-  const handleSubmitForm = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!name.trim() || !phone.trim()) {
-      alert('Please enter your name and phone number.');
+    const anySelected = Object.values(selectedServices).some(Boolean);
+    if (!anySelected) {
+      setNoServiceError(true);
       return;
     }
-
-    setIsSubmitting(true);
-    const selectedList = Object.keys(selectedServices).filter((k) => selectedServices[k]);
-    const serviceSummary = selectedList.length > 0 ? selectedList.join(', ') : 'General Assistance';
-    const formattedCategory = previousTab.toUpperCase();
-    const fullMessage = `[Chatbot Assistant Request - ${formattedCategory}]\nSelected Services:\n${serviceSummary}\n\nGuest Remarks:\n${remark.trim() || 'None'}`;
-
-    try {
-      await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: name.trim(),
-          phone: `+91 ${phone.trim()}`,
-          email: email.trim() || `${phone.replace(/\D/g, '') || 'guest'}@guest.livinn.in`,
-          roomPreference: `Assistant: ${previousTab}`,
-          message: fullMessage,
-        }),
-      });
-    } catch (err) {
-      console.error('Error submitting chatbot request:', err);
-    } finally {
-      setIsSubmitting(false);
-      setActiveTab('thankyou');
-    }
+    setNoServiceError(false);
+    setPreviousTab(currentTab);
+    setActiveTab('form');
   };
 
   // Reset to Home
   const handleReset = () => {
     setActiveTab('home');
     setSelectedServices({});
-    setName('');
-    setPhone('');
-    setEmail('');
-    setRemark('');
+    setNoServiceError(false);
   };
 
   // Active bottom button calculation
@@ -344,184 +312,18 @@ export default function LivinnAssistant({
 
       {/* ============================================================ */}
       {/* FULL-PAGE OVERLAY: PERSONAL ASSISTANT FORM (SCREEN 10)       */}
-      {/* Covers the entire widget — header, content box & nav         */}
+      {/* Now rendered via standalone AssistantBookingForm component   */}
       {/* ============================================================ */}
       <AnimatePresence>
         {activeTab === 'form' && (
-          <motion.div
-            key="form-overlay"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.22, ease: 'easeOut' }}
-            className="absolute inset-0 z-50 flex flex-col bg-[#FAF7F2] overflow-hidden"
-          >
-            {/* Overlay Header */}
-            <header className="flex items-center justify-between px-4 py-3 border-b border-[#EBE4D5] bg-white shadow-2xs shrink-0">
-              <div className="flex flex-col">
-                <Link href="/" className="group inline-flex flex-col">
-                  <span className="font-serif text-lg sm:text-xl font-bold tracking-wider text-[#2A241C] group-hover:text-[#A67C37] transition-colors leading-none">
-                    LIV.INN
-                  </span>
-                  <span className="text-[7.5px] sm:text-[8.5px] tracking-widest text-[#9C8F7E] font-medium uppercase mt-0.5">
-                    STAY IN COMFORT, LIVE THE MOMENT.
-                  </span>
-                </Link>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <div className="text-right">
-                  <h4 className="text-xs font-semibold text-[#2A241C] leading-tight">Miss. Maya</h4>
-                  <p className="text-[10px] text-[#8C7E6D]">Your Personal assistant</p>
-                </div>
-                <a
-                  href="tel:+918007724646"
-                  className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FAF5EC] border border-[#E8DFC8] text-[#A67C37] transition-all hover:bg-[#A67C37] hover:text-white shadow-2xs"
-                  title="Call Front Desk"
-                >
-                  <Phone className="h-3.5 w-3.5" />
-                </a>
-                {isPopup && onClose && (
-                  <button
-                    onClick={onClose}
-                    className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FAF5EC] border border-[#E8DFC8] text-[#7E7465] transition-all hover:bg-[#EAE2D2] hover:text-[#2A241C] cursor-pointer"
-                    aria-label="Close assistant"
-                  >
-                    <X className="h-4 w-4" />
-                  </button>
-                )}
-              </div>
-            </header>
-
-            {/* Form Body */}
-            <div className="flex-1 overflow-y-auto px-4 py-4">
-              <form onSubmit={handleSubmitForm} className="flex flex-col gap-4 h-full">
-                {/* Page Title */}
-                <div className="text-center">
-                  <div className="flex items-center justify-center gap-2 mb-0.5">
-                    <span className="h-px w-8 bg-[#B38E46]" />
-                    <h2 className="text-sm font-bold uppercase tracking-widest text-[#A67C37]">
-                      GET IN TOUCH
-                    </h2>
-                    <span className="h-px w-8 bg-[#B38E46]" />
-                  </div>
-                  <p className="text-[11px] text-[#7E7465] leading-tight">
-                    We&apos;re here to help you a comfortable stay at LIV.INN.
-                  </p>
-                </div>
-
-                {/* Selected services chips if any */}
-                {Object.keys(selectedServices).filter((k) => selectedServices[k]).length > 0 && (
-                  <div className="p-2.5 rounded-xl bg-[#FAF5EC] border border-[#E8DFC8]">
-                    <span className="text-[9px] font-bold text-[#8C6D2D] uppercase block mb-1.5">
-                      Selected Requests:
-                    </span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {Object.keys(selectedServices)
-                        .filter((k) => selectedServices[k])
-                        .map((service) => (
-                          <span
-                            key={service}
-                            className="inline-flex items-center gap-1 text-[10px] bg-white border border-[#E0D5C1] text-[#2A241C] px-2.5 py-1 rounded-lg font-medium"
-                          >
-                            {service}
-                          </span>
-                        ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Form Fields */}
-                <div className="space-y-3.5">
-                  {/* Name */}
-                  <div>
-                    <label className="flex items-center gap-1.5 text-[11px] font-semibold text-[#2A241C] mb-1">
-                      <span className="text-sm">👤</span> Name <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder="Enter your name"
-                      className="w-full text-xs px-3 py-2.5 rounded-xl border border-[#DCD3C3] bg-white focus:outline-none focus:border-[#B38E46] focus:ring-2 focus:ring-[#B38E46]/15 transition-all"
-                    />
-                  </div>
-
-                  {/* Phone Number with +91 */}
-                  <div>
-                    <label className="flex items-center gap-1.5 text-[11px] font-semibold text-[#2A241C] mb-1">
-                      <span className="text-sm">📞</span> Phone Number <span className="text-red-500">*</span>
-                    </label>
-                    <div className="flex rounded-xl border border-[#DCD3C3] overflow-hidden focus-within:border-[#B38E46] focus-within:ring-2 focus-within:ring-[#B38E46]/15 transition-all">
-                      <span className="inline-flex items-center gap-1 px-3 text-[11px] font-semibold bg-[#F5EFE4] text-[#6E6454] border-r border-[#DCD3C3] shrink-0">
-                        🇮🇳 +91
-                      </span>
-                      <input
-                        type="tel"
-                        required
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        placeholder="Enter your phone number"
-                        className="flex-1 text-xs px-3 py-2.5 bg-white focus:outline-none min-w-0"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Email */}
-                  <div>
-                    <label className="flex items-center gap-1.5 text-[11px] font-semibold text-[#2A241C] mb-1">
-                      <span className="text-sm">✉️</span> Email ID
-                    </label>
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Enter your email address"
-                      className="w-full text-xs px-3 py-2.5 rounded-xl border border-[#DCD3C3] bg-white focus:outline-none focus:border-[#B38E46] focus:ring-2 focus:ring-[#B38E46]/15 transition-all"
-                    />
-                  </div>
-
-                  {/* Remark */}
-                  <div>
-                    <label className="flex items-center gap-1.5 text-[11px] font-semibold text-[#2A241C] mb-1">
-                      <span className="text-sm">💬</span> Remark
-                    </label>
-                    <textarea
-                      rows={3}
-                      value={remark}
-                      onChange={(e) => setRemark(e.target.value)}
-                      placeholder='"Write your message and preferred date & time."'
-                      className="w-full text-xs px-3 py-2.5 rounded-xl border border-[#DCD3C3] bg-white focus:outline-none focus:border-[#B38E46] focus:ring-2 focus:ring-[#B38E46]/15 resize-none transition-all"
-                    />
-                  </div>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="mt-auto space-y-2.5 pt-2">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full py-3 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all active:scale-[0.98] cursor-pointer disabled:opacity-70"
-                  >
-                    {isSubmitting ? 'Submitting...' : 'SUBMIT'}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setActiveTab(previousTab)}
-                    className="w-full py-2.5 rounded-full border border-[#E0D5C1] bg-white text-[#7E7465] hover:text-[#2A241C] hover:bg-[#FAF5EC] text-[11px] font-medium cursor-pointer transition-all"
-                  >
-                    ← Back to {previousTab.charAt(0).toUpperCase() + previousTab.slice(1)}
-                  </button>
-                </div>
-              </form>
-            </div>
-
-            {/* Developed by footer */}
-            <div className="shrink-0 py-2 text-center">
-              <span className="text-[9px] text-[#B8AB98] tracking-wider">developed by</span>
-              <span className="text-[9px] font-bold text-[#A67C37] ml-1">JAYAASI Technologies</span>
-            </div>
-          </motion.div>
+          <AssistantBookingForm
+            previousTab={previousTab}
+            selectedServices={selectedServices}
+            onBack={() => setActiveTab(previousTab)}
+            onSuccess={() => setActiveTab('thankyou')}
+            isPopup={isPopup}
+            onClose={onClose}
+          />
         )}
       </AnimatePresence>
 
@@ -655,7 +457,7 @@ export default function LivinnAssistant({
               <div className="flex gap-2">
                 <a
                   href={`https://wa.me/918007724646?text=${encodeURIComponent(
-                    `Hello liv.inn Reception, I submitted a request:\nName: ${name}\nPhone: +91 ${phone}\nService: ${Object.keys(selectedServices).filter((k) => selectedServices[k]).join(', ') || 'Guest Assistance'}\nNote: ${remark.trim() || 'None'}`
+                    `Hello liv.inn Reception, I submitted a service request for: ${Object.keys(selectedServices).filter((k) => selectedServices[k]).join(', ') || 'Guest Assistance'}`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -839,14 +641,20 @@ export default function LivinnAssistant({
                 </div>
 
                 {/* Bottom CTA Button */}
-                <div className="pt-3">
+                <div className="pt-3 space-y-2">
                   <button
                     type="button"
                     onClick={() => handleProceedToForm('housekeeping')}
                     className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-semibold shadow-sm transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-1.5"
                   >
-                    <span>Select & click here</span>
+                    <span>Select &amp; click here</span>
                   </button>
+                  {noServiceError && activeTab === 'housekeeping' && (
+                    <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 border border-amber-200">
+                      <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                      <span className="text-[10.5px] text-amber-700 font-medium">Please select at least one service first.</span>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             )}
@@ -916,14 +724,20 @@ export default function LivinnAssistant({
                   </div>
                 </div>
 
-                <div className="pt-3">
+                <div className="pt-3 space-y-2">
                   <button
                     type="button"
                     onClick={() => handleProceedToForm('laundry')}
                     className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-semibold shadow-sm transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-1.5"
                   >
-                    <span>Select & click here</span>
+                    <span>Select &amp; click here</span>
                   </button>
+                  {noServiceError && activeTab === 'laundry' && (
+                    <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 border border-amber-200">
+                      <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                      <span className="text-[10.5px] text-amber-700 font-medium">Please select at least one service first.</span>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             )}
@@ -1008,14 +822,20 @@ export default function LivinnAssistant({
                   </div>
                 </div>
 
-                <div className="pt-3">
+                <div className="pt-3 space-y-2">
                   <button
                     type="button"
                     onClick={() => handleProceedToForm('extrabed')}
                     className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-semibold shadow-sm transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-1.5"
                   >
-                    <span>Select & click here</span>
+                    <span>Select &amp; click here</span>
                   </button>
+                  {noServiceError && activeTab === 'extrabed' && (
+                    <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 border border-amber-200">
+                      <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                      <span className="text-[10.5px] text-amber-700 font-medium">Please select at least one service first.</span>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             )}
@@ -1073,14 +893,20 @@ export default function LivinnAssistant({
                   </div>
                 </div>
 
-                <div className="pt-3">
+                <div className="pt-3 space-y-2">
                   <button
                     type="button"
                     onClick={() => handleProceedToForm('shoecare')}
                     className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-semibold shadow-sm transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-1.5"
                   >
-                    <span>Select & click here</span>
+                    <span>Select &amp; click here</span>
                   </button>
+                  {noServiceError && activeTab === 'shoecare' && (
+                    <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 border border-amber-200">
+                      <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                      <span className="text-[10.5px] text-amber-700 font-medium">Please select at least one service first.</span>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             )}
@@ -1138,14 +964,20 @@ export default function LivinnAssistant({
                   </div>
                 </div>
 
-                <div className="pt-3">
+                <div className="pt-3 space-y-2">
                   <button
                     type="button"
                     onClick={() => handleProceedToForm('luggage')}
                     className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-semibold shadow-sm transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-1.5"
                   >
-                    <span>Select & click here</span>
+                    <span>Select &amp; click here</span>
                   </button>
+                  {noServiceError && activeTab === 'luggage' && (
+                    <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 border border-amber-200">
+                      <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                      <span className="text-[10.5px] text-amber-700 font-medium">Please select at least one service first.</span>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             )}
@@ -1211,14 +1043,20 @@ export default function LivinnAssistant({
                   </div>
                 </div>
 
-                <div className="pt-3 space-y-1.5">
+                <div className="pt-3 space-y-2">
                   <button
                     type="button"
                     onClick={() => handleProceedToForm('food')}
                     className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-semibold shadow-sm transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-1.5"
                   >
-                    <span>Select & click here</span>
+                    <span>Select &amp; click here</span>
                   </button>
+                  {noServiceError && activeTab === 'food' && (
+                    <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 border border-amber-200">
+                      <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                      <span className="text-[10.5px] text-amber-700 font-medium">Please select at least one service first.</span>
+                    </div>
+                  )}
                   <a
                     href="https://wa.me/918007724646?text=Hi!%20I%20would%20like%20to%20order%20food%20from%20the%20liv.inn%20Cloud%20Kitchen."
                     target="_blank"
