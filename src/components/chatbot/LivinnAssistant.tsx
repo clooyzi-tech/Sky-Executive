@@ -9,7 +9,6 @@ import {
   Check,
   Star,
   ChevronDown,
-  ArrowLeft,
   Share2,
   ExternalLink,
   Sparkles,
@@ -342,6 +341,347 @@ export default function LivinnAssistant({
     <div
       className={`relative flex flex-col h-full w-full select-none overflow-hidden bg-[#FAF7F2] font-sans text-[#2A241C] ${className}`}
     >
+
+      {/* ============================================================ */}
+      {/* FULL-PAGE OVERLAY: PERSONAL ASSISTANT FORM (SCREEN 10)       */}
+      {/* Covers the entire widget — header, content box & nav         */}
+      {/* ============================================================ */}
+      <AnimatePresence>
+        {activeTab === 'form' && (
+          <motion.div
+            key="form-overlay"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.22, ease: 'easeOut' }}
+            className="absolute inset-0 z-50 flex flex-col bg-[#FAF7F2] overflow-hidden"
+          >
+            {/* Overlay Header */}
+            <header className="flex items-center justify-between px-4 py-3 border-b border-[#EBE4D5] bg-white shadow-2xs shrink-0">
+              <div className="flex flex-col">
+                <Link href="/" className="group inline-flex flex-col">
+                  <span className="font-serif text-lg sm:text-xl font-bold tracking-wider text-[#2A241C] group-hover:text-[#A67C37] transition-colors leading-none">
+                    LIV.INN
+                  </span>
+                  <span className="text-[7.5px] sm:text-[8.5px] tracking-widest text-[#9C8F7E] font-medium uppercase mt-0.5">
+                    STAY IN COMFORT, LIVE THE MOMENT.
+                  </span>
+                </Link>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <div className="text-right">
+                  <h4 className="text-xs font-semibold text-[#2A241C] leading-tight">Miss. Maya</h4>
+                  <p className="text-[10px] text-[#8C7E6D]">Your Personal assistant</p>
+                </div>
+                <a
+                  href="tel:+918007724646"
+                  className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FAF5EC] border border-[#E8DFC8] text-[#A67C37] transition-all hover:bg-[#A67C37] hover:text-white shadow-2xs"
+                  title="Call Front Desk"
+                >
+                  <Phone className="h-3.5 w-3.5" />
+                </a>
+                {isPopup && onClose && (
+                  <button
+                    onClick={onClose}
+                    className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FAF5EC] border border-[#E8DFC8] text-[#7E7465] transition-all hover:bg-[#EAE2D2] hover:text-[#2A241C] cursor-pointer"
+                    aria-label="Close assistant"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                )}
+              </div>
+            </header>
+
+            {/* Form Body */}
+            <div className="flex-1 overflow-y-auto px-4 py-4">
+              <form onSubmit={handleSubmitForm} className="flex flex-col gap-4 h-full">
+                {/* Page Title */}
+                <div className="text-center">
+                  <div className="flex items-center justify-center gap-2 mb-0.5">
+                    <span className="h-px w-8 bg-[#B38E46]" />
+                    <h2 className="text-sm font-bold uppercase tracking-widest text-[#A67C37]">
+                      GET IN TOUCH
+                    </h2>
+                    <span className="h-px w-8 bg-[#B38E46]" />
+                  </div>
+                  <p className="text-[11px] text-[#7E7465] leading-tight">
+                    We&apos;re here to help you a comfortable stay at LIV.INN.
+                  </p>
+                </div>
+
+                {/* Selected services chips if any */}
+                {Object.keys(selectedServices).filter((k) => selectedServices[k]).length > 0 && (
+                  <div className="p-2.5 rounded-xl bg-[#FAF5EC] border border-[#E8DFC8]">
+                    <span className="text-[9px] font-bold text-[#8C6D2D] uppercase block mb-1.5">
+                      Selected Requests:
+                    </span>
+                    <div className="flex flex-wrap gap-1.5">
+                      {Object.keys(selectedServices)
+                        .filter((k) => selectedServices[k])
+                        .map((service) => (
+                          <span
+                            key={service}
+                            className="inline-flex items-center gap-1 text-[10px] bg-white border border-[#E0D5C1] text-[#2A241C] px-2.5 py-1 rounded-lg font-medium"
+                          >
+                            {service}
+                          </span>
+                        ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Form Fields */}
+                <div className="space-y-3.5">
+                  {/* Name */}
+                  <div>
+                    <label className="flex items-center gap-1.5 text-[11px] font-semibold text-[#2A241C] mb-1">
+                      <span className="text-sm">👤</span> Name <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder="Enter your name"
+                      className="w-full text-xs px-3 py-2.5 rounded-xl border border-[#DCD3C3] bg-white focus:outline-none focus:border-[#B38E46] focus:ring-2 focus:ring-[#B38E46]/15 transition-all"
+                    />
+                  </div>
+
+                  {/* Phone Number with +91 */}
+                  <div>
+                    <label className="flex items-center gap-1.5 text-[11px] font-semibold text-[#2A241C] mb-1">
+                      <span className="text-sm">📞</span> Phone Number <span className="text-red-500">*</span>
+                    </label>
+                    <div className="flex rounded-xl border border-[#DCD3C3] overflow-hidden focus-within:border-[#B38E46] focus-within:ring-2 focus-within:ring-[#B38E46]/15 transition-all">
+                      <span className="inline-flex items-center gap-1 px-3 text-[11px] font-semibold bg-[#F5EFE4] text-[#6E6454] border-r border-[#DCD3C3] shrink-0">
+                        🇮🇳 +91
+                      </span>
+                      <input
+                        type="tel"
+                        required
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        placeholder="Enter your phone number"
+                        className="flex-1 text-xs px-3 py-2.5 bg-white focus:outline-none min-w-0"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <label className="flex items-center gap-1.5 text-[11px] font-semibold text-[#2A241C] mb-1">
+                      <span className="text-sm">✉️</span> Email ID
+                    </label>
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Enter your email address"
+                      className="w-full text-xs px-3 py-2.5 rounded-xl border border-[#DCD3C3] bg-white focus:outline-none focus:border-[#B38E46] focus:ring-2 focus:ring-[#B38E46]/15 transition-all"
+                    />
+                  </div>
+
+                  {/* Remark */}
+                  <div>
+                    <label className="flex items-center gap-1.5 text-[11px] font-semibold text-[#2A241C] mb-1">
+                      <span className="text-sm">💬</span> Remark
+                    </label>
+                    <textarea
+                      rows={3}
+                      value={remark}
+                      onChange={(e) => setRemark(e.target.value)}
+                      placeholder='"Write your message and preferred date & time."'
+                      className="w-full text-xs px-3 py-2.5 rounded-xl border border-[#DCD3C3] bg-white focus:outline-none focus:border-[#B38E46] focus:ring-2 focus:ring-[#B38E46]/15 resize-none transition-all"
+                    />
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="mt-auto space-y-2.5 pt-2">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full py-3 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all active:scale-[0.98] cursor-pointer disabled:opacity-70"
+                  >
+                    {isSubmitting ? 'Submitting...' : 'SUBMIT'}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveTab(previousTab)}
+                    className="w-full py-2.5 rounded-full border border-[#E0D5C1] bg-white text-[#7E7465] hover:text-[#2A241C] hover:bg-[#FAF5EC] text-[11px] font-medium cursor-pointer transition-all"
+                  >
+                    ← Back to {previousTab.charAt(0).toUpperCase() + previousTab.slice(1)}
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            {/* Developed by footer */}
+            <div className="shrink-0 py-2 text-center">
+              <span className="text-[9px] text-[#B8AB98] tracking-wider">developed by</span>
+              <span className="text-[9px] font-bold text-[#A67C37] ml-1">JAYAASI Technologies</span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ============================================================ */}
+      {/* FULL-PAGE OVERLAY: THANK YOU SCREEN (SCREEN 11)              */}
+      {/* ============================================================ */}
+      <AnimatePresence>
+        {activeTab === 'thankyou' && (
+          <motion.div
+            key="thankyou-overlay"
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.96 }}
+            transition={{ duration: 0.22, ease: 'easeOut' }}
+            className="absolute inset-0 z-50 flex flex-col bg-[#FAF7F2] overflow-hidden"
+          >
+            {/* Overlay Header */}
+            <header className="flex items-center justify-between px-4 py-3 border-b border-[#EBE4D5] bg-white shadow-2xs shrink-0">
+              <div className="flex flex-col">
+                <Link href="/" className="group inline-flex flex-col">
+                  <span className="font-serif text-lg sm:text-xl font-bold tracking-wider text-[#2A241C] group-hover:text-[#A67C37] transition-colors leading-none">
+                    LIV.INN
+                  </span>
+                  <span className="text-[7.5px] sm:text-[8.5px] tracking-widest text-[#9C8F7E] font-medium uppercase mt-0.5">
+                    STAY IN COMFORT, LIVE THE MOMENT.
+                  </span>
+                </Link>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <div className="text-right">
+                  <h4 className="text-xs font-semibold text-[#2A241C] leading-tight">Miss. Maya</h4>
+                  <p className="text-[10px] text-[#8C7E6D]">Your Personal assistant</p>
+                </div>
+                <a
+                  href="tel:+918007724646"
+                  className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FAF5EC] border border-[#E8DFC8] text-[#A67C37] transition-all hover:bg-[#A67C37] hover:text-white shadow-2xs"
+                  title="Call Front Desk"
+                >
+                  <Phone className="h-3.5 w-3.5" />
+                </a>
+                {isPopup && onClose && (
+                  <button
+                    onClick={onClose}
+                    className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FAF5EC] border border-[#E8DFC8] text-[#7E7465] transition-all hover:bg-[#EAE2D2] hover:text-[#2A241C] cursor-pointer"
+                    aria-label="Close assistant"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                )}
+              </div>
+            </header>
+
+            {/* Thank You Body */}
+            <div className="flex-1 overflow-y-auto px-4 py-4">
+              <div className="text-center mb-3">
+                <h2 className="text-sm font-bold tracking-widest text-[#A67C37] uppercase">
+                  — THANK YOU —
+                </h2>
+                <p className="text-[11px] font-semibold text-[#2A241C] mt-1">
+                  Your Request has been submitted
+                </p>
+              </div>
+
+              {/* Google Review Box */}
+              <div className="p-3.5 rounded-2xl bg-[#FAF8F5] border border-[#E8DFC8] mb-3">
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white border border-[#E0D5C1] mb-2">
+                  <GoogleLogoIcon className="w-3 h-3" />
+                  <span className="text-[9px] font-bold text-[#A67C37]">Google Review</span>
+                </div>
+                <h4 className="text-xs font-bold text-[#2A241C]">How was your stay?</h4>
+                <p className="text-[9.5px] text-[#7E7465]">We&apos;d love to hear from you</p>
+
+                {/* Star Rating */}
+                <div className="flex justify-center gap-2 my-3">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <button
+                      key={star}
+                      type="button"
+                      onClick={() => setRating(star)}
+                      className="cursor-pointer transition-transform hover:scale-110 p-0.5"
+                    >
+                      <Star
+                        className={`w-6 h-6 ${
+                          star <= rating
+                            ? 'fill-[#F59E0B] text-[#F59E0B]'
+                            : 'fill-transparent text-[#D1C7B4]'
+                        }`}
+                      />
+                    </button>
+                  ))}
+                </div>
+
+                {/* Reactions */}
+                <div className="grid grid-cols-3 gap-2 my-2">
+                  {[
+                    { id: 'excellent', emoji: '🤩', title: 'Excellent', subtitle: 'Loved stay' },
+                    { id: 'good', emoji: '😊', title: 'Good', subtitle: 'Great' },
+                    { id: 'improvement', emoji: '😐', title: 'Needs Impr.', subtitle: 'Let us know' },
+                  ].map((item) => (
+                    <div
+                      key={item.id}
+                      onClick={() => setReaction(item.id as typeof reaction)}
+                      className={`p-2 rounded-xl border text-center cursor-pointer transition-all ${
+                        reaction === item.id
+                          ? 'bg-[#FAF5EC] border-[#B38E46]'
+                          : 'bg-white border-[#EFE8DD]'
+                      }`}
+                    >
+                      <span className="text-xl block leading-none">{item.emoji}</span>
+                      <span className="text-[9px] font-bold text-[#2A241C] block mt-1">
+                        {item.title}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Google Button */}
+                <a
+                  href="https://www.google.com/maps/place/liv.inn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full mt-3 py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-[11px] font-semibold shadow-xs transition-all flex flex-col items-center justify-center cursor-pointer"
+                >
+                  <span>Review us on Google →</span>
+                  <span className="text-[8.5px] text-[#FAF5EC]/80 font-normal">
+                    Share Your Experience
+                  </span>
+                </a>
+              </div>
+
+              <div className="flex gap-2">
+                <a
+                  href={`https://wa.me/918007724646?text=${encodeURIComponent(
+                    `Hello liv.inn Reception, I submitted a request:\nName: ${name}\nPhone: +91 ${phone}\nService: ${Object.keys(selectedServices).filter((k) => selectedServices[k]).join(', ') || 'Guest Assistance'}\nNote: ${remark.trim() || 'None'}`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 py-2.5 rounded-full bg-[#25D366]/10 border border-[#25D366]/30 text-[#128C7E] hover:bg-[#25D366]/20 text-[10.5px] font-semibold flex items-center justify-center gap-1 cursor-pointer transition-colors"
+                >
+                  <span>💬 WhatsApp Desk</span>
+                </a>
+                <button
+                  type="button"
+                  onClick={handleReset}
+                  className="flex-1 py-2.5 rounded-full bg-[#FAF5EC] border border-[#E8DFC8] text-[#8C6D2D] hover:bg-[#F2EADB] text-[10.5px] font-semibold flex items-center justify-center gap-1 cursor-pointer"
+                >
+                  <RotateCcw className="w-3 h-3" />
+                  <span>Start New</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Developed by footer */}
+            <div className="shrink-0 py-2 text-center">
+              <span className="text-[9px] text-[#B8AB98] tracking-wider">developed by</span>
+              <span className="text-[9px] font-bold text-[#A67C37] ml-1">JAYAASI Technologies</span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       {/* 1. TOP HEADER */}
       <header className="flex items-center justify-between px-4 py-3 border-b border-[#EBE4D5] bg-white shadow-2xs z-20 shrink-0">
         {/* Left: Brand Logo & Slogan */}
@@ -1073,262 +1413,9 @@ export default function LivinnAssistant({
               </motion.div>
             )}
 
-            {/* --- SCREEN 10: PERSONAL ASSISTANT FORM PAGE --- */}
-            {activeTab === 'form' && (
-              <motion.div
-                key="form"
-                initial={{ opacity: 0, x: 12 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -12 }}
-                transition={{ duration: 0.18 }}
-                className="flex-1 flex flex-col p-3.5 justify-between overflow-y-auto"
-              >
-                <form onSubmit={handleSubmitForm} className="flex-1 flex flex-col justify-between">
-                  <div>
-                    {/* Header with Back button */}
-                    <div className="flex items-center justify-between pb-1.5 mb-1.5 border-b border-[#F0E9DC]">
-                      <button
-                        type="button"
-                        onClick={() => setActiveTab(previousTab)}
-                        className="inline-flex items-center gap-1 text-[11px] text-[#A67C37] hover:underline cursor-pointer"
-                      >
-                        <ArrowLeft className="w-3 h-3" />
-                        <span>Back</span>
-                      </button>
-                      <h3 className="text-xs font-bold uppercase tracking-widest text-[#A67C37]">
-                        — GET IN TOUCH —
-                      </h3>
-                      <div className="w-8" />
-                    </div>
+            {/* --- SCREEN 10 & 11: Moved to full-page overlays at root level --- */}
 
-                    <p className="text-[10px] text-center text-[#7E7465] mb-2 leading-tight">
-                      We&apos;re here to help you a comfortable stay at LIV.INN.
-                    </p>
-
-                    {/* Selected services chips if any */}
-                    {Object.keys(selectedServices).filter((k) => selectedServices[k]).length > 0 && (
-                      <div className="mb-2 p-1.5 rounded-lg bg-[#FAF5EC] border border-[#E8DFC8]">
-                        <span className="text-[9px] font-bold text-[#8C6D2D] uppercase block mb-1">
-                          Selected Requests:
-                        </span>
-                        <div className="flex flex-wrap gap-1">
-                          {Object.keys(selectedServices)
-                            .filter((k) => selectedServices[k])
-                            .map((service) => (
-                              <span
-                                key={service}
-                                className="inline-flex items-center gap-1 text-[9.5px] bg-white border border-[#E0D5C1] text-[#2A241C] px-2 py-0.5 rounded-md font-medium"
-                              >
-                                <span>{service}</span>
-                              </span>
-                            ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Form Fields */}
-                    <div className="space-y-2">
-                      {/* Name */}
-                      <div>
-                        <label className="block text-[10px] font-semibold text-[#2A241C] mb-0.5">
-                          Name *
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                          placeholder="Enter your name"
-                          className="w-full text-xs px-2.5 py-1.5 rounded-lg border border-[#DCD3C3] bg-white focus:outline-none focus:border-[#B38E46] transition-colors"
-                        />
-                      </div>
-
-                      {/* Phone Number with +91 */}
-                      <div>
-                        <label className="block text-[10px] font-semibold text-[#2A241C] mb-0.5">
-                          Phone Number *
-                        </label>
-                        <div className="flex rounded-lg border border-[#DCD3C3] overflow-hidden focus-within:border-[#B38E46]">
-                          <span className="inline-flex items-center px-2 text-[11px] font-semibold bg-[#F5EFE4] text-[#6E6454] border-r border-[#DCD3C3]">
-                            🇮🇳 +91
-                          </span>
-                          <input
-                            type="tel"
-                            required
-                            value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
-                            placeholder="Enter your phone number"
-                            className="flex-1 text-xs px-2.5 py-1.5 bg-white focus:outline-none"
-                          />
-                        </div>
-                      </div>
-
-                      {/* Email */}
-                      <div>
-                        <label className="block text-[10px] font-semibold text-[#2A241C] mb-0.5">
-                          Email ID
-                        </label>
-                        <input
-                          type="email"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          placeholder="Enter your email address"
-                          className="w-full text-xs px-2.5 py-1.5 rounded-lg border border-[#DCD3C3] bg-white focus:outline-none focus:border-[#B38E46] transition-colors"
-                        />
-                      </div>
-
-                      {/* Remark */}
-                      <div>
-                        <label className="block text-[10px] font-semibold text-[#2A241C] mb-0.5">
-                          Remark
-                        </label>
-                        <textarea
-                          rows={2}
-                          value={remark}
-                          onChange={(e) => setRemark(e.target.value)}
-                          placeholder="Write your message and preferred date & time."
-                          className="w-full text-xs px-2.5 py-1.5 rounded-lg border border-[#DCD3C3] bg-white focus:outline-none focus:border-[#B38E46] resize-none transition-colors"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Submit Button */}
-                  <div className="pt-2">
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all active:scale-98 cursor-pointer disabled:opacity-70"
-                    >
-                      {isSubmitting ? 'Submitting...' : 'SUBMIT'}
-                    </button>
-                  </div>
-                </form>
-              </motion.div>
-            )}
-
-            {/* --- SCREEN 11: PERSONAL ASSISTANT LAST PAGE (THANK YOU) --- */}
-            {activeTab === 'thankyou' && (
-              <motion.div
-                key="thankyou"
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.2 }}
-                className="flex-1 flex flex-col p-3.5 justify-between overflow-y-auto"
-              >
-                <div className="text-center">
-                  <div className="flex items-center justify-between pb-1 mb-1 border-b border-[#F0E9DC]">
-                    <button
-                      type="button"
-                      onClick={() => setActiveTab('home')}
-                      className="text-[11px] text-[#A67C37] hover:underline cursor-pointer"
-                    >
-                      ← Home
-                    </button>
-                    <span className="text-[10px] text-[#A67C37] font-semibold">
-                      Request Confirmed
-                    </span>
-                    <div className="w-8" />
-                  </div>
-
-                  <h2 className="text-sm font-bold tracking-widest text-[#A67C37] uppercase mt-1">
-                    — THANK YOU —
-                  </h2>
-                  <p className="text-[11px] font-semibold text-[#2A241C] mt-0.5 mb-2">
-                    Your Request has been submitted
-                  </p>
-
-                  {/* Google Review Box */}
-                  <div className="p-2.5 rounded-xl bg-[#FAF8F5] border border-[#E8DFC8] my-1.5">
-                    <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-white border border-[#E0D5C1] mb-1">
-                      <GoogleLogoIcon className="w-3 h-3" />
-                      <span className="text-[9px] font-bold text-[#A67C37]">Google Review</span>
-                    </div>
-                    <h4 className="text-xs font-bold text-[#2A241C]">How was your stay?</h4>
-                    <p className="text-[9.5px] text-[#7E7465]">We&apos;d love to hear from you</p>
-
-                    {/* Star Rating */}
-                    <div className="flex justify-center gap-1.5 my-2">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <button
-                          key={star}
-                          type="button"
-                          onClick={() => setRating(star)}
-                          className="cursor-pointer transition-transform hover:scale-110 p-0.5"
-                        >
-                          <Star
-                            className={`w-5 h-5 ${
-                              star <= rating
-                                ? 'fill-[#F59E0B] text-[#F59E0B]'
-                                : 'fill-transparent text-[#D1C7B4]'
-                            }`}
-                          />
-                        </button>
-                      ))}
-                    </div>
-
-                    {/* Reactions */}
-                    <div className="grid grid-cols-3 gap-1 my-1.5">
-                      {[
-                        { id: 'excellent', emoji: '🤩', title: 'Excellent', subtitle: 'Loved stay' },
-                        { id: 'good', emoji: '😊', title: 'Good', subtitle: 'Great' },
-                        { id: 'improvement', emoji: '😐', title: 'Needs Impr.', subtitle: 'Let us know' },
-                      ].map((item) => (
-                        <div
-                          key={item.id}
-                          onClick={() => setReaction(item.id as typeof reaction)}
-                          className={`p-1 rounded-lg border text-center cursor-pointer transition-all ${
-                            reaction === item.id
-                              ? 'bg-[#FAF5EC] border-[#B38E46]'
-                              : 'bg-white border-[#EFE8DD]'
-                          }`}
-                        >
-                          <span className="text-base block leading-none">{item.emoji}</span>
-                          <span className="text-[9px] font-bold text-[#2A241C] block mt-0.5">
-                            {item.title}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Google Button */}
-                    <a
-                      href="https://www.google.com/maps/place/liv.inn"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full mt-2 py-2 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-[11px] font-semibold shadow-xs transition-all flex flex-col items-center justify-center cursor-pointer"
-                    >
-                      <span>Review us on Google →</span>
-                      <span className="text-[8.5px] text-[#FAF5EC]/80 font-normal">
-                        Share Your Experience
-                      </span>
-                    </a>
-                  </div>
-                </div>
-
-                <div className="pt-1 flex gap-2">
-                  <a
-                    href={`https://wa.me/918007724646?text=${encodeURIComponent(
-                      `Hello liv.inn Reception, I submitted a request:\nName: ${name}\nPhone: +91 ${phone}\nService: ${Object.keys(selectedServices).filter((k) => selectedServices[k]).join(', ') || 'Guest Assistance'}\nNote: ${remark.trim() || 'None'}`
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 py-2 rounded-full bg-[#25D366]/10 border border-[#25D366]/30 text-[#128C7E] hover:bg-[#25D366]/20 text-[10.5px] font-semibold flex items-center justify-center gap-1 cursor-pointer transition-colors"
-                  >
-                    <span>💬 WhatsApp Desk</span>
-                  </a>
-                  <button
-                    type="button"
-                    onClick={handleReset}
-                    className="flex-1 py-2 rounded-full bg-[#FAF5EC] border border-[#E8DFC8] text-[#8C6D2D] hover:bg-[#F2EADB] text-[10.5px] font-semibold flex items-center justify-center gap-1 cursor-pointer"
-                  >
-                    <RotateCcw className="w-3 h-3" />
-                    <span>Start New</span>
-                  </button>
-                </div>
-              </motion.div>
-            )}
+            {/* --- SCREEN 11: Moved to full-page overlay at root level --- */}
           </AnimatePresence>
         </div>
       </div>
