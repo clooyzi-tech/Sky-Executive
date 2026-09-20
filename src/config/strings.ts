@@ -23,7 +23,7 @@ export const STRINGS = {
     legalName: hotelInfo.legalName,
     tagline: hotelInfo.tagline,
     description: hotelInfo.shortDescription,
-    logoAlt: 'liv.inn Boutique Hotel — Pune',
+    logoAlt: 'liv.inn Boutique Hotel â€” Pune',
     logoPath: '/livinn_logo.jpg',
   },
 
@@ -48,7 +48,7 @@ export const STRINGS = {
     labels: {
       checkIn: 'Check-in: 11:00 AM',
       checkOut: 'Check-out: 10:00 AM',
-      timing: 'Check-in: 11:00 AM • Check-out: 10:00 AM (24/7 Front Desk)',
+      timing: 'Check-in: 11:00 AM â€¢ Check-out: 10:00 AM (24/7 Front Desk)',
       amenities: 'Room Amenities',
       facilities: 'Verified Amenities',
       hotelFacilities: 'Hotel Facilities & Services',
@@ -63,7 +63,7 @@ export const STRINGS = {
       tbcBadge: 'To be confirmed',
       verifiedBadge: 'Verified',
       natureViewBadge: 'Nature-Oriented View',
-      inventoryBadge: '25 Rooms • 5 Floors • 200 sq.ft',
+      inventoryBadge: '25 Rooms â€¢ 5 Floors â€¢ 200 sq.ft',
     },
     badges: {
       welcomeTo: 'Welcome to liv.inn',
@@ -154,10 +154,10 @@ export const STRINGS = {
   // ---------------------------------------------------------------------------
   home: {
     hero: {
-      badge: 'Boutique Hotel in Pune • 25 Premium Rooms',
+      badge: 'Boutique Hotel in Pune â€¢ 25 Premium Rooms',
       title: 'A Serene, Nature-Oriented Stay in Pune',
       description:
-        'Experience calm comfort at liv.inn — an intimate 25-room boutique hotel in Pune with 5 rooms on each floor, scenic nature views, in-house cloud kitchen, and 24/7 guest assistance.',
+        'Experience calm comfort at liv.inn â€” an intimate 25-room boutique hotel in Pune with 5 rooms on each floor, scenic nature views, in-house cloud kitchen, and 24/7 guest assistance.',
       ctaEnquire: 'Enquire Now',
       ctaExplore: 'Explore Rooms',
       stats: [
@@ -421,7 +421,7 @@ export const STRINGS = {
       subtitle: 'Situated in Upper Kharadi, Wagholi, Pune with peaceful green surroundings',
       ctaDirections: 'Open Google Maps',
       ctaDetails: 'View Landmark Details',
-      mapTitle: 'liv.inn Hotel Location — Wagholi, Pune',
+      mapTitle: 'liv.inn Hotel Location â€” Wagholi, Pune',
       addressNotice: 'Plot No-31, Lane No-4, Infinity Greens Society, Near VTP Altair Phase-1, Gat No- 1251, Upper Kharadi, Wagholi, Pune-412207, Wagholi 412207',
     },
     bookingCTA: {
@@ -543,7 +543,7 @@ export const STRINGS = {
       phoneLabel: 'Front Desk',
       emailLabel: 'Email Enquiry',
       ctaDirections: 'Open Google Maps',
-      mapTitle: 'liv.inn Hotel Location Map — Wagholi, Pune',
+      mapTitle: 'liv.inn Hotel Location Map â€” Wagholi, Pune',
       note: 'Situated near VTP Altair Phase-1 in Infinity Greens Society, Gat No- 1251, Upper Kharadi, Wagholi, Pune-412207, Wagholi 412207.',
     },
     attractions: {
@@ -630,7 +630,7 @@ export const STRINGS = {
         { name: 'In-House Cloud Kitchen', availability: 'Breakfast, Lunch & Dinner service' },
         { name: 'Elevator / Lift Facility', availability: 'Operational across all 5 floors' },
         { name: '100% Power Backup', availability: '24/7 Uninterrupted supply' },
-        { name: 'Pet-Friendly Stay', availability: 'Pets allowed • No extra fee' },
+        { name: 'Pet-Friendly Stay', availability: 'Pets allowed â€¢ No extra fee' },
         { name: 'Free On-Site Parking', availability: 'Complimentary 24/7 on premises' },
         { name: 'Laundry & Garment Care', availability: 'Available on request' },
         { name: 'Housekeeping & Cleanliness', availability: 'Daily service & fresh linen' },
@@ -692,7 +692,7 @@ export const STRINGS = {
     termsConditions: 'Terms & Conditions',
     guestInformation: 'Guest Information',
     copyright: (year: number, brandName: string) =>
-      `© ${year} ${brandName} Hotel, Pune. All rights reserved.`,
+      `Â© ${year} ${brandName} Hotel, Pune. All rights reserved.`,
     instagramAria: 'Follow liv.inn on Instagram',
   },
 
@@ -701,8 +701,8 @@ export const STRINGS = {
   // ---------------------------------------------------------------------------
   seo: {
     siteUrl: 'https://livinn.in',
-    defaultTitle: 'liv.inn — Boutique Hotel in Pune | Nature-Oriented Stay',
-    titleTemplate: '%s | liv.inn — Boutique Hotel in Pune',
+    defaultTitle: 'liv.inn â€” Boutique Hotel in Pune | Nature-Oriented Stay',
+    titleTemplate: '%s | liv.inn â€” Boutique Hotel in Pune',
     defaultDescription:
       'liv.inn is a 25-room boutique hotel in Pune offering premium rooms with tranquil nature views, 5 rooms per floor, cloud kitchen, free Wi-Fi, on-site parking, and 24/7 guest assistance.',
     defaultKeywords: [
@@ -720,7 +720,7 @@ export const STRINGS = {
       about: {
         title: 'About',
         description:
-          'Learn about liv.inn — a modern 25-room boutique hotel in Pune with 5 rooms per floor, serene nature views, and dedicated 24/7 hospitality.',
+          'Learn about liv.inn â€” a modern 25-room boutique hotel in Pune with 5 rooms per floor, serene nature views, and dedicated 24/7 hospitality.',
       },
       rooms: {
         title: 'Premium Rooms & Facilities',
@@ -843,7 +843,7 @@ export const CTA = {
 
 // --- Thank You Screen ---------------------------------------------------------
 export const THANK_YOU = {
-  heading:           '� THANK YOU �',
+  heading:           '— THANK YOU —',
   subheading:        'Your Request has been submitted',
 
   // Google Review box

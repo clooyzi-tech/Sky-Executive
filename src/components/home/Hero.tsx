@@ -58,11 +58,7 @@ const SLIDE_DURATION = 5000;
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Floating Booking Bar State
-  const [checkIn, setCheckIn] = useState('');
-  const [checkOut, setCheckOut] = useState('');
-  const [guests, setGuests] = useState('2');
-  const [roomType, setRoomType] = useState('Double Bed Room');
+
 
   // Slide navigation
   const nextSlide = useCallback(() => {
@@ -79,32 +75,6 @@ export default function Hero() {
     }, SLIDE_DURATION);
     return () => clearInterval(timer);
   }, [nextSlide]);
-
-  // Set default dates on client mount (today and tomorrow)
-  useEffect(() => {
-    const today = new Date();
-    const tomorrow = new Date();
-    tomorrow.setDate(today.getDate() + 1);
-
-    const formatDate = (d: Date) => d.toISOString().split('T')[0];
-    setCheckIn(formatDate(today));
-    setCheckOut(formatDate(tomorrow));
-  }, []);
-
-  const handleOpenBooking = () => {
-    if (typeof window !== 'undefined') {
-      window.dispatchEvent(
-        new CustomEvent('open-booking-enquiry', {
-          detail: {
-            checkIn,
-            checkOut,
-            guests,
-            roomPreference: roomType,
-          },
-        })
-      );
-    }
-  };
 
   const activeSlide = HERO_SLIDES[currentSlide];
 
@@ -197,98 +167,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Floating Booking Search Bar matching Canva reference */}
-      <div className="relative z-20 mx-auto w-full max-w-4xl px-4 mt-6">
-        <div className="rounded-3xl sm:rounded-full bg-white/95 p-3 sm:p-2 sm:pl-6 shadow-2xl backdrop-blur-md border border-[#E8DFC8] flex flex-col sm:flex-row items-center justify-between gap-3">
-          {/* Check In */}
-          <div className="flex-1 w-full sm:w-auto flex items-center gap-2.5 px-3 sm:px-2 py-1.5 border-b sm:border-b-0 sm:border-r border-[#E8DFC8]">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#FAF5EC] text-[#A67C37]">
-              <Calendar className="h-4 w-4" />
-            </div>
-            <div className="flex-1 min-w-0 text-left">
-              <label className="block text-[10px] uppercase font-bold tracking-wider text-[#9C8F7E]">
-                Check In
-              </label>
-              <input
-                type="date"
-                value={checkIn}
-                onChange={(e) => setCheckIn(e.target.value)}
-                className="w-full text-xs font-semibold text-[#2A241C] bg-transparent focus:outline-none cursor-pointer"
-              />
-            </div>
-          </div>
 
-          {/* Check Out */}
-          <div className="flex-1 w-full sm:w-auto flex items-center gap-2.5 px-3 sm:px-2 py-1.5 border-b sm:border-b-0 sm:border-r border-[#E8DFC8]">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#FAF5EC] text-[#A67C37]">
-              <Calendar className="h-4 w-4" />
-            </div>
-            <div className="flex-1 min-w-0 text-left">
-              <label className="block text-[10px] uppercase font-bold tracking-wider text-[#9C8F7E]">
-                Check Out
-              </label>
-              <input
-                type="date"
-                value={checkOut}
-                onChange={(e) => setCheckOut(e.target.value)}
-                className="w-full text-xs font-semibold text-[#2A241C] bg-transparent focus:outline-none cursor-pointer"
-              />
-            </div>
-          </div>
-
-          {/* Guests */}
-          <div className="flex-1 w-full sm:w-auto flex items-center gap-2.5 px-3 sm:px-2 py-1.5 border-b sm:border-b-0 sm:border-r border-[#E8DFC8]">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#FAF5EC] text-[#A67C37]">
-              <Users className="h-4 w-4" />
-            </div>
-            <div className="flex-1 min-w-0 text-left">
-              <label className="block text-[10px] uppercase font-bold tracking-wider text-[#9C8F7E]">
-                Guests
-              </label>
-              <select
-                value={guests}
-                onChange={(e) => setGuests(e.target.value)}
-                className="w-full text-xs font-semibold text-[#2A241C] bg-transparent focus:outline-none cursor-pointer"
-              >
-                <option value="1">1 Adult</option>
-                <option value="2">2 Adults</option>
-                <option value="3">2 Adults + 1 Extra Guest</option>
-                <option value="4">Family / Group Stay</option>
-              </select>
-            </div>
-          </div>
-
-          {/* Room Type */}
-          <div className="flex-1 w-full sm:w-auto flex items-center gap-2.5 px-3 sm:px-2 py-1.5">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#FAF5EC] text-[#A67C37]">
-              <Bed className="h-4 w-4" />
-            </div>
-            <div className="flex-1 min-w-0 text-left">
-              <label className="block text-[10px] uppercase font-bold tracking-wider text-[#9C8F7E]">
-                Room Type
-              </label>
-              <select
-                value={roomType}
-                onChange={(e) => setRoomType(e.target.value)}
-                className="w-full text-xs font-semibold text-[#2A241C] bg-transparent focus:outline-none cursor-pointer truncate"
-              >
-                <option value="Double Bed Room">Double Bed Room (200 sq.ft)</option>
-                <option value="Double Bed Room + Extra Bed">Double Bed + Extra Bed</option>
-                <option value="Multiple Rooms">Multiple Rooms Stay</option>
-              </select>
-            </div>
-          </div>
-
-          {/* Action Button */}
-          <button
-            onClick={handleOpenBooking}
-            className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white font-bold text-xs uppercase tracking-wider shadow-md transition-all duration-200 active:scale-95 cursor-pointer shrink-0 flex items-center justify-center gap-2"
-          >
-            <Search className="h-4 w-4" />
-            <span>Check Availability</span>
-          </button>
-        </div>
-      </div>
     </section>
   );
 }

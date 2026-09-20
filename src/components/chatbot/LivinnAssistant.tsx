@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -1053,15 +1053,7 @@ export default function LivinnAssistant({
                       <span className="text-[10.5px] text-amber-700 font-medium">{SERVICE_GATE.noServiceSelectedError}</span>
                     </div>
                   )}
-                  <a
-                    href="https://wa.me/918007724646?text=Hi!%20I%20would%20like%20to%20order%20food%20from%20the%20{BRAND.name}%20Cloud%20Kitchen."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-1.5 rounded-full border border-[#E0D5C1] bg-[#FAF8F4] hover:bg-[#F2EADB] text-[#8C6D2D] text-[10.5px] font-medium transition-all flex items-center justify-center gap-1"
-                  >
-                    <span>Or Order directly via WhatsApp</span>
-                    <ExternalLink className="w-2.5 h-2.5" />
-                  </a>
+
                 </div>
               </motion.div>
             )}
