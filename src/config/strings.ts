@@ -796,36 +796,36 @@ export const BOOKING_FORM = {
   nameLabel:       'Name',
   nameRequired:    '* required',
   namePlaceholder: 'Enter your full name',
-  nameEmoji:       '??',
+  nameEmoji:       '👤',
   nameErrorRequired: 'Name is required.',
 
   // Phone field
   phoneLabel:       'Phone Number',
   phoneRequired:    '* 10 digits',
   phonePlaceholder: '10-digit mobile number',
-  phoneEmoji:       '??',
-  phonePrefix:      '???? +91',
+  phoneEmoji:       '📱',
+  phonePrefix:      '🇮🇳 +91',
   phoneErrorRequired: 'Phone number is required.',
   phoneErrorLength:   'Phone number must be exactly 10 digits.',
-  phoneValidHint:     'Valid number ?',
+  phoneValidHint:     'Valid number ✓',
   phoneProgressHint:  (entered: number) => `${entered}/10 digits entered`,
 
   // Email field
   emailLabel:       'Email ID',
   emailOptional:    'optional',
   emailPlaceholder: 'Enter your email address',
-  emailEmoji:       '??',
+  emailEmoji:       '✉️',
 
   // Remark / message field
   remarkLabel:       'Remark',
   remarkOptional:    'optional',
   remarkPlaceholder: '"Write your message and preferred date & time."',
-  remarkEmoji:       '??',
+  remarkEmoji:       '💬',
 
   // Action buttons
   submitButtonLabel:     'SUBMIT',
   submittingButtonLabel: 'Submitting...',
-  backButtonPrefix:      '? Back to',
+  backButtonPrefix:      '← Back to',
 
 } as const;
 
@@ -849,20 +849,20 @@ export const THANK_YOU = {
   // Google Review box
   googleReviewBadge: 'Google Review',
   googleReviewTitle: 'How was your stay?',
-  googleReviewSubtitle: "We'd love to hear from you",
-  googleReviewButton:   'Review us on Google ?',
+  googleReviewSubtitle: "We'd love to hear from you!",
+  googleReviewButton:   'Review us on Google →',
   googleReviewShare:    'Share Your Experience',
-  googleMapsUrl:        'https://www.google.com/maps/place/liv.inn',
+  googleMapsUrl:        'https://www.google.com/maps/place/18%C2%B033\'03.6%22N+73%C2%B058\'26.3%22E/@18.5511055,73.9702936,1240m/data=!3m1!1e3!4m4!3m3!8m2!3d18.5510123!4d73.9739785?hl=en&entry=ttu&g_ep=EgoyMDI2MDkxNi4wIKXMDSoASAFQAw%3D%3D',
 
   // Reaction options
   reactions: [
-    { id: 'excellent',   emoji: '??', title: 'Excellent',   subtitle: 'Loved stay'  },
-    { id: 'good',        emoji: '??', title: 'Good',        subtitle: 'Great'       },
-    { id: 'improvement', emoji: '??', title: 'Needs Impr.', subtitle: 'Let us know' },
+    { id: 'excellent',   emoji: '😊', title: 'Excellent',   subtitle: 'Loved my stay!'  },
+    { id: 'good',        emoji: '😐', title: 'Good',        subtitle: 'It was a pleasant stay.' },
+    { id: 'improvement', emoji: '😞', title: 'Needs Improvement', subtitle: 'We can do better.' },
   ] as const,
 
   // Action buttons
-  whatsappLabel: '?? WhatsApp Desk',
+  whatsappLabel: '💬 WhatsApp Desk',
   startNewLabel: 'Start New',
 
   // WhatsApp message template

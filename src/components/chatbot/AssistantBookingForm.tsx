@@ -1,9 +1,9 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useEffect, type FormEvent } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Phone, X, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { Phone, X, AlertCircle, CheckCircle2, User, Mail, MessageSquare } from 'lucide-react';
 import { BRAND, ASSISTANT, BOOKING_FORM } from '@/config/strings';
 
 // ─── LocalStorage Key ────────────────────────────────────────────────────────
@@ -153,7 +153,7 @@ export default function AssistantBookingForm({
             {/* Name */}
             <div>
               <label htmlFor="ab-name" className="flex items-center gap-1.5 text-xs font-semibold text-[#2A241C] mb-1.5">
-                <span>{BOOKING_FORM.nameEmoji}</span><span>{BOOKING_FORM.nameLabel}</span>
+                <User className="w-3.5 h-3.5 text-[#B38E46]" /><span>{BOOKING_FORM.nameLabel}</span>
                 <span className="text-red-500 text-[10px] font-medium">{BOOKING_FORM.nameRequired}</span>
               </label>
               <input id="ab-name" type="text" value={name} onChange={(e) => handleNameChange(e.target.value)} placeholder={BOOKING_FORM.namePlaceholder} autoComplete="name" className={errors.name ? inputBad : inputOk} />
@@ -163,7 +163,7 @@ export default function AssistantBookingForm({
             {/* Phone */}
             <div>
               <label htmlFor="ab-phone" className="flex items-center gap-1.5 text-xs font-semibold text-[#2A241C] mb-1.5">
-                <span>{BOOKING_FORM.phoneEmoji}</span><span>{BOOKING_FORM.phoneLabel}</span>
+                <Phone className="w-3.5 h-3.5 text-[#B38E46]" /><span>{BOOKING_FORM.phoneLabel}</span>
                 <span className="text-red-500 text-[10px] font-medium">{BOOKING_FORM.phoneRequired}</span>
               </label>
               <div className={`flex rounded-xl border overflow-hidden transition-all duration-200 ${errors.phone ? 'border-red-400 ring-2 ring-red-400/20' : phoneValid ? 'border-emerald-400 ring-1 ring-emerald-400/20' : 'border-[#DCD3C3] focus-within:border-[#B38E46] focus-within:ring-2 focus-within:ring-[#B38E46]/15'}`}>
@@ -182,7 +182,7 @@ export default function AssistantBookingForm({
             {/* Email */}
             <div>
               <label htmlFor="ab-email" className="flex items-center gap-1.5 text-xs font-semibold text-[#2A241C] mb-1.5">
-                <span>{BOOKING_FORM.emailEmoji}</span><span>{BOOKING_FORM.emailLabel}</span>
+                <Mail className="w-3.5 h-3.5 text-[#B38E46]" /><span>{BOOKING_FORM.emailLabel}</span>
                 <span className="text-[#9E9180] text-[10px] font-normal">{BOOKING_FORM.emailOptional}</span>
               </label>
               <input id="ab-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={BOOKING_FORM.emailPlaceholder} autoComplete="email" className={inputOk} />
@@ -191,7 +191,7 @@ export default function AssistantBookingForm({
             {/* Remark */}
             <div>
               <label htmlFor="ab-remark" className="flex items-center gap-1.5 text-xs font-semibold text-[#2A241C] mb-1.5">
-                <span>{BOOKING_FORM.remarkEmoji}</span><span>{BOOKING_FORM.remarkLabel}</span>
+                <MessageSquare className="w-3.5 h-3.5 text-[#B38E46]" /><span>{BOOKING_FORM.remarkLabel}</span>
                 <span className="text-[#9E9180] text-[10px] font-normal">{BOOKING_FORM.remarkOptional}</span>
               </label>
               <textarea id="ab-remark" rows={3} value={remark} onChange={(e) => setRemark(e.target.value)} placeholder={BOOKING_FORM.remarkPlaceholder} className={`${inputOk} resize-none leading-relaxed`} />

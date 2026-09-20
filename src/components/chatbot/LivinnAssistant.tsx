@@ -15,10 +15,12 @@ import {
   UtensilsCrossed,
   RotateCcw,
   AlertCircle,
+  MessageCircle,
 } from 'lucide-react';
 import chatbotConfig from '@/data/chatbot-config.json';
 import hotelInfo from '@/data/hotel-info.json';
 import AssistantBookingForm from './AssistantBookingForm';
+import GoogleReviewCard from './GoogleReviewCard';
 import { BRAND, ASSISTANT, CTA, SERVICE_GATE, THANK_YOU } from '@/config/strings';
 
 // --- SVG Icons matching Canva Design ---
@@ -247,8 +249,6 @@ export default function LivinnAssistant({
   const [selectedServices, setSelectedServices] = useState<Record<string, boolean>>({});
 
   // Feedback State
-  const [rating, setRating] = useState<number>(5);
-  const [reaction, setReaction] = useState<'excellent' | 'good' | 'improvement'>('excellent');
 
   // Service-selection gate error
   const [noServiceError, setNoServiceError] = useState(false);
@@ -378,104 +378,63 @@ export default function LivinnAssistant({
             </header>
 
             {/* Thank You Body */}
-            <div className="flex-1 overflow-y-auto px-4 py-4">
-              <div className="text-center mb-3">
-                <h2 className="text-sm font-bold tracking-widest text-[#A67C37] uppercase">
-                  {THANK_YOU.heading}
-                </h2>
-                <p className="text-[11px] font-semibold text-[#2A241C] mt-1">
-                  {THANK_YOU.subheading}
-                </p>
-              </div>
-
-              {/* Google Review Box */}
-              <div className="p-3.5 rounded-2xl bg-[#FAF8F5] border border-[#E8DFC8] mb-3">
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white border border-[#E0D5C1] mb-2">
-                  <GoogleLogoIcon className="w-3 h-3" />
-                  <span className="text-[9px] font-bold text-[#A67C37]">{THANK_YOU.googleReviewBadge}</span>
-                </div>
-                <h4 className="text-xs font-bold text-[#2A241C]">{THANK_YOU.googleReviewTitle}</h4>
-                <p className="text-[9.5px] text-[#7E7465]">{THANK_YOU.googleReviewSubtitle}</p>
-
-                {/* Star Rating */}
-                <div className="flex justify-center gap-2 my-3">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <button
-                      key={star}
-                      type="button"
-                      onClick={() => setRating(star)}
-                      className="cursor-pointer transition-transform hover:scale-110 p-0.5"
-                    >
-                      <Star
-                        className={`w-6 h-6 ${
-                          star <= rating
-                            ? 'fill-[#F59E0B] text-[#F59E0B]'
-                            : 'fill-transparent text-[#D1C7B4]'
-                        }`}
-                      />
-                    </button>
-                  ))}
-                </div>
-
-                {/* Reactions */}
-                <div className="grid grid-cols-3 gap-2 my-2">
-                  {THANK_YOU.reactions.map((item) => (
-                    <div
-                      key={item.id}
-                      onClick={() => setReaction(item.id as typeof reaction)}
-                      className={`p-2 rounded-xl border text-center cursor-pointer transition-all ${
-                        reaction === item.id
-                          ? 'bg-[#FAF5EC] border-[#B38E46]'
-                          : 'bg-white border-[#EFE8DD]'
-                      }`}
-                    >
-                      <span className="text-xl block leading-none">{item.emoji}</span>
-                      <span className="text-[9px] font-bold text-[#2A241C] block mt-1">
-                        {item.title}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Google Button */}
-                <a
-                  href={THANK_YOU.googleMapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full mt-3 py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-[11px] font-semibold shadow-xs transition-all flex flex-col items-center justify-center cursor-pointer"
+            {/* Thank You Body */}
+            <div className="flex-1 flex flex-col p-3 overflow-y-auto bg-[#FAF8F5]">
+              {/* Header: Back & THANK YOU */}
+              <div className="flex items-center mb-3">
+                <button
+                  onClick={handleReset}
+                  className="text-[10px] text-[#7E7465] hover:text-[#2A241C] flex items-center transition-colors font-medium mr-auto"
                 >
-                  <span>{THANK_YOU.googleReviewButton}</span>
-                  <span className="text-[8.5px] text-[#FAF5EC]/80 font-normal">
-                    {THANK_YOU.googleReviewShare}
-                  </span>
-                </a>
+                  Back
+                </button>
+                <div className="flex flex-col items-center flex-1 -ml-6">
+                  <div className="flex items-center justify-center gap-1.5">
+                    <div className="w-5 h-[1.5px] bg-[#B38E46]" />
+                    <h2 className="text-[13px] font-bold tracking-widest text-[#1e234c] uppercase font-serif whitespace-nowrap">
+                      {THANK_YOU.heading.replace(/—/g, '').trim()}
+                    </h2>
+                    <div className="w-5 h-[1.5px] bg-[#B38E46]" />
+                  </div>
+                  <p className="text-[9px] font-medium text-[#7E7465] mt-0.5">
+                    {THANK_YOU.subheading}
+                  </p>
+                </div>
               </div>
 
-              <div className="flex gap-2">
+              <GoogleReviewCard />
+
+              {/* Social Media Button */}
+              <div className="flex justify-center mb-2 mt-auto">
                 <a
                   href={`https://wa.me/${BRAND.phoneNumber}?text=${encodeURIComponent(
                     THANK_YOU.whatsappMessage(Object.keys(selectedServices).filter((k) => selectedServices[k]).join(', ') || 'Guest Assistance')
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 py-2.5 rounded-full bg-[#25D366]/10 border border-[#25D366]/30 text-[#128C7E] hover:bg-[#25D366]/20 text-[10.5px] font-semibold flex items-center justify-center gap-1 cursor-pointer transition-colors"
+                  className="px-7 py-2.5 rounded-full bg-[#A67C37] hover:bg-[#8C6D2D] text-white text-[11px] font-bold transition-all flex items-center gap-2 cursor-pointer shadow-md"
                 >
-                  <span>{THANK_YOU.whatsappLabel}</span>
+                  <div className="bg-white/20 rounded-full p-1.5 flex items-center justify-center relative">
+                    <MessageCircle className="w-4 h-4 text-white" />
+                    <span className="absolute text-[8px] -top-0.5 right-0 font-extrabold text-[#1e234c]">
+                      ❤
+                    </span>
+                  </div>
+                  Our Social Media
                 </a>
-                <button
-                  type="button"
-                  onClick={handleReset}
-                  className="flex-1 py-2.5 rounded-full bg-[#FAF5EC] border border-[#E8DFC8] text-[#8C6D2D] hover:bg-[#F2EADB] text-[10.5px] font-semibold flex items-center justify-center gap-1 cursor-pointer"
-                >
-                  <RotateCcw className="w-3 h-3" />
-                  <span>{THANK_YOU.startNewLabel}</span>
-                </button>
               </div>
-            </div>
 
-            {/* Developed by footer */}
-            <div className="shrink-0 py-2 text-center">
-              <span className="text-[9px] text-[#B8AB98] tracking-wider">{BRAND.developerBy}</span>{' '}<span className="text-[9px] font-bold text-[#A67C37] ml-1">{BRAND.developer}</span>
+              <div className="flex justify-center mb-1">
+                <div className="w-12 h-[1.5px] bg-[#E8DFC8]" />
+              </div>
+
+              {/* Developed by footer */}
+              <div className="shrink-0 pb-1 text-center flex items-center justify-center gap-1.5">
+                <span className="text-[10px] text-[#A67C37] tracking-wider font-semibold">{BRAND.developerBy}</span>
+                <span className="text-[12px] font-bold text-[#A67C37] flex items-center gap-0.5">
+                  <span className="text-xl leading-none">❁</span>{BRAND.developer.replace('Technologies', '').trim()}
+                </span>
+              </div>
             </div>
           </motion.div>
         )}
@@ -1161,81 +1120,16 @@ export default function LivinnAssistant({
                 transition={{ duration: 0.18 }}
                 className="flex-1 flex flex-col p-3.5 justify-between overflow-y-auto"
               >
-                <div className="text-center">
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FAF5EC] border border-[#E8DFC8] mb-1">
-                    <GoogleLogoIcon className="w-3 h-3" />
-                    <span className="text-[9.5px] font-semibold text-[#A67C37]">Google Review</span>
-                  </div>
-                  <h3 className="text-sm font-bold text-[#2A241C]">How was your stay?</h3>
-                  <p className="text-[10px] text-[#7E7465]">We&apos;d love to hear from you</p>
-
-                  {/* 5 Stars */}
-                  <div className="flex justify-center gap-1.5 my-2.5">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <button
-                        key={star}
-                        type="button"
-                        onClick={() => setRating(star)}
-                        className="cursor-pointer transition-transform hover:scale-110 p-0.5"
-                      >
-                        <Star
-                          className={`w-6 h-6 ${
-                            star <= rating
-                              ? 'fill-[#F59E0B] text-[#F59E0B]'
-                              : 'fill-transparent text-[#D1C7B4]'
-                          }`}
-                        />
-                      </button>
-                    ))}
+                  <GoogleReviewCard />
+                  <div className="pt-2 space-y-1.5">
+                    <button
+                      onClick={() => setActiveTab('social')}
+                      className="w-full py-1.5 rounded-full border border-[#E0D5C1] bg-white text-[#7E7465] hover:text-[#2A241C] text-[10.5px] font-medium cursor-pointer"
+                    >
+                      Our Social Media
+                    </button>
                   </div>
 
-                  {/* Reactions */}
-                  <div className="grid grid-cols-3 gap-1.5 my-2">
-                    {[
-                      { id: 'excellent', emoji: '🤩', title: 'Excellent', subtitle: 'Loved my stay' },
-                      { id: 'good', emoji: '😊', title: 'Good', subtitle: 'Great experience' },
-                      { id: 'improvement', emoji: '😐', title: 'Needs Improvement', subtitle: 'Let us know' },
-                    ].map((item) => (
-                      <div
-                        key={item.id}
-                        onClick={() => setReaction(item.id as typeof reaction)}
-                        className={`p-1.5 rounded-xl border text-center cursor-pointer transition-all ${
-                          reaction === item.id
-                            ? 'bg-[#FAF5EC] border-[#B38E46] shadow-2xs'
-                            : 'bg-white border-[#EFE8DD]'
-                        }`}
-                      >
-                        <span className="text-lg block leading-tight">{item.emoji}</span>
-                        <span className="text-[10px] font-bold text-[#2A241C] block mt-0.5">
-                          {item.title}
-                        </span>
-                        <span className="text-[8px] text-[#8C7E6D] block leading-none mt-0.5">
-                          {item.subtitle}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-2 space-y-1.5">
-                  <a
-                    href="https://www.google.com/maps/place/{BRAND.name}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-semibold shadow-sm transition-all flex flex-col items-center justify-center cursor-pointer leading-tight"
-                  >
-                    <span>Review us on Google →</span>
-                    <span className="text-[9px] text-[#FAF5EC]/80 font-normal">
-                      Share Your Experience
-                    </span>
-                  </a>
-                  <button
-                    onClick={() => setActiveTab('social')}
-                    className="w-full py-1.5 rounded-full border border-[#E0D5C1] bg-white text-[#7E7465] hover:text-[#2A241C] text-[10.5px] font-medium cursor-pointer"
-                  >
-                    Our Social Media
-                  </button>
-                </div>
               </motion.div>
             )}
 
