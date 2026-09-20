@@ -105,7 +105,7 @@ export const contactConfig: ContactConfig = {
     puneCityEmbedUrl:
       'https://maps.google.com/maps?q=18.5510123,73.9739785&t=&z=16&ie=UTF8&iwloc=&output=embed',
     googleMapsSearchUrl:
-      "https://www.google.com/maps/place/18%C2%B033'03.6%22N+73%C2%B058'26.3%22E/@18.5510123,73.9714036,17z/data=!3m1!4b1!4m4!3m3!8m2!3d18.5510123!4d73.9739785!5m1!1e4?hl=en&entry=ttu&g_ep=EgoyMDI2MDkxMy4wIKXMDSoASAFQAw%3D%3D",
+      "https://www.google.com/maps/place/18%C2%B033'03.6%22N+73%C2%B058'26.3%22E/@18.5511055,73.9702936,1240m/data=!3m1!1e3!4m4!3m3!8m2!3d18.5510123!4d73.9739785?hl=en&entry=ttu&g_ep=EgoyMDI2MDkxNi4wIKXMDSoASAFQAw%3D%3D",
     disclaimer:
       'Exact address: Plot No-31, Lane No-4, Infinity Greens Society, Near VTP Altair Phase-1, Gat No- 1251, Upper Kharadi, Wagholi, Pune-412207, Wagholi 412207.',
   },

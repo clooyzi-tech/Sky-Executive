@@ -193,7 +193,7 @@ export default function Footer() {
             <Link href="/terms" className="hover:text-[#DFB756] transition-colors">
               Terms & Conditions
             </Link>
-            <Link href="/contact" className="hover:text-[#DFB756] transition-colors">
+            <Link href="/policies" className="hover:text-[#DFB756] transition-colors">
               Guest Support
             </Link>
           </div>

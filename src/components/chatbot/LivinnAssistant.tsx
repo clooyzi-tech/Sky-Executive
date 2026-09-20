@@ -9,15 +9,19 @@ import {
   Check,
   Star,
   ChevronDown,
-  ArrowLeft,
   Share2,
   ExternalLink,
   Sparkles,
   UtensilsCrossed,
   RotateCcw,
+  AlertCircle,
+  MessageCircle,
 } from 'lucide-react';
 import chatbotConfig from '@/data/chatbot-config.json';
 import hotelInfo from '@/data/hotel-info.json';
+import AssistantBookingForm from './AssistantBookingForm';
+import GoogleReviewCard from './GoogleReviewCard';
+import { BRAND, ASSISTANT, CTA, SERVICE_GATE, THANK_YOU } from '@/config/strings';
 
 // --- SVG Icons matching Canva Design ---
 
@@ -233,27 +237,25 @@ interface LivinnAssistantProps {
   isPopup?: boolean;
   onClose?: () => void;
   className?: string;
+  roomId?: string;
+  roomKey?: string;
 }
 
 export default function LivinnAssistant({
   isPopup = false,
   onClose,
   className = '',
+  roomId,
+  roomKey,
 }: LivinnAssistantProps) {
   const [activeTab, setActiveTab] = useState<ActiveTab>('home');
   const [previousTab, setPreviousTab] = useState<ActiveTab>('home');
   const [selectedServices, setSelectedServices] = useState<Record<string, boolean>>({});
 
-  // Form State
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [remark, setRemark] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   // Feedback State
-  const [rating, setRating] = useState<number>(5);
-  const [reaction, setReaction] = useState<'excellent' | 'good' | 'improvement'>('excellent');
+
+  // Service-selection gate error
+  const [noServiceError, setNoServiceError] = useState(false);
 
   // Toggle Checkbox helper
   const toggleService = (title: string) => {
@@ -261,56 +263,26 @@ export default function LivinnAssistant({
       ...prev,
       [title]: !prev[title],
     }));
+    setNoServiceError(false); // clear gate error when user taps a service
   };
 
-  // Navigate to Form
+  // Navigate to Form — requires at least one service selected
   const handleProceedToForm = (currentTab: ActiveTab) => {
-    setPreviousTab(currentTab);
-    setActiveTab('form');
-  };
-
-  // Submit Form
-  const handleSubmitForm = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!name.trim() || !phone.trim()) {
-      alert('Please enter your name and phone number.');
+    const anySelected = Object.values(selectedServices).some(Boolean);
+    if (!anySelected) {
+      setNoServiceError(true);
       return;
     }
-
-    setIsSubmitting(true);
-    const selectedList = Object.keys(selectedServices).filter((k) => selectedServices[k]);
-    const serviceSummary = selectedList.length > 0 ? selectedList.join(', ') : 'General Assistance';
-    const formattedCategory = previousTab.toUpperCase();
-    const fullMessage = `[Chatbot Assistant Request - ${formattedCategory}]\nSelected Services:\n${serviceSummary}\n\nGuest Remarks:\n${remark.trim() || 'None'}`;
-
-    try {
-      await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: name.trim(),
-          phone: `+91 ${phone.trim()}`,
-          email: email.trim() || `${phone.replace(/\D/g, '') || 'guest'}@guest.livinn.in`,
-          roomPreference: `Assistant: ${previousTab}`,
-          message: fullMessage,
-        }),
-      });
-    } catch (err) {
-      console.error('Error submitting chatbot request:', err);
-    } finally {
-      setIsSubmitting(false);
-      setActiveTab('thankyou');
-    }
+    setNoServiceError(false);
+    setPreviousTab(currentTab);
+    setActiveTab('form');
   };
 
   // Reset to Home
   const handleReset = () => {
     setActiveTab('home');
     setSelectedServices({});
-    setName('');
-    setPhone('');
-    setEmail('');
-    setRemark('');
+    setNoServiceError(false);
   };
 
   // Active bottom button calculation
@@ -342,16 +314,152 @@ export default function LivinnAssistant({
     <div
       className={`relative flex flex-col h-full w-full select-none overflow-hidden bg-[#FAF7F2] font-sans text-[#2A241C] ${className}`}
     >
+
+      {/* ============================================================ */}
+      {/* FULL-PAGE OVERLAY: PERSONAL ASSISTANT FORM (SCREEN 10)       */}
+      {/* Now rendered via standalone AssistantBookingForm component   */}
+      {/* ============================================================ */}
+      <AnimatePresence>
+        {activeTab === 'form' && (
+          <AssistantBookingForm
+            selectedServices={Object.keys(selectedServices).filter(
+              (k) => selectedServices[k]
+            )}
+            onBack={() => setActiveTab(previousTab)}
+            onSubmitSuccess={() => {
+              setActiveTab('thankyou');
+              setSelectedServices({});
+            }}
+            roomId={roomId}
+            roomKey={roomKey}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* ============================================================ */}
+      {/* FULL-PAGE OVERLAY: THANK YOU SCREEN (SCREEN 11)              */}
+      {/* ============================================================ */}
+      <AnimatePresence>
+        {activeTab === 'thankyou' && (
+          <motion.div
+            key="thankyou-overlay"
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.96 }}
+            transition={{ duration: 0.22, ease: 'easeOut' }}
+            className="absolute inset-0 z-50 flex flex-col bg-[#FAF7F2] overflow-hidden"
+          >
+            {/* Overlay Header */}
+            <header className="flex items-center justify-between px-4 py-3 border-b border-[#EBE4D5] bg-white shadow-2xs shrink-0">
+              <div className="flex flex-col">
+                <Link href="/" className="group inline-flex flex-col">
+                  <span className="font-serif text-lg sm:text-xl font-bold tracking-wider text-[#2A241C] group-hover:text-[#A67C37] transition-colors leading-none">
+                    {BRAND.name}
+                  </span>
+                  <span className="text-[7.5px] sm:text-[8.5px] tracking-widest text-[#9C8F7E] font-medium uppercase mt-0.5">
+                    {BRAND.tagline}
+                  </span>
+                </Link>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <div className="text-right">
+                  <h4 className="text-xs font-semibold text-[#2A241C] leading-tight">
+                    {ASSISTANT.name}
+                    {roomId && <span className="text-[#A67C37]"> | Room {roomId}</span>}
+                  </h4>
+                  <p className="text-[10px] text-[#8C7E6D]">{ASSISTANT.role}</p>
+                </div>
+                <a
+                  href={`tel:${BRAND.phoneNumber}`}
+                  className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FAF5EC] border border-[#E8DFC8] text-[#A67C37] transition-all hover:bg-[#A67C37] hover:text-white shadow-2xs"
+                  title={ASSISTANT.callTitle}
+                >
+                  <Phone className="h-3.5 w-3.5" />
+                </a>
+                {isPopup && onClose && (
+                  <button
+                    onClick={onClose}
+                    className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FAF5EC] border border-[#E8DFC8] text-[#7E7465] transition-all hover:bg-[#EAE2D2] hover:text-[#2A241C] cursor-pointer"
+                    aria-label={ASSISTANT.closeLabel}
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                )}
+              </div>
+            </header>
+
+            {/* Thank You Body */}
+            {/* Thank You Body */}
+            <div className="flex-1 flex flex-col p-3 overflow-y-auto bg-[#FAF8F5]">
+              {/* Header: Back & THANK YOU */}
+              <div className="flex items-center mb-3">
+                <button
+                  onClick={handleReset}
+                  className="text-[10px] text-[#7E7465] hover:text-[#2A241C] flex items-center transition-colors font-medium mr-auto"
+                >
+                  Back
+                </button>
+                <div className="flex flex-col items-center flex-1 -ml-6">
+                  <div className="flex items-center justify-center gap-1.5">
+                    <div className="w-5 h-[1.5px] bg-[#B38E46]" />
+                    <h2 className="text-[13px] font-bold tracking-widest text-[#1e234c] uppercase font-serif whitespace-nowrap">
+                      {THANK_YOU.heading.replace(/—/g, '').trim()}
+                    </h2>
+                    <div className="w-5 h-[1.5px] bg-[#B38E46]" />
+                  </div>
+                  <p className="text-[9px] font-medium text-[#7E7465] mt-0.5">
+                    {THANK_YOU.subheading}
+                  </p>
+                </div>
+              </div>
+
+              <GoogleReviewCard />
+
+              {/* Social Media Button */}
+              <div className="flex justify-center mb-2 mt-auto">
+                <a
+                  href={`https://wa.me/${BRAND.phoneNumber}?text=${encodeURIComponent(
+                    THANK_YOU.whatsappMessage(Object.keys(selectedServices).filter((k) => selectedServices[k]).join(', ') || 'Guest Assistance')
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-7 py-2.5 rounded-full bg-[#A67C37] hover:bg-[#8C6D2D] text-white text-[11px] font-bold transition-all flex items-center gap-2 cursor-pointer shadow-md"
+                >
+                  <div className="bg-white/20 rounded-full p-1.5 flex items-center justify-center relative">
+                    <MessageCircle className="w-4 h-4 text-white" />
+                    <span className="absolute text-[8px] -top-0.5 right-0 font-extrabold text-[#1e234c]">
+                      ❤
+                    </span>
+                  </div>
+                  Our Social Media
+                </a>
+              </div>
+
+              <div className="flex justify-center mb-1">
+                <div className="w-12 h-[1.5px] bg-[#E8DFC8]" />
+              </div>
+
+              {/* Developed by footer */}
+              <div className="shrink-0 pb-1 text-center flex items-center justify-center gap-1.5">
+                <span className="text-[10px] text-[#A67C37] tracking-wider font-semibold">{BRAND.developerBy}</span>
+                <span className="text-[12px] font-bold text-[#A67C37] flex items-center gap-0.5">
+                  <span className="text-xl leading-none">❁</span>{BRAND.developer.replace('Technologies', '').trim()}
+                </span>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       {/* 1. TOP HEADER */}
       <header className="flex items-center justify-between px-4 py-3 border-b border-[#EBE4D5] bg-white shadow-2xs z-20 shrink-0">
         {/* Left: Brand Logo & Slogan */}
         <div className="flex flex-col">
           <Link href="/" className="group inline-flex flex-col">
             <span className="font-serif text-lg sm:text-xl font-bold tracking-wider text-[#2A241C] group-hover:text-[#A67C37] transition-colors leading-none">
-              LIV.INN
+              {BRAND.name}
             </span>
             <span className="text-[7.5px] sm:text-[8.5px] tracking-widest text-[#9C8F7E] font-medium uppercase mt-0.5">
-              STAY IN COMFORT, LIVE THE MOMENT.
+              {BRAND.tagline}
             </span>
           </Link>
         </div>
@@ -359,14 +467,17 @@ export default function LivinnAssistant({
         {/* Right: Personal Assistant & Phone / Close */}
         <div className="flex items-center gap-2.5">
           <div className="text-right">
-            <h4 className="text-xs font-semibold text-[#2A241C] leading-tight">Miss. Maya</h4>
-            <p className="text-[10px] text-[#8C7E6D]">Your Personal assistant</p>
+            <h4 className="text-xs font-semibold text-[#2A241C] leading-tight">
+              {ASSISTANT.name}
+              {roomId && <span className="text-[#A67C37]"> | Room {roomId}</span>}
+            </h4>
+            <p className="text-[10px] text-[#8C7E6D]">{ASSISTANT.role}</p>
           </div>
 
           <a
-            href="tel:+918007724646"
+            href={`tel:${BRAND.phoneNumber}`}
             className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FAF5EC] border border-[#E8DFC8] text-[#A67C37] transition-all hover:bg-[#A67C37] hover:text-white shadow-2xs"
-            title="Call Front Desk"
+            title={ASSISTANT.callTitle}
           >
             <Phone className="h-3.5 w-3.5" />
           </a>
@@ -375,7 +486,7 @@ export default function LivinnAssistant({
             <button
               onClick={onClose}
               className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FAF5EC] border border-[#E8DFC8] text-[#7E7465] transition-all hover:bg-[#EAE2D2] hover:text-[#2A241C] cursor-pointer"
-              aria-label="Close assistant"
+              aria-label={ASSISTANT.closeLabel}
             >
               <X className="h-4 w-4" />
             </button>
@@ -411,10 +522,10 @@ export default function LivinnAssistant({
                     Welcome to
                   </span>
                   <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#2A241C] tracking-wide mt-0.5 mb-1">
-                    Liv.inn
+                    {BRAND.name}
                   </h1>
                   <p className="text-[9.5px] sm:text-[10.5px] tracking-[0.16em] uppercase font-semibold text-[#A67C37] mb-6">
-                    STAY IN COMFORT, LIVE THE MOMENT.
+                    {BRAND.tagline}
                   </p>
 
                   <button
@@ -499,14 +610,20 @@ export default function LivinnAssistant({
                 </div>
 
                 {/* Bottom CTA Button */}
-                <div className="pt-3">
+                <div className="pt-3 space-y-2">
                   <button
                     type="button"
                     onClick={() => handleProceedToForm('housekeeping')}
                     className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-semibold shadow-sm transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-1.5"
                   >
-                    <span>Select & click here</span>
+                    <span>{CTA.selectAndProceed}</span>
                   </button>
+                  {noServiceError && activeTab === 'housekeeping' && (
+                    <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 border border-amber-200">
+                      <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                      <span className="text-[10.5px] text-amber-700 font-medium">{SERVICE_GATE.noServiceSelectedError}</span>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             )}
@@ -576,14 +693,20 @@ export default function LivinnAssistant({
                   </div>
                 </div>
 
-                <div className="pt-3">
+                <div className="pt-3 space-y-2">
                   <button
                     type="button"
                     onClick={() => handleProceedToForm('laundry')}
                     className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-semibold shadow-sm transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-1.5"
                   >
-                    <span>Select & click here</span>
+                    <span>{CTA.selectAndProceed}</span>
                   </button>
+                  {noServiceError && activeTab === 'laundry' && (
+                    <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 border border-amber-200">
+                      <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                      <span className="text-[10.5px] text-amber-700 font-medium">{SERVICE_GATE.noServiceSelectedError}</span>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             )}
@@ -668,14 +791,20 @@ export default function LivinnAssistant({
                   </div>
                 </div>
 
-                <div className="pt-3">
+                <div className="pt-3 space-y-2">
                   <button
                     type="button"
                     onClick={() => handleProceedToForm('extrabed')}
                     className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-semibold shadow-sm transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-1.5"
                   >
-                    <span>Select & click here</span>
+                    <span>{CTA.selectAndProceed}</span>
                   </button>
+                  {noServiceError && activeTab === 'extrabed' && (
+                    <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 border border-amber-200">
+                      <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                      <span className="text-[10.5px] text-amber-700 font-medium">{SERVICE_GATE.noServiceSelectedError}</span>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             )}
@@ -733,14 +862,20 @@ export default function LivinnAssistant({
                   </div>
                 </div>
 
-                <div className="pt-3">
+                <div className="pt-3 space-y-2">
                   <button
                     type="button"
                     onClick={() => handleProceedToForm('shoecare')}
                     className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-semibold shadow-sm transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-1.5"
                   >
-                    <span>Select & click here</span>
+                    <span>{CTA.selectAndProceed}</span>
                   </button>
+                  {noServiceError && activeTab === 'shoecare' && (
+                    <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 border border-amber-200">
+                      <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                      <span className="text-[10.5px] text-amber-700 font-medium">{SERVICE_GATE.noServiceSelectedError}</span>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             )}
@@ -798,14 +933,20 @@ export default function LivinnAssistant({
                   </div>
                 </div>
 
-                <div className="pt-3">
+                <div className="pt-3 space-y-2">
                   <button
                     type="button"
                     onClick={() => handleProceedToForm('luggage')}
                     className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-semibold shadow-sm transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-1.5"
                   >
-                    <span>Select & click here</span>
+                    <span>{CTA.selectAndProceed}</span>
                   </button>
+                  {noServiceError && activeTab === 'luggage' && (
+                    <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 border border-amber-200">
+                      <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                      <span className="text-[10.5px] text-amber-700 font-medium">{SERVICE_GATE.noServiceSelectedError}</span>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             )}
@@ -871,23 +1012,21 @@ export default function LivinnAssistant({
                   </div>
                 </div>
 
-                <div className="pt-3 space-y-1.5">
+                <div className="pt-3 space-y-2">
                   <button
                     type="button"
                     onClick={() => handleProceedToForm('food')}
                     className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-semibold shadow-sm transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-1.5"
                   >
-                    <span>Select & click here</span>
+                    <span>{CTA.selectAndProceed}</span>
                   </button>
-                  <a
-                    href="https://wa.me/918007724646?text=Hi!%20I%20would%20like%20to%20order%20food%20from%20the%20liv.inn%20Cloud%20Kitchen."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-1.5 rounded-full border border-[#E0D5C1] bg-[#FAF8F4] hover:bg-[#F2EADB] text-[#8C6D2D] text-[10.5px] font-medium transition-all flex items-center justify-center gap-1"
-                  >
-                    <span>Or Order directly via WhatsApp</span>
-                    <ExternalLink className="w-2.5 h-2.5" />
-                  </a>
+                  {noServiceError && activeTab === 'food' && (
+                    <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 border border-amber-200">
+                      <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                      <span className="text-[10.5px] text-amber-700 font-medium">{SERVICE_GATE.noServiceSelectedError}</span>
+                    </div>
+                  )}
+
                 </div>
               </motion.div>
             )}
@@ -905,7 +1044,7 @@ export default function LivinnAssistant({
                 <div>
                   <div className="flex items-center justify-between pb-2 mb-3 border-b border-[#F0E9DC]">
                     <h2 className="text-xs font-bold uppercase tracking-wider text-[#A67C37]">
-                      Connect with Liv.inn
+                      Connect with {BRAND.name}
                     </h2>
                     <button
                       onClick={() => setActiveTab('home')}
@@ -937,7 +1076,7 @@ export default function LivinnAssistant({
                     </a>
 
                     <a
-                      href="https://wa.me/918007724646?text=Hello%20liv.inn%20Pune"
+                      href="https://wa.me/918007724646?text=Hello%20{BRAND.name}%20Pune"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-between p-2.5 rounded-xl border border-[#EFE8DD] bg-[#FAF8F5] hover:border-[#B38E46] transition-all group"
@@ -955,7 +1094,7 @@ export default function LivinnAssistant({
                     </a>
 
                     <a
-                      href="https://www.google.com/maps/place/liv.inn"
+                      href="https://www.google.com/maps/place/{BRAND.name}"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-between p-2.5 rounded-xl border border-[#EFE8DD] bg-[#FAF8F5] hover:border-[#B38E46] transition-all group"
@@ -995,340 +1134,22 @@ export default function LivinnAssistant({
                 transition={{ duration: 0.18 }}
                 className="flex-1 flex flex-col p-3.5 justify-between overflow-y-auto"
               >
-                <div className="text-center">
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FAF5EC] border border-[#E8DFC8] mb-1">
-                    <GoogleLogoIcon className="w-3 h-3" />
-                    <span className="text-[9.5px] font-semibold text-[#A67C37]">Google Review</span>
-                  </div>
-                  <h3 className="text-sm font-bold text-[#2A241C]">How was your stay?</h3>
-                  <p className="text-[10px] text-[#7E7465]">We&apos;d love to hear from you</p>
-
-                  {/* 5 Stars */}
-                  <div className="flex justify-center gap-1.5 my-2.5">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <button
-                        key={star}
-                        type="button"
-                        onClick={() => setRating(star)}
-                        className="cursor-pointer transition-transform hover:scale-110 p-0.5"
-                      >
-                        <Star
-                          className={`w-6 h-6 ${
-                            star <= rating
-                              ? 'fill-[#F59E0B] text-[#F59E0B]'
-                              : 'fill-transparent text-[#D1C7B4]'
-                          }`}
-                        />
-                      </button>
-                    ))}
-                  </div>
-
-                  {/* Reactions */}
-                  <div className="grid grid-cols-3 gap-1.5 my-2">
-                    {[
-                      { id: 'excellent', emoji: '🤩', title: 'Excellent', subtitle: 'Loved my stay' },
-                      { id: 'good', emoji: '😊', title: 'Good', subtitle: 'Great experience' },
-                      { id: 'improvement', emoji: '😐', title: 'Needs Improvement', subtitle: 'Let us know' },
-                    ].map((item) => (
-                      <div
-                        key={item.id}
-                        onClick={() => setReaction(item.id as typeof reaction)}
-                        className={`p-1.5 rounded-xl border text-center cursor-pointer transition-all ${
-                          reaction === item.id
-                            ? 'bg-[#FAF5EC] border-[#B38E46] shadow-2xs'
-                            : 'bg-white border-[#EFE8DD]'
-                        }`}
-                      >
-                        <span className="text-lg block leading-tight">{item.emoji}</span>
-                        <span className="text-[10px] font-bold text-[#2A241C] block mt-0.5">
-                          {item.title}
-                        </span>
-                        <span className="text-[8px] text-[#8C7E6D] block leading-none mt-0.5">
-                          {item.subtitle}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-2 space-y-1.5">
-                  <a
-                    href="https://www.google.com/maps/place/liv.inn"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-semibold shadow-sm transition-all flex flex-col items-center justify-center cursor-pointer leading-tight"
-                  >
-                    <span>Review us on Google →</span>
-                    <span className="text-[9px] text-[#FAF5EC]/80 font-normal">
-                      Share Your Experience
-                    </span>
-                  </a>
-                  <button
-                    onClick={() => setActiveTab('social')}
-                    className="w-full py-1.5 rounded-full border border-[#E0D5C1] bg-white text-[#7E7465] hover:text-[#2A241C] text-[10.5px] font-medium cursor-pointer"
-                  >
-                    Our Social Media
-                  </button>
-                </div>
-              </motion.div>
-            )}
-
-            {/* --- SCREEN 10: PERSONAL ASSISTANT FORM PAGE --- */}
-            {activeTab === 'form' && (
-              <motion.div
-                key="form"
-                initial={{ opacity: 0, x: 12 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -12 }}
-                transition={{ duration: 0.18 }}
-                className="flex-1 flex flex-col p-3.5 justify-between overflow-y-auto"
-              >
-                <form onSubmit={handleSubmitForm} className="flex-1 flex flex-col justify-between">
-                  <div>
-                    {/* Header with Back button */}
-                    <div className="flex items-center justify-between pb-1.5 mb-1.5 border-b border-[#F0E9DC]">
-                      <button
-                        type="button"
-                        onClick={() => setActiveTab(previousTab)}
-                        className="inline-flex items-center gap-1 text-[11px] text-[#A67C37] hover:underline cursor-pointer"
-                      >
-                        <ArrowLeft className="w-3 h-3" />
-                        <span>Back</span>
-                      </button>
-                      <h3 className="text-xs font-bold uppercase tracking-widest text-[#A67C37]">
-                        — GET IN TOUCH —
-                      </h3>
-                      <div className="w-8" />
-                    </div>
-
-                    <p className="text-[10px] text-center text-[#7E7465] mb-2 leading-tight">
-                      We&apos;re here to help you a comfortable stay at LIV.INN.
-                    </p>
-
-                    {/* Selected services chips if any */}
-                    {Object.keys(selectedServices).filter((k) => selectedServices[k]).length > 0 && (
-                      <div className="mb-2 p-1.5 rounded-lg bg-[#FAF5EC] border border-[#E8DFC8]">
-                        <span className="text-[9px] font-bold text-[#8C6D2D] uppercase block mb-1">
-                          Selected Requests:
-                        </span>
-                        <div className="flex flex-wrap gap-1">
-                          {Object.keys(selectedServices)
-                            .filter((k) => selectedServices[k])
-                            .map((service) => (
-                              <span
-                                key={service}
-                                className="inline-flex items-center gap-1 text-[9.5px] bg-white border border-[#E0D5C1] text-[#2A241C] px-2 py-0.5 rounded-md font-medium"
-                              >
-                                <span>{service}</span>
-                              </span>
-                            ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Form Fields */}
-                    <div className="space-y-2">
-                      {/* Name */}
-                      <div>
-                        <label className="block text-[10px] font-semibold text-[#2A241C] mb-0.5">
-                          Name *
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                          placeholder="Enter your name"
-                          className="w-full text-xs px-2.5 py-1.5 rounded-lg border border-[#DCD3C3] bg-white focus:outline-none focus:border-[#B38E46] transition-colors"
-                        />
-                      </div>
-
-                      {/* Phone Number with +91 */}
-                      <div>
-                        <label className="block text-[10px] font-semibold text-[#2A241C] mb-0.5">
-                          Phone Number *
-                        </label>
-                        <div className="flex rounded-lg border border-[#DCD3C3] overflow-hidden focus-within:border-[#B38E46]">
-                          <span className="inline-flex items-center px-2 text-[11px] font-semibold bg-[#F5EFE4] text-[#6E6454] border-r border-[#DCD3C3]">
-                            🇮🇳 +91
-                          </span>
-                          <input
-                            type="tel"
-                            required
-                            value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
-                            placeholder="Enter your phone number"
-                            className="flex-1 text-xs px-2.5 py-1.5 bg-white focus:outline-none"
-                          />
-                        </div>
-                      </div>
-
-                      {/* Email */}
-                      <div>
-                        <label className="block text-[10px] font-semibold text-[#2A241C] mb-0.5">
-                          Email ID
-                        </label>
-                        <input
-                          type="email"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          placeholder="Enter your email address"
-                          className="w-full text-xs px-2.5 py-1.5 rounded-lg border border-[#DCD3C3] bg-white focus:outline-none focus:border-[#B38E46] transition-colors"
-                        />
-                      </div>
-
-                      {/* Remark */}
-                      <div>
-                        <label className="block text-[10px] font-semibold text-[#2A241C] mb-0.5">
-                          Remark
-                        </label>
-                        <textarea
-                          rows={2}
-                          value={remark}
-                          onChange={(e) => setRemark(e.target.value)}
-                          placeholder="Write your message and preferred date & time."
-                          className="w-full text-xs px-2.5 py-1.5 rounded-lg border border-[#DCD3C3] bg-white focus:outline-none focus:border-[#B38E46] resize-none transition-colors"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Submit Button */}
-                  <div className="pt-2">
+                  <GoogleReviewCard />
+                  <div className="pt-2 space-y-1.5">
                     <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all active:scale-98 cursor-pointer disabled:opacity-70"
+                      onClick={() => setActiveTab('social')}
+                      className="w-full py-1.5 rounded-full border border-[#E0D5C1] bg-white text-[#7E7465] hover:text-[#2A241C] text-[10.5px] font-medium cursor-pointer"
                     >
-                      {isSubmitting ? 'Submitting...' : 'SUBMIT'}
+                      Our Social Media
                     </button>
                   </div>
-                </form>
+
               </motion.div>
             )}
 
-            {/* --- SCREEN 11: PERSONAL ASSISTANT LAST PAGE (THANK YOU) --- */}
-            {activeTab === 'thankyou' && (
-              <motion.div
-                key="thankyou"
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.2 }}
-                className="flex-1 flex flex-col p-3.5 justify-between overflow-y-auto"
-              >
-                <div className="text-center">
-                  <div className="flex items-center justify-between pb-1 mb-1 border-b border-[#F0E9DC]">
-                    <button
-                      type="button"
-                      onClick={() => setActiveTab('home')}
-                      className="text-[11px] text-[#A67C37] hover:underline cursor-pointer"
-                    >
-                      ← Home
-                    </button>
-                    <span className="text-[10px] text-[#A67C37] font-semibold">
-                      Request Confirmed
-                    </span>
-                    <div className="w-8" />
-                  </div>
+            {/* --- SCREEN 10 & 11: Moved to full-page overlays at root level --- */}
 
-                  <h2 className="text-sm font-bold tracking-widest text-[#A67C37] uppercase mt-1">
-                    — THANK YOU —
-                  </h2>
-                  <p className="text-[11px] font-semibold text-[#2A241C] mt-0.5 mb-2">
-                    Your Request has been submitted
-                  </p>
-
-                  {/* Google Review Box */}
-                  <div className="p-2.5 rounded-xl bg-[#FAF8F5] border border-[#E8DFC8] my-1.5">
-                    <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-white border border-[#E0D5C1] mb-1">
-                      <GoogleLogoIcon className="w-3 h-3" />
-                      <span className="text-[9px] font-bold text-[#A67C37]">Google Review</span>
-                    </div>
-                    <h4 className="text-xs font-bold text-[#2A241C]">How was your stay?</h4>
-                    <p className="text-[9.5px] text-[#7E7465]">We&apos;d love to hear from you</p>
-
-                    {/* Star Rating */}
-                    <div className="flex justify-center gap-1.5 my-2">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <button
-                          key={star}
-                          type="button"
-                          onClick={() => setRating(star)}
-                          className="cursor-pointer transition-transform hover:scale-110 p-0.5"
-                        >
-                          <Star
-                            className={`w-5 h-5 ${
-                              star <= rating
-                                ? 'fill-[#F59E0B] text-[#F59E0B]'
-                                : 'fill-transparent text-[#D1C7B4]'
-                            }`}
-                          />
-                        </button>
-                      ))}
-                    </div>
-
-                    {/* Reactions */}
-                    <div className="grid grid-cols-3 gap-1 my-1.5">
-                      {[
-                        { id: 'excellent', emoji: '🤩', title: 'Excellent', subtitle: 'Loved stay' },
-                        { id: 'good', emoji: '😊', title: 'Good', subtitle: 'Great' },
-                        { id: 'improvement', emoji: '😐', title: 'Needs Impr.', subtitle: 'Let us know' },
-                      ].map((item) => (
-                        <div
-                          key={item.id}
-                          onClick={() => setReaction(item.id as typeof reaction)}
-                          className={`p-1 rounded-lg border text-center cursor-pointer transition-all ${
-                            reaction === item.id
-                              ? 'bg-[#FAF5EC] border-[#B38E46]'
-                              : 'bg-white border-[#EFE8DD]'
-                          }`}
-                        >
-                          <span className="text-base block leading-none">{item.emoji}</span>
-                          <span className="text-[9px] font-bold text-[#2A241C] block mt-0.5">
-                            {item.title}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Google Button */}
-                    <a
-                      href="https://www.google.com/maps/place/liv.inn"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full mt-2 py-2 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-[11px] font-semibold shadow-xs transition-all flex flex-col items-center justify-center cursor-pointer"
-                    >
-                      <span>Review us on Google →</span>
-                      <span className="text-[8.5px] text-[#FAF5EC]/80 font-normal">
-                        Share Your Experience
-                      </span>
-                    </a>
-                  </div>
-                </div>
-
-                <div className="pt-1 flex gap-2">
-                  <a
-                    href={`https://wa.me/918007724646?text=${encodeURIComponent(
-                      `Hello liv.inn Reception, I submitted a request:\nName: ${name}\nPhone: +91 ${phone}\nService: ${Object.keys(selectedServices).filter((k) => selectedServices[k]).join(', ') || 'Guest Assistance'}\nNote: ${remark.trim() || 'None'}`
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 py-2 rounded-full bg-[#25D366]/10 border border-[#25D366]/30 text-[#128C7E] hover:bg-[#25D366]/20 text-[10.5px] font-semibold flex items-center justify-center gap-1 cursor-pointer transition-colors"
-                  >
-                    <span>💬 WhatsApp Desk</span>
-                  </a>
-                  <button
-                    type="button"
-                    onClick={handleReset}
-                    className="flex-1 py-2 rounded-full bg-[#FAF5EC] border border-[#E8DFC8] text-[#8C6D2D] hover:bg-[#F2EADB] text-[10.5px] font-semibold flex items-center justify-center gap-1 cursor-pointer"
-                  >
-                    <RotateCcw className="w-3 h-3" />
-                    <span>Start New</span>
-                  </button>
-                </div>
-              </motion.div>
-            )}
+            {/* --- SCREEN 11: Moved to full-page overlay at root level --- */}
           </AnimatePresence>
         </div>
       </div>
