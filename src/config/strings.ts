@@ -761,3 +761,112 @@ export const STRINGS = {
 
 export type Strings = typeof STRINGS;
 export default STRINGS;
+
+// ---------------------------------------------------------------------------
+// Chatbot & Assistant Strings
+// ---------------------------------------------------------------------------
+// --- Brand --------------------------------------------------------------------
+export const BRAND = {
+  name:        'LIV.INN',
+  tagline:     'STAY IN COMFORT, LIVE THE MOMENT.',
+  developerBy: 'developed by',
+  developer:   'JAYAASI Technologies',
+  phoneNumber: '+918007724646',
+  phoneDisplay:'+91 8007724646',
+} as const;
+
+// --- Miss. Maya Personal Assistant Header -------------------------------------
+export const ASSISTANT = {
+  name:       'Miss. Maya',
+  role:       'Your Personal assistant',
+  callTitle:  'Call Front Desk',
+  closeLabel: 'Close assistant',
+} as const;
+
+// --- Booking Form ("GET IN TOUCH") -------------------------------------------
+export const BOOKING_FORM = {
+  // Section title
+  sectionTitle:    'GET IN TOUCH',
+  sectionSubtitle: "We're here to help you a comfortable stay at LIV.INN.",
+
+  // Selected services chip area
+  selectedRequestsLabel: 'Your Selected Requests:',
+
+  // Name field
+  nameLabel:       'Name',
+  nameRequired:    '* required',
+  namePlaceholder: 'Enter your full name',
+  nameEmoji:       '??',
+  nameErrorRequired: 'Name is required.',
+
+  // Phone field
+  phoneLabel:       'Phone Number',
+  phoneRequired:    '* 10 digits',
+  phonePlaceholder: '10-digit mobile number',
+  phoneEmoji:       '??',
+  phonePrefix:      '???? +91',
+  phoneErrorRequired: 'Phone number is required.',
+  phoneErrorLength:   'Phone number must be exactly 10 digits.',
+  phoneValidHint:     'Valid number ?',
+  phoneProgressHint:  (entered: number) => `${entered}/10 digits entered`,
+
+  // Email field
+  emailLabel:       'Email ID',
+  emailOptional:    'optional',
+  emailPlaceholder: 'Enter your email address',
+  emailEmoji:       '??',
+
+  // Remark / message field
+  remarkLabel:       'Remark',
+  remarkOptional:    'optional',
+  remarkPlaceholder: '"Write your message and preferred date & time."',
+  remarkEmoji:       '??',
+
+  // Action buttons
+  submitButtonLabel:     'SUBMIT',
+  submittingButtonLabel: 'Submitting...',
+  backButtonPrefix:      '? Back to',
+
+} as const;
+
+// --- Service Selection Gate (validation) -------------------------------------
+export const SERVICE_GATE = {
+  /** Inline alert shown below each service tab CTA when nothing is selected */
+  noServiceSelectedError: 'Please select at least one service first.',
+} as const;
+
+// --- CTA Button --------------------------------------------------------------
+export const CTA = {
+  /** Primary action button on every service tab */
+  selectAndProceed: 'Select & click here',
+} as const;
+
+// --- Thank You Screen ---------------------------------------------------------
+export const THANK_YOU = {
+  heading:           '— THANK YOU —',
+  subheading:        'Your Request has been submitted',
+
+  // Google Review box
+  googleReviewBadge: 'Google Review',
+  googleReviewTitle: 'How was your stay?',
+  googleReviewSubtitle: "We'd love to hear from you",
+  googleReviewButton:   'Review us on Google ?',
+  googleReviewShare:    'Share Your Experience',
+  googleMapsUrl:        'https://www.google.com/maps/place/liv.inn',
+
+  // Reaction options
+  reactions: [
+    { id: 'excellent',   emoji: '??', title: 'Excellent',   subtitle: 'Loved stay'  },
+    { id: 'good',        emoji: '??', title: 'Good',        subtitle: 'Great'       },
+    { id: 'improvement', emoji: '??', title: 'Needs Impr.', subtitle: 'Let us know' },
+  ] as const,
+
+  // Action buttons
+  whatsappLabel: '?? WhatsApp Desk',
+  startNewLabel: 'Start New',
+
+  // WhatsApp message template
+  whatsappMessage: (services: string) =>
+    `Hello liv.inn Reception, I submitted a service request for: ${services}`,
+} as const;
+

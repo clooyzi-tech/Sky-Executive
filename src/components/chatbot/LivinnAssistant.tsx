@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -19,6 +19,7 @@ import {
 import chatbotConfig from '@/data/chatbot-config.json';
 import hotelInfo from '@/data/hotel-info.json';
 import AssistantBookingForm from './AssistantBookingForm';
+import { BRAND, ASSISTANT, CTA, SERVICE_GATE, THANK_YOU } from '@/config/strings';
 
 // --- SVG Icons matching Canva Design ---
 
@@ -345,22 +346,22 @@ export default function LivinnAssistant({
               <div className="flex flex-col">
                 <Link href="/" className="group inline-flex flex-col">
                   <span className="font-serif text-lg sm:text-xl font-bold tracking-wider text-[#2A241C] group-hover:text-[#A67C37] transition-colors leading-none">
-                    LIV.INN
+                    {BRAND.name}
                   </span>
                   <span className="text-[7.5px] sm:text-[8.5px] tracking-widest text-[#9C8F7E] font-medium uppercase mt-0.5">
-                    STAY IN COMFORT, LIVE THE MOMENT.
+                    {BRAND.tagline}
                   </span>
                 </Link>
               </div>
               <div className="flex items-center gap-2.5">
                 <div className="text-right">
-                  <h4 className="text-xs font-semibold text-[#2A241C] leading-tight">Miss. Maya</h4>
-                  <p className="text-[10px] text-[#8C7E6D]">Your Personal assistant</p>
+                  <h4 className="text-xs font-semibold text-[#2A241C] leading-tight">{ASSISTANT.name}</h4>
+                  <p className="text-[10px] text-[#8C7E6D]">{ASSISTANT.role}</p>
                 </div>
                 <a
-                  href="tel:+918007724646"
+                  href={`tel:${BRAND.phoneNumber}`}
                   className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FAF5EC] border border-[#E8DFC8] text-[#A67C37] transition-all hover:bg-[#A67C37] hover:text-white shadow-2xs"
-                  title="Call Front Desk"
+                  title={ASSISTANT.callTitle}
                 >
                   <Phone className="h-3.5 w-3.5" />
                 </a>
@@ -368,7 +369,7 @@ export default function LivinnAssistant({
                   <button
                     onClick={onClose}
                     className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FAF5EC] border border-[#E8DFC8] text-[#7E7465] transition-all hover:bg-[#EAE2D2] hover:text-[#2A241C] cursor-pointer"
-                    aria-label="Close assistant"
+                    aria-label={ASSISTANT.closeLabel}
                   >
                     <X className="h-4 w-4" />
                   </button>
@@ -380,10 +381,10 @@ export default function LivinnAssistant({
             <div className="flex-1 overflow-y-auto px-4 py-4">
               <div className="text-center mb-3">
                 <h2 className="text-sm font-bold tracking-widest text-[#A67C37] uppercase">
-                  — THANK YOU —
+                  {THANK_YOU.heading}
                 </h2>
                 <p className="text-[11px] font-semibold text-[#2A241C] mt-1">
-                  Your Request has been submitted
+                  {THANK_YOU.subheading}
                 </p>
               </div>
 
@@ -391,10 +392,10 @@ export default function LivinnAssistant({
               <div className="p-3.5 rounded-2xl bg-[#FAF8F5] border border-[#E8DFC8] mb-3">
                 <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white border border-[#E0D5C1] mb-2">
                   <GoogleLogoIcon className="w-3 h-3" />
-                  <span className="text-[9px] font-bold text-[#A67C37]">Google Review</span>
+                  <span className="text-[9px] font-bold text-[#A67C37]">{THANK_YOU.googleReviewBadge}</span>
                 </div>
-                <h4 className="text-xs font-bold text-[#2A241C]">How was your stay?</h4>
-                <p className="text-[9.5px] text-[#7E7465]">We&apos;d love to hear from you</p>
+                <h4 className="text-xs font-bold text-[#2A241C]">{THANK_YOU.googleReviewTitle}</h4>
+                <p className="text-[9.5px] text-[#7E7465]">{THANK_YOU.googleReviewSubtitle}</p>
 
                 {/* Star Rating */}
                 <div className="flex justify-center gap-2 my-3">
@@ -418,11 +419,7 @@ export default function LivinnAssistant({
 
                 {/* Reactions */}
                 <div className="grid grid-cols-3 gap-2 my-2">
-                  {[
-                    { id: 'excellent', emoji: '🤩', title: 'Excellent', subtitle: 'Loved stay' },
-                    { id: 'good', emoji: '😊', title: 'Good', subtitle: 'Great' },
-                    { id: 'improvement', emoji: '😐', title: 'Needs Impr.', subtitle: 'Let us know' },
-                  ].map((item) => (
+                  {THANK_YOU.reactions.map((item) => (
                     <div
                       key={item.id}
                       onClick={() => setReaction(item.id as typeof reaction)}
@@ -442,28 +439,28 @@ export default function LivinnAssistant({
 
                 {/* Google Button */}
                 <a
-                  href="https://www.google.com/maps/place/liv.inn"
+                  href={THANK_YOU.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full mt-3 py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-[11px] font-semibold shadow-xs transition-all flex flex-col items-center justify-center cursor-pointer"
                 >
-                  <span>Review us on Google →</span>
+                  <span>{THANK_YOU.googleReviewButton}</span>
                   <span className="text-[8.5px] text-[#FAF5EC]/80 font-normal">
-                    Share Your Experience
+                    {THANK_YOU.googleReviewShare}
                   </span>
                 </a>
               </div>
 
               <div className="flex gap-2">
                 <a
-                  href={`https://wa.me/918007724646?text=${encodeURIComponent(
-                    `Hello liv.inn Reception, I submitted a service request for: ${Object.keys(selectedServices).filter((k) => selectedServices[k]).join(', ') || 'Guest Assistance'}`
+                  href={`https://wa.me/${BRAND.phoneNumber}?text=${encodeURIComponent(
+                    THANK_YOU.whatsappMessage(Object.keys(selectedServices).filter((k) => selectedServices[k]).join(', ') || 'Guest Assistance')
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 py-2.5 rounded-full bg-[#25D366]/10 border border-[#25D366]/30 text-[#128C7E] hover:bg-[#25D366]/20 text-[10.5px] font-semibold flex items-center justify-center gap-1 cursor-pointer transition-colors"
                 >
-                  <span>💬 WhatsApp Desk</span>
+                  <span>{THANK_YOU.whatsappLabel}</span>
                 </a>
                 <button
                   type="button"
@@ -471,15 +468,14 @@ export default function LivinnAssistant({
                   className="flex-1 py-2.5 rounded-full bg-[#FAF5EC] border border-[#E8DFC8] text-[#8C6D2D] hover:bg-[#F2EADB] text-[10.5px] font-semibold flex items-center justify-center gap-1 cursor-pointer"
                 >
                   <RotateCcw className="w-3 h-3" />
-                  <span>Start New</span>
+                  <span>{THANK_YOU.startNewLabel}</span>
                 </button>
               </div>
             </div>
 
             {/* Developed by footer */}
             <div className="shrink-0 py-2 text-center">
-              <span className="text-[9px] text-[#B8AB98] tracking-wider">developed by</span>
-              <span className="text-[9px] font-bold text-[#A67C37] ml-1">JAYAASI Technologies</span>
+              <span className="text-[9px] text-[#B8AB98] tracking-wider">{BRAND.developerBy}</span>{' '}<span className="text-[9px] font-bold text-[#A67C37] ml-1">{BRAND.developer}</span>
             </div>
           </motion.div>
         )}
@@ -490,10 +486,10 @@ export default function LivinnAssistant({
         <div className="flex flex-col">
           <Link href="/" className="group inline-flex flex-col">
             <span className="font-serif text-lg sm:text-xl font-bold tracking-wider text-[#2A241C] group-hover:text-[#A67C37] transition-colors leading-none">
-              LIV.INN
+              {BRAND.name}
             </span>
             <span className="text-[7.5px] sm:text-[8.5px] tracking-widest text-[#9C8F7E] font-medium uppercase mt-0.5">
-              STAY IN COMFORT, LIVE THE MOMENT.
+              {BRAND.tagline}
             </span>
           </Link>
         </div>
@@ -501,14 +497,14 @@ export default function LivinnAssistant({
         {/* Right: Personal Assistant & Phone / Close */}
         <div className="flex items-center gap-2.5">
           <div className="text-right">
-            <h4 className="text-xs font-semibold text-[#2A241C] leading-tight">Miss. Maya</h4>
-            <p className="text-[10px] text-[#8C7E6D]">Your Personal assistant</p>
+            <h4 className="text-xs font-semibold text-[#2A241C] leading-tight">{ASSISTANT.name}</h4>
+            <p className="text-[10px] text-[#8C7E6D]">{ASSISTANT.role}</p>
           </div>
 
           <a
-            href="tel:+918007724646"
+            href={`tel:${BRAND.phoneNumber}`}
             className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FAF5EC] border border-[#E8DFC8] text-[#A67C37] transition-all hover:bg-[#A67C37] hover:text-white shadow-2xs"
-            title="Call Front Desk"
+            title={ASSISTANT.callTitle}
           >
             <Phone className="h-3.5 w-3.5" />
           </a>
@@ -517,7 +513,7 @@ export default function LivinnAssistant({
             <button
               onClick={onClose}
               className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FAF5EC] border border-[#E8DFC8] text-[#7E7465] transition-all hover:bg-[#EAE2D2] hover:text-[#2A241C] cursor-pointer"
-              aria-label="Close assistant"
+              aria-label={ASSISTANT.closeLabel}
             >
               <X className="h-4 w-4" />
             </button>
@@ -553,10 +549,10 @@ export default function LivinnAssistant({
                     Welcome to
                   </span>
                   <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#2A241C] tracking-wide mt-0.5 mb-1">
-                    Liv.inn
+                    {BRAND.name}
                   </h1>
                   <p className="text-[9.5px] sm:text-[10.5px] tracking-[0.16em] uppercase font-semibold text-[#A67C37] mb-6">
-                    STAY IN COMFORT, LIVE THE MOMENT.
+                    {BRAND.tagline}
                   </p>
 
                   <button
@@ -647,12 +643,12 @@ export default function LivinnAssistant({
                     onClick={() => handleProceedToForm('housekeeping')}
                     className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-semibold shadow-sm transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-1.5"
                   >
-                    <span>Select &amp; click here</span>
+                    <span>{CTA.selectAndProceed}</span>
                   </button>
                   {noServiceError && activeTab === 'housekeeping' && (
                     <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 border border-amber-200">
                       <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-                      <span className="text-[10.5px] text-amber-700 font-medium">Please select at least one service first.</span>
+                      <span className="text-[10.5px] text-amber-700 font-medium">{SERVICE_GATE.noServiceSelectedError}</span>
                     </div>
                   )}
                 </div>
@@ -730,12 +726,12 @@ export default function LivinnAssistant({
                     onClick={() => handleProceedToForm('laundry')}
                     className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-semibold shadow-sm transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-1.5"
                   >
-                    <span>Select &amp; click here</span>
+                    <span>{CTA.selectAndProceed}</span>
                   </button>
                   {noServiceError && activeTab === 'laundry' && (
                     <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 border border-amber-200">
                       <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-                      <span className="text-[10.5px] text-amber-700 font-medium">Please select at least one service first.</span>
+                      <span className="text-[10.5px] text-amber-700 font-medium">{SERVICE_GATE.noServiceSelectedError}</span>
                     </div>
                   )}
                 </div>
@@ -828,12 +824,12 @@ export default function LivinnAssistant({
                     onClick={() => handleProceedToForm('extrabed')}
                     className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-semibold shadow-sm transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-1.5"
                   >
-                    <span>Select &amp; click here</span>
+                    <span>{CTA.selectAndProceed}</span>
                   </button>
                   {noServiceError && activeTab === 'extrabed' && (
                     <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 border border-amber-200">
                       <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-                      <span className="text-[10.5px] text-amber-700 font-medium">Please select at least one service first.</span>
+                      <span className="text-[10.5px] text-amber-700 font-medium">{SERVICE_GATE.noServiceSelectedError}</span>
                     </div>
                   )}
                 </div>
@@ -899,12 +895,12 @@ export default function LivinnAssistant({
                     onClick={() => handleProceedToForm('shoecare')}
                     className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-semibold shadow-sm transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-1.5"
                   >
-                    <span>Select &amp; click here</span>
+                    <span>{CTA.selectAndProceed}</span>
                   </button>
                   {noServiceError && activeTab === 'shoecare' && (
                     <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 border border-amber-200">
                       <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-                      <span className="text-[10.5px] text-amber-700 font-medium">Please select at least one service first.</span>
+                      <span className="text-[10.5px] text-amber-700 font-medium">{SERVICE_GATE.noServiceSelectedError}</span>
                     </div>
                   )}
                 </div>
@@ -970,12 +966,12 @@ export default function LivinnAssistant({
                     onClick={() => handleProceedToForm('luggage')}
                     className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-semibold shadow-sm transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-1.5"
                   >
-                    <span>Select &amp; click here</span>
+                    <span>{CTA.selectAndProceed}</span>
                   </button>
                   {noServiceError && activeTab === 'luggage' && (
                     <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 border border-amber-200">
                       <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-                      <span className="text-[10.5px] text-amber-700 font-medium">Please select at least one service first.</span>
+                      <span className="text-[10.5px] text-amber-700 font-medium">{SERVICE_GATE.noServiceSelectedError}</span>
                     </div>
                   )}
                 </div>
@@ -1049,16 +1045,16 @@ export default function LivinnAssistant({
                     onClick={() => handleProceedToForm('food')}
                     className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-semibold shadow-sm transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-1.5"
                   >
-                    <span>Select &amp; click here</span>
+                    <span>{CTA.selectAndProceed}</span>
                   </button>
                   {noServiceError && activeTab === 'food' && (
                     <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 border border-amber-200">
                       <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-                      <span className="text-[10.5px] text-amber-700 font-medium">Please select at least one service first.</span>
+                      <span className="text-[10.5px] text-amber-700 font-medium">{SERVICE_GATE.noServiceSelectedError}</span>
                     </div>
                   )}
                   <a
-                    href="https://wa.me/918007724646?text=Hi!%20I%20would%20like%20to%20order%20food%20from%20the%20liv.inn%20Cloud%20Kitchen."
+                    href="https://wa.me/918007724646?text=Hi!%20I%20would%20like%20to%20order%20food%20from%20the%20{BRAND.name}%20Cloud%20Kitchen."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full py-1.5 rounded-full border border-[#E0D5C1] bg-[#FAF8F4] hover:bg-[#F2EADB] text-[#8C6D2D] text-[10.5px] font-medium transition-all flex items-center justify-center gap-1"
@@ -1083,7 +1079,7 @@ export default function LivinnAssistant({
                 <div>
                   <div className="flex items-center justify-between pb-2 mb-3 border-b border-[#F0E9DC]">
                     <h2 className="text-xs font-bold uppercase tracking-wider text-[#A67C37]">
-                      Connect with Liv.inn
+                      Connect with {BRAND.name}
                     </h2>
                     <button
                       onClick={() => setActiveTab('home')}
@@ -1115,7 +1111,7 @@ export default function LivinnAssistant({
                     </a>
 
                     <a
-                      href="https://wa.me/918007724646?text=Hello%20liv.inn%20Pune"
+                      href="https://wa.me/918007724646?text=Hello%20{BRAND.name}%20Pune"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-between p-2.5 rounded-xl border border-[#EFE8DD] bg-[#FAF8F5] hover:border-[#B38E46] transition-all group"
@@ -1133,7 +1129,7 @@ export default function LivinnAssistant({
                     </a>
 
                     <a
-                      href="https://www.google.com/maps/place/liv.inn"
+                      href="https://www.google.com/maps/place/{BRAND.name}"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-between p-2.5 rounded-xl border border-[#EFE8DD] bg-[#FAF8F5] hover:border-[#B38E46] transition-all group"
@@ -1231,7 +1227,7 @@ export default function LivinnAssistant({
 
                 <div className="pt-2 space-y-1.5">
                   <a
-                    href="https://www.google.com/maps/place/liv.inn"
+                    href="https://www.google.com/maps/place/{BRAND.name}"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full py-2.5 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-semibold shadow-sm transition-all flex flex-col items-center justify-center cursor-pointer leading-tight"
