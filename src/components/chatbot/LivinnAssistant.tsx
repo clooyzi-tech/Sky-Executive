@@ -237,12 +237,16 @@ interface LivinnAssistantProps {
   isPopup?: boolean;
   onClose?: () => void;
   className?: string;
+  roomId?: string;
+  roomKey?: string;
 }
 
 export default function LivinnAssistant({
   isPopup = false,
   onClose,
   className = '',
+  roomId,
+  roomKey,
 }: LivinnAssistantProps) {
   const [activeTab, setActiveTab] = useState<ActiveTab>('home');
   const [previousTab, setPreviousTab] = useState<ActiveTab>('home');
@@ -318,12 +322,16 @@ export default function LivinnAssistant({
       <AnimatePresence>
         {activeTab === 'form' && (
           <AssistantBookingForm
-            previousTab={previousTab}
-            selectedServices={selectedServices}
+            selectedServices={Object.keys(selectedServices).filter(
+              (k) => selectedServices[k]
+            )}
             onBack={() => setActiveTab(previousTab)}
-            onSuccess={() => setActiveTab('thankyou')}
-            isPopup={isPopup}
-            onClose={onClose}
+            onSubmitSuccess={() => {
+              setActiveTab('thankyou');
+              setSelectedServices({});
+            }}
+            roomId={roomId}
+            roomKey={roomKey}
           />
         )}
       </AnimatePresence>
@@ -355,7 +363,10 @@ export default function LivinnAssistant({
               </div>
               <div className="flex items-center gap-2.5">
                 <div className="text-right">
-                  <h4 className="text-xs font-semibold text-[#2A241C] leading-tight">{ASSISTANT.name}</h4>
+                  <h4 className="text-xs font-semibold text-[#2A241C] leading-tight">
+                    {ASSISTANT.name}
+                    {roomId && <span className="text-[#A67C37]"> | Room {roomId}</span>}
+                  </h4>
                   <p className="text-[10px] text-[#8C7E6D]">{ASSISTANT.role}</p>
                 </div>
                 <a
@@ -456,7 +467,10 @@ export default function LivinnAssistant({
         {/* Right: Personal Assistant & Phone / Close */}
         <div className="flex items-center gap-2.5">
           <div className="text-right">
-            <h4 className="text-xs font-semibold text-[#2A241C] leading-tight">{ASSISTANT.name}</h4>
+            <h4 className="text-xs font-semibold text-[#2A241C] leading-tight">
+              {ASSISTANT.name}
+              {roomId && <span className="text-[#A67C37]"> | Room {roomId}</span>}
+            </h4>
             <p className="text-[10px] text-[#8C7E6D]">{ASSISTANT.role}</p>
           </div>
 

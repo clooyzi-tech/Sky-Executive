@@ -30,16 +30,18 @@ function saveToStorage(data: SavedGuest) {
 }
 
 export interface AssistantBookingFormProps {
-  previousTab: string;
-  selectedServices: Record<string, boolean>;
+  previousTab?: string;
+  selectedServices: Record<string, boolean> | string[];
   onBack: () => void;
-  onSuccess: () => void;
+  onSubmitSuccess: () => void;
   isPopup?: boolean;
   onClose?: () => void;
+  roomId?: string;
+  roomKey?: string;
 }
 
 export default function AssistantBookingForm({
-  previousTab, selectedServices, onBack, onSuccess, isPopup = false, onClose,
+  previousTab = 'home', selectedServices, onBack, onSubmitSuccess, isPopup = false, onClose, roomId, roomKey
 }: AssistantBookingFormProps) {
 
   const [name,         setName]         = useState('');
@@ -57,7 +59,7 @@ export default function AssistantBookingForm({
     if (saved.remark) setRemark(saved.remark);
   }, []);
 
-  const selectedList = Object.keys(selectedServices).filter((k) => selectedServices[k]);
+  const selectedList = Array.isArray(selectedServices) ? selectedServices : Object.keys(selectedServices).filter((k) => selectedServices[k]);
   const phoneDigits  = phone.replace(/\D/g, '');
   const phoneValid   = phoneDigits.length === 10;
 
@@ -79,15 +81,24 @@ export default function AssistantBookingForm({
     saveToStorage({ name: name.trim(), phone: phone.trim(), email: email.trim(), remark: remark.trim() });
     setIsSubmitting(true);
     const serviceSummary    = selectedList.length > 0 ? selectedList.join(', ') : 'General Assistance';
-    const formattedCategory = previousTab.toUpperCase();
-    const fullMessage       = `[Chatbot Assistant Request - ${formattedCategory}]\nSelected Services:\n${serviceSummary}\n\nGuest Remarks:\n${remark.trim() || 'None'}`;
+    const formattedCategory = previousTab ? previousTab.toUpperCase() : 'ASSISTANT';
+    const roomInfo = roomId ? `Room: ${roomId} (Key: ${roomKey})` : 'Unknown Room';
+    const fullMessage       = `[Chatbot Assistant Request - ${formattedCategory}]\n${roomInfo}\n\nSelected Services:\n${serviceSummary}\n\nGuest Remarks:\n${remark.trim() || 'None'}`;
     try {
-      await fetch('/api/contact', {
+      await fetch('/api/assistant', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name.trim(), phone: `+91 ${phone.trim()}`, email: email.trim() || `${phoneDigits || 'guest'}@guest.livinn.in`, roomPreference: `Assistant: ${previousTab}`, message: fullMessage }),
+        body: JSON.stringify({ 
+          name: name.trim(), 
+          phone: `+91 ${phone.trim()}`, 
+          email: email.trim() || `${phoneDigits || 'guest'}@guest.livinn.in`, 
+          roomId,
+          roomKey,
+          services: serviceSummary,
+          message: fullMessage 
+        }),
       });
     } catch (err) { console.error('Error submitting assistant request:', err); }
-    finally { setIsSubmitting(false); onSuccess(); }
+    finally { setIsSubmitting(false); onSubmitSuccess(); }
   };
 
   const inputBase = 'w-full text-sm px-4 py-3.5 rounded-xl border bg-white focus:outline-none transition-all duration-200 placeholder:text-[#B8AB98]';

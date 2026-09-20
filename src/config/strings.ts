@@ -770,7 +770,7 @@ export const BRAND = {
   name:        'LIV.INN',
   tagline:     'STAY IN COMFORT, LIVE THE MOMENT.',
   developerBy: 'developed by',
-  developer:   'JAYAASI Technologies',
+  developer:   'Clooyzi Technologies',
   phoneNumber: '+918007724646',
   phoneDisplay:'+91 8007724646',
 } as const;
