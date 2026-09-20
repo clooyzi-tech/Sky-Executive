@@ -870,3 +870,594 @@ export const THANK_YOU = {
     `Hello liv.inn Reception, I submitted a service request for: ${services}`,
 } as const;
 
+// --- Legal Documents ----------------------------------------------------------
+export const LEGAL_DOCS = {
+  privacyPolicy: `<a id="privacy-policy"></a># Privacy Policy
+
+__Effective Date:__20 September 2026
+
+Welcome to __Liv\.inn__\. This Privacy Policy explains how Liv\.inn collects, uses, stores, and protects personal information when you visit our website, contact us, submit an enquiry, use our Digital Concierge, or request hotel services\.
+
+By using our website and services, you acknowledge that you have read and understood this Privacy Policy\.
+
+<a id="about-liv.inn"></a>## 1\. About Liv\.inn
+
+__Liv\.inn__ is a hotel and accommodation property located at:
+
+__Plot No\-31, Lane No\-4, Infinity Greens Society, Near VTP Altair Phase\-1, Gat No\-1251, Upper Kharadi, Wagholi, Pune, Maharashtra - 412207, India\.__
+
+__Phone:__ 8007724646  
+__WhatsApp:__ 8007724646  
+__Email:__ [help\.livinn@gmail\.com](mailto:help.livinn@gmail.com)
+
+Liv\.inn provides accommodation and related guest services including housekeeping, room service, laundry, food service, and other hotel facilities\.
+
+<a id="information-we-may-collect"></a>## 2\. Information We May Collect
+
+Depending on how you use our website, we may collect information such as:
+
+- Guest name
+- Phone number
+- Email address, where provided
+- Service request details
+- Booking or enquiry information
+- Requested service
+- Preferred date and time
+- Room number or room identifier when using the Digital Concierge
+- Communications submitted through our website
+- Information necessary to respond to your enquiry or service request
+
+We only request information that is reasonably relevant to the service or purpose for which it is collected\.
+
+<a id="how-we-use-your-information"></a>## 3\. How We Use Your Information
+
+We may use the information you provide to:
+
+- Respond to enquiries\.
+- Process accommodation\-related enquiries or bookings\.
+- Process Digital Concierge service requests\.
+- Provide housekeeping, room service, food, laundry, maintenance or other requested services\.
+- Contact you regarding your enquiry or service request\.
+- Provide customer support\.
+- Maintain records of enquiries and service requests\.
+- Improve our website and guest services\.
+- Meet applicable legal, regulatory, accounting or record\-keeping requirements\.
+
+<a id="digital-concierge-and-room-information"></a>## 4\. Digital Concierge and Room Information
+
+Liv\.inn may provide a QR\-based Digital Concierge for guests\.
+
+When a guest accesses the Digital Concierge through a room\-specific QR code, the system may identify the associated room or room identifier so that service requests can be associated with the appropriate room\.
+
+Guests should not share room\-specific QR codes or access links with unauthorized persons\.
+
+<a id="sharing-of-information"></a>## 5\. Sharing of Information
+
+Liv\.inn may share relevant information only where reasonably necessary to provide services, operate the website, respond to requests, or comply with legal obligations\.
+
+Information may be shared with:
+
+- Authorized Liv\.inn staff\.
+- Service personnel responsible for fulfilling a guest request\.
+- Technology or communication service providers used to operate website functionality\.
+- Payment providers, if payment services are introduced\.
+- Government authorities or other parties where disclosure is required by applicable law\.
+
+Liv\.inn does not intend to sell personal information to third parties\.
+
+<a id="data-security"></a>## 6\. Data Security
+
+Liv\.inn takes reasonable measures to protect information submitted through the website against unauthorized access, misuse, alteration, disclosure or loss\.
+
+However, no internet transmission or electronic storage system can be guaranteed to be completely secure\.
+
+<a id="data-retention"></a>## 7\. Data Retention
+
+Liv\.inn may retain personal information for as long as reasonably necessary for the purpose for which it was collected, including providing services, maintaining business records, resolving disputes, complying with legal obligations, and protecting the legitimate interests of the hotel\.
+
+When information is no longer reasonably required and there is no legal or legitimate reason to retain it, it may be deleted or securely disposed of\.
+
+<a id="cookies-and-similar-technologies"></a>## 8\. Cookies and Similar Technologies
+
+Our website may use cookies or similar technologies where required for website functionality, analytics, security or service improvement\.
+
+Where applicable, information about such technologies and their purposes will be provided to users\.
+
+<a id="third-party-websites"></a>## 9\. Third\-Party Websites
+
+Our website may contain links to third\-party services such as Google Maps, Google Reviews, social\-media platforms or other external websites\.
+
+These third\-party websites operate under their own privacy policies and terms\. Liv\.inn is not responsible for the privacy practices of external websites\.
+
+<a id="guest-privacy-requests"></a>## 10\. Guest Privacy Requests
+
+If you have a question, concern, or request relating to your personal information or this Privacy Policy, you may contact Liv\.inn using the contact details below\.
+
+__Email:__ [help\.livinn@gmail\.com](mailto:help.livinn@gmail.com)  
+__Phone/WhatsApp:__ 8007724646
+
+We will consider and respond to requests in accordance with applicable law\.
+
+<a id="childrens-information"></a>## 11\. Childrens Information
+
+Guests and users should provide personal information only where they are authorized to do so\.
+
+Where information relating to a child is required for a legitimate hotel service or legal requirement, it should be provided by or with the involvement of the appropriate parent or lawful guardian, as applicable\.
+
+<a id="changes-to-this-privacy-policy"></a>## 12\. Changes to This Privacy Policy
+
+Liv\.inn may update this Privacy Policy from time to time to reflect changes in our services, website functionality, technology, or applicable legal requirements\.
+
+The updated version will be published on this page with an updated effective date\.
+
+<a id="contact-us"></a>## 13\. Contact Us
+
+For privacy\-related questions or concerns:
+
+__Liv\.inn__  
+Plot No\-31, Lane No\-4, Infinity Greens Society,  
+Near VTP Altair Phase\-1, Gat No\-1251, Upper Kharadi,  
+Wagholi, Pune, Maharashtra - 412207, India
+
+__Phone:__ 8007724646  
+__WhatsApp:__ 8007724646  
+__Email:__ [help\.livinn@gmail\.com](mailto:help.livinn@gmail.com)
+
+__Last Updated:__20 September 2026`,
+  termsAndConditions: `<a id="terms-conditions"></a># Terms & Conditions
+
+__Effective Date:__ 20 September 2026
+
+Welcome to __Liv\.inn__\.
+
+These Terms & Conditions govern your use of the Liv\.inn website and your interaction with our hotel services, enquiries, Digital Concierge and service\-request features\.
+
+By accessing or using the website, you agree to comply with these Terms & Conditions\.
+
+<a id="about-liv.inn"></a>## 1\. About Liv\.inn
+
+Liv\.inn is a hotel and accommodation property located at:
+
+__Plot No\-31, Lane No\-4, Infinity Greens Society, Near VTP Altair Phase\-1, Gat No\-1251, Upper Kharadi, Wagholi, Pune, Maharashtra - 412207, India\.__
+
+Liv\.inn currently operates __25 rooms__ and provides accommodation and related guest services\.
+
+<a id="use-of-the-website"></a>## 2\. Use of the Website
+
+You agree to use the Liv\.inn website only for lawful purposes\.
+
+You must not:
+
+- Provide false or misleading information\.
+- Attempt to gain unauthorized access to any part of the website\.
+- Misuse room\-specific Digital Concierge access\.
+- Interfere with website operation or security\.
+- Submit fraudulent, abusive or unlawful requests\.
+- Use the website to harm Liv\.inn, its guests, employees or service providers\.
+
+<a id="hotel-information"></a>## 3\. Hotel Information
+
+We make reasonable efforts to keep hotel information accurate and useful\.
+
+Information displayed on the website may include:
+
+- Room information
+- Hotel facilities
+- Services
+- Food services
+- Hotel timings
+- Location information
+- Contact information
+
+Hotel services, facilities, timings and availability may change when necessary\.
+
+<a id="room-and-accommodation-information"></a>## 4\. Room and Accommodation Information
+
+Liv\.inn provides accommodation across its available rooms\.
+
+The hotel currently records:
+
+- 25 rooms
+- Approximate room size: 200 sq\. ft\.
+- Queen\-size bed configuration where applicable
+- Attached bathroom
+- Hot water
+- TV
+- Wi\-Fi
+- Wardrobe
+- Table/chair
+- Room service
+- Housekeeping
+- Towels
+- Toiletries
+- Balcony/window
+- Extra\-bed availability
+
+Actual availability and applicable room arrangements are subject to the hotels current availability and confirmed reservation details\.
+
+<a id="booking-and-enquiries"></a>## 5\. Booking and Enquiries
+
+Website users may contact Liv\.inn regarding accommodation or services\.
+
+A booking or enquiry submitted through the website is not necessarily a confirmed reservation unless Liv\.inn confirms it through the applicable booking/confirmation process\.
+
+Guests should rely on the confirmation provided by Liv\.inn for final reservation details\.
+
+<a id="payment-methods"></a>## 6\. Payment Methods
+
+The hotel documentation currently identifies the following payment methods:
+
+- UPI
+- Cash
+- Card
+- Bank transfer
+
+Where a particular payment method is unavailable for a specific transaction, the hotel may provide an alternative payment option\.
+
+<a id="check-in-and-check-out"></a>## 7\. Check\-in and Check\-out
+
+The currently specified hotel timings are:
+
+__Check\-in:__ 11:00 AM  
+__Check\-out:__ 10:00 AM
+
+A valid ID is required for guests\.
+
+The hotel has a 24\-hour reception\.
+
+Any request for arrangements outside standard check\-in or check\-out times is subject to hotel availability and applicable hotel rules\.
+
+<a id="digital-concierge"></a>## 8\. Digital Concierge
+
+Liv\.inn may provide a QR\-based Digital Concierge through which guests can access hotel information and request services\.
+
+Available services may include:
+
+- Housekeeping
+- Room service
+- Food service
+- Laundry
+- Maintenance assistance
+- Other available guest services
+
+Submitting a service request does not automatically guarantee immediate fulfilment\. Requests are subject to availability and hotel operating conditions\.
+
+<a id="hotel-facilities"></a>## 9\. Hotel Facilities
+
+Liv\.inn currently provides or identifies the following facilities/services:
+
+- Parking
+- Security
+- Wi\-Fi
+- Laundry
+- Power backup
+- Housekeeping
+- Room service
+- Reception
+- Food service
+- Breakfast
+- Lunch
+- Dinner
+- Cloud kitchen
+- Lift/elevator
+- CCTV
+- Hot water
+
+Availability and operating conditions may vary\.
+
+<a id="food-and-dining"></a>## 10\. Food and Dining
+
+Liv\.inn provides food service through its hotel/cloud\-kitchen operation\.
+
+The current hotel information identifies:
+
+- Breakfast
+- Lunch
+- Dinner
+- Room service
+- Vegetarian food
+- Non\-vegetarian food
+- Cloud kitchen
+
+The property does not currently provide a dine\-in restaurant according to the hotel information provided\.
+
+Food availability, menu items, prices and service timings may vary\.
+
+<a id="guest-responsibilities"></a>## 11\. Guest Responsibilities
+
+Guests are expected to:
+
+- Provide accurate information\.
+- Present valid identification when required\.
+- Respect hotel property\.
+- Follow applicable hotel rules\.
+- Respect other guests and hotel staff\.
+- Use hotel facilities responsibly\.
+- Follow applicable safety requirements\.
+
+Guests may be responsible for damage or loss caused by their actions, subject to applicable law and the hotels policies\.
+
+<a id="external-links"></a>## 12\. External Links
+
+The website may contain links to third\-party services such as Google Maps, Google Reviews or social\-media platforms\.
+
+Liv\.inn does not control third\-party websites and is not responsible for their content, availability, privacy practices or terms\.
+
+<a id="website-availability"></a>## 13\. Website Availability
+
+Liv\.inn will make reasonable efforts to keep the website available, but temporary interruptions may occur because of maintenance, technical issues, network problems or circumstances outside the hotels control\.
+
+<a id="changes-to-information"></a>## 14\. Changes to Information
+
+Liv\.inn may update website content, hotel facilities, service information, timings and other information from time to time\.
+
+The information applicable to a confirmed booking or service request will be based on the terms communicated by Liv\.inn at the relevant time\.
+
+<a id="limitation-of-liability"></a>## 15\. Limitation of Liability
+
+Liv\.inn will take reasonable care in providing its services and maintaining the website\.
+
+Nothing in these Terms & Conditions is intended to exclude or limit any rights or remedies that cannot lawfully be excluded or limited under applicable law\.
+
+<a id="governing-law"></a>## 16\. Governing Law
+
+These Terms & Conditions shall be governed by the applicable laws of India\.
+
+Any dispute shall be subject to the jurisdiction of the courts or competent authorities applicable to the location of the hotel, subject to applicable law\.
+
+<a id="changes-to-these-terms"></a>## 17\. Changes to These Terms
+
+Liv\.inn may update these Terms & Conditions when necessary\.
+
+The latest version will be published on this page with the applicable effective date\.
+
+<a id="contact-us"></a>## 18\. Contact Us
+
+__Liv\.inn__  
+Plot No\-31, Lane No\-4, Infinity Greens Society,  
+Near VTP Altair Phase\-1, Gat No\-1251, Upper Kharadi,  
+Wagholi, Pune, Maharashtra - 412207, India
+
+__Phone:__ 8007724646  
+__WhatsApp:__ 8007724646  
+__Email:__ [help\.livinn@gmail\.com](mailto:help.livinn@gmail.com)
+
+__Last Updated:__ 20 September 2026`,
+  guestPolicies: `<a id="guest-hotel-policies"></a># Guest & Hotel Policies
+
+__Effective Date:__ 20 September 2026
+
+These Guest & Hotel Policies provide important information and rules for guests staying at __Liv\.inn__\.
+
+<a id="check-in-and-check-out"></a>## 1\. Check\-in and Check\-out
+
+__Check\-in:__ 11:00 AM  
+__Check\-out:__ 10:00 AM
+
+Guests are required to provide valid identification during the check\-in process\.
+
+Liv\.inn provides __24\-hour reception assistance__\.
+
+Requests for early check\-in or late check\-out are subject to availability and applicable hotel conditions\.
+
+<a id="identification-policy"></a>## 2\. Identification Policy
+
+A valid ID is required for guests staying at Liv\.inn\.
+
+__Local IDs are accepted\.__
+
+Guests are responsible for providing valid and accurate identification information during check\-in\.
+
+<a id="guest-policy"></a>## 3\. Guest Policy
+
+Liv\.inn is a __couple\-friendly property__\.
+
+__Unmarried couples are allowed\.__
+
+Guests must provide valid identification as required by the hotel\.
+
+Guests are expected to respect the property, other guests and hotel staff throughout their stay\.
+
+<a id="room-occupancy"></a>## 4\. Room Occupancy
+
+Guests must use rooms only according to the occupancy and arrangements confirmed by the hotel\.
+
+Extra beds are available\.
+
+__Extra\-bed charges:__ No additional charge according to the current hotel information\.
+
+Any additional occupancy arrangement remains subject to hotel availability and applicable hotel rules\.
+
+<a id="smoking-policy"></a>## 5\. Smoking Policy
+
+Smoking is __not permitted__ at the hotel\.
+
+Liv\.inn does not provide smoking rooms\.
+
+No designated smoking area is currently provided\.
+
+Guests are expected to comply with applicable smoking restrictions and hotel safety requirements\.
+
+<a id="pet-policy"></a>## 6\. Pet Policy
+
+__Pets are allowed\.__
+
+No additional pet charge is currently specified in the hotel information\.
+
+Guests are responsible for ensuring that pets do not cause damage, disturbance or safety concerns to other guests or hotel property\.
+
+<a id="hotel-property-and-damage"></a>## 7\. Hotel Property and Damage
+
+Guests are expected to take reasonable care of hotel property, furniture, equipment, fixtures and other items provided during their stay\.
+
+Guests may be responsible for damage or loss caused by intentional, negligent or improper use, subject to applicable law\.
+
+<a id="noise-and-guest-conduct"></a>## 8\. Noise and Guest Conduct
+
+Guests must behave respectfully and avoid conduct that may disturb other guests, hotel employees or nearby residents\.
+
+Activities that create unreasonable noise, disturbance, harassment, threats or unsafe conditions are not permitted\.
+
+<a id="safety-and-security"></a>## 9\. Safety and Security
+
+Liv\.inn provides security measures including CCTV and hotel security\.
+
+Guests should:
+
+- Follow hotel safety instructions\.
+- Keep personal belongings secure\.
+- Inform reception of safety or security concerns\.
+- Contact reception in case of an emergency or urgent assistance\.
+
+Liv\.inn cannot be responsible for circumstances beyond its reasonable control, subject to applicable law\.
+
+<a id="housekeeping"></a>## 10\. Housekeeping
+
+Housekeeping services are available at Liv\.inn\.
+
+Guests may request housekeeping assistance through the hotel or the Digital Concierge where available\.
+
+Requests are subject to staff availability and hotel operating conditions\.
+
+<a id="room-service"></a>## 11\. Room Service
+
+Room service is available\.
+
+Guests may request available services through the hotel or the Digital Concierge\.
+
+Service availability, timing and applicable charges may vary\.
+
+<a id="food-service"></a>## 12\. Food Service
+
+Liv\.inn provides food service through its cloud\-kitchen operation\.
+
+The current services include:
+
+- Breakfast
+- Lunch
+- Dinner
+- Room service
+- Vegetarian food
+- Non\-vegetarian food
+
+The property currently does not provide a dine\-in restaurant\.
+
+Food availability and service timings may vary\.
+
+<a id="laundry-and-dry-cleaning"></a>## 13\. Laundry and Dry Cleaning
+
+Laundry service is available\.
+
+Dry\-cleaning service is also available\.
+
+Guests should contact the hotel for applicable service details, pricing and arrangements\.
+
+<a id="parking"></a>## 14\. Parking
+
+Parking is available\.
+
+The currently documented parking arrangement is:
+
+__Charges:__ Free  
+__Availability:__ Subject to available capacity\.
+
+Guests should follow the hotels parking and safety instructions\.
+
+<a id="wi-fi"></a>## 15\. Wi\-Fi
+
+Wi\-Fi is available for guests\.
+
+Access details may be provided by the hotel during the stay\.
+
+Guests must not use the hotels internet connection for unlawful activities\.
+
+<a id="power-backup"></a>## 16\. Power Backup
+
+Power backup is available at the property\.
+
+The availability and coverage of backup power may depend on the nature and duration of a power interruption\.
+
+<a id="hot-water"></a>## 17\. Hot Water
+
+Hot water is available for guests\.
+
+<a id="lift-elevator"></a>## 18\. Lift / Elevator
+
+A lift/elevator is available at the property\.
+
+Guests should follow posted safety instructions and capacity limits\.
+
+<a id="digital-concierge"></a>## 19\. Digital Concierge
+
+Liv\.inn provides a room\-based Digital Concierge system where available\.
+
+Guests can use the room QR code to access available services and information\.
+
+Services may include:
+
+- Housekeeping
+- Food/room service
+- Extra towels
+- Water
+- Other guest services
+- Maintenance assistance
+- Contacting reception
+
+Service requests are subject to availability and hotel operating conditions\.
+
+<a id="guest-service-requests"></a>## 20\. Guest Service Requests
+
+Guests should provide accurate information when submitting a service request\.
+
+A request submitted through the Digital Concierge should not be considered completed until the hotel confirms or fulfils the request\.
+
+Guests may contact reception if an urgent request requires immediate assistance\.
+
+<a id="lost-and-found"></a>## 21\. Lost and Found
+
+Guests who lose an item at the hotel should contact reception as soon as possible\.
+
+Any found property should be handed to hotel staff\.
+
+Lost\-and\-found items will be handled according to the hotels applicable procedures and legal requirements\.
+
+<a id="prohibited-conduct"></a>## 22\. Prohibited Conduct
+
+Guests must not:
+
+- Engage in unlawful activities\.
+- Damage hotel property\.
+- Create unreasonable disturbance\.
+- Misuse hotel facilities\.
+- Attempt unauthorized access to hotel systems or services\.
+- Use the Digital Concierge or hotel services for fraudulent or abusive purposes\.
+- Engage in conduct that threatens the safety of guests or staff\.
+
+<a id="compliance-with-hotel-policies"></a>## 23\. Compliance With Hotel Policies
+
+By staying at Liv\.inn, guests are expected to comply with these policies and reasonable instructions provided by hotel staff\.
+
+Where a guest violates hotel policies, Liv\.inn may take appropriate action in accordance with applicable law\.
+
+<a id="policy-updates"></a>## 24\. Policy Updates
+
+Liv\.inn may update these Guest & Hotel Policies from time to time\.
+
+The latest version will be made available on the website\.
+
+<a id="contact-reception"></a>## 25\. Contact Reception
+
+For assistance during your stay:
+
+__Phone / WhatsApp:__ 8007724646  
+__Email:__ [help\.livinn@gmail\.com](mailto:help.livinn@gmail.com)
+
+__Reception:__ 24 hours
+
+__Liv\.inn__  
+Plot No\-31, Lane No\-4, Infinity Greens Society,  
+Near VTP Altair Phase\-1, Gat No\-1251, Upper Kharadi,  
+Wagholi, Pune, Maharashtra - 412207, India
+
+__Last Updated:__ 20 September 2026`
+} as const;
