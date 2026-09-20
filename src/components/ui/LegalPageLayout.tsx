@@ -1,6 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+
 import { BRAND } from '@/config/strings';
 
 interface LegalPageLayoutProps {
@@ -88,23 +87,6 @@ export default function LegalPageLayout({ title, markdownContent }: LegalPageLay
 
   return (
     <main className="min-h-screen bg-[#FAF8F5] pb-20">
-      {/* Header */}
-      <header className="bg-white border-b border-[#E5DEC9] sticky top-0 z-10">
-        <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="group inline-flex flex-col">
-            <span className="font-serif text-2xl font-bold tracking-wider text-[#2A241C] group-hover:text-[#A67C37] transition-colors leading-none">
-              {BRAND.name}
-            </span>
-            <span className="text-[9px] tracking-widest text-[#9C8F7E] font-medium uppercase mt-1">
-              {BRAND.tagline}
-            </span>
-          </Link>
-          <Link href="/" className="flex items-center gap-2 text-[#7E7465] hover:text-[#A67C37] transition-colors font-medium text-sm">
-            <ArrowLeft className="w-4 h-4" />
-            Back to Home
-          </Link>
-        </div>
-      </header>
 
       {/* Content */}
       <article className="max-w-4xl mx-auto px-6 mt-12 bg-white rounded-2xl shadow-sm border border-[#E5DEC9] p-8 md:p-12">
@@ -121,10 +103,7 @@ export default function LegalPageLayout({ title, markdownContent }: LegalPageLay
         </div>
       </article>
       
-      {/* Footer */}
-      <footer className="mt-16 text-center text-sm text-[#7E7465]">
-        &copy; {new Date().getFullYear()} {BRAND.name}. All rights reserved.
-      </footer>
+
     </main>
   );
 }

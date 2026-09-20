@@ -777,7 +777,7 @@ export const BRAND = {
 
 // --- Miss. Maya Personal Assistant Header -------------------------------------
 export const ASSISTANT = {
-  name:       'Miss. Maya',
+  name:       'Miss. Reena',
   role:       'Your Personal assistant',
   callTitle:  'Call Front Desk',
   closeLabel: 'Close assistant',
@@ -872,7 +872,7 @@ export const THANK_YOU = {
 
 // --- Legal Documents ----------------------------------------------------------
 export const LEGAL_DOCS = {
-  privacyPolicy: `<a id="privacy-policy"></a># Privacy Policy
+  privacyPolicy: `
 
 __Effective Date:__20 September 2026
 
@@ -1004,7 +1004,7 @@ __WhatsApp:__ 8007724646
 __Email:__ [help\.livinn@gmail\.com](mailto:help.livinn@gmail.com)
 
 __Last Updated:__20 September 2026`,
-  termsAndConditions: `<a id="terms-conditions"></a># Terms & Conditions
+  termsAndConditions: `
 
 __Effective Date:__ 20 September 2026
 
@@ -1223,7 +1223,7 @@ __WhatsApp:__ 8007724646
 __Email:__ [help\.livinn@gmail\.com](mailto:help.livinn@gmail.com)
 
 __Last Updated:__ 20 September 2026`,
-  guestPolicies: `<a id="guest-hotel-policies"></a># Guest & Hotel Policies
+  guestPolicies: `
 
 __Effective Date:__ 20 September 2026
 
