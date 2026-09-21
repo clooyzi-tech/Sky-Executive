@@ -767,65 +767,65 @@ export default STRINGS;
 // ---------------------------------------------------------------------------
 // --- Brand --------------------------------------------------------------------
 export const BRAND = {
-  name:        'LIV.INN',
-  tagline:     'STAY IN COMFORT, LIVE THE MOMENT.',
+  name: 'LIV.INN',
+  tagline: 'STAY IN COMFORT, LIVE THE MOMENT.',
   developerBy: 'developed by',
-  developer:   'Clooyzi Technologies',
+  developer: 'Clooyzi Technologies',
   phoneNumber: '+918007724646',
-  phoneDisplay:'+91 8007724646',
+  phoneDisplay: '+91 8007724646',
 } as const;
 
 // --- Miss. Maya Personal Assistant Header -------------------------------------
 export const ASSISTANT = {
-  name:       'Miss. Reena',
-  role:       'Your Personal assistant',
-  callTitle:  'Call Front Desk',
+  name: 'Miss. Reena',
+  role: 'Your Personal assistant',
+  callTitle: 'Call Front Desk',
   closeLabel: 'Close assistant',
 } as const;
 
 // --- Booking Form ("GET IN TOUCH") -------------------------------------------
 export const BOOKING_FORM = {
   // Section title
-  sectionTitle:    'GET IN TOUCH',
+  sectionTitle: 'GET IN TOUCH',
   sectionSubtitle: "We're here to help you a comfortable stay at LIV.INN.",
 
   // Selected services chip area
   selectedRequestsLabel: 'Your Selected Requests:',
 
   // Name field
-  nameLabel:       'Name',
-  nameRequired:    '* required',
+  nameLabel: 'Name',
+  nameRequired: '* required',
   namePlaceholder: 'Enter your full name',
-  nameEmoji:       '👤',
+  nameEmoji: '👤',
   nameErrorRequired: 'Name is required.',
 
   // Phone field
-  phoneLabel:       'Phone Number',
-  phoneRequired:    '* 10 digits',
+  phoneLabel: 'Phone Number',
+  phoneRequired: '* 10 digits',
   phonePlaceholder: '10-digit mobile number',
-  phoneEmoji:       '📱',
-  phonePrefix:      '🇮🇳 +91',
+  phoneEmoji: '📱',
+  phonePrefix: '🇮🇳 +91',
   phoneErrorRequired: 'Phone number is required.',
-  phoneErrorLength:   'Phone number must be exactly 10 digits.',
-  phoneValidHint:     'Valid number ✓',
-  phoneProgressHint:  (entered: number) => `${entered}/10 digits entered`,
+  phoneErrorLength: 'Phone number must be exactly 10 digits.',
+  phoneValidHint: 'Valid number ✓',
+  phoneProgressHint: (entered: number) => `${entered}/10 digits entered`,
 
   // Email field
-  emailLabel:       'Email ID',
-  emailOptional:    'optional',
+  emailLabel: 'Email ID',
+  emailOptional: 'optional',
   emailPlaceholder: 'Enter your email address',
-  emailEmoji:       '✉️',
+  emailEmoji: '✉️',
 
   // Remark / message field
-  remarkLabel:       'Remark',
-  remarkOptional:    'optional',
+  remarkLabel: 'Remark',
+  remarkOptional: 'optional',
   remarkPlaceholder: '"Write your message and preferred date & time."',
-  remarkEmoji:       '💬',
+  remarkEmoji: '💬',
 
   // Action buttons
-  submitButtonLabel:     'SUBMIT',
+  submitButtonLabel: 'SUBMIT',
   submittingButtonLabel: 'Submitting...',
-  backButtonPrefix:      '← Back to',
+  backButtonPrefix: '← Back to',
 
 } as const;
 
@@ -843,21 +843,21 @@ export const CTA = {
 
 // --- Thank You Screen ---------------------------------------------------------
 export const THANK_YOU = {
-  heading:           '— THANK YOU —',
-  subheading:        'Your Request has been submitted',
+  heading: '— THANK YOU —',
+  subheading: 'Your Request has been submitted',
 
   // Google Review box
   googleReviewBadge: 'Google Review',
   googleReviewTitle: 'How was your stay?',
   googleReviewSubtitle: "We'd love to hear from you!",
-  googleReviewButton:   'Review us on Google →',
-  googleReviewShare:    'Share Your Experience',
-  googleMapsUrl:        'https://www.google.com/maps/place/18%C2%B033\'03.6%22N+73%C2%B058\'26.3%22E/@18.5511055,73.9702936,1240m/data=!3m1!1e3!4m4!3m3!8m2!3d18.5510123!4d73.9739785?hl=en&entry=ttu&g_ep=EgoyMDI2MDkxNi4wIKXMDSoASAFQAw%3D%3D',
+  googleReviewButton: 'Review us on Google →',
+  googleReviewShare: 'Share Your Experience',
+  googleMapsUrl: 'https://www.google.com/maps/place/18%C2%B033\'03.6%22N+73%C2%B058\'26.3%22E/@18.5511055,73.9702936,1240m/data=!3m1!1e3!4m4!3m3!8m2!3d18.5510123!4d73.9739785?hl=en&entry=ttu&g_ep=EgoyMDI2MDkxNi4wIKXMDSoASAFQAw%3D%3D',
 
   // Reaction options
   reactions: [
-    { id: 'excellent',   emoji: '😊', title: 'Excellent',   subtitle: 'Loved my stay!'  },
-    { id: 'good',        emoji: '😐', title: 'Good',        subtitle: 'It was a pleasant stay.' },
+    { id: 'excellent', emoji: '😊', title: 'Excellent', subtitle: 'Loved my stay!' },
+    { id: 'good', emoji: '😐', title: 'Good', subtitle: 'It was a pleasant stay.' },
     { id: 'improvement', emoji: '😞', title: 'Needs Improvement', subtitle: 'We can do better.' },
   ] as const,
 
