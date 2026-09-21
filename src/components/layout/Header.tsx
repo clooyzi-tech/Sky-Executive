@@ -12,8 +12,6 @@ import {
   Clock,
   ArrowRight,
   InstagramIcon,
-  FacebookIcon,
-  TripAdvisorIcon,
 } from '@/config/icons';
 import { STRINGS } from '@/config/strings';
 import { IMAGES } from '@/config/image';
@@ -123,40 +121,23 @@ export default function Header() {
               <span>24/7 Support</span>
             </div>
 
-            <span className="hidden lg:inline text-[#DED8CC]">|</span>
-
-            {/* Social Links */}
-            <div className="hidden lg:flex items-center gap-2.5 text-[#5F5A50]">
-              {STRINGS.contact.social.instagram && (
-                <a
-                  href={STRINGS.contact.social.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="hover:text-[#C9A227] transition-colors"
-                >
-                  <InstagramIcon className="h-3.5 w-3.5" />
-                </a>
-              )}
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="hover:text-[#C9A227] transition-colors"
-              >
-                <FacebookIcon className="h-3.5 w-3.5" />
-              </a>
-              <a
-                href="https://tripadvisor.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="TripAdvisor"
-                className="hover:text-[#C9A227] transition-colors"
-              >
-                <TripAdvisorIcon className="h-3.5 w-3.5" />
-              </a>
-            </div>
+            {/* Social Links - Instagram Only */}
+            {STRINGS.contact.social.instagram && (
+              <>
+                <span className="hidden lg:inline text-[#DED8CC]">|</span>
+                <div className="hidden lg:flex items-center gap-2.5 text-[#5F5A50]">
+                  <a
+                    href={STRINGS.contact.social.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    className="hover:text-[#C9A227] transition-colors"
+                  >
+                    <InstagramIcon className="h-3.5 w-3.5" />
+                  </a>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
