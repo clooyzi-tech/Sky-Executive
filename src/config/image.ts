@@ -32,6 +32,7 @@ export const IMAGES = {
   hero1: '/hero1.avif',
   natureView: '/images/property/nature_view.jpg',
   cloudKitchen: '/images/property/cloud_kitchen.jpg',
+  peacefulAmbience: '/images/property/peaceful_ambience.jpg',
   videos: {
     heroMp4: '/videos/hero-resort.mp4',
     heroWebm: '/videos/hero-resort.webm',

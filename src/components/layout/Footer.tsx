@@ -53,12 +53,12 @@ export default function Footer() {
             </Link>
 
             <p className="text-xs sm:text-sm text-white/70 leading-relaxed mb-6 max-w-sm">
-              An intimate 25-room boutique hotel in Upper Kharadi, Pune. 5 rooms per floor with peaceful nature views, in-house cloud kitchen, and 24/7 hospitality.
+              An intimate boutique hotel in Upper Kharadi, Pune, with peaceful nature views, in-house cloud kitchen, and 24/7 hospitality.
             </p>
 
             <div className="flex items-center gap-2 text-xs text-[#DFB756]">
               <Sparkles className="h-3.5 w-3.5" />
-              <span>25 Double Bed Rooms • Free Wi-Fi & Parking</span>
+              <span>Double Bed Rooms • Free Wi-Fi & Parking</span>
             </div>
           </div>
 
@@ -129,7 +129,7 @@ export default function Footer() {
                 className="flex items-start gap-2.5 hover:text-[#DFB756] transition-colors"
               >
                 <Phone className="h-4 w-4 text-[#DFB756] shrink-0 mt-0.5" />
-                <span>+91 80077 24646 / +91 80077 34646</span>
+                <span>+91 80077 24646</span>
               </a>
 
               <a

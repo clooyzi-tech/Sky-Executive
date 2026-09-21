@@ -71,7 +71,6 @@ export function hotelJsonLd() {
       postalCode: contact.address.pincode,
       addressCountry: 'IN',
     },
-    numberOfRooms: 25,
     petsAllowed: false,
   };
 }

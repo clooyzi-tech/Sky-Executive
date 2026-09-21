@@ -7,10 +7,10 @@
   },
   "wifi": {
     "title": "Wi-Fi & Connectivity",
-    "note": "Complimentary high-speed Wi-Fi is available across all 5 floors for staying guests. For security, network access credentials are provided directly at reception upon check-in.",
+    "note": "Complimentary high-speed Wi-Fi is available throughout the property for staying guests. For security, network access credentials are provided directly at reception upon check-in.",
     "instructions": [
       "Network credentials provided upon check-in",
-      "Available across all 5 floors",
+      "Available property-wide",
       "For connection assistance, contact reception 24/7"
     ]
   },
@@ -49,7 +49,7 @@
       {
         "title": "Elevator",
         "icon": "Building",
-        "content": "Modern elevator facility providing seamless access across all 5 floors."
+        "content": "Modern elevator facility providing seamless access throughout the hotel."
       },
       {
         "title": "Pets",

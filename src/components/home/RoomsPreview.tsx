@@ -21,7 +21,7 @@ const ROOM_PHOTOS = [
   {
     src: '/images/rooms/premium_room.jpg',
     title: 'Double Bed Room',
-    subtitle: 'Queen Bed (180cm) with warm wood accents',
+    subtitle: 'Queen Bed with warm wood accents',
   },
   {
     src: '/images/services/bathroom.jpg',
@@ -43,7 +43,7 @@ const ROOM_PHOTOS = [
 const ROOM_FEATURES = [
   {
     icon: Bed,
-    title: 'Double Bed (180 cm)',
+    title: 'Double Bed (Queen Size)',
     desc: '200 sq. ft. room with plush queen mattress',
   },
   {
@@ -120,7 +120,7 @@ export default function RoomsPreview({
             </h2>
 
             <p className="mt-3 text-xs sm:text-sm md:text-base text-[#6E6454] leading-relaxed">
-              liv.inn offers <strong>25 Double Bed Rooms</strong> thoughtfully distributed across 5 floors (5 rooms per floor for quiet privacy). Each room is an intimate sanctuary with calming nature views, plush bedding, and modern hospitality.
+              liv.inn offers <strong>Double Bed Rooms</strong> thoughtfully arranged for quiet privacy. Each room is an intimate sanctuary with calming nature views, plush bedding, and modern hospitality.
             </p>
 
             {/* 6 Feature Badges */}
@@ -154,7 +154,7 @@ export default function RoomsPreview({
                 onClick={handleBookNow}
                 className="w-full sm:w-auto px-7 py-3 rounded-full bg-[#B38E46] hover:bg-[#9E7A36] text-white text-xs font-bold uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
               >
-                Book This Room
+                Enquire Now
               </button>
 
               <Link

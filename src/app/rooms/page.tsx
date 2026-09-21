@@ -61,11 +61,11 @@ export default function RoomsPage() {
           <div className="flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm text-slate-deep">
             <span className="flex items-center gap-2 font-medium">
               <Building2 className="h-4 w-4 text-accent" />
-              25 Total Rooms Inventory
+              Boutique Accommodation & Calm Ambience
             </span>
             <span className="hidden sm:inline text-border-gold">•</span>
             <span className="flex items-center gap-2 font-medium">
-              5 Rooms on Each Floor (Across 5 Floors)
+              Quiet & Private Floor Layout
             </span>
             <span className="hidden sm:inline text-border-gold">•</span>
             <span className="flex items-center gap-2 font-medium">

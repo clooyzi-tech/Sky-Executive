@@ -254,7 +254,7 @@ export default function ContactForm() {
             className={inputClass}
           >
             <option value="Premium Room">
-              Premium Room (Nature-Oriented View • 25 Rooms Total)
+              Premium Room (Nature-Oriented View)
             </option>
           </select>
         </div>

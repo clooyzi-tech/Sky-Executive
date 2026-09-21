@@ -81,8 +81,8 @@ export default function BookingCTA() {
           </div>
 
           <div className="mt-10 sm:mt-12 pt-8 border-t border-white/15 flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-xs sm:text-sm text-white/80">
-            <span>• 25 Premium Rooms</span>
-            <span>• 5 Rooms Per Floor</span>
+            <span>• Premium Boutique Rooms</span>
+            <span>• In-House Cloud Kitchen</span>
             <span>• Nature-Oriented Views</span>
             <span>• 24/7 Front Desk: 8007724646</span>
           </div>

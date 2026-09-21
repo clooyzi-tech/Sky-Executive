@@ -123,7 +123,7 @@ export default function AboutPage() {
                     Calm, Nature-Oriented Comfort
                   </p>
                   <p className="text-xs text-white/80 mt-1">
-                    An uncluttered 25-room property designed for peaceful living in Pune.
+                    An uncluttered boutique property designed for peaceful living in Pune.
                   </p>
                 </div>
               </div>

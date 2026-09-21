@@ -2,7 +2,7 @@
    liv.inn — Content Layer
    
    Synchronized with centralized src/content/ and src/config/
-   Strictly verified for liv.inn Pune (25 rooms, nature views, verified amenities).
+   Strictly verified for liv.inn Pune (nature views, verified amenities).
    ========================================================================== */
 
 import { STRINGS } from '@/config/strings';

@@ -1,12 +1,12 @@
 {
   "hotelName": "liv.inn",
   "tagline": "A Serene, Nature-Oriented Stay in Pune",
-  "about": "liv.inn is a modern boutique hotel in Pune with 25 premium rooms across 5 floors. Every room features nature-oriented views, modern amenities, and 24/7 guest support.",
+  "about": "liv.inn is a modern boutique hotel in Pune. Every room features nature-oriented views, modern amenities, and 24/7 guest support.",
   "facilities": [
     { "icon": "Wifi", "title": "Free High-Speed Wi-Fi", "description": "Complimentary internet across all floors" },
     { "icon": "Car", "title": "Free On-Site Parking", "description": "24/7 secure on-premises parking" },
     { "icon": "UtensilsCrossed", "title": "In-House Cloud Kitchen", "description": "Breakfast, Lunch & Dinner (Veg & Non-Veg)" },
-    { "icon": "Building", "title": "Elevator / Lift", "description": "Seamless access across all 5 floors" },
+    { "icon": "Building", "title": "Elevator / Lift", "description": "Seamless guest elevator access" },
     { "icon": "Zap", "title": "100% Power Backup", "description": "Uninterrupted power supply" },
     { "icon": "ShieldCheck", "title": "24/7 Security & CCTV", "description": "Round-the-clock surveillance" },
     { "icon": "Heart", "title": "Pet-Friendly", "description": "Pets welcome at no extra charge" },

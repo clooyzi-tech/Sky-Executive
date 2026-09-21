@@ -185,15 +185,15 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  {/* 25 Rooms Quick Note */}
+                  {/* Stay Overview Quick Note */}
                   <div className="rounded-2xl border border-border-gold bg-accent-muted/25 p-4 text-xs text-slate-deep">
                     <div className="flex items-center gap-2 font-semibold text-charcoal">
                       <Sparkles className="h-4 w-4 text-accent" />
                       <span>liv.inn Pune Stay Overview</span>
                     </div>
                     <ul className="mt-2 space-y-1 text-slate-deep">
-                      <li>• 25 Premium Rooms with nature-oriented views</li>
-                      <li>• 5 rooms per floor intimacy across 5 floors</li>
+                      <li>• Premium Rooms with nature-oriented views</li>
+                      <li>• Peaceful & private boutique layout</li>
                       <li>• In-house cloud kitchen, free Wi-Fi & parking</li>
                       <li>• 24/7 front desk guest assistance</li>
                     </ul>

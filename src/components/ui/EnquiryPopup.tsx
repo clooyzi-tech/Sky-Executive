@@ -214,7 +214,7 @@ export default function EnquiryPopup() {
                   Book Your Stay With Us
                 </h3>
                 <p className="text-xs text-white/70 mt-2 leading-relaxed">
-                  25 Double Bed Rooms across 5 floors with scenic nature views, in-house cloud kitchen, and 24/7 front desk.
+                  Double Bed Rooms with scenic nature views, in-house cloud kitchen, and 24/7 front desk.
                 </p>
               </div>
 
@@ -437,7 +437,7 @@ export default function EnquiryPopup() {
                           <span>Sending Request...</span>
                         </>
                       ) : (
-                        <span>Book Now</span>
+                        <span>Enquire Now</span>
                       )}
                     </button>
                   </div>

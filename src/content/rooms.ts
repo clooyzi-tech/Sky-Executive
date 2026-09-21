@@ -4,10 +4,7 @@
  * Sourced directly from verified developer document:
  * LivInn_Hotel_Chatbot_Information.docx
  * 
- * Verified:
- * - Total rooms: 25
- * - Room distribution: 5 rooms on each floor (across 5 floors)
- * - Room category: Premium rooms
+ * - Room category: Premium rooms (Double Bed)
  * - View: Nature-oriented view
  * - Prices: Marked as "To be confirmed" (not published)
  * 
@@ -45,18 +42,18 @@ export const roomsList: RoomItem[] = [
     category: 'Premium Accommodation',
     roomSize: '200 sq. ft.',
     shortDescription:
-      'A 200 sq. ft. refined, peaceful room with serene nature views, comfortable double bed (queen-size 180 cm), modern en-suite bathroom with 24/7 hot water, and dedicated in-room dining.',
+      'A 200 sq. ft. refined, peaceful room with serene nature views, comfortable double bed (queen-size), modern en-suite bathroom with 24/7 hot water, and dedicated in-room dining.',
     fullDescription:
-      'liv.inn features 25 uniform double bed rooms thoughtfully arranged with only five rooms per floor across five floors, ensuring quiet privacy and tranquil comfort. Each 200 sq. ft. room includes a plush double bed, attached en-suite bathroom with 24/7 hot water, individual air conditioning, smart TV, high-speed Wi-Fi, dedicated work desk, and refreshing nature-facing views.',
+      'liv.inn features uniform double bed rooms thoughtfully arranged for quiet privacy and tranquil comfort. Each 200 sq. ft. room includes a plush double bed, attached en-suite bathroom with 24/7 hot water, individual air conditioning, smart TV, high-speed Wi-Fi, dedicated work desk, and refreshing nature-facing views.',
     natureViewHighlight: 'Pleasant nature-oriented view facing tranquil greenery',
-    totalRooms: 25,
-    distribution: '5 rooms per floor across 5 floors (All 25 Double Bed Rooms)',
-    bedType: 'Double Bed (Queen Size - 180 cm)',
+    totalRooms: 0,
+    distribution: 'Private, quiet layout (Double Bed Rooms)',
+    bedType: 'Double Bed (Queen Size)',
     maxOccupancy: 3,
     extraBedInfo: 'Complimentary extra bed available upon request at no extra charge',
     amenities: [
       '200 sq. ft. Room Layout',
-      'Comfortable Double Bed (180 cm Queen)',
+      'Comfortable Double Bed (Queen Size)',
       'Nature-Facing Window View',
       'Attached Bathroom with 24/7 Hot Water',
       'Complimentary High-Speed Wi-Fi',
@@ -71,12 +68,12 @@ export const roomsList: RoomItem[] = [
       '24/7 Front Desk & WhatsApp Assistance',
     ],
     keyFeatures: [
-      '25 identical Double Bed Rooms across 5 floors',
-      '5 rooms on each floor for quiet privacy',
-      'Plush Double Bed (180 cm wide)',
+      'Identical Double Bed Rooms with nature views',
+      'Peaceful floor layout for quiet privacy',
+      'Plush Double Bed (Queen Size)',
       'Accommodates 2 + 1 Guests (Extra bed free)',
       'Direct nature-facing greenery view',
-      'Elevator access across all 5 floors',
+      'Modern guest elevator access',
       '100% full power backup',
     ],
     priceStatus: 'tbc',
@@ -91,8 +88,8 @@ export const roomsList: RoomItem[] = [
 export const roomsOverview = {
   title: 'Premium Rooms',
   subtitle: 'Thoughtfully designed spaces with tranquil nature views',
-  totalInventoryBadge: '25 Rooms • 5 Floors • 5 Rooms per Floor',
+  totalInventoryBadge: 'Premium Rooms • Nature Views • Cloud Kitchen',
   description:
-    'liv.inn offers 25 premium rooms curated for guests seeking a peaceful stay in Pune. With five rooms situated on each floor, enjoy an uncluttered, quiet atmosphere with verdant views.',
-  natureHighlightBadge: 'Nature-Oriented Views on Every Floor',
+    'liv.inn offers premium rooms curated for guests seeking a peaceful stay in Pune. Enjoy an uncluttered, quiet atmosphere with verdant views.',
+  natureHighlightBadge: 'Nature-Oriented Views',
 };

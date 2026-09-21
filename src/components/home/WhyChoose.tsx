@@ -21,7 +21,7 @@ const REVIEWS = [
     rating: 5,
     date: 'Stayed 2 weeks ago',
     review:
-      'Spotlessly clean rooms and very cozy bed! The 5-rooms-per-floor layout ensures zero corridor disturbance. Miss Maya and the front desk team were courteous and attentive round the clock.',
+      'Spotlessly clean rooms and very cozy bed! The quiet boutique layout ensures zero corridor disturbance. Miss Reena and the front desk team were courteous and attentive round the clock.',
     initials: 'AR',
   },
   {

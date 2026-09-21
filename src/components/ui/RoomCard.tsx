@@ -32,10 +32,10 @@ export default function RoomCard({ room, detailed = false }: RoomCardProps) {
           </span>
         </div>
 
-        {/* Distribution / Floor Info */}
+        {/* Floor & Size Info */}
         <div className="absolute bottom-4 left-4 z-10">
           <span className="text-xs font-medium text-white/90 drop-shadow-sm">
-            5 Rooms per Floor • 25 Rooms Total
+            200 sq. ft. • Double Bed • Nature Views
           </span>
         </div>
       </div>
