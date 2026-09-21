@@ -147,7 +147,7 @@ export default function Hero() {
             </h1>
 
             <p className="mt-4 max-w-xl text-xs sm:text-sm md:text-base text-white/80 font-normal leading-relaxed drop-shadow-sm">
-              An intimate 25-room boutique hotel in Pune with 5 rooms on each floor, scenic nature views, in-house cloud kitchen, and 24/7 guest assistance.
+              An intimate boutique hotel in Pune with scenic nature views, in-house cloud kitchen, and 24/7 guest assistance.
             </p>
           </motion.div>
         </AnimatePresence>

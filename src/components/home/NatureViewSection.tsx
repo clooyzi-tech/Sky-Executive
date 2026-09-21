@@ -28,8 +28,8 @@ export default function NatureViewSection() {
     },
     {
       icon: <Eye className="h-5 w-5 text-accent" />,
-      title: 'Nature-Facing Every Floor',
-      desc: 'All 5 floors are positioned to take advantage of the natural surroundings.',
+      title: 'Nature-Facing Perspective',
+      desc: 'Thoughtfully positioned to take full advantage of the natural surroundings.',
     },
   ];
 
@@ -62,15 +62,15 @@ export default function NatureViewSection() {
 
               {/* Float badge */}
               <div className="hidden sm:flex absolute -bottom-6 -right-6 items-center gap-3 rounded-2xl border border-border bg-ivory p-4 shadow-xl backdrop-blur-md">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent text-charcoal font-bold text-lg">
-                  25
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent text-charcoal">
+                  <Trees className="h-6 w-6" />
                 </div>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wider text-charcoal">
-                    Rooms in Pune
+                    Scenic Retreat
                   </p>
                   <p className="text-xs text-slate-medium">
-                    5 Rooms on Each Floor
+                    Nature-Oriented Views
                   </p>
                 </div>
               </div>

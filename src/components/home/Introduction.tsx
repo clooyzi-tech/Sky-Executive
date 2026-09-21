@@ -23,8 +23,8 @@ export default function Introduction() {
     {
       number: '01',
       icon: <Building2 className="h-6 w-6 text-accent" />,
-      title: '25 Premium Rooms',
-      desc: 'Balanced across 5 floors with just 5 rooms on each floor for unmatched privacy and quiet comfort.',
+      title: 'Premium Rooms',
+      desc: 'Thoughtfully arranged for unmatched privacy, quiet comfort, and serene surroundings.',
     },
     {
       number: '02',
@@ -47,7 +47,7 @@ export default function Introduction() {
   ];
 
   const highlights = [
-    'Intimate scale: Only 5 rooms on each floor',
+    'Intimate scale: Quiet, peaceful floor layouts',
     'Scenic nature & hill vistas from private windows',
     'Dedicated in-house cloud kitchen for fresh dining',
     'Convenient access to Pune IT corridors & airport',
@@ -153,7 +153,7 @@ export default function Introduction() {
                     <p className="text-[10px] uppercase tracking-wider text-accent-gold font-bold">
                       Boutique Scale
                     </p>
-                    <p className="text-xs font-semibold">5 Floors • 25 Rooms</p>
+                    <p className="text-xs font-semibold">Serene Nature Views</p>
                   </div>
 
                   {/* Floating Glass Feature Card (Bottom Right) */}

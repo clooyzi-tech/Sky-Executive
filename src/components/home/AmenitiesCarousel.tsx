@@ -4,15 +4,13 @@ import React, { useRef } from 'react';
 import Image from 'next/image';
 import {
   Wifi,
-  UtensilsCrossed,
+  Wind,
   Car,
   ShieldCheck,
   Zap,
   Sparkles,
   ChevronLeft,
   ChevronRight,
-  ArrowUpDown,
-  Wind,
 } from 'lucide-react';
 
 const AMENITIES = [
@@ -24,11 +22,11 @@ const AMENITIES = [
     icon: Wifi,
   },
   {
-    id: 'dining',
-    title: 'In-House Cloud Kitchen',
-    desc: 'Freshly prepared breakfast, lunch, and dinner delivered right to your bed.',
-    image: '/images/property/cloud_kitchen.jpg',
-    icon: UtensilsCrossed,
+    id: 'peaceful',
+    title: 'Peaceful & Silent Ambience',
+    desc: 'Tranquil boutique environment surrounded by serene hills for a restful, undisturbed stay.',
+    image: '/images/property/peaceful_ambience.jpg',
+    icon: Wind,
   },
   {
     id: 'parking',

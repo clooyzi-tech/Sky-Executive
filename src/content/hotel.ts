@@ -55,9 +55,9 @@ export const hotelInfo: HotelInfo = {
   legalName: 'liv.inn Hotel',
   tagline: 'A Serene, Nature-Oriented Stay in Pune',
   shortDescription:
-    'A contemporary boutique hotel in Pune offering 25 premium rooms with calming nature-oriented views, dedicated cloud kitchen, and 24/7 guest support.',
+    'A contemporary boutique hotel in Pune offering premium rooms with calming nature-oriented views, dedicated cloud kitchen, and 24/7 guest support.',
   fullDescription:
-    'liv.inn is a modern boutique hotel located in Pune, Maharashtra. Designed with an emphasis on comfort, cleanliness, and thoughtful hospitality, the property features 25 premium rooms distributed evenly across 5 floors (5 rooms per floor), each offering pleasant nature-oriented views. Guests enjoy modern amenities including high-speed Wi-Fi, on-site parking, an in-house cloud kitchen, laundry services, and 24/7 guest assistance.',
+    'liv.inn is a modern boutique hotel located in Pune, Maharashtra. Designed with an emphasis on comfort, cleanliness, and thoughtful hospitality, the property features premium rooms, each offering pleasant nature-oriented views. Guests enjoy modern amenities including high-speed Wi-Fi, on-site parking, an in-house cloud kitchen, laundry services, and 24/7 guest assistance.',
   location: {
     city: 'Pune',
     state: 'Maharashtra',
@@ -66,10 +66,10 @@ export const hotelInfo: HotelInfo = {
     displayLocation: 'Upper Kharadi, Wagholi, Pune',
   },
   inventory: {
-    totalRooms: 25,
-    roomDistribution: '5 rooms on each floor across 5 floors (6 Single Bed & 19 Double Bed rooms)',
-    floors: 5,
-    roomsPerFloor: 5,
+    totalRooms: 0,
+    roomDistribution: 'Thoughtfully arranged Double Bed rooms',
+    floors: 0,
+    roomsPerFloor: 0,
     primaryCategory: 'Premium rooms (200 sq. ft., Queen bed)',
     viewType: 'Nature-oriented view',
   },
@@ -82,8 +82,8 @@ export const hotelInfo: HotelInfo = {
   },
   highlights: [
     {
-      title: 'Boutique Scale (25 Rooms)',
-      description: 'An intimate property with just 5 rooms per floor, ensuring quiet comfort and personalized guest care.',
+      title: 'Boutique Scale',
+      description: 'An intimate property ensuring quiet comfort and personalized guest care.',
       icon: 'Building2',
     },
     {
@@ -93,7 +93,7 @@ export const hotelInfo: HotelInfo = {
     },
     {
       title: 'Elevator / Lift Access',
-      description: 'Effortless guest accessibility across all 5 floors with a modern elevator facility.',
+      description: 'Effortless guest accessibility with a modern elevator facility.',
       icon: 'Building',
     },
     {
@@ -125,7 +125,7 @@ export const hotelInfo: HotelInfo = {
   story: {
     title: 'About liv.inn',
     paragraphs: [
-      'liv.inn is conceptualized as a modern sanctuary in Pune, crafted for travellers who value tranquility, clean spaces, and genuine hospitality. With an intimate footprint of 25 premium rooms spread evenly across 5 floors, the hotel delivers a personal, boutique stay experience.',
+      'liv.inn is conceptualized as a modern sanctuary in Pune, crafted for travellers who value tranquility, clean spaces, and genuine hospitality. With an intimate boutique footprint, the hotel delivers a personal, boutique stay experience.',
       'A defining hallmark of liv.inn is its nature-oriented setting. Guests awake to serene greenery and refreshing natural perspectives, providing a welcome pause from daily routine while remaining well-connected to Pune’s key hubs.',
       'From our round-the-clock guest support and in-house cloud kitchen to meticulous daily housekeeping, every aspect of liv.inn is organized to make your stay in Pune effortless, comfortable, and memorable.',
     ],
@@ -133,7 +133,7 @@ export const hotelInfo: HotelInfo = {
   values: [
     {
       title: 'Uncompromised Cleanliness',
-      description: 'Meticulous housekeeping routines and hygiene protocols maintained across all 25 guest rooms and shared spaces.',
+      description: 'Meticulous housekeeping routines and hygiene protocols maintained across all guest rooms and shared spaces.',
     },
     {
       title: 'Attentive 24/7 Support',

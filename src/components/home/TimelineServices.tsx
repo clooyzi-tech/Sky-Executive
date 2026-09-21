@@ -28,7 +28,7 @@ const TIMELINE_STEPS: TimelineStep[] = [
       'From our dedicated in-house cloud kitchen delivering fresh meals to your door to tranquil nature-facing rooms with individual AC and Smart TV, every detail is organized for effortless comfort in Pune.',
     highlights: [
       'In-house cloud kitchen for room-delivered breakfast, lunch & dinner',
-      '25 boutique rooms across 5 floors (5 rooms per floor for quiet privacy)',
+      'Boutique rooms arranged for quiet privacy',
       'Scenic nature-oriented views facing tranquil greenery',
     ],
     image: IMAGES.cloudKitchen || '/images/property/cloud_kitchen.jpg',
@@ -84,7 +84,7 @@ export default function TimelineServices() {
             Crafted for Unmatched Stay Experience
           </h2>
           <p className="mt-3 text-sm sm:text-base text-[#7E7465] leading-relaxed">
-            Discover how our boutique 25-room hotel blends serene nature surroundings with premium hospitality in Pune.
+            Discover how our boutique hotel blends serene nature surroundings with premium hospitality in Pune.
           </p>
         </div>
 

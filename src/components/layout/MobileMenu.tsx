@@ -105,7 +105,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                   liv.inn at a glance
                 </p>
                 <ul className="mt-2 space-y-1 text-xs text-slate-deep">
-                  <li>• 25 Premium Rooms (5 per floor)</li>
+                  <li>• Premium Rooms with Nature Views</li>
                   <li>• Nature-Oriented Surroundings</li>
                   <li>• Cloud Kitchen & Free Wi-Fi</li>
                   <li>• 24/7 Guest Assistance</li>

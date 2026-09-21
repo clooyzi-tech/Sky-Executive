@@ -156,7 +156,7 @@ export default function ExperienceSection({
 
             <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-sm leading-relaxed text-[#5F5A50] sm:text-base">
               {isAllServicesPage
-                ? 'Thoughtfully curated facilities and verified services across our 25-room boutique hotel in Pune.'
+                ? 'Thoughtfully curated facilities and verified services across our boutique hotel in Pune.'
                 : experience.subtitle}
             </p>
           </AnimatedSection>
