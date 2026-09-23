@@ -169,14 +169,14 @@ export default function Header() {
                 )}
               >
                 {/* Inner Gold Ring & Black Brand Emblem */}
-                <div className="relative h-full w-full rounded-full border-2 border-[#C9A227] overflow-hidden bg-black shadow-inner">
+                <div className="relative h-full w-full rounded-full border-2 border-[#C9A227] overflow-hidden bg-black shadow-inner flex items-center justify-center">
                   <Image
-                    src={IMAGES.brand.logo || '/livinn_logo.jpg'}
+                    src={IMAGES.brand.logo || '/livinn-logo.png'}
                     alt={STRINGS.brand.logoAlt}
                     fill
                     sizes={scrolled ? '56px' : '112px'}
                     priority
-                    className="object-cover"
+                    className="object-contain p-1 sm:p-1.5"
                   />
                 </div>
               </div>

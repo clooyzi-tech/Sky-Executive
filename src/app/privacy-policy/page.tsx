@@ -3,10 +3,13 @@ import type { Metadata } from 'next';
 import LegalPageLayout from '@/components/ui/LegalPageLayout';
 import { LEGAL_DOCS } from '@/config/strings';
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy | liv.inn Pune',
-  description: 'Privacy Policy of liv.inn Boutique Hotel, Pune.',
-};
+import { generatePageMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = generatePageMetadata({
+  title: 'Privacy Policy',
+  description: 'Privacy Policy for liv.inn Boutique Hotel, Pune.',
+  path: '/privacy-policy',
+});
 
 export default function PrivacyPolicyPage() {
   return (

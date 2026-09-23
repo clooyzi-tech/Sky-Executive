@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { generatePageMetadata, breadcrumbJsonLd } from '@/lib/seo';
+import { generatePageMetadata, breadcrumbJsonLd, hotelRoomJsonLd } from '@/lib/seo';
 import { STRINGS } from '@/config/strings';
 import { IMAGES } from '@/config/image';
 import { Building2, Trees } from '@/config/icons';
@@ -26,6 +26,12 @@ export default function RoomsPage() {
           __html: JSON.stringify(
             breadcrumbJsonLd([{ name: roomsStrings.header.title, href: '/rooms' }])
           ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(hotelRoomJsonLd()),
         }}
       />
 

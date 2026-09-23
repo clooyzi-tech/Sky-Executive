@@ -443,7 +443,7 @@ export default function LivinnAssistant({
               <div className="shrink-0 pb-1 text-center flex items-center justify-center gap-1.5">
                 <span className="text-[10px] text-[#A67C37] tracking-wider font-semibold">{BRAND.developerBy}</span>
                 <span className="text-[12px] font-bold text-[#A67C37] flex items-center gap-0.5">
-                  <span className="text-xl leading-none">❁</span>{BRAND.developer.replace('Technologies', '').trim()}
+                  <span className="text-xl leading-none">❁</span>{BRAND.developer}
                 </span>
               </div>
             </div>

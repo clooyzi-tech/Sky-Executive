@@ -1,0 +1,43 @@
+import Script from 'next/script';
+
+interface GoogleAnalyticsProps {
+  gaId?: string;
+}
+
+/**
+ * Google Analytics (GA4) Integration Component
+ *
+ * Automatically activates when NEXT_PUBLIC_GA_ID is defined in .env.local
+ * or passed via gaId prop. Uses Next.js Script component with afterInteractive
+ * strategy for optimal core web vitals and zero render blocking.
+ */
+export default function GoogleAnalytics({ gaId }: GoogleAnalyticsProps) {
+  const measurementId = gaId || process.env.NEXT_PUBLIC_GA_ID;
+
+  if (!measurementId) {
+    return null;
+  }
+
+  return (
+    <>
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
+      />
+      <Script
+        id="google-analytics-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${measurementId}', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
+    </>
+  );
+}
