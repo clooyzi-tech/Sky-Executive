@@ -56,13 +56,35 @@ export function generatePageMetadata({
  * Excludes unverified address details, ratings, prices, or claims.
  */
 export function hotelJsonLd() {
+  const logoUrl = `${seoConfig.siteUrl}${brand.logoPath}`;
   return {
     '@context': 'https://schema.org',
     '@type': 'Hotel',
     name: brand.name,
+    legalName: brand.legalName,
     description: brand.description,
     url: seoConfig.siteUrl,
+    logo: logoUrl,
+    image: [
+      logoUrl,
+      `${seoConfig.siteUrl}/images/property/hero.jpg`,
+      `${seoConfig.siteUrl}/images/rooms/premium_room.jpg`,
+      `${seoConfig.siteUrl}/images/property/nature_view.jpg`,
+    ],
     telephone: contact.phone,
+    email: contact.email,
+    priceRange: '₹₹',
+    currenciesAccepted: 'INR',
+    paymentAccepted: 'Cash, Credit Card, Debit Card, UPI',
+    checkinTime: '11:00',
+    checkoutTime: '10:00',
+    petsAllowed: true,
+    hasMap: contact.googleMapsUrl,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 18.5510123,
+      longitude: 73.9739785,
+    },
     address: {
       '@type': 'PostalAddress',
       streetAddress: contact.address.street,
@@ -71,7 +93,22 @@ export function hotelJsonLd() {
       postalCode: contact.address.pincode,
       addressCountry: 'IN',
     },
-    petsAllowed: false,
+    amenityFeature: [
+      { '@type': 'LocationFeatureSpecification', name: 'Free High-Speed Wi-Fi', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Free On-Site Parking', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'In-House Cloud Kitchen', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Air Conditioning', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Elevator / Lift Access', value: true },
+      { '@type': 'LocationFeatureSpecification', name: '100% Power Backup', value: true },
+      { '@type': 'LocationFeatureSpecification', name: '24/7 Security & CCTV', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Pet-Friendly Stay', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Daily Housekeeping', value: true },
+      { '@type': 'LocationFeatureSpecification', name: '24/7 Front Desk Assistance', value: true },
+    ],
+    sameAs: [
+      contact.googleMapsUrl,
+      contact.social.instagram,
+    ].filter(Boolean),
   };
 }
 
@@ -83,8 +120,15 @@ export function organizationJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: brand.name,
+    legalName: brand.legalName,
     url: seoConfig.siteUrl,
+    logo: `${seoConfig.siteUrl}${brand.logoPath}`,
     telephone: contact.phone,
+    email: contact.email,
+    sameAs: [
+      contact.googleMapsUrl,
+      contact.social.instagram,
+    ].filter(Boolean),
     address: {
       '@type': 'PostalAddress',
       streetAddress: contact.address.street,
@@ -92,6 +136,45 @@ export function organizationJsonLd() {
       addressRegion: contact.address.state,
       postalCode: contact.address.pincode,
       addressCountry: 'IN',
+    },
+  };
+}
+
+/**
+ * Generate HotelRoom JSON-LD structured data.
+ */
+export function hotelRoomJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HotelRoom',
+    name: 'Double Bed Room',
+    description:
+      'Double Bed Room at liv.inn Boutique Hotel Pune featuring tranquil nature-oriented views, air conditioning, smart TV, complimentary high-speed Wi-Fi, work desk, and attached en-suite bathroom with 24/7 hot water.',
+    image: `${seoConfig.siteUrl}/images/rooms/premium_room.jpg`,
+    bed: {
+      '@type': 'BedDetails',
+      numberOfBeds: 1,
+      typeOfBed: 'Queen Bed',
+    },
+    occupancy: {
+      '@type': 'QuantitativeValue',
+      minValue: 1,
+      maxValue: 3,
+    },
+    amenityFeature: [
+      { '@type': 'LocationFeatureSpecification', name: 'Attached En-Suite Bathroom', value: true },
+      { '@type': 'LocationFeatureSpecification', name: '24/7 Hot Water', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Individual Air Conditioning', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'High-Speed Wi-Fi', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Smart TV', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Work Desk & Chair', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Nature Views', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'In-Room Cloud Kitchen Dining', value: true },
+    ],
+    isPartOf: {
+      '@type': 'Hotel',
+      name: brand.name,
+      url: seoConfig.siteUrl,
     },
   };
 }

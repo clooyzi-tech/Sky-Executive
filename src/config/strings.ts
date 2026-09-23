@@ -24,7 +24,7 @@ export const STRINGS = {
     tagline: hotelInfo.tagline,
     description: hotelInfo.shortDescription,
     logoAlt: 'liv.inn Boutique Hotel — Pune',
-    logoPath: '/livinn_logo.jpg',
+    logoPath: '/livinn-logo.png',
   },
 
   // ---------------------------------------------------------------------------
@@ -692,7 +692,7 @@ export const STRINGS = {
     termsConditions: 'Terms & Conditions',
     guestInformation: 'Guest Information',
     copyright: (year: number, brandName: string) =>
-      `Â© ${year} ${brandName} Hotel, Pune. All rights reserved.`,
+      `© ${year} ${brandName} Hotel, Pune. All rights reserved.`,
     instagramAria: 'Follow liv.inn on Instagram',
   },
 
@@ -710,11 +710,17 @@ export const STRINGS = {
       'boutique hotel Pune',
       'liv.inn Pune',
       'livinn hotel',
+      'hotel in Upper Kharadi Pune',
+      'hotel near Wagholi Pune',
+      'hotel near EON IT Park Kharadi',
       'nature view hotel Pune',
       'premium rooms Pune',
+      'pet friendly hotel Pune',
+      'couple friendly hotel Pune',
       'cloud kitchen hotel Pune',
       'hotel with parking Pune',
       'peaceful stay Pune',
+      'hotel booking Pune',
     ],
     pages: {
       about: {
@@ -769,8 +775,8 @@ export default STRINGS;
 export const BRAND = {
   name: 'LIV.INN',
   tagline: 'STAY IN COMFORT, LIVE THE MOMENT.',
-  developerBy: 'developed by',
-  developer: 'Clooyzi Technologies',
+  developerBy: 'Developed by',
+  developer: 'Jayaasi',
   phoneNumber: '+918007724646',
   phoneDisplay: '+91 8007724646',
 } as const;

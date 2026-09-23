@@ -2,7 +2,7 @@
  * Centralized Image Configuration for liv.inn (Pune)
  * 
  * Manages all image assets, brand logo, room photography, and gallery previews.
- * Brand identity uses the official liv.inn gold circular logo in /livinn_logo.jpg.
+ * Brand identity uses the official liv.inn gold logo in /livinn-logo.png.
  */
 
 export type GalleryCategory = 'property' | 'rooms' | 'nature' | 'dining';
@@ -18,7 +18,7 @@ export interface GalleryImageItem {
 
 export const IMAGES = {
   brand: {
-    logo: '/livinn_logo.jpg',
+    logo: '/livinn-logo.png',
     logoAlt: 'liv.inn Boutique Hotel — Pune',
     favicon: '/favicon.ico',
     ogImage: '/images/property/hero.jpg',

@@ -1,6 +1,6 @@
 {
   "botName": "liv.inn Assistant",
-  "avatar": "/livinn_logo.jpg",
+  "avatar": "/livinn-logo.png",
   "greeting": "Hello! 👋 Welcome to liv.inn. How can I help you today?",
   "fallback": "I can help you with rooms, facilities, location, dining, and contacting our team. Please select an option below.",
   "whatsappNumber": "+918007724646",
