@@ -19,8 +19,9 @@ export function generatePageMetadata({
     ? seoConfig.titleTemplate.replace('%s', title)
     : seoConfig.defaultTitle;
   const pageDescription = description ?? seoConfig.defaultDescription;
-  const url = `${seoConfig.siteUrl}${path}`;
-  const image = ogImage || '/images/property/hero.jpg';
+  const siteUrl = seoConfig.siteUrl;
+  const url = `${siteUrl}${path}`;
+  const image = ogImage || `${siteUrl}/livinn-logo.png`;
 
   return {
     title: pageTitle,
@@ -28,7 +29,7 @@ export function generatePageMetadata({
     keywords: [...seoConfig.defaultKeywords],
     authors: [{ name: brand.name }],
     creator: brand.name,
-    metadataBase: new URL(seoConfig.siteUrl),
+    metadataBase: new URL(siteUrl),
     alternates: {
       canonical: url,
     },
@@ -39,13 +40,22 @@ export function generatePageMetadata({
       title: pageTitle,
       description: pageDescription,
       siteName: brand.name,
-      images: [{ url: image, width: 1200, height: 630, alt: pageTitle }],
+      images: [
+        {
+          url: image.startsWith('http') ? image : `${siteUrl}${image}`,
+          secureUrl: image.startsWith('http') ? image : `${siteUrl}${image}`,
+          width: ogImage ? 1200 : 287,
+          height: ogImage ? 630 : 430,
+          type: 'image/png',
+          alt: pageTitle,
+        },
+      ],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: ogImage ? 'summary_large_image' : 'summary',
       title: pageTitle,
       description: pageDescription,
-      images: [image],
+      images: [image.startsWith('http') ? image : `${siteUrl}${image}`],
     },
   };
 }
@@ -67,8 +77,9 @@ export function hotelJsonLd() {
     logo: logoUrl,
     image: [
       logoUrl,
-      `${seoConfig.siteUrl}/images/property/hero.jpg`,
-      `${seoConfig.siteUrl}/images/rooms/premium_room.jpg`,
+      `${seoConfig.siteUrl}/images/property/building_exterior.webp`,
+      `${seoConfig.siteUrl}/images/rooms/double_bed_room.webp`,
+      `${seoConfig.siteUrl}/images/property/interior_design.webp`,
       `${seoConfig.siteUrl}/images/property/nature_view.jpg`,
     ],
     telephone: contact.phone,
@@ -150,7 +161,7 @@ export function hotelRoomJsonLd() {
     name: 'Double Bed Room',
     description:
       'Double Bed Room at liv.inn Boutique Hotel Pune featuring tranquil nature-oriented views, air conditioning, smart TV, complimentary high-speed Wi-Fi, work desk, and attached en-suite bathroom with 24/7 hot water.',
-    image: `${seoConfig.siteUrl}/images/rooms/premium_room.jpg`,
+    image: `${seoConfig.siteUrl}/images/rooms/double_bed_room.webp`,
     bed: {
       '@type': 'BedDetails',
       numberOfBeds: 1,

@@ -125,7 +125,7 @@ export default function EnquiryPopup() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: form.name.trim(),
-          email: form.email.trim() || `${form.phone.replace(/\D/g, '') || 'guest'}@guest.livinn.in`,
+          email: form.email.trim() || `${form.phone.replace(/\D/g, '') || 'guest'}@guest.livinn.co.in`,
           phone: `+91 ${form.phone.trim()}`,
           checkIn: form.checkIn,
           checkOut: form.checkOut,
@@ -221,7 +221,7 @@ export default function EnquiryPopup() {
               {/* Room photo at bottom */}
               <div className="relative h-36 w-full rounded-2xl overflow-hidden border border-white/15 shadow-md mt-6 z-10">
                 <Image
-                  src="/images/rooms/premium_room.jpg"
+                  src="/images/rooms/double_bed_room.webp"
                   alt="Double Bed Room at liv.inn"
                   fill
                   className="object-cover"

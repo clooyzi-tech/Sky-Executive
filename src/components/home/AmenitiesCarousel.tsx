@@ -12,6 +12,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from 'lucide-react';
+import { IMAGES } from '@/config/image';
 
 const AMENITIES = [
   {
@@ -25,7 +26,7 @@ const AMENITIES = [
     id: 'peaceful',
     title: 'Peaceful & Silent Ambience',
     desc: 'Tranquil boutique environment surrounded by serene hills for a restful, undisturbed stay.',
-    image: '/images/property/peaceful_ambience.jpg',
+    image: IMAGES.peacefulAmbience || '/images/property/interior_design.webp',
     icon: Wind,
   },
   {

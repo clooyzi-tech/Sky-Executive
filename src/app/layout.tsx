@@ -10,15 +10,17 @@ import EnquiryPopup from '@/components/ui/EnquiryPopup';
 import { Analytics } from '@vercel/analytics/react';
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
 
+const siteUrl = STRINGS.seo.siteUrl;
+
 export const metadata: Metadata = {
-  metadataBase: new URL(STRINGS.seo.siteUrl),
+  metadataBase: new URL(siteUrl),
   title: STRINGS.seo.defaultTitle,
   description: STRINGS.seo.defaultDescription,
   keywords: [...STRINGS.seo.defaultKeywords],
   authors: [{ name: STRINGS.brand.name }],
   creator: STRINGS.brand.name,
   alternates: {
-    canonical: STRINGS.seo.siteUrl,
+    canonical: siteUrl,
   },
   icons: {
     icon: [
@@ -33,24 +35,26 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: STRINGS.seo.siteUrl,
+    url: siteUrl,
     siteName: STRINGS.brand.name,
     title: STRINGS.seo.defaultTitle,
     description: STRINGS.seo.defaultDescription,
     images: [
       {
-        url: `${STRINGS.seo.siteUrl}/images/property/hero.jpg`,
-        width: 1200,
-        height: 630,
-        alt: STRINGS.seo.defaultTitle,
+        url: `${siteUrl}/livinn-logo.png`,
+        secureUrl: `${siteUrl}/livinn-logo.png`,
+        width: 287,
+        height: 430,
+        type: 'image/png',
+        alt: `${STRINGS.brand.name} Boutique Hotel Logo`,
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title: STRINGS.seo.defaultTitle,
     description: STRINGS.seo.defaultDescription,
-    images: [`${STRINGS.seo.siteUrl}/images/property/hero.jpg`],
+    images: [`${siteUrl}/livinn-logo.png`],
   },
   robots: {
     index: true,
@@ -72,6 +76,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${fontVariables} h-full antialiased`}
     >
       <head>
+        <link rel="image_src" href={`${siteUrl}/livinn-logo.png`} />
+        <meta property="og:image" content={`${siteUrl}/livinn-logo.png`} />
+        <meta property="og:image:secure_url" content={`${siteUrl}/livinn-logo.png`} />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="287" />
+        <meta property="og:image:height" content="430" />
+        <meta name="thumbnail" content={`${siteUrl}/livinn-logo.png`} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

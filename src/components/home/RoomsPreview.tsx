@@ -19,24 +19,24 @@ import {
 
 const ROOM_PHOTOS = [
   {
-    src: '/images/rooms/premium_room.jpg',
-    title: 'Double Bed Room',
-    subtitle: 'Queen Bed with warm wood accents',
+    src: '/images/rooms/double_bed_room.webp',
+    title: 'Signature Double Bed Room',
+    subtitle: 'Queen Bed with warm ambient cove ceiling lighting',
+  },
+  {
+    src: '/images/property/interior_design.webp',
+    title: 'Designer Interior & Lighting',
+    subtitle: 'Warm geometric ceiling cove lighting and chandelier',
+  },
+  {
+    src: '/images/property/building_exterior.webp',
+    title: 'Hotel Building Exterior',
+    subtitle: 'Boutique property amidst serene green surroundings in Pune',
   },
   {
     src: '/images/services/bathroom.jpg',
     title: 'En-Suite Bathroom',
     subtitle: 'Attached bathroom with 24/7 hot water supply',
-  },
-  {
-    src: '/images/services/wifi_desk.jpg',
-    title: 'Work Desk & Fast Wi-Fi',
-    subtitle: 'Dedicated space for business travelers',
-  },
-  {
-    src: '/images/property/nature_view.jpg',
-    title: 'Scenic Nature Window View',
-    subtitle: 'Tranquil greenery facing Pune hills',
   },
 ];
 
