@@ -63,7 +63,7 @@ const TIMELINE_STEPS: TimelineStep[] = [
       'Continuous CCTV security monitoring in all common areas',
       'Gated residential serenity near Kharadi IT parks and Wagholi',
     ],
-    image: '/images/services/reception.jpg',
+    image: IMAGES.services.reception || '/images/property/interior_design.webp',
     imageAlt: '24/7 security and reception desk at liv.inn Pune',
     ctaText: 'Contact Front Desk',
     ctaHref: '/contact',

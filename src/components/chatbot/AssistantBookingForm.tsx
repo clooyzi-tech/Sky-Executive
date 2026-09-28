@@ -90,7 +90,7 @@ export default function AssistantBookingForm({
         body: JSON.stringify({ 
           name: name.trim(), 
           phone: `+91 ${phone.trim()}`, 
-          email: email.trim() || `${phoneDigits || 'guest'}@guest.livinn.in`, 
+          email: email.trim() || `${phoneDigits || 'guest'}@guest.livinn.co.in`, 
           roomId,
           roomKey,
           services: serviceSummary,

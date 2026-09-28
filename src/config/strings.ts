@@ -14,6 +14,23 @@ import {
   contactConfig,
 } from '@/content';
 
+/**
+ * Resolves the active site URL dynamically based on deployment environment.
+ * Primary production domain: https://livinn.co.in
+ */
+export function resolveSiteUrl(): string {
+  if (typeof process !== 'undefined') {
+    if (process.env.NEXT_PUBLIC_SITE_URL) {
+      const url = process.env.NEXT_PUBLIC_SITE_URL.trim();
+      return url.startsWith('http') ? url : `https://${url}`;
+    }
+    if (process.env.NODE_ENV === 'development') {
+      return 'http://localhost:3000';
+    }
+  }
+  return 'https://livinn.co.in';
+}
+
 export const STRINGS = {
   // ---------------------------------------------------------------------------
   // Brand Identity
@@ -187,7 +204,7 @@ export const STRINGS = {
           'Thoughtfully designed rooms with modern amenities to make your stay relaxing and memorable.',
         linkText: 'EXPLORE ROOMS',
         href: '/rooms',
-        image: '/images/rooms/premium_room.jpg',
+        image: '/images/rooms/double_bed_room.webp',
       },
       housekeeping: {
         category: 'HOUSEKEEPING',
@@ -208,7 +225,7 @@ export const STRINGS = {
           linkText: 'LEARN MORE',
           href: '/contact',
           icon: 'Users',
-          image: '/images/services/reception.jpg',
+          image: '/images/property/interior_design.webp',
         },
         {
           id: 'wifi',
@@ -296,7 +313,7 @@ export const STRINGS = {
           linkText: 'LEARN MORE',
           href: '/contact',
           icon: 'Luggage',
-          image: '/images/services/reception.jpg',
+          image: '/images/property/interior_design.webp',
         },
       ],
       banner: {
@@ -330,7 +347,7 @@ export const STRINGS = {
             'A spacious 200 sq. ft. room thoughtfully equipped with a plush double bed (queen-size), attached en-suite bathroom with 24/7 hot water, individual air conditioning, smart TV, high-speed Wi-Fi, work table, and scenic nature-facing views, arranged for guaranteed privacy.',
           tagBadge: 'PREMIUM ROOM | 200 SQ. FT. | DOUBLE BED | NATURE VIEW',
           occupancyText: 'Accommodates 2 + 1 Guests (Extra Bed Available)',
-          image: '/images/rooms/premium_room.jpg',
+          image: '/images/rooms/double_bed_room.webp',
           amenities: [
             { icon: 'Bed', label: 'Double Bed (Queen Size)' },
             { icon: 'Bath', label: 'Attached Bath (24/7 Hot Water)' },
@@ -700,7 +717,7 @@ export const STRINGS = {
   // SEO Metadata Strings
   // ---------------------------------------------------------------------------
   seo: {
-    siteUrl: 'https://livinn.in',
+    siteUrl: resolveSiteUrl(),
     defaultTitle: 'liv.inn Boutique Hotel in Pune | Nature-Oriented Stay',
     titleTemplate: '%s | liv.inn Boutique Hotel in Pune',
     defaultDescription:
@@ -710,6 +727,9 @@ export const STRINGS = {
       'boutique hotel Pune',
       'liv.inn Pune',
       'livinn hotel',
+      'livinn.co.in',
+      'www.livinn.co.in',
+      'livinn hotel pune',
       'hotel in Upper Kharadi Pune',
       'hotel near Wagholi Pune',
       'hotel near EON IT Park Kharadi',

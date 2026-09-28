@@ -22,7 +22,7 @@ interface HeroSlide {
 
 const HERO_SLIDES: HeroSlide[] = [
   {
-    src: IMAGES.rooms['premium-room'] || '/images/rooms/premium_room.jpg',
+    src: '/images/rooms/premium_room.jpg',
     alt: 'liv.inn Double Bed Room offering serene comfort in Pune',
     word: 'comfort',
     label: 'Room View',
@@ -34,7 +34,7 @@ const HERO_SLIDES: HeroSlide[] = [
     label: 'Spacious Stays',
   },
   {
-    src: IMAGES.hero,
+    src: '/images/property/hero.jpg',
     alt: 'Hotel liv.inn building atmosphere amidst peaceful greenery in Pune',
     word: 'Atmosphere',
     label: 'Hotel Atmosphere',
@@ -46,7 +46,7 @@ const HERO_SLIDES: HeroSlide[] = [
     label: 'Nature & Joy',
   },
   {
-    src: IMAGES.services.reception || '/images/services/reception.jpg',
+    src: '/images/services/reception.jpg',
     alt: 'Attentive 24/7 front desk guest assistance at liv.inn Pune',
     word: 'Quality Service',
     label: 'Front Desk Care',
