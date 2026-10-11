@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: '/gallery', priority: 0.8, changeFrequency: 'monthly' },
     { route: '/contact', priority: 0.8, changeFrequency: 'monthly' },
     { route: '/guest-information', priority: 0.7, changeFrequency: 'monthly' },
+    { route: '/chat', priority: 0.6, changeFrequency: 'monthly' },
     { route: '/policies', priority: 0.5, changeFrequency: 'yearly' },
     { route: '/privacy-policy', priority: 0.5, changeFrequency: 'yearly' },
     { route: '/terms', priority: 0.5, changeFrequency: 'yearly' },

@@ -1056,7 +1056,7 @@ export default function LivinnAssistant({
 
                   <div className="space-y-2">
                     <a
-                      href="https://www.instagram.com/livinn69/"
+                      href="https://www.instagram.com/hotelskyexecutive/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-between p-2.5 rounded-xl border border-[#EFE8DD] bg-[#FAF8F5] hover:border-[#B38E46] transition-all group"
@@ -1067,7 +1067,7 @@ export default function LivinnAssistant({
                         </div>
                         <div>
                           <h4 className="text-xs font-semibold text-[#2A241C]">
-                            Instagram @livinn69
+                            Instagram @hotelskyexecutive
                           </h4>
                           <p className="text-[9.5px] text-[#7E7465]">Follow our updates & photos</p>
                         </div>
@@ -1076,7 +1076,7 @@ export default function LivinnAssistant({
                     </a>
 
                     <a
-                      href="https://wa.me/918007724646?text=Hello%20{BRAND.name}%20Pune"
+                      href="https://wa.me/918007724646?text=Hello%20Hotel%20Sky%20Executive%20Pune"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-between p-2.5 rounded-xl border border-[#EFE8DD] bg-[#FAF8F5] hover:border-[#B38E46] transition-all group"
@@ -1094,7 +1094,7 @@ export default function LivinnAssistant({
                     </a>
 
                     <a
-                      href="https://www.google.com/maps/place/{BRAND.name}"
+                      href="https://www.google.com/maps/search/?api=1&query=Hotel+Sky+Executive+Jaywant+Towers+Lonikand+Pune+412216"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-between p-2.5 rounded-xl border border-[#EFE8DD] bg-[#FAF8F5] hover:border-[#B38E46] transition-all group"
@@ -1105,7 +1105,7 @@ export default function LivinnAssistant({
                         </div>
                         <div>
                           <h4 className="text-xs font-semibold text-[#2A241C]">Google Maps Location</h4>
-                          <p className="text-[9.5px] text-[#7E7465]">Upper Kharadi, Wagholi, Pune</p>
+                          <p className="text-[9.5px] text-[#7E7465]">Jaywant Towers, Lonikand, Pune</p>
                         </div>
                       </div>
                       <ExternalLink className="w-3.5 h-3.5 text-[#B38E46] group-hover:translate-x-0.5 transition-transform" />

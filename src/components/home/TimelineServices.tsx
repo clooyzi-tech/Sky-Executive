@@ -57,11 +57,11 @@ const TIMELINE_STEPS: TimelineStep[] = [
     title: 'We Provide High Class Security',
     tagline: '24/7 Front Desk, Security & Peace of Mind',
     description:
-      'Nestled inside the secure Infinity Greens Society in Upper Kharadi, Hotel Sky Executive provides round-the-clock front desk presence, CCTV monitoring across all corridors and entry points, and complete safety.',
+      'Situated at Jaywant Towers on Pune–Nagar Road in Lonikand, Hotel Sky Executive provides round-the-clock front desk presence, CCTV monitoring across all corridors and entry points, and complete safety.',
     highlights: [
       '24/7 Front desk assistance & staff on-site day and night',
       'Continuous CCTV security monitoring in all common areas',
-      'Gated residential serenity near Kharadi IT parks and Wagholi',
+      'Prime connectivity near Lonikand and Sanaswadi industrial belt',
     ],
     image: IMAGES.services.reception || '/images/property/interior_design.webp',
     imageAlt: '24/7 security and reception desk at Hotel Sky Executive Pune',

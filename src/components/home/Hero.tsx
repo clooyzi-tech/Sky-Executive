@@ -132,7 +132,7 @@ export default function Hero() {
             className="flex flex-col items-center"
           >
             <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-accent/40 bg-navy/60 px-4 py-1 text-xs uppercase tracking-widest text-accent backdrop-blur-sm">
-              <span>{STRINGS.brand.tagline}</span>
+              <span>Executive Hotel • Pune–Nagar Road, Lonikand</span>
             </div>
 
             <h1 className="flex flex-col sm:flex-row items-center justify-center font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white drop-shadow-md">

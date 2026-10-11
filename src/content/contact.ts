@@ -3,8 +3,8 @@
  * 
  * Verified Property Details:
  * - Phone: +91 80077 24646 (Call & WhatsApp)
- * - Address: Plot No-31, Lane No-4, Infinity Greens Society, Near VTP Altair Phase-1,
- *   Gat No- 1251, Upper Kharadi, Wagholi, Pune-412207
+ * - Address: Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse,
+ *   Lonikand, Pune - 412216
  */
 
 export interface ContactConfig {
@@ -77,11 +77,11 @@ export const contactConfig: ContactConfig = {
   whatsapp: '+918007724646',
   whatsappStatus: 'verified',
 
-  email: 'help.livinn@gmail.com',
+  email: 'help.skyexecutive@gmail.com',
   emailStatus: 'verified',
 
   social: {
-    instagram: 'https://www.instagram.com/livinn69/',
+    instagram: 'https://www.instagram.com/hotelskyexecutive/',
     instagramNote: 'Official Hotel Sky Executive Instagram profile',
   },
 
