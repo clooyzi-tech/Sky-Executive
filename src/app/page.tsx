@@ -22,7 +22,7 @@ export default function Home() {
       {/* 2. Timeline Section: High Quality Services, 20+ Amenities, High Class Security */}
       <TimelineServices />
 
-      {/* 3. Moments from Liv.inn: Dark Luxury Mosaic Gallery */}
+      {/* 3. Moments from Hotel Sky Executive: Dark Luxury Mosaic Gallery */}
       <MomentsGallery />
 
       {/* 4. Amenities Carousel: "Everything You Need" */}

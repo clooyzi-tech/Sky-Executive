@@ -7,7 +7,7 @@ import { generatePageMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Privacy Policy',
-  description: 'Privacy Policy for liv.inn Boutique Hotel, Pune.',
+  description: 'Privacy Policy for HOTEL SKY EXECUTIVE, Pune.',
   path: '/privacy-policy',
 });
 

@@ -6,7 +6,7 @@ import { STRINGS } from '@/config/strings';
 import { Home, BedDouble, Phone } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Page Not Found | liv.inn Pune',
+  title: 'Page Not Found | Hotel Sky Executive Pune',
   description: 'The requested page could not be found.',
   robots: {
     index: false,

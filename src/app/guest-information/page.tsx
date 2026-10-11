@@ -42,7 +42,7 @@ export default function GuestInformationPage() {
         <div className="mx-auto max-w-lg px-4 text-center sm:px-6">
           <AnimatedSection>
             <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-black/40 px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-accent-gold backdrop-blur-sm">
-              liv.inn • Pune Guest Portal
+              Hotel Sky Executive • Pune Guest Portal
             </div>
             <h1 className="mt-4 font-serif text-3xl font-bold text-white md:text-4xl">
               {guestInfo.header.title}
@@ -233,7 +233,7 @@ export default function GuestInformationPage() {
               {guestInfo.footerNote.line2}
             </p>
             <p className="mt-3 font-medium text-charcoal">
-              liv.inn Hotel • {contact.address.full}
+              Hotel Sky Executive Hotel • {contact.address.full}
             </p>
           </div>
         </AnimatedSection>

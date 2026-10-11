@@ -1,5 +1,5 @@
 /**
- * Centralized Fonts Configuration for Liv.inn
+ * Centralized Fonts Configuration for Hotel Sky Executive
  * 
  * All typography definitions, font loaders, and CSS variables are managed here.
  */

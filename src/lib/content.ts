@@ -1,8 +1,8 @@
 /* ==========================================================================
-   liv.inn — Content Layer
+   Hotel Sky Executive — Content Layer
    
    Synchronized with centralized src/content/ and src/config/
-   Strictly verified for liv.inn Pune (nature views, verified amenities).
+   Strictly verified for Hotel Sky Executive Pune.
    ========================================================================== */
 
 import { STRINGS } from '@/config/strings';

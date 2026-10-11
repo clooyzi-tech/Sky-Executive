@@ -1,5 +1,5 @@
 /**
- * Contact, Location & Connectivity Configuration — liv.inn (Pune)
+ * Contact, Location & Connectivity Configuration — Hotel Sky Executive (Pune)
  * 
  * Verified Property Details:
  * - Phone: +91 80077 24646 (Call & WhatsApp)
@@ -82,7 +82,7 @@ export const contactConfig: ContactConfig = {
 
   social: {
     instagram: 'https://www.instagram.com/livinn69/',
-    instagramNote: 'Official liv.inn Instagram profile',
+    instagramNote: 'Official Hotel Sky Executive Instagram profile',
   },
 
   address: {

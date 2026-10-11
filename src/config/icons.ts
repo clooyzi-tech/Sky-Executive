@@ -1,5 +1,5 @@
 /**
- * Centralized Icons Configuration for liv.inn (Pune)
+ * Centralized Icons Configuration for Hotel Sky Executive (Pune)
  * 
  * All icons (Lucide icons and custom SVGs) are managed and exported here.
  * Re-exports clean Lucide icons and resolvers for verified facilities and Pune categories.

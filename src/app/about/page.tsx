@@ -34,7 +34,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 z-0 opacity-20">
           <Image
             src={IMAGES.hero}
-            alt="liv.inn Pune"
+            alt="Hotel Sky Executive Pune"
             fill
             className="object-cover"
           />
@@ -113,7 +113,7 @@ export default function AboutPage() {
               <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-border-gold shadow-xl">
                 <Image
                   src={IMAGES.natureView}
-                  alt="Scenic greenery and nature-oriented perspective at liv.inn"
+                  alt="Scenic greenery and nature-oriented perspective at Hotel Sky Executive"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"

@@ -76,13 +76,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${fontVariables} h-full antialiased`}
     >
       <head>
-        <link rel="image_src" href={`${siteUrl}/livinn-logo.png`} />
-        <meta property="og:image" content={`${siteUrl}/livinn-logo.png`} />
-        <meta property="og:image:secure_url" content={`${siteUrl}/livinn-logo.png`} />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="287" />
-        <meta property="og:image:height" content="430" />
-        <meta name="thumbnail" content={`${siteUrl}/livinn-logo.png`} />
+        <link rel="image_src" href={`${siteUrl}/sky-executive-logo.svg`} />
+        <meta property="og:image" content={`${siteUrl}/sky-executive-logo.svg`} />
+        <meta property="og:image:secure_url" content={`${siteUrl}/sky-executive-logo.svg`} />
+        <meta property="og:image:type" content="image/svg+xml" />
+        <meta property="og:image:width" content="300" />
+        <meta property="og:image:height" content="300" />
+        <meta name="thumbnail" content={`${siteUrl}/sky-executive-logo.svg`} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

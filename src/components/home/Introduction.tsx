@@ -141,7 +141,7 @@ export default function Introduction() {
                 <div className="relative aspect-[4/3] sm:aspect-[16/11] rounded-3xl overflow-hidden border border-border shadow-2xl bg-charcoal">
                   <Image
                     src={IMAGES.natureView}
-                    alt="Scenic nature and greenery view from liv.inn Pune"
+                    alt="Scenic nature and greenery view from Hotel Sky Executive Pune"
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover object-center transition-transform duration-700 hover:scale-105"
@@ -186,11 +186,11 @@ export default function Introduction() {
           </div>
         </div>
 
-        {/* 4 Pillars of liv.inn Pune (Refined Cards) */}
+        {/* 4 Pillars of Hotel Sky Executive Pune (Refined Cards) */}
         <div>
           <div className="text-center mb-10 sm:mb-12">
             <h3 className="font-serif text-2xl font-bold text-charcoal sm:text-3xl">
-              Why Guests Love liv.inn
+              Why Guests Love Hotel Sky Executive
             </h3>
             <p className="mt-2.5 sm:mt-3 text-sm text-slate-medium">
               Carefully designed essentials for a restful and seamless stay

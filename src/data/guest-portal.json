@@ -1,8 +1,8 @@
 {
   "welcome": {
-    "hotelName": "liv.inn",
-    "greeting": "Welcome to liv.inn",
-    "subtitle": "Your serene, nature-oriented stay in Pune",
+    "hotelName": "Hotel Sky Executive",
+    "greeting": "Welcome to Hotel Sky Executive",
+    "subtitle": "Executive comfort on Pune–Nagar Road",
     "message": "We're delighted to have you. Explore services, request amenities, or find nearby places — all from your phone."
   },
   "wifi": {
@@ -54,7 +54,7 @@
       {
         "title": "Pets",
         "icon": "Heart",
-        "content": "liv.inn is a pet-friendly property. Pets are welcome at no additional charge."
+        "content": "Hotel Sky Executive is a pet-friendly property. Pets are welcome at no additional charge."
       },
       {
         "title": "Quiet Hours",
@@ -78,6 +78,6 @@
     "phoneDisplay": "+91 80077 24646",
     "whatsapp": "+918007724646",
     "email": "help.livinn@gmail.com",
-    "address": "Plot No-31, Lane No-4, Infinity Greens Society, Near VTP Altair Phase-1, Upper Kharadi, Wagholi, Pune-412207"
+    "address": "Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse, Lonikand, Pune – 412216"
   }
 }

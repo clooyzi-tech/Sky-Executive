@@ -334,7 +334,7 @@ export default function ExperienceSection({
 
                 <p className="mt-3 text-xs sm:text-sm text-[#5F5A50] leading-relaxed max-w-sm">
                   {isAllServicesPage
-                    ? 'Ready to experience boutique comfort at liv.inn Pune? Connect directly with our front desk team.'
+                    ? 'Ready to experience boutique comfort at Hotel Sky Executive Pune? Connect directly with our front desk team.'
                     : experience.banner.subtitle}
                 </p>
 
@@ -354,7 +354,7 @@ export default function ExperienceSection({
               <div className="lg:col-span-7 relative h-64 sm:h-80 lg:h-full min-h-[260px] lg:min-h-[340px] overflow-hidden bg-cream">
                 <Image
                   src={experience.banner.image}
-                  alt="liv.inn Boutique Experience — Good Stays Create Great Stories"
+                  alt="Hotel Sky Executive Boutique Experience — Good Stays Create Great Stories"
                   fill
                   sizes="(max-width: 1024px) 100vw, 60vw"
                   className="object-cover"
@@ -378,10 +378,10 @@ export default function ExperienceSection({
             </div>
           ))}
 
-          {/* Liv.inn Brand Signature */}
+          {/* Hotel Sky Executive Brand Signature */}
           <div className="flex items-center gap-2.5 font-serif font-bold text-[11px] tracking-[0.2em] text-[#B88A2A] uppercase ml-auto lg:ml-0">
             <span className="h-px w-6 bg-[#C9A227]" />
-            <span>LIV.INN BOUTIQUE HOTEL</span>
+            <span>HOTEL SKY EXECUTIVE</span>
           </div>
         </div>
       </div>

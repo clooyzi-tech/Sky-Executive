@@ -92,7 +92,7 @@ export async function POST(request: Request) {
   }
 
   const fromAddress =
-    process.env.SMTP_FROM || `"liv.inn Assistant" <${smtpUser}>`;
+    process.env.SMTP_FROM || `"Hotel Sky Executive Assistant" <${smtpUser}>`;
 
   // 4. Send email via Nodemailer
   try {
@@ -113,7 +113,7 @@ export async function POST(request: Request) {
     });
 
     const textContent = `
-Guest Service Request - Room ${roomId} (liv.inn)
+Guest Service Request - Room ${roomId} (Hotel Sky Executive)
 =======================================
 Date: ${formattedSubmissionDate}
 
@@ -192,7 +192,7 @@ ${message.trim() || 'None'}
       <div class="message-box">${message.trim() ? escapeHtml(message.trim()) : '<em>No additional message provided.</em>'}</div>
     </div>
     <div class="footer">
-      liv.inn Hotel Pune • Chatbot Assistant System
+      Hotel Sky Executive Hotel Pune • Chatbot Assistant System
     </div>
   </div>
 </body>

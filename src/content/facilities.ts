@@ -1,5 +1,5 @@
 /**
- * Facilities & Guest Services — liv.inn (Pune)
+ * Facilities & Guest Services — Hotel Sky Executive (Pune)
  * 
  * Sourced directly from verified developer document:
  * LivInn_Hotel_Chatbot_Information.docx
@@ -91,7 +91,7 @@ export const allFacilitiesAndServices: FacilityItem[] = [
     title: 'Pet-Friendly Stay',
     category: 'service',
     shortDescription: 'Pets are warmly welcomed to stay with you at no additional charge.',
-    fullDescription: 'Travel with your furry companions without hesitation. liv.inn is a pet-friendly property with no extra pet fees or surcharges.',
+    fullDescription: 'Travel with your furry companions without hesitation. Hotel Sky Executive is a pet-friendly property with no extra pet fees or surcharges.',
     availability: 'Pets Allowed • No Extra Charge',
     status: 'verified',
   },
@@ -131,5 +131,5 @@ export const facilitiesSectionConfig = {
   title: 'Facilities & Services',
   subtitle: 'Everything you need for a relaxed and comfortable stay in Pune',
   description:
-    'liv.inn combines boutique tranquility with essential everyday conveniences. From high-speed Wi-Fi and parking to our cloud kitchen and 24/7 support, your comfort is prioritized.',
+    'Hotel Sky Executive combines executive comfort with essential everyday conveniences. From high-speed Wi-Fi and parking to our cloud kitchen and 24/7 support, your comfort is prioritized.',
 };

@@ -102,7 +102,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
               {/* Verified Quick Highlights */}
               <div className="mt-8 rounded-xl border border-border bg-cream/40 p-4">
                 <p className="text-xs font-semibold uppercase tracking-wider text-accent-dark">
-                  liv.inn at a glance
+                  Hotel Sky Executive at a glance
                 </p>
                 <ul className="mt-2 space-y-1 text-xs text-slate-deep">
                   <li>• Premium Rooms with Nature Views</li>

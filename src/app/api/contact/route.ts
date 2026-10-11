@@ -95,7 +95,7 @@ export async function POST(request: Request) {
   }
 
   const fromAddress =
-    process.env.SMTP_FROM || `"liv.inn Reservations" <${smtpUser}>`;
+    process.env.SMTP_FROM || `"Hotel Sky Executive Reservations" <${smtpUser}>`;
 
   // 5. Send email via Nodemailer
   try {
@@ -117,7 +117,7 @@ export async function POST(request: Request) {
 
     // Plain text version
     const textContent = `
-New Guest Stay Enquiry - liv.inn (Pune)
+New Guest Stay Enquiry - Hotel Sky Executive (Pune)
 =======================================
 Date: ${formattedSubmissionDate}
 
@@ -168,7 +168,7 @@ You can reply directly to this email to respond to the guest at ${email.trim()}.
   <div class="card">
     <div class="header">
       <div class="badge">New Enquiry</div>
-      <h1 class="title">liv.inn Boutique Hotel</h1>
+      <h1 class="title">HOTEL SKY EXECUTIVE</h1>
       <p class="subtitle">Received on ${formattedSubmissionDate} (IST)</p>
     </div>
     <div class="content">
@@ -216,7 +216,7 @@ You can reply directly to this email to respond to the guest at ${email.trim()}.
       </div>
     </div>
     <div class="footer">
-      liv.inn Hotel Pune • Plot No-31, Lane No-4, Infinity Greens Society, Upper Kharadi, Wagholi, Pune 412207
+      Hotel Sky Executive Hotel Pune • Plot No-31, Lane No-4, Infinity Greens Society, Upper Kharadi, Wagholi, Pune 412207
     </div>
   </div>
 </body>
@@ -227,7 +227,7 @@ You can reply directly to this email to respond to the guest at ${email.trim()}.
       from: fromAddress,
       to: receiverEmail,
       replyTo: email.trim(),
-      subject: `New Stay Enquiry: ${name.trim()} - liv.inn`,
+      subject: `New Stay Enquiry: ${name.trim()} - Hotel Sky Executive`,
       text: textContent,
       html: htmlContent,
     });

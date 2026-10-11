@@ -25,7 +25,7 @@ interface RoomProviderProps {
 
 export function RoomProvider({ roomId, children }: RoomProviderProps) {
   const whatsappNumber = '918007724646';
-  const hotelName = 'liv.inn';
+  const hotelName = 'Hotel Sky Executive';
   const callReceptionUrl = 'tel:+918007724646';
 
   const generateWhatsAppUrl = useMemo(() => {

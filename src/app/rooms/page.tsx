@@ -40,7 +40,7 @@ export default function RoomsPage() {
         <div className="absolute inset-0 z-0 opacity-20">
           <Image
             src={IMAGES.rooms['premium-room']}
-            alt="liv.inn Premium Room"
+            alt="Hotel Sky Executive Premium Room"
             fill
             className="object-cover"
           />

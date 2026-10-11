@@ -32,7 +32,7 @@ const TIMELINE_STEPS: TimelineStep[] = [
       'Scenic nature-oriented views facing tranquil greenery',
     ],
     image: IMAGES.cloudKitchen || '/images/property/cloud_kitchen.jpg',
-    imageAlt: 'High quality in-room dining and guest care at liv.inn Pune',
+    imageAlt: 'High quality in-room dining and guest care at Hotel Sky Executive Pune',
     ctaText: 'Explore Dining & Rooms',
     ctaHref: '/rooms',
   },
@@ -48,7 +48,7 @@ const TIMELINE_STEPS: TimelineStep[] = [
       'Free on-site parking & pet-friendly stay at no extra charge',
     ],
     image: '/images/services/wifi_desk.jpg',
-    imageAlt: '20+ verified amenities and guest services at liv.inn',
+    imageAlt: '20+ verified amenities and guest services at Hotel Sky Executive',
     ctaText: 'View All Facilities',
     ctaHref: '/facilities',
   },
@@ -57,14 +57,14 @@ const TIMELINE_STEPS: TimelineStep[] = [
     title: 'We Provide High Class Security',
     tagline: '24/7 Front Desk, Security & Peace of Mind',
     description:
-      'Nestled inside the secure Infinity Greens Society in Upper Kharadi, liv.inn provides round-the-clock front desk presence, CCTV monitoring across all corridors and entry points, and complete safety.',
+      'Nestled inside the secure Infinity Greens Society in Upper Kharadi, Hotel Sky Executive provides round-the-clock front desk presence, CCTV monitoring across all corridors and entry points, and complete safety.',
     highlights: [
       '24/7 Front desk assistance & staff on-site day and night',
       'Continuous CCTV security monitoring in all common areas',
       'Gated residential serenity near Kharadi IT parks and Wagholi',
     ],
     image: IMAGES.services.reception || '/images/property/interior_design.webp',
-    imageAlt: '24/7 security and reception desk at liv.inn Pune',
+    imageAlt: '24/7 security and reception desk at Hotel Sky Executive Pune',
     ctaText: 'Contact Front Desk',
     ctaHref: '/contact',
   },
@@ -78,7 +78,7 @@ export default function TimelineServices() {
         <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-24">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#FAF0E1] border border-[#E8DFC8] text-[#A67C37] text-xs font-semibold tracking-wider uppercase mb-3">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Why Guests Choose Liv.inn</span>
+            <span>Why Guests Choose Hotel Sky Executive</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#2A241C] tracking-tight">
             Crafted for Unmatched Stay Experience

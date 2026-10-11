@@ -1,9 +1,8 @@
 /**
- * Centralized Strings Configuration for liv.inn (Pune)
+ * Centralized Strings Configuration for Hotel Sky Executive (Pune)
  * 
  * Synchronized directly with verified domain content under src/content/
  * - Single source of truth
- * - Zero references to other properties or Mumbai
  * - Strictly verified information from developer document
  */
 
@@ -16,7 +15,7 @@ import {
 
 /**
  * Resolves the active site URL dynamically based on deployment environment.
- * Primary production domain: https://livinn.co.in
+ * Primary production domain: https://hotelskyexecutive.in
  */
 export function resolveSiteUrl(): string {
   if (typeof process !== 'undefined') {
@@ -28,7 +27,7 @@ export function resolveSiteUrl(): string {
       return 'http://localhost:3000';
     }
   }
-  return 'https://livinn.co.in';
+  return 'https://hotelskyexecutive.in';
 }
 
 export const STRINGS = {
@@ -154,15 +153,15 @@ export const STRINGS = {
       },
     },
     prefilledMessages: {
-      heroEnquiry: 'Hi! I would like to make a stay enquiry at liv.inn in Pune.',
-      bookingCTA: 'Hi! I would like to check room availability and rates for liv.inn Pune.',
-      floatingWhatsApp: 'Hi! I would like to know more about liv.inn Hotel in Pune.',
+      heroEnquiry: 'Hi! I would like to make a stay enquiry at Hotel Sky Executive in Pune.',
+      bookingCTA: 'Hi! I would like to check room availability and rates for Hotel Sky Executive Pune.',
+      floatingWhatsApp: 'Hi! I would like to know more about Hotel Sky Executive in Pune.',
       roomEnquiry: (roomName: string) =>
-        `Hi! I'm interested in the ${roomName} at liv.inn Pune. Could you share availability and details?`,
+        `Hi! I'm interested in the ${roomName} at Hotel Sky Executive Pune. Could you share availability and details?`,
       roomEnquiryShort: (roomName: string) =>
-        `Hi! I'm interested in the ${roomName} at liv.inn Pune.`,
-      guestAssistance: 'Hi, I am a guest at liv.inn Pune and need assistance.',
-      contactPageEnquiry: "Hi! I'd like to enquire about staying at liv.inn Pune.",
+        `Hi! I'm interested in the ${roomName} at Hotel Sky Executive Pune.`,
+      guestAssistance: 'Hi, I am a guest at Hotel Sky Executive Pune and need assistance.',
+      contactPageEnquiry: "Hi! I'd like to enquire about staying at Hotel Sky Executive Pune.",
     },
   },
 
@@ -174,7 +173,7 @@ export const STRINGS = {
       badge: 'Boutique Hotel in Pune • Premium Rooms',
       title: 'A Serene, Nature-Oriented Stay in Pune',
       description:
-        'Experience calm comfort at liv.inn — an intimate boutique hotel in Pune with scenic nature views, in-house cloud kitchen, and 24/7 guest assistance.',
+        'Experience calm comfort at Hotel Sky Executive — a premier executive hotel in Pune with contemporary rooms, in-house cloud kitchen, and 24/7 guest assistance.',
       ctaEnquire: 'Enquire Now',
       ctaExplore: 'Explore Rooms',
       stats: [
@@ -319,7 +318,7 @@ export const STRINGS = {
       banner: {
         title: 'Experience Comfort at Every Step',
         subtitle:
-          'Discover all the services and facilities designed for your perfect stay at Liv.inn.',
+          'Discover all the services and facilities designed for your perfect stay at Hotel Sky Executive.',
         btnText: 'VIEW ALL SERVICES',
         href: '/rooms#facilities',
         image: '/images/services/banner.jpg',
@@ -370,15 +369,15 @@ export const STRINGS = {
       },
     },
     galleryPreview: {
-      title: 'A Glimpse of liv.inn',
-      subtitle: 'Explore our premium rooms, green surroundings, and verified amenities in Pune',
+      title: 'A Glimpse of Hotel Sky Executive',
+      subtitle: 'Explore our premium rooms, elegant spaces, and verified amenities in Pune',
       ctaViewAll: 'View Full Gallery',
     },
     natureHighlight: {
       badge: 'Tranquil Environment',
       title: 'Nature-Oriented Surroundings',
       description:
-        'Unlike crowded city stays, liv.inn provides a refreshing perspective with pleasant nature-facing views. Wake up to natural daylight and verdant scenery that restores balance to your travels in Pune.',
+        'Unlike crowded city stays, Hotel Sky Executive provides a refreshing perspective with pleasant surroundings. Wake up to natural daylight and a peaceful atmosphere that restores balance to your travels in Pune.',
       bulletPoints: [
         'Green, nature-oriented perspectives from rooms',
         'Quiet atmosphere with peaceful privacy',
@@ -387,7 +386,7 @@ export const STRINGS = {
       ],
     },
     whyChoose: {
-      title: 'Why Choose liv.inn',
+      title: 'Why Choose Hotel Sky Executive',
       subtitle: 'Verified amenities and services designed around your comfort',
       features: [
         {
@@ -438,11 +437,11 @@ export const STRINGS = {
       subtitle: 'Situated in Upper Kharadi, Wagholi, Pune with peaceful green surroundings',
       ctaDirections: 'Open Google Maps',
       ctaDetails: 'View Landmark Details',
-      mapTitle: 'liv.inn Hotel Location — Wagholi, Pune',
-      addressNotice: 'Plot No-31, Lane No-4, Infinity Greens Society, Near VTP Altair Phase-1, Gat No- 1251, Upper Kharadi, Wagholi, Pune-412207, Wagholi 412207',
+      mapTitle: 'Hotel Sky Executive Location — Lonikand, Pune',
+      addressNotice: 'Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse, Lonikand, Pune – 412216',
     },
     bookingCTA: {
-      title: 'Plan Your Stay at liv.inn',
+      title: 'Plan Your Stay at Hotel Sky Executive',
       description:
         'Submit a stay enquiry or reach out directly to check room availability, arrival arrangements, or group requirements. Our team is here 24/7 to assist you.',
       whatsappBtn: 'Enquire on WhatsApp',
@@ -456,8 +455,8 @@ export const STRINGS = {
   // ---------------------------------------------------------------------------
   about: {
     header: {
-      title: 'About liv.inn',
-      subtitle: 'Intimate boutique hospitality and nature-oriented comfort in Pune',
+      title: 'About Hotel Sky Executive',
+      subtitle: 'Executive hospitality and contemporary comfort in Pune',
     },
     story: {
       title: hotelInfo.story.title,
@@ -475,7 +474,7 @@ export const STRINGS = {
     ],
     values: {
       title: 'Our Commitments',
-      subtitle: 'The principles guiding every guest interaction at liv.inn',
+      subtitle: 'The principles guiding every guest interaction at Hotel Sky Executive',
       items: hotelInfo.values.map((v) => ({
         title: v.title,
         text: v.description,
@@ -535,7 +534,7 @@ export const STRINGS = {
   gallery: {
     header: {
       title: 'Property Gallery',
-      subtitle: 'A preview of liv.inn, our premium rooms, and peaceful Pune surroundings',
+      subtitle: 'A preview of Hotel Sky Executive, our premium rooms, and elegant Pune property',
     },
     categories: ['All', 'Property', 'Rooms', 'Nature', 'Dining'] as const,
     lightbox: {
@@ -560,8 +559,8 @@ export const STRINGS = {
       phoneLabel: 'Front Desk',
       emailLabel: 'Email Enquiry',
       ctaDirections: 'Open Google Maps',
-      mapTitle: 'liv.inn Hotel Location Map — Wagholi, Pune',
-      note: 'Situated near VTP Altair Phase-1 in Infinity Greens Society, Gat No- 1251, Upper Kharadi, Wagholi, Pune-412207, Wagholi 412207.',
+      mapTitle: 'Hotel Sky Executive Location Map — Lonikand, Pune',
+      note: 'Situated at Jaywant Towers on Pune–Nagar Road, near Jaywant Warehouse, Lonikand, Pune – 412216.',
     },
     attractions: {
       title: 'Nearby Establishments & Connectivity',
@@ -586,7 +585,7 @@ export const STRINGS = {
     sidebar: {
       title: 'Reach Out to Us',
       description:
-        'Have a question about staying at liv.inn? Send an enquiry or connect with our team. We respond promptly with verified details.',
+        'Have a question about staying at Hotel Sky Executive? Send an enquiry or connect with our team. We respond promptly with verified details.',
     },
     form: {
       nameLabel: contactConfig.formStrings.nameLabel,
@@ -619,7 +618,7 @@ export const STRINGS = {
   guestInfo: {
     header: {
       title: 'Guest Information',
-      subtitle: 'Helpful details and verified amenities for your stay at liv.inn',
+      subtitle: 'Helpful details and verified amenities for your stay at Hotel Sky Executive',
     },
     quickContact: {
       whatsapp: 'WhatsApp Front Desk',
@@ -671,7 +670,7 @@ export const STRINGS = {
     },
     footerNote: {
       line1: 'For any assistance during your stay in Pune, our front desk team is ready to help 24/7.',
-      line2: 'We wish you a pleasant and restful stay at liv.inn.',
+      line2: 'We wish you a pleasant and restful stay at Hotel Sky Executive.',
     },
   },
 
@@ -681,21 +680,21 @@ export const STRINGS = {
   privacy: {
     header: {
       title: 'Privacy Policy',
-      subtitle: 'How liv.inn handles and protects your personal information',
+      subtitle: 'How Hotel Sky Executive handles and protects your personal information',
     },
     lastUpdated: 'Last updated: September 2026',
     intro:
-      'liv.inn ("we", "us", "our") is dedicated to protecting the privacy of our guests and website visitors. This policy outlines how enquiry information is collected and processed for our Pune property.',
+      'Hotel Sky Executive ("we", "us", "our") is dedicated to protecting the privacy of our guests and website visitors. This policy outlines how enquiry information is collected and processed for our Pune property.',
   },
 
   terms: {
     header: {
       title: 'Terms & Conditions',
-      subtitle: 'General policies for staying at liv.inn, Pune',
+      subtitle: 'General policies for staying at Hotel Sky Executive, Pune',
     },
     lastUpdated: 'Last updated: September 2026',
     intro:
-      'By submitting an enquiry or residing at liv.inn, guests agree to the following guidelines. Detailed booking terms and cancellation policies will be confirmed prior to reservation confirmation.',
+      'By submitting an enquiry or residing at Hotel Sky Executive, guests agree to the following guidelines. Detailed booking terms and cancellation policies will be confirmed prior to reservation confirmation.',
   },
 
   // ---------------------------------------------------------------------------
@@ -710,7 +709,7 @@ export const STRINGS = {
     guestInformation: 'Guest Information',
     copyright: (year: number, brandName: string) =>
       `© ${year} ${brandName} Hotel, Pune. All rights reserved.`,
-    instagramAria: 'Follow liv.inn on Instagram',
+    instagramAria: 'Follow Hotel Sky Executive on Instagram',
   },
 
   // ---------------------------------------------------------------------------
@@ -902,7 +901,7 @@ Welcome to __Liv\.inn__\. This Privacy Policy explains how Liv\.inn collects, us
 
 By using our website and services, you acknowledge that you have read and understood this Privacy Policy\.
 
-<a id="about-liv.inn"></a>## 1\. About Liv\.inn
+<a id="about-Hotel Sky Executive"></a>## 1\. About Liv\.inn
 
 __Liv\.inn__ is a hotel and accommodation property located at:
 
@@ -1036,7 +1035,7 @@ These Terms & Conditions govern your use of the Liv\.inn website and your intera
 
 By accessing or using the website, you agree to comply with these Terms & Conditions\.
 
-<a id="about-liv.inn"></a>## 1\. About Liv\.inn
+<a id="about-Hotel Sky Executive"></a>## 1\. About Liv\.inn
 
 Liv\.inn is a hotel and accommodation property located at:
 

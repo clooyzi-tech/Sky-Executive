@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { seoConfig, brand, contact } from './content';
 
 /**
- * Generate page-specific metadata with sensible defaults for liv.inn Pune.
+ * Generate page-specific metadata with sensible defaults for Hotel Sky Executive Pune.
  */
 export function generatePageMetadata({
   title,
@@ -21,7 +21,7 @@ export function generatePageMetadata({
   const pageDescription = description ?? seoConfig.defaultDescription;
   const siteUrl = seoConfig.siteUrl;
   const url = `${siteUrl}${path}`;
-  const image = ogImage || `${siteUrl}/livinn-logo.png`;
+  const image = ogImage || `${siteUrl}/sky-executive-logo.svg`;
 
   return {
     title: pageTitle,
@@ -124,7 +124,7 @@ export function hotelJsonLd() {
 }
 
 /**
- * Generate Organization JSON-LD structured data for liv.inn.
+ * Generate Organization JSON-LD structured data for Hotel Sky Executive.
  */
 export function organizationJsonLd() {
   return {
@@ -160,7 +160,7 @@ export function hotelRoomJsonLd() {
     '@type': 'HotelRoom',
     name: 'Double Bed Room',
     description:
-      'Double Bed Room at liv.inn Boutique Hotel Pune featuring tranquil nature-oriented views, air conditioning, smart TV, complimentary high-speed Wi-Fi, work desk, and attached en-suite bathroom with 24/7 hot water.',
+      'Double Bed Room at Hotel Sky Executive Pune featuring comfortable accommodation, air conditioning, smart TV, complimentary high-speed Wi-Fi, work desk, and attached en-suite bathroom with 24/7 hot water.',
     image: `${seoConfig.siteUrl}/images/rooms/double_bed_room.webp`,
     bed: {
       '@type': 'BedDetails',

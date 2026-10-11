@@ -1,5 +1,5 @@
 /**
- * Rooms Content & Configuration — liv.inn (Pune)
+ * Rooms Content & Configuration — Hotel Sky Executive (Pune)
  * 
  * Sourced directly from verified developer document:
  * LivInn_Hotel_Chatbot_Information.docx
@@ -44,7 +44,7 @@ export const roomsList: RoomItem[] = [
     shortDescription:
       'A 200 sq. ft. refined, peaceful room with serene nature views, comfortable double bed (queen-size), modern en-suite bathroom with 24/7 hot water, and dedicated in-room dining.',
     fullDescription:
-      'liv.inn features uniform double bed rooms thoughtfully arranged for quiet privacy and tranquil comfort. Each 200 sq. ft. room includes a plush double bed, attached en-suite bathroom with 24/7 hot water, individual air conditioning, smart TV, high-speed Wi-Fi, dedicated work desk, and refreshing nature-facing views.',
+      'Hotel Sky Executive features uniform double bed rooms thoughtfully arranged for quiet privacy and tranquil comfort. Each 200 sq. ft. room includes a plush double bed, attached en-suite bathroom with 24/7 hot water, individual air conditioning, smart TV, high-speed Wi-Fi, dedicated work desk, and refreshing nature-facing views.',
     natureViewHighlight: 'Pleasant nature-oriented view facing tranquil greenery',
     totalRooms: 0,
     distribution: 'Private, quiet layout (Double Bed Rooms)',
@@ -90,6 +90,6 @@ export const roomsOverview = {
   subtitle: 'Thoughtfully designed spaces with tranquil nature views',
   totalInventoryBadge: 'Premium Rooms • Nature Views • Cloud Kitchen',
   description:
-    'liv.inn offers premium rooms curated for guests seeking a peaceful stay in Pune. Enjoy an uncluttered, quiet atmosphere with verdant views.',
+    'Hotel Sky Executive offers premium rooms curated for guests seeking a comfortable stay in Pune. Enjoy an executive atmosphere with modern comforts and thoughtful amenities.',
   natureHighlightBadge: 'Nature-Oriented Views',
 };

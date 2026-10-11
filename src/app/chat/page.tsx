@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import StandaloneChat from '@/components/chatbot/StandaloneChat';
 
 export const metadata: Metadata = {
-  title: 'Chat with Front Desk | liv.inn Pune',
+  title: 'Chat with Front Desk | Hotel Sky Executive Pune',
   description:
-    'Chat with liv.inn Front Desk Assistant. Instant info on rooms, rates, dining, location, and stay policies with simple button navigation.',
+    'Chat with Hotel Sky Executive Front Desk Assistant. Instant info on rooms, rates, dining, location, and stay policies with simple button navigation.',
 };
 
 export default function ChatPage() {

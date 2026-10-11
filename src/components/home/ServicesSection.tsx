@@ -99,7 +99,7 @@ export default function ServicesSection() {
               <div className="relative aspect-[16/10] lg:h-full w-full overflow-hidden bg-charcoal-surface min-h-[300px]">
                 <Image
                   src={IMAGES.cloudKitchen}
-                  alt="liv.inn Cloud Kitchen breakfast presentation on wooden tray"
+                  alt="Hotel Sky Executive Cloud Kitchen breakfast presentation on wooden tray"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700 hover:scale-105"

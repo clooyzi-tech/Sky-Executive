@@ -1,5 +1,5 @@
 /**
- * Central Content Index for liv.inn (Pune)
+ * Central Content Index for Hotel Sky Executive (Pune)
  * 
  * Aggregates all verified domain content modules:
  * - hotelInfo (property metadata, story, values)

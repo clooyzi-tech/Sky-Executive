@@ -1,5 +1,5 @@
 /**
- * Hotel Core Content & Specifications — liv.inn (Pune)
+ * Hotel Core Content & Specifications — Hotel Sky Executive (Pune)
  * 
  * Sourced directly from verified developer document:
  * LivInn_Hotel_Chatbot_Information.docx

@@ -1,8 +1,8 @@
 /**
- * Centralized Image Configuration for liv.inn (Pune)
+ * Centralized Image Configuration for Hotel Sky Executive (Pune)
  * 
  * Manages all image assets, brand logo, room photography, and gallery previews.
- * Brand identity uses the official liv.inn gold logo in /livinn-logo.png.
+ * Brand identity uses the official Hotel Sky Executive logo in /sky-executive-logo.svg.
  */
 
 export type GalleryCategory = 'property' | 'rooms' | 'nature' | 'dining';
@@ -63,7 +63,7 @@ export const IMAGES = {
     {
       id: 'prop-1',
       src: '/images/property/building_exterior.webp',
-      alt: 'Hotel liv.inn Building Exterior amidst peaceful greenery in Pune',
+      alt: 'Hotel Sky Executive Building Exterior in Pune',
       category: 'property',
     },
     {
@@ -75,7 +75,7 @@ export const IMAGES = {
     {
       id: 'rom-1',
       src: '/images/rooms/double_bed_room.webp',
-      alt: 'liv.inn Double Bed Room with Plush Queen Bed and Ambient Warmth',
+      alt: 'Hotel Sky Executive Double Bed Room with Plush Queen Bed and Ambient Warmth',
       category: 'rooms',
     },
     {
