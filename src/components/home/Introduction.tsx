@@ -71,7 +71,7 @@ export default function Introduction() {
 
           <AnimatedSection delay={0.1}>
             <h2 className="mt-4 sm:mt-5 font-serif text-3xl font-bold text-charcoal sm:text-4xl lg:text-5xl tracking-tight">
-              Welcome to <span className="gold-gradient-text">liv.inn</span>
+              Welcome to <span className="gold-gradient-text">{STRINGS.brand.name}</span>
             </h2>
           </AnimatedSection>
 

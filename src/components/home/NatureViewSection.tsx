@@ -44,18 +44,18 @@ export default function NatureViewSection() {
               <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-border-gold shadow-2xl">
                 <Image
                   src={IMAGES.natureView}
-                  alt="Tranquil morning nature-oriented view from liv.inn Pune"
+                  alt={`Scenic surroundings and relaxing stay at ${STRINGS.brand.name} Pune`}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700 hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
-                  <span className="inline-block rounded-full bg-accent/90 px-3.5 py-1 text-xs font-semibold text-charcoal backdrop-blur-sm">
-                    Nature-Oriented Perspective
+                  <span className="inline-block rounded-full bg-accent/90 px-3.5 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+                    Executive Atmosphere
                   </span>
                   <p className="mt-2 text-sm font-medium text-white drop-shadow-md">
-                    Tranquility and scenic greenery integrated into every stay at liv.inn.
+                    Tranquility and hospitality integrated into every stay at {STRINGS.brand.name}.
                   </p>
                 </div>
               </div>

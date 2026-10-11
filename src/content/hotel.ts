@@ -51,27 +51,27 @@ export interface HotelInfo {
 }
 
 export const hotelInfo: HotelInfo = {
-  name: 'liv.inn',
-  legalName: 'liv.inn Hotel',
-  tagline: 'A Serene, Nature-Oriented Stay in Pune',
+  name: 'Hotel Sky Executive',
+  legalName: 'Hotel Sky Executive',
+  tagline: 'Executive Comfort. Exceptional Hospitality.',
   shortDescription:
-    'A contemporary boutique hotel in Pune offering premium rooms with calming nature-oriented views, dedicated cloud kitchen, and 24/7 guest support.',
+    'A contemporary executive hotel located at Jaywant Towers, Pune–Nagar Road, Lonikand, offering elegantly appointed rooms, high-speed Wi-Fi, 24/7 dining, and personalized hospitality.',
   fullDescription:
-    'liv.inn is a modern boutique hotel located in Pune, Maharashtra. Designed with an emphasis on comfort, cleanliness, and thoughtful hospitality, the property features premium rooms, each offering pleasant nature-oriented views. Guests enjoy modern amenities including high-speed Wi-Fi, on-site parking, an in-house cloud kitchen, laundry services, and 24/7 guest assistance.',
+    'Hotel Sky Executive is a premier hotel strategically situated at Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse, Lonikand, Pune. Designed for both business executives and leisure travelers, the property delivers modern comforts, dedicated guest support, cloud kitchen dining, seamless Wi-Fi, and round-the-clock front desk assistance.',
   location: {
     city: 'Pune',
     state: 'Maharashtra',
     country: 'India',
-    region: 'Western Maharashtra',
-    displayLocation: 'Upper Kharadi, Wagholi, Pune',
+    region: 'Pune–Nagar Road',
+    displayLocation: 'Lonikand, Pune–Nagar Road, Pune',
   },
   inventory: {
     totalRooms: 0,
-    roomDistribution: 'Thoughtfully arranged Double Bed rooms',
+    roomDistribution: 'Thoughtfully appointed Executive & Double Bed rooms',
     floors: 0,
     roomsPerFloor: 0,
-    primaryCategory: 'Premium rooms (200 sq. ft., Queen bed)',
-    viewType: 'Nature-oriented view',
+    primaryCategory: 'Executive & Premium rooms (Queen bed)',
+    viewType: 'City & skyline views',
   },
   timings: {
     providedTiming: 'Check-in: 11:00 AM | Check-out: 10:00 AM',
@@ -82,27 +82,27 @@ export const hotelInfo: HotelInfo = {
   },
   highlights: [
     {
-      title: 'Boutique Scale',
-      description: 'An intimate property ensuring quiet comfort and personalized guest care.',
+      title: 'Executive Comfort',
+      description: 'Refined rooms tailored for business and leisure guests with quiet comfort and premium hospitality.',
       icon: 'Building2',
     },
     {
-      title: 'Nature-Oriented Views',
-      description: 'Every floor enjoys peaceful, verdant nature-facing vistas away from typical city congestion.',
-      icon: 'Trees',
+      title: 'Prime Pune–Nagar Road Location',
+      description: 'Conveniently located at Jaywant Towers, Lonikand, with quick transit along the Pune–Nagar highway corridor.',
+      icon: 'MapPin',
     },
     {
       title: 'Elevator / Lift Access',
-      description: 'Effortless guest accessibility with a modern elevator facility.',
+      description: 'Effortless guest accessibility across all floors with a modern elevator facility.',
       icon: 'Building',
     },
     {
       title: '100% Power Backup',
-      description: 'Continuous energy and power backup ensuring uninterrupted lighting, Wi-Fi, and comfort.',
+      description: 'Continuous energy backup ensuring uninterrupted air conditioning, lighting, and Wi-Fi.',
       icon: 'Zap',
     },
     {
-      title: 'In-House Cloud Kitchen',
+      title: 'In-House Dining',
       description: 'Freshly prepared Breakfast, Lunch, and Dinner (Veg & Non-Veg) served directly to your room.',
       icon: 'UtensilsCrossed',
     },
@@ -112,25 +112,29 @@ export const hotelInfo: HotelInfo = {
       icon: 'Clock',
     },
     {
-      title: 'Complimentary Wi-Fi',
+      title: 'Complimentary High-Speed Wi-Fi',
       description: 'Reliable, seamless wireless connectivity provided complimentary throughout the hotel.',
       icon: 'Wifi',
     },
     {
-      title: 'Free On-Site Parking',
+      title: 'Secure On-Site Parking',
       description: 'Convenient 24-hour on-premises vehicular parking for staying guests at no charge.',
       icon: 'Car',
     },
   ],
   story: {
-    title: 'About liv.inn',
+    title: 'About Hotel Sky Executive',
     paragraphs: [
-      'liv.inn is conceptualized as a modern sanctuary in Pune, crafted for travellers who value tranquility, clean spaces, and genuine hospitality. With an intimate boutique footprint, the hotel delivers a personal, boutique stay experience.',
-      'A defining hallmark of liv.inn is its nature-oriented setting. Guests awake to serene greenery and refreshing natural perspectives, providing a welcome pause from daily routine while remaining well-connected to Pune’s key hubs.',
-      'From our round-the-clock guest support and in-house cloud kitchen to meticulous daily housekeeping, every aspect of liv.inn is organized to make your stay in Pune effortless, comfortable, and memorable.',
+      'Hotel Sky Executive is conceptualized as an executive sanctuary on Pune–Nagar Road, crafted for travelers who value efficiency, clean spaces, and genuine warmth in hospitality.',
+      'Strategically located at Jaywant Towers in Lonikand, our property offers prime connectivity for guests travelling along the Pune–Nagar corridor while providing a peaceful and comfortable haven to relax and recharge.',
+      'From our 24/7 guest support and dedicated in-house dining to meticulous daily housekeeping, every detail at Hotel Sky Executive is designed to make your stay effortless, comfortable, and memorable.',
     ],
   },
   values: [
+    {
+      title: 'Executive Hospitality',
+      description: 'Prompt, courteous, and personalized service tailored to the needs of modern travelers.',
+    },
     {
       title: 'Uncompromised Cleanliness',
       description: 'Meticulous housekeeping routines and hygiene protocols maintained across all guest rooms and shared spaces.',
@@ -140,12 +144,8 @@ export const hotelInfo: HotelInfo = {
       description: 'Always-available assistance to handle guest requests, check-in inquiries, and service needs promptly.',
     },
     {
-      title: 'Nature & Serenity',
-      description: 'A peaceful environment with scenic green views that encourage rest, relaxation, and focus.',
-    },
-    {
-      title: 'Transparent Hospitality',
-      description: 'Clear communication, accurate information, and honest guest care without misleading claims.',
+      title: 'Transparent Pricing & Care',
+      description: 'Clear communication, accurate information, and honest guest care without hidden surprises.',
     },
   ],
 };

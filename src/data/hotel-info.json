@@ -1,15 +1,15 @@
 {
-  "hotelName": "liv.inn",
-  "tagline": "A Serene, Nature-Oriented Stay in Pune",
-  "about": "liv.inn is a modern boutique hotel in Pune. Every room features nature-oriented views, modern amenities, and 24/7 guest support.",
+  "hotelName": "Hotel Sky Executive",
+  "tagline": "Executive Comfort. Exceptional Hospitality.",
+  "about": "Hotel Sky Executive is a premier business and leisure hotel at Jaywant Towers, Pune–Nagar Road, Lonikand, Pune. Featuring contemporary rooms, high-speed Wi-Fi, 24/7 dining, and personalized hospitality.",
   "facilities": [
-    { "icon": "Wifi", "title": "Free High-Speed Wi-Fi", "description": "Complimentary internet across all floors" },
+    { "icon": "Wifi", "title": "Free High-Speed Wi-Fi", "description": "Complimentary seamless internet across all floors" },
     { "icon": "Car", "title": "Free On-Site Parking", "description": "24/7 secure on-premises parking" },
-    { "icon": "UtensilsCrossed", "title": "In-House Cloud Kitchen", "description": "Breakfast, Lunch & Dinner (Veg & Non-Veg)" },
+    { "icon": "UtensilsCrossed", "title": "In-House Dining", "description": "Breakfast, Lunch & Dinner (Veg & Non-Veg)" },
     { "icon": "Building", "title": "Elevator / Lift", "description": "Seamless guest elevator access" },
     { "icon": "Zap", "title": "100% Power Backup", "description": "Uninterrupted power supply" },
     { "icon": "ShieldCheck", "title": "24/7 Security & CCTV", "description": "Round-the-clock surveillance" },
-    { "icon": "Heart", "title": "Pet-Friendly", "description": "Pets welcome at no extra charge" },
+    { "icon": "Heart", "title": "Guest Friendly", "description": "Welcoming hospitality for all guests" },
     { "icon": "Shirt", "title": "Laundry Service", "description": "Professional garment care on request" },
     { "icon": "Sparkles", "title": "Daily Housekeeping", "description": "Thorough room cleaning & fresh linen" },
     { "icon": "Clock", "title": "24/7 Guest Assistance", "description": "Always-available front desk support" }
@@ -32,8 +32,7 @@
     { "title": "Check-in / Check-out", "content": "Check-in: 11:00 AM | Check-out: 10:00 AM. Front desk is open 24 hours." },
     { "title": "ID Requirement", "content": "Valid government-issued photo ID required for all adult guests at check-in." },
     { "title": "Couple & Family Friendly", "content": "We welcome couples, families, and solo travellers." },
-    { "title": "Smoking Policy", "content": "100% smoke-free property. Smoking is strictly prohibited indoors." },
-    { "title": "Pet Policy", "content": "Pets are welcome to stay at no additional charge." },
+    { "title": "Smoking Policy", "content": "100% smoke-free property indoors." },
     { "title": "Payment Methods", "content": "UPI (Google Pay, PhonePe, Paytm), Cash, Credit/Debit Cards, Bank Transfer." },
     { "title": "Extra Bed", "content": "Complimentary extra bed available upon request (subject to advance notice)." },
     { "title": "Quiet Hours", "content": "Please maintain quiet after 10:00 PM for the comfort of all guests." },
@@ -41,17 +40,16 @@
   ],
   "gallery": {
     "images": [
-      { "src": "/images/rooms/premium_room.jpg", "alt": "Double Bed Room", "category": "Rooms" },
-      { "src": "/images/rooms/executive_room.jpg", "alt": "Double Bed Room — Workspace", "category": "Rooms" },
-      { "src": "/images/property/nature_view.jpg", "alt": "Nature View", "category": "Property" },
-      { "src": "/images/property/cloud_kitchen.jpg", "alt": "Cloud Kitchen", "category": "Dining" },
-      { "src": "/images/services/reception.jpg", "alt": "Reception", "category": "Property" }
+      { "src": "/images/rooms/double_bed_room.webp", "alt": "Double Bed Room", "category": "Rooms" },
+      { "src": "/images/property/building_exterior.webp", "alt": "Hotel Sky Executive Building", "category": "Property" },
+      { "src": "/images/property/interior_design.webp", "alt": "Lobby & Interior", "category": "Property" },
+      { "src": "/images/property/cloud_kitchen.jpg", "alt": "In-House Dining", "category": "Dining" }
     ]
   },
   "feedback": {
     "title": "Guest Feedback",
     "description": "We value your experience. Share your feedback to help us improve.",
-    "googleReviewUrl": "https://www.google.com/maps/place/liv.inn",
+    "googleReviewUrl": "https://www.google.com/maps",
     "whatsappFeedback": true
   },
   "emergency": {
@@ -68,8 +66,8 @@
     "phone": "+918007724646",
     "phoneDisplay": "+91 80077 24646",
     "whatsapp": "+918007724646",
-    "email": "help.livinn@gmail.com",
-    "instagram": "https://www.instagram.com/livinn69/",
-    "googleMapsUrl": "https://www.google.com/maps/place/18%C2%B033'03.6%22N+73%C2%B058'26.3%22E"
+    "email": "help.skyexecutive@gmail.com",
+    "instagram": "",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Jaywant+Towers+Pune+Nagar+Road+Lonikand+Pune+412216"
   }
 }

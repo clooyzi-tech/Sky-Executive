@@ -25,11 +25,11 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.ico' },
-      { url: '/livinn-logo.png', type: 'image/png' },
+      { url: '/sky-executive-logo.svg', type: 'image/svg+xml' },
     ],
     apple: [
       { url: '/apple-icon.png' },
-      { url: '/livinn-logo.png' },
+      { url: '/sky-executive-logo.svg' },
     ],
   },
   openGraph: {
@@ -41,12 +41,12 @@ export const metadata: Metadata = {
     description: STRINGS.seo.defaultDescription,
     images: [
       {
-        url: `${siteUrl}/livinn-logo.png`,
-        secureUrl: `${siteUrl}/livinn-logo.png`,
-        width: 287,
-        height: 430,
-        type: 'image/png',
-        alt: `${STRINGS.brand.name} Boutique Hotel Logo`,
+        url: `${siteUrl}/sky-executive-logo.svg`,
+        secureUrl: `${siteUrl}/sky-executive-logo.svg`,
+        width: 300,
+        height: 300,
+        type: 'image/svg+xml',
+        alt: `${STRINGS.brand.name} Logo`,
       },
     ],
   },
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     card: 'summary',
     title: STRINGS.seo.defaultTitle,
     description: STRINGS.seo.defaultDescription,
-    images: [`${siteUrl}/livinn-logo.png`],
+    images: [`${siteUrl}/sky-executive-logo.svg`],
   },
   robots: {
     index: true,

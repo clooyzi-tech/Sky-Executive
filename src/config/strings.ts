@@ -40,8 +40,8 @@ export const STRINGS = {
     legalName: hotelInfo.legalName,
     tagline: hotelInfo.tagline,
     description: hotelInfo.shortDescription,
-    logoAlt: 'liv.inn Boutique Hotel — Pune',
-    logoPath: '/livinn-logo.png',
+    logoAlt: 'Hotel Sky Executive — Lonikand, Pune',
+    logoPath: '/sky-executive-logo.svg',
   },
 
   // ---------------------------------------------------------------------------
@@ -83,7 +83,7 @@ export const STRINGS = {
       inventoryBadge: 'Premium Rooms • Nature Views • 200 sq.ft',
     },
     badges: {
-      welcomeTo: 'Welcome to liv.inn',
+      welcomeTo: 'Welcome to Hotel Sky Executive',
       city: 'Pune, Maharashtra',
       natureView: 'Nature-Oriented Views',
       roomDistribution: 'Quiet & Private Floors',
@@ -185,21 +185,21 @@ export const STRINGS = {
       ],
     },
     introduction: {
-      title: 'Welcome to liv.inn',
-      subtitle: 'Where peaceful nature views meet thoughtful boutique hospitality',
+      title: `Welcome to ${hotelInfo.name}`,
+      subtitle: 'Where executive comfort meets exceptional hospitality on Pune–Nagar Road',
       p1: hotelInfo.story.paragraphs[0],
       p2: hotelInfo.story.paragraphs[1],
     },
     experience: {
-      stamp: ['COMFORT', 'IN EVERY', 'DETAIL'],
+      stamp: ['EXECUTIVE', 'COMFORT', 'IN DETAIL'],
       script: 'Stay Relax Recharge',
-      eyebrow: 'THE LIV.INN EXPERIENCE',
-      title: 'More Than a Stay, A Better Experience',
+      eyebrow: 'THE SKY EXECUTIVE EXPERIENCE',
+      title: 'More Than a Stay, An Executive Experience',
       subtitle:
-        'Thoughtfully curated services and facilities to make your stay comfortable, convenient and memorable.',
+        'Thoughtfully curated amenities and services to make your business or leisure stay comfortable, convenient and memorable.',
       heroRoom: {
         category: 'ROOMS & ACCOMMODATION',
-        title: 'Comfortable Rooms',
+        title: 'Executive Comfort Rooms',
         description:
           'Thoughtfully designed rooms with modern amenities to make your stay relaxing and memorable.',
         linkText: 'EXPLORE ROOMS',
@@ -718,68 +718,64 @@ export const STRINGS = {
   // ---------------------------------------------------------------------------
   seo: {
     siteUrl: resolveSiteUrl(),
-    defaultTitle: 'liv.inn Boutique Hotel in Pune | Nature-Oriented Stay',
-    titleTemplate: '%s | liv.inn Boutique Hotel in Pune',
+    defaultTitle: 'Hotel Sky Executive | Executive Comfort on Pune–Nagar Road, Lonikand',
+    titleTemplate: '%s | Hotel Sky Executive Pune',
     defaultDescription:
-      'liv.inn is a boutique hotel in Pune offering premium rooms with tranquil nature views, cloud kitchen, free Wi-Fi, on-site parking, and 24/7 guest assistance.',
+      'Hotel Sky Executive is a premier business and leisure hotel at Jaywant Towers, Pune–Nagar Road, Lonikand, Pune. Featuring contemporary rooms, 24/7 dining, high-speed Wi-Fi, and personalized hospitality.',
     defaultKeywords: [
-      'hotel in Pune',
-      'boutique hotel Pune',
-      'liv.inn Pune',
-      'livinn hotel',
-      'livinn.co.in',
-      'www.livinn.co.in',
-      'livinn hotel pune',
-      'hotel in Upper Kharadi Pune',
+      'Hotel Sky Executive',
+      'Hotel Sky Executive Pune',
+      'hotel in Lonikand Pune',
+      'hotel on Pune Nagar Road',
+      'hotel near Jaywant Warehouse Lonikand',
+      'business hotel Lonikand',
+      'executive hotel Pune',
+      'hotel near Sanaswadi Pune',
       'hotel near Wagholi Pune',
-      'hotel near EON IT Park Kharadi',
-      'nature view hotel Pune',
-      'premium rooms Pune',
-      'pet friendly hotel Pune',
-      'couple friendly hotel Pune',
-      'cloud kitchen hotel Pune',
-      'hotel with parking Pune',
-      'peaceful stay Pune',
+      'corporate hotel Pune Nagar Road',
+      'rooms with Wi-Fi Lonikand',
+      'hotel with parking Lonikand Pune',
+      'executive rooms Pune',
       'hotel booking Pune',
     ],
     pages: {
       about: {
         title: 'About',
         description:
-          'Learn about liv.inn — a modern boutique hotel in Pune with serene nature views, and dedicated 24/7 hospitality.',
+          'Learn about Hotel Sky Executive — premier executive hospitality at Jaywant Towers, Pune–Nagar Road, Lonikand, Pune.',
       },
       rooms: {
-        title: 'Premium Rooms & Facilities',
+        title: 'Executive Rooms & Facilities',
         description:
-          'Discover our premium rooms in Pune featuring serene nature-oriented views, modern en-suite amenities, free Wi-Fi, and 24/7 guest care.',
+          'Discover our contemporary executive rooms on Pune–Nagar Road, Lonikand, featuring modern en-suite amenities, free Wi-Fi, and 24/7 guest care.',
       },
       gallery: {
-        title: 'Property Preview',
+        title: 'Property Gallery',
         description:
-          'Explore images of liv.inn Pune, our premium rooms, green surroundings, and verified amenities.',
+          'Explore images of Hotel Sky Executive Pune, our comfortable rooms, elegant spaces, and verified amenities.',
       },
       location: {
-        title: 'Location in Pune',
+        title: 'Location & Directions',
         description:
-          'Find liv.inn in Pune, Maharashtra. Explore our nature-oriented setting and connectivity to hospitals, corporate hubs, and schools.',
+          'Find Hotel Sky Executive at Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse, Lonikand, Pune – 412216.',
       },
       contact: {
         title: 'Contact & Stay Enquiry',
         description:
-          'Submit a stay enquiry for liv.inn Pune. Check room availability, group requests, and verified hotel information.',
+          'Submit a stay enquiry for Hotel Sky Executive Pune. Check room availability, corporate bookings, and front desk assistance.',
       },
       guestInfo: {
         title: 'Guest Information',
         description:
-          'Essential guest guidance for staying at liv.inn Pune: Wi-Fi, cloud kitchen, laundry, parking, and 24/7 front desk support.',
+          'Essential guest guidance for staying at Hotel Sky Executive: Wi-Fi, in-house dining, parking, and 24/7 front desk support.',
       },
       privacy: {
         title: 'Privacy Policy',
-        description: 'Privacy Policy for liv.inn hotel in Pune.',
+        description: 'Privacy Policy for Hotel Sky Executive in Lonikand, Pune.',
       },
       terms: {
         title: 'Terms & Conditions',
-        description: 'Terms and conditions for guest stays and enquiries at liv.inn Pune.',
+        description: 'Terms and conditions for guest stays and enquiries at Hotel Sky Executive Pune.',
       },
     },
   },
@@ -793,18 +789,18 @@ export default STRINGS;
 // ---------------------------------------------------------------------------
 // --- Brand --------------------------------------------------------------------
 export const BRAND = {
-  name: 'LIV.INN',
-  tagline: 'STAY IN COMFORT, LIVE THE MOMENT.',
+  name: 'Hotel Sky Executive',
+  tagline: 'Executive Comfort. Exceptional Hospitality.',
   developerBy: 'Developed by',
   developer: 'Jayaasi',
   phoneNumber: '+918007724646',
-  phoneDisplay: '+91 8007724646',
+  phoneDisplay: '+91 80077 24646',
 } as const;
 
-// --- Miss. Maya Personal Assistant Header -------------------------------------
+// --- Assistant Header ---------------------------------------------------------
 export const ASSISTANT = {
-  name: 'Miss. Reena',
-  role: 'Your Personal assistant',
+  name: 'Sky Concierge',
+  role: 'Your Personal Assistant',
   callTitle: 'Call Front Desk',
   closeLabel: 'Close assistant',
 } as const;
@@ -813,7 +809,7 @@ export const ASSISTANT = {
 export const BOOKING_FORM = {
   // Section title
   sectionTitle: 'GET IN TOUCH',
-  sectionSubtitle: "We're here to help you a comfortable stay at LIV.INN.",
+  sectionSubtitle: "We're here to help you with a comfortable stay at Hotel Sky Executive.",
 
   // Selected services chip area
   selectedRequestsLabel: 'Your Selected Requests:',
@@ -878,7 +874,7 @@ export const THANK_YOU = {
   googleReviewSubtitle: "We'd love to hear from you!",
   googleReviewButton: 'Review us on Google →',
   googleReviewShare: 'Share Your Experience',
-  googleMapsUrl: 'https://www.google.com/maps/place/18%C2%B033\'03.6%22N+73%C2%B058\'26.3%22E/@18.5511055,73.9702936,1240m/data=!3m1!1e3!4m4!3m3!8m2!3d18.5510123!4d73.9739785?hl=en&entry=ttu&g_ep=EgoyMDI2MDkxNi4wIKXMDSoASAFQAw%3D%3D',
+  googleMapsUrl: contactConfig.maps.googleMapsSearchUrl,
 
   // Reaction options
   reactions: [
@@ -893,7 +889,7 @@ export const THANK_YOU = {
 
   // WhatsApp message template
   whatsappMessage: (services: string) =>
-    `Hello liv.inn Reception, I submitted a service request for: ${services}`,
+    `Hello Hotel Sky Executive Reception, I submitted a service request for: ${services}`,
 } as const;
 
 // --- Legal Documents ----------------------------------------------------------

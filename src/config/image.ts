@@ -18,10 +18,10 @@ export interface GalleryImageItem {
 
 export const IMAGES = {
   brand: {
-    logo: '/livinn-logo.png',
-    logoAlt: 'liv.inn Boutique Hotel — Pune',
+    logo: '/sky-executive-logo.svg',
+    logoAlt: 'Hotel Sky Executive — Lonikand, Pune',
     favicon: '/favicon.ico',
-    ogImage: '/livinn-logo.png',
+    ogImage: '/sky-executive-logo.svg',
   },
   patterns: {
     heroDots: 'radial-gradient(circle at 2px 2px, rgba(212, 175, 55, 0.15) 1px, transparent 0)',

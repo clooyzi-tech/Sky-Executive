@@ -1,63 +1,63 @@
 {
-  "botName": "liv.inn Assistant",
-  "avatar": "/livinn-logo.png",
-  "greeting": "Hello! 👋 Welcome to liv.inn. How can I help you today?",
-  "fallback": "I can help you with rooms, facilities, location, dining, and contacting our team. Please select an option below.",
+  "botName": "Sky Executive Assistant",
+  "avatar": "/sky-executive-logo.svg",
+  "greeting": "Hello! 👋 Welcome to Hotel Sky Executive. How can I assist you with your stay today?",
+  "fallback": "I can help you with rooms, facilities, location, dining, and contacting our front desk. Please select an option below.",
   "whatsappNumber": "+918007724646",
   "phone": "+918007724646",
   "menuTree": {
     "main": {
-      "message": "What would you like to know?",
+      "message": "What would you like to know about Hotel Sky Executive?",
       "options": [
         { "id": "rooms", "label": "🛏️ Rooms & Rates", "icon": "Bed" },
         { "id": "facilities", "label": "✨ Facilities & Amenities", "icon": "Sparkles" },
-        { "id": "dining", "label": "🍽️ Dining & Kitchen", "icon": "UtensilsCrossed" },
+        { "id": "dining", "label": "🍽️ Dining & Room Service", "icon": "UtensilsCrossed" },
         { "id": "location", "label": "📍 Location & Directions", "icon": "MapPin" },
         { "id": "policies", "label": "📋 Check-in & Policies", "icon": "Clock" },
         { "id": "contact", "label": "📞 Contact Reception", "icon": "Phone" }
       ]
     },
     "rooms": {
-      "message": "liv.inn features premium **Double Bed Rooms** arranged for quiet privacy, each with tranquil nature views.\n\n🛏️ **Double Bed Room** — 200 sq. ft., comfortable double bed (queen size), attached en-suite bathroom with 24/7 hot water, individual AC, Smart TV, High-Speed Wi-Fi, work desk, and scenic nature views.\n\n👥 **Occupancy**: 2 Adults + 1 Extra Guest (Extra bed available on request).\n\n🍳 **In-Room Dining**: Freshly prepared meals delivered directly to your room from our in-house cloud kitchen.\n\n📋 *Rates and live availability are confirmed directly upon enquiry.*",
+      "message": "Hotel Sky Executive features comfortably appointed **Executive & Double Bed Rooms** arranged for quiet privacy and productive comfort.\n\n🛏️ **Executive Room** — Comfortable queen bed, attached en-suite bathroom with 24/7 hot water, individual AC, Smart TV, High-Speed Wi-Fi, work desk, and skyline views.\n\n👥 **Occupancy**: 2 Adults + 1 Extra Guest (Extra bed available on request).\n\n🍳 **In-Room Dining**: Freshly prepared meals delivered directly to your room.\n\n📋 *Rates and live availability are confirmed promptly upon enquiry.*",
       "options": [
-        { "id": "enquire_room", "label": "💬 Enquire on WhatsApp", "action": "whatsapp", "message": "Hi! I'd like to check room availability and rates for a Double Bed Room at liv.inn Pune." },
+        { "id": "enquire_room", "label": "💬 Enquire on WhatsApp", "action": "whatsapp", "message": "Hi! I'd like to check room availability and rates at Hotel Sky Executive Pune." },
         { "id": "call_room", "label": "📞 Call Front Desk", "action": "call" },
         { "id": "main", "label": "⬅️ Back to Menu", "action": "navigate" }
       ]
     },
     "facilities": {
-      "message": "**Verified Facilities at liv.inn:**\n\n📶 Free High-Speed Wi-Fi\n🅿️ Free On-Site Parking\n🍳 In-House Cloud Kitchen (Veg & Non-Veg)\n🛗 Elevator / Lift Facility\n⚡ 100% Power Backup\n📹 24/7 Security & CCTV\n🐾 Pet-Friendly (No Extra Charge)\n👔 Laundry & Garment Care\n🧹 Daily Housekeeping\n🕐 24/7 Guest Assistance",
+      "message": "**Verified Facilities at Hotel Sky Executive:**\n\n📶 Free High-Speed Wi-Fi\n🅿️ Free On-Site Parking\n🍳 In-House Dining (Veg & Non-Veg)\n🛗 Elevator / Lift Facility\n⚡ 100% Power Backup\n📹 24/7 Security & CCTV\n👔 Laundry & Garment Care\n🧹 Daily Housekeeping\n🕐 24/7 Front Desk Assistance",
       "options": [
-        { "id": "enquire_facility", "label": "💬 Ask on WhatsApp", "action": "whatsapp", "message": "Hi! I have a question about facilities at liv.inn Pune." },
+        { "id": "enquire_facility", "label": "💬 Ask on WhatsApp", "action": "whatsapp", "message": "Hi! I have a question about facilities at Hotel Sky Executive Pune." },
         { "id": "main", "label": "⬅️ Back to Menu", "action": "navigate" }
       ]
     },
     "dining": {
-      "message": "**In-House Cloud Kitchen** 🍳\n\nFreshly prepared meals delivered directly to your room:\n\n☕ **Breakfast**: 7:30 AM – 10:30 AM\n🍛 **Lunch**: 12:00 PM – 3:00 PM\n🌙 **Dinner**: 7:00 PM – 10:30 PM\n\nBoth **Veg & Non-Veg** options available.\n\n*Note: There is no dine-in restaurant. All meals are room-delivered.*",
+      "message": "**In-House Dining** 🍳\n\nFreshly prepared meals delivered directly to your room:\n\n☕ **Breakfast**: 7:30 AM – 10:30 AM\n🍛 **Lunch**: 12:00 PM – 3:00 PM\n🌙 **Dinner**: 7:00 PM – 10:30 PM\n\nBoth **Veg & Non-Veg** options available.",
       "options": [
-        { "id": "enquire_dining", "label": "💬 Order via WhatsApp", "action": "whatsapp", "message": "Hi! I'd like to order food from the cloud kitchen at liv.inn Pune." },
+        { "id": "enquire_dining", "label": "💬 Order via WhatsApp", "action": "whatsapp", "message": "Hi! I'd like to order dining service at Hotel Sky Executive Pune." },
         { "id": "main", "label": "⬅️ Back to Menu", "action": "navigate" }
       ]
     },
     "location": {
-      "message": "**liv.inn Hotel**\n📍 Plot No-31, Lane No-4, Infinity Greens Society, Near VTP Altair Phase-1, Upper Kharadi, Wagholi, Pune-412207\n\n✈️ Pune Airport: ~11.2 km (20 mins)\n🚂 Railway Station: ~5 km (10 mins)\n🏢 Kharadi IT Hub: ~4 km",
+      "message": "**Hotel Sky Executive**\n📍 Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse, Lonikand, Pune – 412216\n\n✈️ Pune Airport: ~15 km (25 mins)\n🚂 Pune Railway Station: ~20 km\n🏢 Lonikand & Sanaswadi Hubs: Nearby highway corridor",
       "options": [
-        { "id": "directions", "label": "🗺️ Get Directions", "action": "maps", "url": "https://www.google.com/maps/place/18%C2%B033'03.6%22N+73%C2%B058'26.3%22E" },
+        { "id": "directions", "label": "🗺️ Get Directions", "action": "maps", "url": "https://www.google.com/maps/search/?api=1&query=Jaywant+Towers+Pune+Nagar+Road+Lonikand+Pune+412216" },
         { "id": "main", "label": "⬅️ Back to Menu", "action": "navigate" }
       ]
     },
     "policies": {
-      "message": "**Stay Information & Policies** 📋\n\n🕐 **Check-in**: 11:00 AM\n🕙 **Check-out**: 10:00 AM\n📞 **Front Desk**: Open 24/7\n\n🪪 **ID Requirement**: Valid government photo ID required at check-in.\n🐾 **Pet Friendly**: Pets welcome at no extra charge.\n🚭 **Non-Smoking**: 100% smoke-free property indoors.\n💳 **Payment**: UPI, Cards, Net Banking & Cash accepted.",
+      "message": "**Stay Information & Policies** 📋\n\n🕐 **Check-in**: 11:00 AM\n🕙 **Check-out**: 10:00 AM\n📞 **Front Desk**: Open 24/7\n\n🪪 **ID Requirement**: Valid government photo ID required at check-in.\n🚭 **Non-Smoking**: 100% smoke-free property indoors.\n💳 **Payment**: UPI, Cards, Net Banking & Cash accepted.",
       "options": [
-        { "id": "enquire_policies", "label": "💬 Ask on WhatsApp", "action": "whatsapp", "message": "Hi! I have a question regarding stay policies at liv.inn Pune." },
+        { "id": "enquire_policies", "label": "💬 Ask on WhatsApp", "action": "whatsapp", "message": "Hi! I have a question regarding stay policies at Hotel Sky Executive Pune." },
         { "id": "main", "label": "⬅️ Back to Menu", "action": "navigate" }
       ]
     },
     "contact": {
-      "message": "**Contact liv.inn Reception** 📞\n\n📱 Phone: +91 80077 24646\n💬 WhatsApp: +91 80077 24646\n📧 Email: help.livinn@gmail.com\n\n🕐 Front desk is available **24 hours**.",
+      "message": "**Contact Hotel Sky Executive Reception** 📞\n\n📱 Phone: +91 80077 24646\n💬 WhatsApp: +91 80077 24646\n📧 Email: help.skyexecutive@gmail.com\n\n🕐 Front desk is available **24 hours**.",
       "options": [
         { "id": "call_contact", "label": "📞 Call Now", "action": "call" },
-        { "id": "whatsapp_contact", "label": "💬 WhatsApp", "action": "whatsapp", "message": "Hi! I'd like to enquire about staying at liv.inn Pune." },
+        { "id": "whatsapp_contact", "label": "💬 WhatsApp", "action": "whatsapp", "message": "Hi! I'd like to enquire about staying at Hotel Sky Executive Pune." },
         { "id": "main", "label": "⬅️ Back to Menu", "action": "navigate" }
       ]
     }

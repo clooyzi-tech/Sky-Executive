@@ -1,25 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FBF9F5;
-  --foreground: #1E2024;
-  --ivory: #FBF9F5;
-  --cream: #F5F0E6;
-  --cream-dark: #EDE5D6;
-  --charcoal: #121316;
-  --charcoal-surface: #1A1B20;
-  --charcoal-card: #23252B;
-  --slate-deep: #3D4049;
-  --slate-medium: #686D7A;
-  --accent: #C59B27;
-  --accent-light: #D4AF37;
-  --accent-gold: #DFB756;
-  --accent-dark: #9A751A;
-  --accent-muted: rgba(197, 155, 39, 0.12);
-  --white: #FFFFFF;
-  --border: #E6DFD3;
-  --border-light: #EFE9DE;
-  --border-gold: rgba(197, 155, 39, 0.28);
+  /* =========================================================================
+   * Hotel Sky Executive Global Palette
+   * Edit here to change colors across the entire application instantly.
+   * ========================================================================= */
+  --navy: #0B2D46;                  /* Deep Navy Blue */
+  --navy-surface: #103957;          /* Secondary Navy Surface */
+  --navy-card: #154568;             /* Navy Card Background */
+  --charcoal: #343B40;              /* Charcoal */
+  --slate-deep: #2A3035;
+  --slate-medium: #5A636A;
+  
+  --gold: #C69235;                  /* Warm Gold */
+  --gold-champagne: #E5D3B1;        /* Champagne Gold */
+  --gold-dark: #A17524;             /* Deep Warm Gold */
+  --gold-muted: rgba(198, 146, 53, 0.12);
+
+  --ivory: #F8F2E8;                 /* Soft Ivory */
+  --cream: #F1E9DC;                 /* Cream Alternate Background */
+  --cream-dark: #E6DBC9;            /* Slightly Deeper Cream */
+  --white: #FFFFFF;                 /* Pure White */
+
+  /* Semantic Theme Bindings */
+  --background: var(--ivory);
+  --foreground: var(--charcoal);
+  --accent: var(--gold);
+  --accent-light: var(--gold-champagne);
+  --accent-gold: var(--gold);
+  --accent-dark: var(--gold-dark);
+  --accent-muted: var(--gold-muted);
+
+  --border: #E2D7C5;
+  --border-light: #ECE2D3;
+  --border-gold: rgba(198, 146, 53, 0.32);
 }
 
 @theme inline {
@@ -28,16 +42,21 @@
   --color-ivory: var(--ivory);
   --color-cream: var(--cream);
   --color-cream-dark: var(--cream-dark);
-  --color-charcoal: var(--charcoal);
-  --color-charcoal-surface: var(--charcoal-surface);
-  --color-charcoal-card: var(--charcoal-card);
-  --color-slate-deep: var(--slate-deep);
+  --color-navy: var(--navy);
+  --color-navy-surface: var(--navy-surface);
+  --color-navy-card: var(--navy-card);
+  --color-charcoal: var(--navy);           /* Dark sections now inherit Executive Navy */
+  --color-charcoal-surface: var(--navy-surface);
+  --color-charcoal-card: var(--navy-card);
+  --color-slate-deep: var(--charcoal);
   --color-slate-medium: var(--slate-medium);
   --color-accent: var(--accent);
   --color-accent-light: var(--accent-light);
   --color-accent-gold: var(--accent-gold);
   --color-accent-dark: var(--accent-dark);
   --color-accent-muted: var(--accent-muted);
+  --color-gold: var(--gold);
+  --color-champagne: var(--gold-champagne);
   --color-border: var(--border);
   --color-border-light: var(--border-light);
   --color-border-gold: var(--border-gold);
@@ -100,7 +119,7 @@ body {
 /* Selection */
 ::selection {
   background: var(--accent-muted);
-  color: var(--charcoal);
+  color: var(--navy);
 }
 
 /* Scrollbar */
@@ -123,13 +142,13 @@ body {
 
 /* Gold Gradient Utilities */
 .gold-gradient-text {
-  background: linear-gradient(135deg, #DFB756 0%, #C59B27 50%, #9A751A 100%);
+  background: linear-gradient(135deg, #E5D3B1 0%, #C69235 50%, #A17524 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gold-gradient-border {
-  border-image: linear-gradient(135deg, rgba(223, 183, 86, 0.6), rgba(197, 155, 39, 0.2)) 1;
+  border-image: linear-gradient(135deg, rgba(229, 211, 177, 0.6), rgba(198, 146, 53, 0.3)) 1;
 }
 
 /* Safe area for iOS devices with notch/home indicator */
