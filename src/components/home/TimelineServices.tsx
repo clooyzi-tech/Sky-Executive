@@ -3,8 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
 import { IMAGES } from '@/config/image';
 
 interface TimelineStep {
@@ -38,7 +37,7 @@ const TIMELINE_STEPS: TimelineStep[] = [
   },
   {
     number: 2,
-    title: 'Our Hotel Services Is the best 20+ Amenities',
+    title: 'Comprehensive Boutique Comfort: 20+ Verified Amenities',
     tagline: 'Modern Conveniences for Work & Leisure',
     description:
       'Enjoy verified boutique amenities including high-speed Wi-Fi for corporate travelers, an elevator / lift facility, 100% power backup, free on-site parking, and laundry support.',
@@ -50,7 +49,7 @@ const TIMELINE_STEPS: TimelineStep[] = [
     image: '/images/services/wifi_desk.jpg',
     imageAlt: '20+ verified amenities and guest services at Hotel Sky Executive',
     ctaText: 'View All Facilities',
-    ctaHref: '/facilities',
+    ctaHref: '/rooms#facilities',
   },
   {
     number: 3,
@@ -65,7 +64,7 @@ const TIMELINE_STEPS: TimelineStep[] = [
     ],
     image: IMAGES.services.reception || '/images/property/interior_design.webp',
     imageAlt: '24/7 security and reception desk at Hotel Sky Executive Pune',
-    ctaText: 'Contact Front Desk',
+    ctaText: 'Connect with Front Desk',
     ctaHref: '/contact',
   },
 ];

@@ -491,7 +491,7 @@ export const STRINGS = {
   // ---------------------------------------------------------------------------
   rooms: {
     header: {
-      title: 'Premium Rooms',
+      title: 'Executive Rooms & In-Room Amenities in Lonikand, Pune',
       subtitle: 'Thoughtfully appointed rooms with tranquil nature-oriented views',
     },
     amenitiesTitle: 'Verified In-Room Amenities',
@@ -550,7 +550,7 @@ export const STRINGS = {
   // ---------------------------------------------------------------------------
   location: {
     header: {
-      title: 'Location & Connectivity',
+      title: 'Location & Driving Directions to Hotel Sky Executive, Lonikand',
       subtitle: 'Located in Pune, Maharashtra with serene nature views and city accessibility',
     },
     findUs: {
@@ -579,7 +579,7 @@ export const STRINGS = {
   // ---------------------------------------------------------------------------
   contactPage: {
     header: {
-      title: 'Contact & Enquiry',
+      title: 'Contact Front Desk & Stay Enquiry | Hotel Sky Executive',
       subtitle: 'Enquire about room availability, rates, or property details in Pune',
     },
     sidebar: {
@@ -717,10 +717,10 @@ export const STRINGS = {
   // ---------------------------------------------------------------------------
   seo: {
     siteUrl: resolveSiteUrl(),
-    defaultTitle: 'Hotel Sky Executive | Hotel in Lonikand, Pune–Nagar Road',
+    defaultTitle: 'Hotel Sky Executive | Executive Hotel in Lonikand, Pune',
     titleTemplate: '%s | Hotel Sky Executive Pune',
     defaultDescription:
-      'Hotel Sky Executive offers executive rooms at Jaywant Towers, Lonikand on Pune–Nagar Road, featuring 24/7 dining, high-speed Wi-Fi, elevator, & secure parking.',
+      'Stay at Hotel Sky Executive in Lonikand, Pune–Nagar Road. Premium AC rooms, in-house cloud kitchen, free Wi-Fi, secure parking & 24/7 front desk. Enquire now.',
     defaultKeywords: [
       'Hotel Sky Executive',
       'Hotel Sky Executive Pune',
@@ -744,9 +744,9 @@ export const STRINGS = {
           'Learn about Hotel Sky Executive — premier executive hospitality at Jaywant Towers, Pune–Nagar Road, Lonikand, Pune.',
       },
       rooms: {
-        title: 'Executive Rooms & Facilities',
+        title: 'Executive Rooms in Lonikand Pune',
         description:
-          'Discover our contemporary executive rooms on Pune–Nagar Road, Lonikand, featuring modern en-suite amenities, free Wi-Fi, and 24/7 guest care.',
+          'Book 200 sq.ft executive rooms at Hotel Sky Executive, Lonikand Pune. Queen bed, AC, en-suite hot water bath, high-speed Wi-Fi & in-room cloud kitchen.',
       },
       gallery: {
         title: 'Property Gallery',
@@ -754,14 +754,14 @@ export const STRINGS = {
           'Explore images of Hotel Sky Executive Pune, our comfortable rooms, elegant spaces, and verified amenities.',
       },
       location: {
-        title: 'Location & Directions',
+        title: 'Hotel Location & Directions',
         description:
-          'Find Hotel Sky Executive at Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse, Lonikand, Pune – 412216.',
+          'Get directions to Hotel Sky Executive at Jaywant Towers, Lonikand on Pune–Nagar Road. ~15 km from Pune Airport, 24/7 parking & easy transit to Sanaswadi & Wagholi.',
       },
       contact: {
-        title: 'Contact & Stay Enquiry',
+        title: 'Contact Front Desk & Stay Enquiry',
         description:
-          'Submit a stay enquiry for Hotel Sky Executive Pune. Check room availability, corporate bookings, and front desk assistance.',
+          'Contact Hotel Sky Executive in Lonikand, Pune. Call +91 80077 24646 or WhatsApp for room availability, corporate rates & 24/7 front desk reservations.',
       },
       guestInfo: {
         title: 'Guest Information',

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import {
   Phone,
   Mail,
   MapPin,
-  Clock,
   Sparkles,
   ExternalLink,
 } from '@/config/icons';
@@ -171,15 +171,24 @@ export default function ContactPage() {
                           <p className="text-xs sm:text-sm text-slate-deep mt-1.5 leading-relaxed font-medium">
                             {contact.address.full}
                           </p>
-                          <a
-                            href={contact.googleMapsUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:text-accent-dark"
-                          >
-                            Open in Google Maps
-                            <ExternalLink className="h-3 w-3" />
-                          </a>
+                          <div className="mt-2 flex flex-wrap items-center gap-3">
+                            <Link
+                              href="/location"
+                              className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:text-accent-dark"
+                            >
+                              Driving Directions to Jaywant Towers
+                            </Link>
+                            <span className="text-slate-medium text-xs">•</span>
+                            <a
+                              href={contact.googleMapsUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-xs font-semibold text-accent hover:text-accent-dark"
+                            >
+                              Open Google Maps
+                              <ExternalLink className="h-3 w-3" />
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -192,10 +201,11 @@ export default function ContactPage() {
                       <span>Hotel Sky Executive Pune Stay Overview</span>
                     </div>
                     <ul className="mt-2 space-y-1 text-slate-deep">
-                      <li>• Premium Rooms with nature-oriented views</li>
-                      <li>• Peaceful & private boutique layout</li>
+                      <li>• <Link href="/rooms" className="text-accent font-semibold hover:underline">Review Executive Double Bed Room amenities</Link></li>
+                      <li>• Direct Highway Access: Pune–Nagar Road, Lonikand</li>
                       <li>• In-house cloud kitchen, free Wi-Fi & parking</li>
-                      <li>• 24/7 front desk guest assistance</li>
+                      <li>• Accepted Payments: UPI, Cash, Cards & Net Banking</li>
+                      <li>• <Link href="/guest-information" className="text-accent font-semibold hover:underline">View hotel guest policies & check-in timings</Link></li>
                     </ul>
                   </div>
                 </div>

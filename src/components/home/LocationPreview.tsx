@@ -10,6 +10,7 @@ import {
   Sparkles,
   Phone,
 } from 'lucide-react';
+import Link from 'next/link';
 import { STRINGS } from '@/config/strings';
 
 const TRANSIT_POINTS = [
@@ -47,7 +48,11 @@ export default function LocationPreview() {
             Strategic Connectivity, Executive Comfort
           </h2>
           <p className="mt-3 text-xs sm:text-sm md:text-base text-slate-medium leading-relaxed">
-            Conveniently situated at Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse, Lonikand — ideal for business leaders, corporate transit, and travelers.
+            Conveniently situated at Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse, Lonikand — ideal for business leaders, corporate transit, and travelers. You can{' '}
+            <Link href="/location" className="text-accent font-semibold hover:underline">
+              view Pune–Nagar Road connectivity and transit routes
+            </Link>{' '}
+            to plan your arrival.
           </p>
         </div>
 

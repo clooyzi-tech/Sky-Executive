@@ -116,11 +116,20 @@ export default function RoomsPreview({
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-tight">
-              A Stay Designed for Your Comfort
+              {isAllRoomsPage ? 'Signature Executive Double Bed Room (200 Sq. Ft.)' : 'A Stay Designed for Your Comfort'}
             </h2>
 
             <p className="mt-3 text-xs sm:text-sm md:text-base text-slate-medium leading-relaxed">
-              {STRINGS.brand.name} offers <strong>Executive & Double Bed Rooms</strong> thoughtfully appointed for quiet privacy, seamless business productivity, and restful comfort at Jaywant Towers, Lonikand.
+              {STRINGS.brand.name} offers <strong>Executive & Double Bed Rooms</strong> thoughtfully appointed for quiet privacy, seamless business productivity, and restful comfort at Jaywant Towers, Lonikand.{' '}
+              {!isAllRoomsPage && (
+                <>
+                  You can{' '}
+                  <Link href="/rooms" className="text-accent font-semibold hover:underline">
+                    explore our Executive Double Bed Rooms
+                  </Link>{' '}
+                  with verified nature views and amenities.
+                </>
+              )}
             </p>
 
             {/* 6 Feature Badges */}

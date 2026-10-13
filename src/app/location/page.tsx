@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import {
   MapPin,
   Phone,
@@ -110,8 +111,16 @@ export default function LocationPage() {
                         <strong>Landmark:</strong> {contactConfig.address.landmark}
                       </p>
                       <div className="mt-3 rounded-lg bg-white p-3 text-xs text-slate-medium border border-border-light">
-                        <span className="font-semibold text-charcoal">Location Note: </span>
-                        {contactConfig.address.note}
+                        <span className="font-semibold text-charcoal">Driving Landmark: </span>
+                        Located on the main Pune–Nagar Road at Jaywant Towers, directly adjacent to Jaywant Warehouse in Lonikand. Easily accessible with wide roadside entry into our secure on-site parking lot. Please{' '}
+                        <Link href="/contact" className="text-accent font-semibold hover:underline">
+                          contact our 24/7 reception team for arrival guidance
+                        </Link>{' '}
+                        or{' '}
+                        <Link href="/rooms" className="text-accent font-semibold hover:underline">
+                          view our executive double bed rooms for your transit stay
+                        </Link>
+                        .
                       </div>
                     </div>
                   </div>
@@ -167,7 +176,11 @@ export default function LocationPage() {
                     <span>Check-in & Check-out Schedule</span>
                   </div>
                   <p className="mt-1 leading-relaxed text-slate-deep">
-                    Standard Check-in: <strong>11:00 AM</strong> • Standard Check-out: <strong>10:00 AM</strong>. Front desk reception is active 24/7 for guest check-in, key handover, and local travel assistance.
+                    Standard Check-in: <strong>11:00 AM</strong> • Standard Check-out: <strong>10:00 AM</strong>. Front desk reception is active 24/7 for guest check-in, key handover, and local travel assistance. You can{' '}
+                    <Link href="/guest-information" className="text-accent font-semibold hover:underline">
+                      check standard check-in hours and late arrival policies
+                    </Link>
+                    .
                   </p>
                 </div>
 

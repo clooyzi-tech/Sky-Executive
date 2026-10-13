@@ -6,9 +6,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   ChevronLeft,
   ChevronRight,
+  Phone,
 } from 'lucide-react';
 import { IMAGES } from '@/config/image';
 import { STRINGS } from '@/config/strings';
+import { phoneUrl } from '@/lib/utils';
 
 interface HeroSlide {
   src: string;
@@ -132,22 +134,49 @@ export default function Hero() {
             className="flex flex-col items-center"
           >
             <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-accent/40 bg-navy/60 px-4 py-1 text-xs uppercase tracking-widest text-accent backdrop-blur-sm">
-              <span>Executive Hotel • Pune–Nagar Road, Lonikand</span>
+              <span>Hotel Sky Executive • Lonikand, Pune</span>
             </div>
 
-            <h1 className="flex flex-col sm:flex-row items-center justify-center font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white drop-shadow-md">
-              <span>Hotel Sky Executive delivers</span>
+            <h1 className="flex flex-col sm:flex-row items-center justify-center font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white drop-shadow-md text-center">
+              <span>Executive Boutique Hotel in </span>
               <span
                 className="font-script text-accent text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-normal sm:ml-4 mt-2 sm:mt-0 tracking-normal drop-shadow-lg"
                 style={{ fontFamily: "var(--font-script), 'Alex Brush', cursive" }}
               >
-                {activeSlide.word}
+                Lonikand
               </span>
             </h1>
 
-            <p className="mt-4 max-w-2xl text-xs sm:text-sm md:text-base text-white/85 font-normal leading-relaxed drop-shadow-sm">
+            <p className="mt-4 max-w-2xl text-xs sm:text-sm md:text-base text-white/85 font-normal leading-relaxed drop-shadow-sm text-center">
               {STRINGS.brand.description}
             </p>
+
+            {/* Direct Dual Conversion CTAs */}
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3 z-10">
+              <button
+                onClick={() => {
+                  if (typeof window !== 'undefined') {
+                    window.dispatchEvent(
+                      new CustomEvent('open-booking-enquiry', {
+                        detail: { roomPreference: 'Executive Room' },
+                      })
+                    );
+                  }
+                }}
+                className="px-6 py-3 rounded-full bg-accent hover:bg-accent-dark text-white text-xs font-bold uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
+                id="hero-enquire-cta"
+              >
+                Check Room Availability
+              </button>
+              <a
+                href={phoneUrl()}
+                className="px-6 py-3 rounded-full border border-white/30 bg-black/40 hover:bg-black/60 text-white text-xs font-semibold tracking-wider flex items-center gap-2 backdrop-blur-xs transition-colors"
+                id="hero-call-cta"
+              >
+                <Phone className="w-3.5 h-3.5 text-accent" />
+                <span>Call Front Desk</span>
+              </a>
+            </div>
           </motion.div>
         </AnimatePresence>
 

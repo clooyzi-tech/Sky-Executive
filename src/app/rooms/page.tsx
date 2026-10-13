@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { generatePageMetadata, breadcrumbJsonLd, hotelRoomJsonLd } from '@/lib/seo';
 import { STRINGS } from '@/config/strings';
 import { IMAGES } from '@/config/image';
@@ -71,7 +72,7 @@ export default function RoomsPage() {
             </span>
             <span className="hidden sm:inline text-border-gold">•</span>
             <span className="flex items-center gap-2 font-medium">
-              Quiet & Private Floor Layout
+              Check-in: 11:00 AM • Check-out: 10:00 AM (24/7 Front Desk)
             </span>
             <span className="hidden sm:inline text-border-gold">•</span>
             <span className="flex items-center gap-2 font-medium">
@@ -90,10 +91,22 @@ export default function RoomsPage() {
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-border bg-cream/50 p-6 text-center text-xs text-slate-deep">
             <p className="font-semibold text-charcoal text-sm">
-              Room Pricing & Availability Confirmation
+              Best Rate Direct Guarantee & Booking Policy
             </p>
-            <p className="mt-1 max-w-2xl mx-auto leading-relaxed text-slate-medium">
-              In accordance with official property guidelines, final room pricing, applicable taxes, and live room availability are confirmed directly upon enquiry submission. Please contact our front desk team for current tariffs and customized stay packages in Pune.
+            <p className="mt-1 max-w-3xl mx-auto leading-relaxed text-slate-medium">
+              Live seasonal tariffs, applicable taxes, and room availability are confirmed directly upon enquiry submission. Enjoy our{' '}
+              <Link href="/location" className="text-accent font-semibold hover:underline">
+                convenient location near Sanaswadi and Lonikand industrial belts
+              </Link>
+              , and{' '}
+              <Link href="/guest-information" className="text-accent font-semibold hover:underline">
+                view complete guest policies and check-in guidelines
+              </Link>
+              . For group or corporate reservations, please{' '}
+              <Link href="/contact" className="text-accent font-semibold hover:underline">
+                submit a group or corporate stay enquiry
+              </Link>
+              .
             </p>
           </div>
         </div>
