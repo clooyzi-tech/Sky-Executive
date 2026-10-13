@@ -78,7 +78,7 @@ export async function POST(request: Request) {
     process.env.STAFF_RECEIVER_EMAIL ||
     process.env.STAFF_EMAIL ||
     process.env.CONTACT_RECEIVER_EMAIL ||
-    'help.livinn@gmail.com';
+    'help.skyexecutive@gmail.com';
 
   // 4. Verify SMTP credentials exist
   if (!smtpUser || !smtpPass) {
@@ -216,7 +216,7 @@ You can reply directly to this email to respond to the guest at ${email.trim()}.
       </div>
     </div>
     <div class="footer">
-      Hotel Sky Executive Hotel Pune • Plot No-31, Lane No-4, Infinity Greens Society, Upper Kharadi, Wagholi, Pune 412207
+      Hotel Sky Executive • Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse, Lonikand, Pune – 412216
     </div>
   </div>
 </body>

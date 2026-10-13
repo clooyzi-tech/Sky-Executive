@@ -122,7 +122,7 @@ export const STRINGS = {
       locality: contactConfig.address.locality,
       city: contactConfig.address.city,
       state: contactConfig.address.state,
-      pincode: '412207',
+      pincode: contactConfig.address.pincode,
       country: contactConfig.address.country,
       landmark: contactConfig.address.landmark,
       full: contactConfig.address.fullAddressDisplay,
@@ -434,7 +434,7 @@ export const STRINGS = {
     },
     locationPreview: {
       title: 'Location & Connectivity',
-      subtitle: 'Situated in Upper Kharadi, Wagholi, Pune with peaceful green surroundings',
+      subtitle: 'Situated at Jaywant Towers, Lonikand on Pune–Nagar Road with strategic highway connectivity',
       ctaDirections: 'Open Google Maps',
       ctaDetails: 'View Landmark Details',
       mapTitle: 'Hotel Sky Executive Location — Lonikand, Pune',
@@ -470,7 +470,7 @@ export const STRINGS = {
       { label: 'Front Desk', value: '24/7 Support' },
       { label: 'Primary Category', value: 'Premium Rooms' },
       { label: 'In-Room Dining', value: 'Cloud Kitchen' },
-      { label: 'Location', value: 'Wagholi, Pune' },
+      { label: 'Location', value: 'Lonikand, Pune' },
     ],
     values: {
       title: 'Our Commitments',
@@ -564,7 +564,7 @@ export const STRINGS = {
     },
     attractions: {
       title: 'Nearby Establishments & Connectivity',
-      subtitle: 'Convenient connectivity across Upper Kharadi, Wagholi, and East Pune',
+      subtitle: 'Convenient connectivity along Pune–Nagar Road, Lonikand, and Sanaswadi hubs',
       items: contactConfig.nearbyCategories.map((c) => ({
         name: c.category,
         distance: c.statusText,
@@ -717,10 +717,10 @@ export const STRINGS = {
   // ---------------------------------------------------------------------------
   seo: {
     siteUrl: resolveSiteUrl(),
-    defaultTitle: 'Hotel Sky Executive | Executive Comfort on Pune–Nagar Road, Lonikand',
+    defaultTitle: 'Hotel Sky Executive | Hotel in Lonikand, Pune–Nagar Road',
     titleTemplate: '%s | Hotel Sky Executive Pune',
     defaultDescription:
-      'Hotel Sky Executive is a premier business and leisure hotel at Jaywant Towers, Pune–Nagar Road, Lonikand, Pune. Featuring contemporary rooms, 24/7 dining, high-speed Wi-Fi, and personalized hospitality.',
+      'Hotel Sky Executive offers executive rooms at Jaywant Towers, Lonikand on Pune–Nagar Road, featuring 24/7 dining, high-speed Wi-Fi, elevator, & secure parking.',
     defaultKeywords: [
       'Hotel Sky Executive',
       'Hotel Sky Executive Pune',
@@ -897,21 +897,21 @@ export const LEGAL_DOCS = {
 
 __Effective Date:__20 September 2026
 
-Welcome to __Liv\.inn__\. This Privacy Policy explains how Liv\.inn collects, uses, stores, and protects personal information when you visit our website, contact us, submit an enquiry, use our Digital Concierge, or request hotel services\.
+Welcome to __Hotel Sky Executive__\. This Privacy Policy explains how Hotel Sky Executive collects, uses, stores, and protects personal information when you visit our website, contact us, submit an enquiry, use our Digital Concierge, or request hotel services\.
 
 By using our website and services, you acknowledge that you have read and understood this Privacy Policy\.
 
-<a id="about-Hotel Sky Executive"></a>## 1\. About Liv\.inn
+<a id="about-Hotel Sky Executive"></a>## 1\. About Hotel Sky Executive
 
-__Liv\.inn__ is a hotel and accommodation property located at:
+__Hotel Sky Executive__ is a hotel and accommodation property located at:
 
-__Plot No\-31, Lane No\-4, Infinity Greens Society, Near VTP Altair Phase\-1, Gat No\-1251, Upper Kharadi, Wagholi, Pune, Maharashtra - 412207, India\.__
+__Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse, Lonikand, Pune, Maharashtra - 412216, India\.__
 
 __Phone:__ 8007724646  
 __WhatsApp:__ 8007724646  
-__Email:__ [help\.livinn@gmail\.com](mailto:help.livinn@gmail.com)
+__Email:__ [help\.skyexecutive@gmail\.com](mailto:help.skyexecutive@gmail.com)
 
-Liv\.inn provides accommodation and related guest services including housekeeping, room service, laundry, food service, and other hotel facilities\.
+Hotel Sky Executive provides accommodation and related guest services including housekeeping, room service, laundry, food service, and other hotel facilities\.
 
 <a id="information-we-may-collect"></a>## 2\. Information We May Collect
 
@@ -992,9 +992,9 @@ These third\-party websites operate under their own privacy policies and terms\.
 
 <a id="guest-privacy-requests"></a>## 10\. Guest Privacy Requests
 
-If you have a question, concern, or request relating to your personal information or this Privacy Policy, you may contact Liv\.inn using the contact details below\.
+If you have a question, concern, or request relating to your personal information or this Privacy Policy, you may contact Hotel Sky Executive using the contact details below\.
 
-__Email:__ [help\.livinn@gmail\.com](mailto:help.livinn@gmail.com)  
+__Email:__ [help\.skyexecutive@gmail\.com](mailto:help.skyexecutive@gmail.com)  
 __Phone/WhatsApp:__ 8007724646
 
 We will consider and respond to requests in accordance with applicable law\.
@@ -1015,33 +1015,32 @@ The updated version will be published on this page with an updated effective dat
 
 For privacy\-related questions or concerns:
 
-__Liv\.inn__  
-Plot No\-31, Lane No\-4, Infinity Greens Society,  
-Near VTP Altair Phase\-1, Gat No\-1251, Upper Kharadi,  
-Wagholi, Pune, Maharashtra - 412207, India
+__Hotel Sky Executive__  
+Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse,  
+Lonikand, Pune, Maharashtra - 412216, India
 
 __Phone:__ 8007724646  
 __WhatsApp:__ 8007724646  
-__Email:__ [help\.livinn@gmail\.com](mailto:help.livinn@gmail.com)
+__Email:__ [help\.skyexecutive@gmail\.com](mailto:help.skyexecutive@gmail.com)
 
 __Last Updated:__20 September 2026`,
   termsAndConditions: `
 
 __Effective Date:__ 20 September 2026
 
-Welcome to __Liv\.inn__\.
+Welcome to __Hotel Sky Executive__\.
 
-These Terms & Conditions govern your use of the Liv\.inn website and your interaction with our hotel services, enquiries, Digital Concierge and service\-request features\.
+These Terms & Conditions govern your use of the Hotel Sky Executive website and your interaction with our hotel services, enquiries, Digital Concierge and service\-request features\.
 
 By accessing or using the website, you agree to comply with these Terms & Conditions\.
 
-<a id="about-Hotel Sky Executive"></a>## 1\. About Liv\.inn
+<a id="about-Hotel Sky Executive"></a>## 1\. About Hotel Sky Executive
 
-Liv\.inn is a hotel and accommodation property located at:
+Hotel Sky Executive is a hotel and accommodation property located at:
 
-__Plot No\-31, Lane No\-4, Infinity Greens Society, Near VTP Altair Phase\-1, Gat No\-1251, Upper Kharadi, Wagholi, Pune, Maharashtra - 412207, India\.__
+__Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse, Lonikand, Pune, Maharashtra - 412216, India\.__
 
-Liv\.inn provides accommodation and related guest services\.
+Hotel Sky Executive provides accommodation and related guest services\.
 
 <a id="use-of-the-website"></a>## 2\. Use of the Website
 
@@ -1234,21 +1233,20 @@ The latest version will be published on this page with the applicable effective 
 
 <a id="contact-us"></a>## 18\. Contact Us
 
-__Liv\.inn__  
-Plot No\-31, Lane No\-4, Infinity Greens Society,  
-Near VTP Altair Phase\-1, Gat No\-1251, Upper Kharadi,  
-Wagholi, Pune, Maharashtra - 412207, India
+__Hotel Sky Executive__  
+Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse,  
+Lonikand, Pune, Maharashtra - 412216, India
 
 __Phone:__ 8007724646  
 __WhatsApp:__ 8007724646  
-__Email:__ [help\.livinn@gmail\.com](mailto:help.livinn@gmail.com)
+__Email:__ [help\.skyexecutive@gmail\.com](mailto:help.skyexecutive@gmail.com)
 
 __Last Updated:__ 20 September 2026`,
   guestPolicies: `
 
 __Effective Date:__ 20 September 2026
 
-These Guest & Hotel Policies provide important information and rules for guests staying at __Liv\.inn__\.
+These Guest & Hotel Policies provide important information and rules for guests staying at __Hotel Sky Executive__\.
 
 <a id="check-in-and-check-out"></a>## 1\. Check\-in and Check\-out
 
@@ -1471,14 +1469,13 @@ The latest version will be made available on the website\.
 For assistance during your stay:
 
 __Phone / WhatsApp:__ 8007724646  
-__Email:__ [help\.livinn@gmail\.com](mailto:help.livinn@gmail.com)
+__Email:__ [help\.skyexecutive@gmail\.com](mailto:help.skyexecutive@gmail.com)
 
 __Reception:__ 24 hours
 
-__Liv\.inn__  
-Plot No\-31, Lane No\-4, Infinity Greens Society,  
-Near VTP Altair Phase\-1, Gat No\-1251, Upper Kharadi,  
-Wagholi, Pune, Maharashtra - 412207, India
+__Hotel Sky Executive__  
+Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse,  
+Lonikand, Pune, Maharashtra - 412216, India
 
 __Last Updated:__ 20 September 2026`
 } as const;

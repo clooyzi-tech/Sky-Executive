@@ -76,7 +76,7 @@ export async function POST(request: Request) {
     process.env.STAFF_RECEIVER_EMAIL ||
     process.env.STAFF_EMAIL ||
     process.env.CONTACT_RECEIVER_EMAIL ||
-    'help.livinn@gmail.com';
+    'help.skyexecutive@gmail.com';
 
   if (!smtpUser || !smtpPass) {
     console.warn(

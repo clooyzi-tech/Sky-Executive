@@ -41,20 +41,20 @@ export const metadata: Metadata = {
     description: STRINGS.seo.defaultDescription,
     images: [
       {
-        url: `${siteUrl}/sky-executive-logo.svg`,
-        secureUrl: `${siteUrl}/sky-executive-logo.svg`,
-        width: 300,
-        height: 300,
-        type: 'image/svg+xml',
-        alt: `${STRINGS.brand.name} Logo`,
+        url: `${siteUrl}/images/property/building_exterior.webp`,
+        secureUrl: `${siteUrl}/images/property/building_exterior.webp`,
+        width: 1200,
+        height: 630,
+        type: 'image/webp',
+        alt: `${STRINGS.brand.name} Building Exterior`,
       },
     ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: STRINGS.seo.defaultTitle,
     description: STRINGS.seo.defaultDescription,
-    images: [`${siteUrl}/sky-executive-logo.svg`],
+    images: [`${siteUrl}/images/property/building_exterior.webp`],
   },
   robots: {
     index: true,
@@ -76,13 +76,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${fontVariables} h-full antialiased`}
     >
       <head>
-        <link rel="image_src" href={`${siteUrl}/sky-executive-logo.svg`} />
-        <meta property="og:image" content={`${siteUrl}/sky-executive-logo.svg`} />
-        <meta property="og:image:secure_url" content={`${siteUrl}/sky-executive-logo.svg`} />
-        <meta property="og:image:type" content="image/svg+xml" />
-        <meta property="og:image:width" content="300" />
-        <meta property="og:image:height" content="300" />
-        <meta name="thumbnail" content={`${siteUrl}/sky-executive-logo.svg`} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

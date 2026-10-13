@@ -79,7 +79,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/facilities" className="hover:text-accent transition-colors">
+                <Link href="/rooms#facilities" className="hover:text-accent transition-colors">
                   Facilities & Amenities
                 </Link>
               </li>

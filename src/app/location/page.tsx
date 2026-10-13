@@ -61,7 +61,7 @@ export default function LocationPage() {
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-black/40 px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-accent-gold backdrop-blur-sm">
-              Upper Kharadi, Wagholi • Pune
+              Pune–Nagar Road, Lonikand • Pune
             </div>
             <h1 className="mt-4 font-serif text-4xl font-bold text-white md:text-5xl lg:text-6xl">
               {location.header.title}
@@ -210,7 +210,7 @@ export default function LocationPage() {
                     <CheckCircle className="mt-0.5 h-4 w-4 text-emerald-600 shrink-0" />
                     <div>
                       <p className="text-xs font-semibold text-charcoal">
-                        Infinity Greens Society, Wagholi, Pune-412207
+                        Jaywant Towers, Lonikand, Pune-412216
                       </p>
                       <p className="text-[11px] text-slate-medium mt-0.5">
                         {contactConfig.maps.disclaimer}

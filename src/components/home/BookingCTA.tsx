@@ -29,7 +29,7 @@ export default function BookingCTA() {
         <AnimatedSection>
           <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent-gold">
             <Sparkles className="h-3.5 w-3.5" />
-            Upper Kharadi, Wagholi, Pune
+            Lonikand, Pune–Nagar Road, Pune
           </div>
 
           <h2 className="mt-4 sm:mt-5 font-serif text-3xl font-bold sm:text-4xl md:text-5xl text-white tracking-tight">
@@ -41,7 +41,7 @@ export default function BookingCTA() {
           </p>
 
           <p className="mt-3 text-xs sm:text-sm text-accent-gold font-medium max-w-xl mx-auto">
-            Plot No-31, Lane No-4, Infinity Greens Society, Near VTP Altair Phase-1, Gat No- 1251, Upper Kharadi, Wagholi, Pune-412207, Wagholi 412207
+            Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse, Lonikand, Pune – 412216
           </p>
         </AnimatedSection>
 

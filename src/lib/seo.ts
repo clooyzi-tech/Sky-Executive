@@ -21,7 +21,7 @@ export function generatePageMetadata({
   const pageDescription = description ?? seoConfig.defaultDescription;
   const siteUrl = seoConfig.siteUrl;
   const url = `${siteUrl}${path}`;
-  const image = ogImage || `${siteUrl}/sky-executive-logo.svg`;
+  const image = ogImage || `${siteUrl}/images/property/building_exterior.webp`;
 
   return {
     title: pageTitle,
@@ -44,15 +44,15 @@ export function generatePageMetadata({
         {
           url: image.startsWith('http') ? image : `${siteUrl}${image}`,
           secureUrl: image.startsWith('http') ? image : `${siteUrl}${image}`,
-          width: ogImage ? 1200 : 287,
-          height: ogImage ? 630 : 430,
-          type: 'image/png',
+          width: 1200,
+          height: 630,
+          type: image.endsWith('.webp') ? 'image/webp' : 'image/jpeg',
           alt: pageTitle,
         },
       ],
     },
     twitter: {
-      card: ogImage ? 'summary_large_image' : 'summary',
+      card: 'summary_large_image',
       title: pageTitle,
       description: pageDescription,
       images: [image.startsWith('http') ? image : `${siteUrl}${image}`],
@@ -93,8 +93,8 @@ export function hotelJsonLd() {
     hasMap: contact.googleMapsUrl,
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 18.5510123,
-      longitude: 73.9739785,
+      latitude: 18.6082,
+      longitude: 74.01528,
     },
     address: {
       '@type': 'PostalAddress',
