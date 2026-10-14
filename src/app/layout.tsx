@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { fontVariables } from '@/config/fonts';
 import { STRINGS } from '@/config/strings';
-import { websiteJsonLd, organizationJsonLd } from '@/lib/seo';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
@@ -25,11 +24,12 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.ico' },
-      { url: '/sky-executive-logo.svg', type: 'image/svg+xml' },
+      { url: '/SE_Logo.jpeg', type: 'image/jpeg' },
+      { url: '/icon.png', type: 'image/png' },
     ],
     apple: [
       { url: '/apple-icon.png' },
-      { url: '/sky-executive-logo.svg' },
+      { url: '/SE_Logo.jpeg' },
     ],
   },
   openGraph: {
@@ -41,12 +41,20 @@ export const metadata: Metadata = {
     description: STRINGS.seo.defaultDescription,
     images: [
       {
-        url: `${siteUrl}/images/property/building_exterior.webp`,
-        secureUrl: `${siteUrl}/images/property/building_exterior.webp`,
+        url: `${siteUrl}/SE_Logo.jpeg`,
+        secureUrl: `${siteUrl}/SE_Logo.jpeg`,
+        width: 1200,
+        height: 1200,
+        type: 'image/jpeg',
+        alt: `${STRINGS.brand.name} Official Emblem Logo`,
+      },
+      {
+        url: `${siteUrl}/images/property/sky_building_exterior.webp`,
+        secureUrl: `${siteUrl}/images/property/sky_building_exterior.webp`,
         width: 1200,
         height: 630,
         type: 'image/webp',
-        alt: `${STRINGS.brand.name} Building Exterior`,
+        alt: `${STRINGS.brand.name} Jaywant Tower Building Exterior`,
       },
     ],
   },
@@ -54,7 +62,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: STRINGS.seo.defaultTitle,
     description: STRINGS.seo.defaultDescription,
-    images: [`${siteUrl}/images/property/building_exterior.webp`],
+    images: [`${siteUrl}/images/property/sky_building_exterior.webp`],
   },
   robots: {
     index: true,
@@ -75,20 +83,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="en"
       className={`${fontVariables} h-full antialiased`}
     >
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(websiteJsonLd()),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationJsonLd()),
-          }}
-        />
-      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground overflow-x-clip">
         <Header />
         <main className="flex-1 overflow-x-clip">{children}</main>

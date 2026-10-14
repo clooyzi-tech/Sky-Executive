@@ -3,102 +3,108 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Sparkles, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { IMAGES } from '@/config/image';
 import { STRINGS } from '@/config/strings';
+import CrownMark from '@/components/ui/CrownMark';
+import GoldRuleDot from '@/components/ui/GoldRuleDot';
 
-const MOMENTS = [
+const PHOTO_TILES = [
   {
     id: 1,
-    title: 'Hotel Building & Exterior',
-    subtitle: 'Jaywant Towers, Pune–Nagar Road, Lonikand',
-    src: IMAGES.building || '/images/property/building_exterior.webp',
-    span: 'col-span-1 md:col-span-2 row-span-2',
-    aspect: 'h-72 md:h-full min-h-[300px]',
+    title: 'Signature Executive Room',
+    subtitle: 'Queen Bed • Ambient Lighting',
+    src: IMAGES.rooms?.['premium-room'] || '/images/rooms/sky_executive_room.webp',
   },
   {
     id: 2,
-    title: 'Designer Interior & Ambiance',
-    subtitle: 'Warm Lighting & Contemporary Spaces',
-    src: IMAGES.interior || '/images/property/interior_design.webp',
-    span: 'col-span-1',
-    aspect: 'h-64 sm:h-72',
+    title: 'Front Desk & Reception',
+    subtitle: '24/7 Guest Care & Check-In',
+    src: IMAGES.services?.reception || '/images/services/reception.jpg',
   },
   {
     id: 3,
-    title: 'Executive Comfort & City Skyline',
-    subtitle: 'Facing Highway & City Horizons',
-    src: '/images/property/peaceful_ambience.jpg',
-    span: 'col-span-1',
-    aspect: 'h-64 sm:h-72',
+    title: 'Jaywant Towers Exterior',
+    subtitle: 'Pune–Nagar Road, Lonikand',
+    src: IMAGES.building || '/images/property/sky_building_exterior.webp',
   },
   {
     id: 4,
-    title: 'Signature Executive Rooms',
-    subtitle: 'Plush Queen Bed & Quiet Privacy',
-    src: IMAGES.rooms['premium-room'] || '/images/rooms/double_bed_room.webp',
-    span: 'col-span-1 md:col-span-2',
-    aspect: 'h-64 sm:h-72',
+    title: 'En-Suite Bathroom & Hygiene',
+    subtitle: '24/7 Hot Water Facility',
+    src: '/images/services/bathroom.jpg',
   },
 ];
 
 export default function MomentsGallery() {
   return (
-    <section className="py-20 sm:py-28 bg-navy text-white relative overflow-hidden" id="moments-gallery">
-      {/* Decorative ambient gold glow */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-accent-gold/10 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header with Title and CTA */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
+    <section
+      className="w-full bg-[var(--cream)] py-14 sm:py-20 select-none overflow-hidden"
+      id="moments-gallery"
+    >
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-6">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-navy-surface border border-accent/30 text-accent text-xs font-semibold tracking-wider uppercase mb-3">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Visual Journey</span>
+            <div className="flex items-center gap-2 mb-2">
+              <CrownMark size="nav" variant="gold" />
+              <span className="font-display font-bold text-xs uppercase tracking-[0.2em] text-[var(--brown-gold)]">
+                Visual Experience • Jaywant Towers
+              </span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
+            <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl uppercase tracking-tight text-[var(--navy-ink)]">
               Moments from {STRINGS.brand.name}
             </h2>
-            <p className="mt-2 text-xs sm:text-sm md:text-base text-white/75 max-w-xl">
-              Immerse yourself in our contemporary spaces, thoughtful room details, and hospitable Pune surroundings.
+            <p className="font-body text-sm sm:text-base text-[var(--ink-muted)] mt-1.5 max-w-xl">
+              Authentic property photography: verified executive rooms, modern corridor spaces, and secure premises in Lonikand, Pune.
             </p>
           </div>
 
           <div>
             <Link
               href="/gallery"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent hover:bg-accent-dark text-white text-xs font-bold uppercase tracking-wider shadow-lg transition-all active:scale-95"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-[var(--navy-ink)] hover:bg-[var(--navy-ink)] text-[var(--navy-ink)] hover:text-[var(--cream)] font-display font-bold text-xs uppercase tracking-wider px-6 py-3 transition-all duration-200"
             >
-              <span>Explore Gallery & Spaces</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>VIEW FULL GALLERY</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
         </div>
 
-        {/* Mosaic Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6">
-          {MOMENTS.map((item) => (
+        {/* Section 6.3 Photo Strip Grid: 1.35fr 1fr 1fr 1.1fr, sharp corners, 4px gap */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.35fr_1fr_1fr_1.1fr] gap-1 bg-[var(--cream)] p-1 border border-[var(--line-gold)] shadow-md">
+          {PHOTO_TILES.map((tile) => (
             <div
-              key={item.id}
-              className={`group relative overflow-hidden rounded-3xl border border-white/10 ${item.span} ${item.aspect} shadow-lg`}
+              key={tile.id}
+              className="group relative h-[260px] sm:h-[300px] lg:h-[320px] w-full overflow-hidden bg-[var(--navy-deep)] cursor-pointer"
             >
+              {/* Photo with Sharp Corners (0 radius) */}
               <Image
-                src={item.src}
-                alt={item.title}
+                src={tile.src}
+                alt={tile.title}
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                className="object-cover object-center transition-transform duration-400 ease-out group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />
 
-              <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-10">
-                <span className="text-[10px] uppercase font-bold tracking-widest text-accent">
-                  {item.subtitle}
+              {/* 3px Gold Inset Frame on Hover */}
+              <div className="absolute inset-0 border-0 group-hover:border-[3px] border-[var(--gold-bright)] transition-all duration-300 pointer-events-none z-10" />
+
+              {/* Slide-Up Navy Caption Bar (44px high) */}
+              <div className="absolute bottom-0 left-0 right-0 h-11 bg-[var(--navy-deep)]/95 border-t border-[var(--gold-bright)]/40 px-3 flex items-center justify-between z-20 translate-y-full group-hover:translate-y-0 transition-transform duration-250 ease-out">
+                <span className="font-display font-bold text-xs text-white uppercase tracking-wider truncate">
+                  {tile.title}
                 </span>
-                <h3 className="font-serif text-lg sm:text-xl font-bold text-white mt-1 group-hover:text-accent transition-colors">
-                  {item.title}
-                </h3>
+                <span className="font-sans text-[10px] text-[var(--gold-bright)] uppercase tracking-widest shrink-0 ml-2">
+                  {tile.subtitle}
+                </span>
+              </div>
+
+              {/* Static subtle label for mobile/touch */}
+              <div className="sm:hidden absolute top-2 left-2 bg-[var(--navy-deep)]/80 backdrop-blur-xs px-2.5 py-1 rounded-sm border border-[var(--gold-bright)]/30">
+                <span className="font-display font-bold text-[10px] text-[var(--cream)] uppercase tracking-wider">
+                  {tile.title}
+                </span>
               </div>
             </div>
           ))}

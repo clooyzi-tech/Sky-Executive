@@ -20,6 +20,9 @@ import {
 } from '@/config/icons';
 import { STRINGS } from '@/config/strings';
 import AnimatedSection from '@/components/ui/AnimatedSection';
+import CrownMark from '@/components/ui/CrownMark';
+import GoldRuleDot from '@/components/ui/GoldRuleDot';
+import BotanicalWatermark from '@/components/ui/BotanicalWatermark';
 
 interface ExperienceSectionProps {
   id?: string;
@@ -39,122 +42,81 @@ export default function ExperienceSection({
   const iconResolver = (iconName: string) => {
     switch (iconName) {
       case 'Users':
-        return <Users className="h-5 w-5 text-[#C9A227]" />;
+        return <Users className="h-5 w-5 text-[var(--cream)]" />;
       case 'Wifi':
-        return <Wifi className="h-5 w-5 text-[#C9A227]" />;
+        return <Wifi className="h-5 w-5 text-[var(--cream)]" />;
       case 'Car':
-        return <Car className="h-5 w-5 text-[#C9A227]" />;
+        return <Car className="h-5 w-5 text-[var(--cream)]" />;
       case 'Bell':
-        return <Bell className="h-5 w-5 text-[#C9A227]" />;
+        return <Bell className="h-5 w-5 text-[var(--cream)]" />;
       case 'Droplets':
-        return <Droplets className="h-5 w-5 text-[#C9A227]" />;
+        return <Droplets className="h-5 w-5 text-[var(--cream)]" />;
       case 'Wind':
-        return <Wind className="h-5 w-5 text-[#C9A227]" />;
+        return <Wind className="h-5 w-5 text-[var(--cream)]" />;
       case 'UtensilsCrossed':
-        return <UtensilsCrossed className="h-5 w-5 text-[#C9A227]" />;
+        return <UtensilsCrossed className="h-5 w-5 text-[var(--cream)]" />;
       case 'Trees':
-        return <Trees className="h-5 w-5 text-[#C9A227]" />;
+        return <Trees className="h-5 w-5 text-[var(--cream)]" />;
       case 'Luggage':
-        return <Luggage className="h-5 w-5 text-[#C9A227]" />;
+        return <Luggage className="h-5 w-5 text-[var(--cream)]" />;
       case 'MapPin':
-        return <MapPin className="h-5 w-5 text-[#C9A227]" />;
+        return <MapPin className="h-5 w-5 text-[var(--cream)]" />;
       case 'Bed':
-        return <Bed className="h-4 w-4 text-[#C9A227]" />;
+        return <Bed className="h-4 w-4 text-[var(--cream)]" />;
       case 'Heart':
-        return <Heart className="h-4 w-4 text-[#C9A227]" />;
+        return <Heart className="h-4 w-4 text-[var(--cream)]" />;
       case 'Sparkles':
-        return <Sparkles className="h-4 w-4 text-[#C9A227]" />;
+        return <Sparkles className="h-4 w-4 text-[var(--cream)]" />;
       default:
-        return <Bed className="h-5 w-5 text-[#C9A227]" />;
+        return <Bed className="h-5 w-5 text-[var(--cream)]" />;
     }
   };
 
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F3] via-[#F8F5EE] to-[#F4EFE6] py-16 md:py-24"
+      className="relative overflow-hidden bg-[var(--cream-deep)] py-16 md:py-24"
       id={id}
     >
-      {/* ------------------------------------------------------------- */}
-      {/* 1. LUXURY BOTANICAL BRANCHES & CALLIGRAPHY IN CORNERS         */}
-      {/* ------------------------------------------------------------- */}
-      {/* Top Left Botanical Branch & Stamp */}
-      <div className="pointer-events-none absolute left-0 top-0 h-96 w-96 opacity-20 select-none">
-        <svg
-          viewBox="0 0 400 400"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-full w-full"
-        >
-          <path
-            d="M0 40C80 40 140 100 180 180C140 140 80 120 20 140M100 100C160 140 180 220 160 300M120 140C200 180 240 260 220 360"
-            stroke="#B88A2A"
-            strokeWidth="1.75"
-            strokeLinecap="round"
-          />
-          <ellipse cx="60" cy="80" rx="16" ry="8" transform="rotate(-30 60 80)" stroke="#B88A2A" strokeWidth="1.2" />
-          <ellipse cx="120" cy="120" rx="18" ry="9" transform="rotate(-15 120 120)" stroke="#B88A2A" strokeWidth="1.2" />
-          <ellipse cx="160" cy="200" rx="20" ry="10" transform="rotate(20 160 200)" stroke="#B88A2A" strokeWidth="1.2" />
-          <ellipse cx="200" cy="280" rx="18" ry="9" transform="rotate(45 200 280)" stroke="#B88A2A" strokeWidth="1.2" />
-        </svg>
-      </div>
+      {/* Botanical Watermark */}
+      <BotanicalWatermark className="top-0 right-0 pointer-events-none" />
 
       {/* Top Left Editorial Stamp */}
-      <div className="absolute left-6 lg:left-12 top-10 lg:top-14 hidden md:flex flex-col text-[11px] font-semibold tracking-[0.26em] text-[#8A8478] leading-tight select-none">
+      <div className="absolute left-6 lg:left-12 top-10 lg:top-14 hidden md:flex flex-col text-[11px] font-bold font-display tracking-[0.26em] text-[var(--brown-gold)] leading-tight select-none">
         <span>COMFORT</span>
         <span className="my-1">IN EVERY</span>
         <span>DETAIL</span>
       </div>
 
-      {/* Top Right Botanical Branch & Script */}
-      <div className="pointer-events-none absolute right-0 top-0 h-96 w-96 opacity-20 select-none">
-        <svg
-          viewBox="0 0 400 400"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-full w-full"
-        >
-          <path
-            d="M400 40C320 40 260 100 220 180C260 140 320 120 380 140M300 100C240 140 220 220 240 300M280 140C200 180 160 260 180 360"
-            stroke="#B88A2A"
-            strokeWidth="1.75"
-            strokeLinecap="round"
-          />
-          <ellipse cx="340" cy="80" rx="16" ry="8" transform="rotate(30 340 80)" stroke="#B88A2A" strokeWidth="1.2" />
-          <ellipse cx="280" cy="120" rx="18" ry="9" transform="rotate(15 280 120)" stroke="#B88A2A" strokeWidth="1.2" />
-          <ellipse cx="240" cy="200" rx="20" ry="10" transform="rotate(-20 240 200)" stroke="#B88A2A" strokeWidth="1.2" />
-          <ellipse cx="200" cy="280" rx="18" ry="9" transform="rotate(-45 200 280)" stroke="#B88A2A" strokeWidth="1.2" />
-        </svg>
-      </div>
-
       {/* Top Right Calligraphy Accent */}
       <div className="absolute right-6 lg:right-12 top-8 lg:top-12 hidden md:flex flex-col items-end select-none">
-        <div className="font-serif italic text-2xl lg:text-3xl text-[#B88A2A]/85 leading-tight tracking-wide">
+        <div className="font-script italic text-2xl lg:text-3xl text-[var(--gold)] leading-tight tracking-wide">
           <div className="pr-10">Stay</div>
           <div className="pr-4">Relax</div>
           <div>Recharge</div>
         </div>
-        <div className="mt-2 h-px w-36 lg:w-48 bg-gradient-to-r from-transparent via-[#C9A227]/40 to-[#C9A227]" />
+        <div className="mt-2 h-0.5 w-36 lg:w-48 bg-[var(--gold)]/40" />
       </div>
 
-      {/* ------------------------------------------------------------- */}
-      {/* 2. SECTION HEADER (Centered)                                  */}
-      {/* ------------------------------------------------------------- */}
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <AnimatedSection>
             <div className="flex items-center justify-center gap-3">
-              <span className="h-px w-10 bg-[#C9A227]" />
-              <span className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C9A227]">
+              <span className="h-0.5 w-10 bg-[var(--gold)]" />
+              <span className="text-xs font-bold font-display tracking-[0.25em] uppercase text-[var(--brown-gold)]">
                 {isAllServicesPage ? 'ALL HOTEL SERVICES & AMENITIES' : experience.eyebrow}
               </span>
-              <span className="h-px w-10 bg-[#C9A227]" />
+              <span className="h-0.5 w-10 bg-[var(--gold)]" />
             </div>
 
-            <h2 className="mt-3 sm:mt-4 font-serif text-3xl font-bold tracking-tight text-[#1C1C1C] sm:text-4xl md:text-5xl">
+            <h2 className="mt-3 sm:mt-4 font-display text-3xl font-extrabold tracking-tight text-[var(--navy-ink)] sm:text-4xl md:text-5xl uppercase">
               {isAllServicesPage ? 'Everything You Need for a Seamless Stay' : experience.title}
             </h2>
 
-            <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-sm leading-relaxed text-[#5F5A50] sm:text-base">
+            <div className="flex justify-center my-3">
+              <GoldRuleDot width="280px" />
+            </div>
+
+            <p className="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-[var(--ink)] sm:text-base">
               {isAllServicesPage
                 ? 'Thoughtfully curated facilities and verified services across our boutique hotel in Pune.'
                 : experience.subtitle}
@@ -162,15 +124,13 @@ export default function ExperienceSection({
           </AnimatedSection>
         </div>
 
-        {/* ------------------------------------------------------------- */}
-        {/* 3. ROW 1: HERO PAIR (Comfortable Rooms + Daily Housekeeping) */}
-        {/* ------------------------------------------------------------- */}
+        {/* ROW 1: HERO PAIR */}
         <div className="mt-10 sm:mt-12 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
-          {/* Card 1: Comfortable Rooms (7 columns - Large landscape photo with overlay badge) */}
+          {/* Card 1: Comfortable Rooms */}
           <div className="lg:col-span-7 xl:col-span-7">
             <AnimatedSection delay={0.1}>
-              <div className="group relative min-h-[380px] sm:min-h-[420px] lg:min-h-[440px] h-full rounded-2xl sm:rounded-3xl overflow-hidden border border-[#DED8CC] shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-end bg-charcoal">
-                {/* Background Hotel Room Image */}
+              <div className="group relative min-h-[380px] sm:min-h-[420px] lg:min-h-[440px] h-full rounded-[6px] overflow-hidden border border-[var(--gold)] shadow-[var(--shadow-card)] transition-all duration-300 flex flex-col justify-end bg-[var(--navy-deep)]">
+                {/* Photo has sharp corners */}
                 <Image
                   src={experience.heroRoom.image}
                   alt={experience.heroRoom.title}
@@ -180,32 +140,29 @@ export default function ExperienceSection({
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
 
-                {/* Dark Gradient Overlay for perfect typography contrast */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--navy-deep)]/90 via-[var(--navy-deep)]/40 to-transparent" />
 
-                {/* Floating Bottom Card */}
                 <div className="relative z-10 p-6 sm:p-8">
                   <div className="flex items-start gap-4">
-                    {/* Circular Gold Icon Badge */}
-                    <div className="flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full bg-[#FAF8F3]/95 border border-[#C9A227] text-[#C9A227] shadow-md">
-                      <Bed className="h-5 w-5 sm:h-6 sm:w-6 text-[#C9A227]" />
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[var(--gold)] border border-[var(--gold-bright)] text-[var(--cream)] shadow-md">
+                      <Bed className="h-6 w-6 text-[var(--cream)]" />
                     </div>
 
                     <div className="flex-1">
-                      <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] text-[#E7D39A]">
+                      <span className="text-[10px] sm:text-xs font-bold font-display uppercase tracking-[0.18em] text-[var(--gold-bright)]">
                         {experience.heroRoom.category}
                       </span>
-                      <h3 className="mt-1 font-serif text-2xl sm:text-3xl font-bold text-white">
+                      <h3 className="mt-1 font-display text-2xl sm:text-3xl font-extrabold text-white uppercase">
                         {experience.heroRoom.title}
                       </h3>
-                      <p className="mt-2 text-xs sm:text-sm text-white/85 leading-relaxed max-w-md font-light">
+                      <p className="mt-2 text-xs sm:text-sm text-[var(--on-navy)]/90 leading-relaxed max-w-md font-normal">
                         {experience.heroRoom.description}
                       </p>
 
                       <div className="mt-4">
                         <Link
                           href={experience.heroRoom.href}
-                          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#E7D39A] hover:text-white transition-colors group/link"
+                          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[var(--gold-bright)] hover:text-white transition-colors group/link font-display"
                         >
                           <span>{experience.heroRoom.linkText}</span>
                           <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-1" />
@@ -218,12 +175,11 @@ export default function ExperienceSection({
             </AnimatedSection>
           </div>
 
-          {/* Card 2: Daily Housekeeping (5 columns - Split Photo & Content) */}
+          {/* Card 2: Daily Housekeeping */}
           <div className="lg:col-span-5 xl:col-span-5">
             <AnimatedSection delay={0.2}>
-              <div className="group relative min-h-[380px] sm:min-h-[420px] lg:min-h-[440px] h-full rounded-2xl sm:rounded-3xl overflow-hidden border border-[#DED8CC] bg-white shadow-xs hover:shadow-xl transition-all duration-300 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-                {/* Photo of Housekeeper folding towels */}
-                <div className="relative h-56 sm:h-full w-full overflow-hidden bg-cream">
+              <div className="group relative min-h-[380px] sm:min-h-[420px] lg:min-h-[440px] h-full rounded-[6px] overflow-hidden border border-[var(--gold)] bg-white shadow-[var(--shadow-card)] transition-all duration-300 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                <div className="relative h-56 sm:h-full w-full overflow-hidden bg-[var(--cream)]">
                   <Image
                     src={experience.housekeeping.image}
                     alt={experience.housekeeping.title}
@@ -233,28 +189,27 @@ export default function ExperienceSection({
                   />
                 </div>
 
-                {/* Content Panel */}
                 <div className="p-6 sm:p-7 xl:p-8 flex flex-col justify-center bg-white">
-                  <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-[#FAF8F3] border border-[#E7D39A] text-[#C9A227] shadow-2xs">
-                    <Sparkles className="h-5 w-5 text-[#C9A227]" />
+                  <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-full bg-[var(--gold)] text-[var(--cream)] shadow-xs">
+                    <Sparkles className="h-5 w-5 text-[var(--cream)]" />
                   </div>
 
-                  <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.16em] text-[#C9A227]">
+                  <span className="text-[10px] sm:text-xs font-bold font-display uppercase tracking-[0.16em] text-[var(--brown-gold)]">
                     {experience.housekeeping.category}
                   </span>
 
-                  <h3 className="mt-1 font-serif text-xl sm:text-2xl font-bold text-[#1C1C1C]">
+                  <h3 className="mt-1 font-display text-xl sm:text-2xl font-extrabold text-[var(--navy-ink)] uppercase">
                     {experience.housekeeping.title}
                   </h3>
 
-                  <p className="mt-2 text-xs sm:text-sm text-[#5F5A50] leading-relaxed">
+                  <p className="mt-2 text-xs sm:text-sm text-[var(--ink)] leading-relaxed">
                     {experience.housekeeping.description}
                   </p>
 
                   <div className="mt-5">
                     <Link
                       href={experience.housekeeping.href}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#C9A227] hover:text-[#B88A2A] transition-colors group/link"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[var(--gold)] hover:text-[var(--brown-gold)] transition-colors group/link font-display"
                     >
                       <span>{experience.housekeeping.linkText}</span>
                       <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-1" />
@@ -266,15 +221,12 @@ export default function ExperienceSection({
           </div>
         </div>
 
-        {/* ------------------------------------------------------------- */}
-        {/* 4. BALANCED SERVICES (3-Column Grid)                          */}
-        {/* ------------------------------------------------------------- */}
+        {/* 3-Column Grid */}
         <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {servicesToDisplay.map((service, idx) => (
             <AnimatedSection key={service.id} delay={0.06 * (idx + 1)}>
-              <div className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[#DED8CC] bg-white shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col h-full">
-                {/* Service Card Top Image */}
-                <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-cream">
+              <div className="group relative overflow-hidden rounded-[6px] border border-[var(--gold)] bg-white shadow-[var(--shadow-card)] transition-all duration-300 flex flex-col h-full">
+                <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-[var(--cream)]">
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -284,31 +236,29 @@ export default function ExperienceSection({
                   />
                 </div>
 
-                {/* Service Card Content with Overlapping Badge */}
                 <div className="relative p-6 pt-7 flex-1 flex flex-col justify-between bg-white">
-                  {/* Overlapping Badge protruding onto photo boundary */}
-                  <div className="absolute -top-5 left-6 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-[#FAF8F3] border border-[#E7D39A] text-[#C9A227] shadow-sm transition-transform duration-300 group-hover:scale-105">
+                  <div className="absolute -top-5 left-6 flex h-11 w-11 items-center justify-center rounded-full bg-[var(--navy-deep)] text-[var(--cream)] border-2 border-[var(--gold)] shadow-sm transition-transform duration-300 group-hover:scale-105">
                     {iconResolver(service.icon)}
                   </div>
 
                   <div>
-                    <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.16em] text-[#C9A227] block">
+                    <span className="text-[10px] sm:text-xs font-bold font-display uppercase tracking-[0.16em] text-[var(--brown-gold)] block">
                       {service.category}
                     </span>
 
-                    <h3 className="mt-1 font-serif text-lg sm:text-xl font-bold text-[#1C1C1C]">
+                    <h3 className="mt-1 font-display text-lg sm:text-xl font-bold text-[var(--navy-ink)] uppercase">
                       {service.title}
                     </h3>
 
-                    <p className="mt-2 text-xs sm:text-sm text-[#5F5A50] leading-relaxed">
+                    <p className="mt-2 text-xs sm:text-sm text-[var(--ink)] leading-relaxed">
                       {service.description}
                     </p>
                   </div>
 
-                  <div className="mt-5 pt-3 border-t border-[#F3EFE6]">
+                  <div className="mt-5 pt-3 border-t border-[var(--line-gold)]">
                     <Link
                       href={service.href}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#C9A227] hover:text-[#B88A2A] transition-colors group/link"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[var(--gold)] hover:text-[var(--brown-gold)] transition-colors group/link font-display"
                     >
                       <span>{service.linkText}</span>
                       <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-1" />
@@ -320,19 +270,17 @@ export default function ExperienceSection({
           ))}
         </div>
 
-        {/* ------------------------------------------------------------- */}
-        {/* 5. WIDE BANNER CTA CARD                                       */}
-        {/* ------------------------------------------------------------- */}
+        {/* WIDE BANNER CTA CARD */}
         <AnimatedSection delay={0.3}>
-          <div className="mt-10 sm:mt-12 overflow-hidden rounded-2xl sm:rounded-3xl border border-[#DED8CC] bg-[#F5EFEB] shadow-xs hover:shadow-lg transition-all duration-300">
+          <div className="mt-10 sm:mt-12 overflow-hidden rounded-[6px] border border-[var(--gold)] bg-white shadow-[var(--shadow-card)] transition-all duration-300">
             <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
-              {/* Left Column (Copy & Button) */}
               <div className="lg:col-span-5 p-8 sm:p-12 lg:p-14">
-                <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1C1C1C] leading-tight">
+                <CrownMark size="footer" variant="gold" />
+                <h3 className="mt-3 font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[var(--navy-ink)] leading-tight uppercase">
                   Experience Comfort<br />at Every Step
                 </h3>
 
-                <p className="mt-3 text-xs sm:text-sm text-[#5F5A50] leading-relaxed max-w-sm">
+                <p className="mt-3 text-xs sm:text-sm text-[var(--ink)] leading-relaxed max-w-sm">
                   {isAllServicesPage
                     ? 'Ready to experience boutique comfort at Hotel Sky Executive Pune? Connect directly with our front desk team.'
                     : experience.banner.subtitle}
@@ -341,17 +289,16 @@ export default function ExperienceSection({
                 <div className="mt-6 sm:mt-8">
                   <Link
                     href={isAllServicesPage ? '/contact' : experience.banner.href}
-                    className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#C9A227] via-[#D4AF37] to-[#B88A2A] px-7 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1C1C1C] shadow-sm transition-all duration-300 hover:brightness-105 hover:shadow-md active:scale-95"
+                    className="btn-primary-gold inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider"
                     id="experience-banner-btn"
                   >
                     <span>{isAllServicesPage ? 'ENQUIRE ABOUT STAY' : experience.banner.btnText}</span>
-                    <ArrowRight className="h-3.5 w-3.5 text-[#1C1C1C]" />
+                    <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
               </div>
 
-              {/* Right Column (Bedside Table / Stories Image) */}
-              <div className="lg:col-span-7 relative h-64 sm:h-80 lg:h-full min-h-[260px] lg:min-h-[340px] overflow-hidden bg-cream">
+              <div className="lg:col-span-7 relative h-64 sm:h-80 lg:h-full min-h-[260px] lg:min-h-[340px] overflow-hidden bg-[var(--cream)]">
                 <Image
                   src={experience.banner.image}
                   alt="Hotel Sky Executive Boutique Experience — Good Stays Create Great Stories"
@@ -364,28 +311,26 @@ export default function ExperienceSection({
           </div>
         </AnimatedSection>
 
-        {/* ------------------------------------------------------------- */}
-        {/* 6. BOTTOM FEATURE STRIP / HIGHLIGHTS BAR                      */}
-        {/* ------------------------------------------------------------- */}
-        <div className="mt-12 sm:mt-16 pt-8 border-t border-[#DED8CC] flex flex-wrap items-center justify-between gap-4 sm:gap-6 text-xs text-[#5F5A50]">
+        {/* BOTTOM FEATURE STRIP */}
+        <div className="mt-12 sm:mt-16 pt-8 border-t border-[var(--line-gold)] flex flex-wrap items-center justify-between gap-4 sm:gap-6 text-xs text-[var(--ink)]">
           {experience.highlights.map((item, i) => (
             <div key={item.label} className="flex items-center gap-2">
-              {iconResolver(item.icon)}
-              <span className="font-medium text-[#1C1C1C]">{item.label}</span>
+              <div className="h-6 w-6 rounded-full bg-[var(--navy-deep)] flex items-center justify-center text-[var(--cream)]">
+                {iconResolver(item.icon)}
+              </div>
+              <span className="font-semibold text-[var(--navy-ink)] uppercase tracking-wider font-display text-[11px]">{item.label}</span>
               {i < experience.highlights.length - 1 && (
-                <span className="hidden lg:inline text-[#DED8CC] ml-4 sm:ml-6">|</span>
+                <span className="hidden lg:inline text-[var(--gold)] ml-4 sm:ml-6">•</span>
               )}
             </div>
           ))}
 
-          {/* Hotel Sky Executive Brand Signature */}
-          <div className="flex items-center gap-2.5 font-serif font-bold text-[11px] tracking-[0.2em] text-[#B88A2A] uppercase ml-auto lg:ml-0">
-            <span className="h-px w-6 bg-[#C9A227]" />
+          <div className="flex items-center gap-2.5 font-display font-extrabold text-[11px] tracking-[0.2em] text-[var(--gold)] uppercase ml-auto lg:ml-0">
+            <span className="h-0.5 w-6 bg-[var(--gold)]" />
             <span>HOTEL SKY EXECUTIVE</span>
           </div>
         </div>
       </div>
-
     </section>
   );
 }

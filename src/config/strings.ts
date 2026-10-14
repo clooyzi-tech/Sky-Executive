@@ -40,7 +40,7 @@ export const STRINGS = {
     tagline: hotelInfo.tagline,
     description: hotelInfo.shortDescription,
     logoAlt: 'Hotel Sky Executive — Lonikand, Pune',
-    logoPath: '/sky-executive-logo.svg',
+    logoPath: '/SE_Logo.jpeg',
   },
 
   // ---------------------------------------------------------------------------
@@ -203,7 +203,7 @@ export const STRINGS = {
           'Thoughtfully designed rooms with modern amenities to make your stay relaxing and memorable.',
         linkText: 'EXPLORE ROOMS',
         href: '/rooms',
-        image: '/images/rooms/double_bed_room.webp',
+        image: '/images/rooms/sky_executive_room.webp',
       },
       housekeeping: {
         category: 'HOUSEKEEPING',
@@ -224,7 +224,7 @@ export const STRINGS = {
           linkText: 'LEARN MORE',
           href: '/contact',
           icon: 'Users',
-          image: '/images/property/interior_design.webp',
+          image: '/images/services/reception.jpg',
         },
         {
           id: 'wifi',
@@ -312,7 +312,7 @@ export const STRINGS = {
           linkText: 'LEARN MORE',
           href: '/contact',
           icon: 'Luggage',
-          image: '/images/property/interior_design.webp',
+          image: '/images/services/reception.jpg',
         },
       ],
       banner: {
@@ -346,7 +346,7 @@ export const STRINGS = {
             'A spacious 200 sq. ft. room thoughtfully equipped with a plush double bed (queen-size), attached en-suite bathroom with 24/7 hot water, individual air conditioning, smart TV, high-speed Wi-Fi, work table, and scenic nature-facing views, arranged for guaranteed privacy.',
           tagBadge: 'PREMIUM ROOM | 200 SQ. FT. | DOUBLE BED | NATURE VIEW',
           occupancyText: 'Accommodates 2 + 1 Guests (Extra Bed Available)',
-          image: '/images/rooms/double_bed_room.webp',
+          image: '/images/rooms/sky_executive_room.webp',
           amenities: [
             { icon: 'Bed', label: 'Double Bed (Queen Size)' },
             { icon: 'Bath', label: 'Attached Bath (24/7 Hot Water)' },

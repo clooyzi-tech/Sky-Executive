@@ -81,7 +81,7 @@ export const roomsList: RoomItem[] = [
     pricingNote: 'Official tariffs and taxes are confirmed directly by front desk upon enquiry. Contact us for current seasonal rates.',
     availabilityStatus: 'subject_to_confirmation',
     availabilityDisplay: 'Enquire for Dates',
-    image: '/images/rooms/double_bed_room.webp',
+    image: '/images/rooms/sky_executive_room.webp',
   },
 ];
 

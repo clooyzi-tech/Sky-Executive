@@ -10,26 +10,27 @@ import {
   Tv,
   Bath,
   UtensilsCrossed,
-  Sparkles,
   ArrowRight,
   ChevronLeft,
   ChevronRight,
 } from 'lucide-react';
 import { STRINGS } from '@/config/strings';
+import CrownMark from '@/components/ui/CrownMark';
+import GoldRuleDot from '@/components/ui/GoldRuleDot';
 
 const ROOM_PHOTOS = [
   {
-    src: '/images/rooms/double_bed_room.webp',
+    src: '/images/rooms/sky_executive_room.webp',
     title: 'Signature Executive Room',
     subtitle: 'Queen Bed with warm ambient lighting & executive desk',
   },
   {
-    src: '/images/property/interior_design.webp',
-    title: 'Designer Interior & Lighting',
-    subtitle: 'Warm contemporary ceiling lighting and elegant ambiance',
+    src: '/images/rooms/executive_room.jpg',
+    title: 'Executive Room Comfort',
+    subtitle: 'Plush bedding, acoustic privacy & restful climate control',
   },
   {
-    src: '/images/property/building_exterior.webp',
+    src: '/images/property/sky_building_exterior.webp',
     title: 'Jaywant Towers Exterior',
     subtitle: 'Hotel Sky Executive on Pune–Nagar Road, Lonikand',
   },
@@ -44,7 +45,7 @@ const ROOM_FEATURES = [
   {
     icon: Bed,
     title: 'Executive Double Bed (Queen)',
-    desc: 'Spacious room layout with plush mattress',
+    desc: 'Spacious 200 sq.ft room with plush Queen mattress',
   },
   {
     icon: Trees,
@@ -105,26 +106,26 @@ export default function RoomsPreview({
   const current = ROOM_PHOTOS[activePhoto];
 
   return (
-    <section className="py-20 sm:py-28 bg-cream relative overflow-hidden" id={id}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+    <section className="py-16 sm:py-24 bg-[var(--cream)] relative overflow-hidden select-none" id={id}>
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Details & Features */}
           <div className="lg:col-span-6 flex flex-col text-left">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ivory border border-border text-accent text-xs font-semibold tracking-wider uppercase mb-3 w-fit">
-              <Sparkles className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--cream-deep)] border border-[var(--line-gold)] text-[var(--brown-gold)] text-xs font-display font-bold tracking-wider uppercase mb-3 w-fit">
+              <CrownMark size="sm" variant="gold" />
               <span>Signature Accommodation</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-tight">
+            <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-tight text-[var(--navy-ink)] leading-tight">
               {isAllRoomsPage ? 'Signature Executive Double Bed Room (200 Sq. Ft.)' : 'A Stay Designed for Your Comfort'}
             </h2>
 
-            <p className="mt-3 text-xs sm:text-sm md:text-base text-slate-medium leading-relaxed">
-              {STRINGS.brand.name} offers <strong>Executive & Double Bed Rooms</strong> thoughtfully appointed for quiet privacy, seamless business productivity, and restful comfort at Jaywant Towers, Lonikand.{' '}
+            <p className="font-body mt-3 text-sm sm:text-base text-[var(--ink)] leading-relaxed">
+              {STRINGS.brand.name} offers <strong className="text-[var(--navy-ink)]">Executive & Double Bed Rooms</strong> thoughtfully appointed for quiet privacy, seamless business productivity, and restful comfort at Jaywant Towers, Lonikand.{' '}
               {!isAllRoomsPage && (
                 <>
                   You can{' '}
-                  <Link href="/rooms" className="text-accent font-semibold hover:underline">
+                  <Link href="/rooms" className="text-[var(--brown-gold)] font-bold underline hover:text-[var(--gold)]">
                     explore our Executive Double Bed Rooms
                   </Link>{' '}
                   with verified nature views and amenities.
@@ -132,23 +133,23 @@ export default function RoomsPreview({
               )}
             </p>
 
-            {/* 6 Feature Badges */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-8">
+            {/* 6 Feature Cards (6px radius, 1px gold border per Section 4.3) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-7">
               {ROOM_FEATURES.map((f, i) => {
                 const Icon = f.icon;
                 return (
                   <div
                     key={i}
-                    className="flex items-start gap-2.5 p-3 rounded-2xl bg-white border border-border shadow-xs hover:border-accent transition-colors"
+                    className="flex items-start gap-3 p-3.5 rounded-[6px] bg-[var(--cream-deep)] border border-[var(--gold)]/70 shadow-xs hover:border-[var(--gold)] transition-colors"
                   >
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-cream text-accent">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--gold)] text-[var(--cream)] shadow-xs">
                       <Icon className="w-4 h-4" />
                     </div>
                     <div>
-                      <h4 className="text-xs font-bold text-foreground leading-snug">
+                      <h4 className="font-display font-bold text-xs uppercase text-[var(--navy-ink)] leading-snug">
                         {f.title}
                       </h4>
-                      <p className="text-[10.5px] text-slate-medium leading-normal mt-0.5">
+                      <p className="font-body text-[11px] text-[var(--ink)] leading-normal mt-0.5">
                         {f.desc}
                       </p>
                     </div>
@@ -161,25 +162,27 @@ export default function RoomsPreview({
             <div className="mt-8 flex flex-col sm:flex-row items-center gap-3">
               <button
                 onClick={handleBookNow}
-                className="w-full sm:w-auto px-7 py-3 rounded-full bg-accent hover:bg-accent-dark text-white text-xs font-bold uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-[var(--gold-bright)] hover:bg-[var(--gold-foil-light)] text-[var(--navy-deep)] font-display font-bold text-xs uppercase tracking-wider px-8 py-3.5 shadow-md active:scale-95 transition-all cursor-pointer"
+                id="rooms-preview-enquire-btn"
               >
-                Enquire Now
+                <span>ENQUIRE ROOM NOW</span>
               </button>
 
               <Link
                 href="/rooms"
-                className="w-full sm:w-auto px-6 py-3 rounded-full border border-border bg-white hover:bg-cream text-foreground text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors group text-center"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border-2 border-[var(--navy-ink)] hover:bg-[var(--navy-ink)] text-[var(--navy-ink)] hover:text-[var(--cream)] font-display font-bold text-xs uppercase tracking-wider px-6 py-3.5 transition-all text-center"
               >
-                <span>View Full Room Specs</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 text-accent" />
+                <span>VIEW ROOM SPECIFICATIONS</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </div>
 
-          {/* Right Column: Master Room Photo Showcase */}
+          {/* Right Column: Master Room Photo Showcase (Sharp photo corners per Section 4.3) */}
           <div className="lg:col-span-6">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-border bg-white p-2">
-              <div className="relative h-80 sm:h-96 md:h-[420px] rounded-2xl overflow-hidden">
+            <div className="relative rounded-[6px] border border-[var(--gold)] bg-[var(--navy-deep)] p-2 shadow-[0_10px_28px_rgba(11,31,63,0.12)]">
+              {/* Main Photo with 0 radius (Sharp Corners) */}
+              <div className="relative h-[280px] sm:h-[360px] md:h-[400px] w-full overflow-hidden bg-[var(--navy-deep)]">
                 <Image
                   src={current.src}
                   alt={current.title}
@@ -188,42 +191,48 @@ export default function RoomsPreview({
                   className="object-cover object-center transition-all duration-500"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+                {/* Photo Badge */}
+                <div className="absolute top-3 left-3 bg-[var(--navy-deep)]/90 border border-[var(--gold-bright)]/40 px-3 py-1 font-display font-bold text-[10px] uppercase tracking-wider text-[var(--gold-bright)]">
+                  Executive Suite Lonikand
+                </div>
 
                 {/* Arrows */}
                 <button
                   onClick={prevPhoto}
-                  aria-label="Previous photo"
-                  className="absolute left-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-black/40 text-white hover:bg-accent transition-colors cursor-pointer"
+                  aria-label="Previous room photo"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[var(--navy-deep)]/80 border border-[var(--gold-bright)]/40 text-[var(--cream)] flex items-center justify-center hover:bg-[var(--gold-bright)] hover:text-[var(--navy-deep)] transition-colors cursor-pointer"
                 >
-                  <ChevronLeft className="h-4 w-4" />
+                  <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                   onClick={nextPhoto}
-                  aria-label="Next photo"
-                  className="absolute right-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-black/40 text-white hover:bg-accent transition-colors cursor-pointer"
+                  aria-label="Next room photo"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[var(--navy-deep)]/80 border border-[var(--gold-bright)]/40 text-[var(--cream)] flex items-center justify-center hover:bg-[var(--gold-bright)] hover:text-[var(--navy-deep)] transition-colors cursor-pointer"
                 >
-                  <ChevronRight className="h-4 w-4" />
+                  <ChevronRight className="w-5 h-5" />
                 </button>
 
-                {/* Caption */}
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <span className="text-[10px] uppercase font-bold tracking-widest text-accent">
-                    {STRINGS.brand.name} • Pune
+                {/* Bottom Caption Bar */}
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[var(--navy-deep)] via-[var(--navy-deep)]/70 to-transparent p-4 flex flex-col">
+                  <span className="font-display font-extrabold text-sm sm:text-base uppercase text-white tracking-wide">
+                    {current.title}
                   </span>
-                  <h4 className="font-serif text-lg sm:text-xl font-bold">{current.title}</h4>
-                  <p className="text-xs text-white/80">{current.subtitle}</p>
+                  <span className="font-body text-xs text-[var(--on-navy)]/80">
+                    {current.subtitle}
+                  </span>
                 </div>
               </div>
 
-              {/* Thumbnails */}
-              <div className="grid grid-cols-4 gap-2 mt-2 px-1 pb-1">
+              {/* Thumbnail Strip */}
+              <div className="grid grid-cols-4 gap-2 mt-2">
                 {ROOM_PHOTOS.map((p, idx) => (
                   <button
                     key={idx}
                     onClick={() => setActivePhoto(idx)}
-                    className={`relative h-14 sm:h-16 rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
-                      idx === activePhoto ? 'border-accent scale-102 shadow-xs' : 'border-transparent opacity-60 hover:opacity-100'
+                    className={`relative h-16 sm:h-20 w-full overflow-hidden transition-all cursor-pointer ${
+                      activePhoto === idx
+                        ? 'border-2 border-[var(--gold-bright)] scale-98 shadow-sm'
+                        : 'border border-[var(--line-gold)] opacity-60 hover:opacity-100'
                     }`}
                   >
                     <Image
@@ -231,7 +240,7 @@ export default function RoomsPreview({
                       alt={p.title}
                       fill
                       sizes="100px"
-                      className="object-cover"
+                      className="object-cover object-center"
                     />
                   </button>
                 ))}

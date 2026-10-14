@@ -12,3 +12,4 @@ export * from './hotel';
 export * from './rooms';
 export * from './facilities';
 export * from './contact';
+export * from './aeo';

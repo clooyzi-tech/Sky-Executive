@@ -1,6 +1,6 @@
 import React from 'react';
-
-import { BRAND } from '@/config/strings';
+import CrownMark from '@/components/ui/CrownMark';
+import GoldRuleDot from '@/components/ui/GoldRuleDot';
 
 interface LegalPageLayoutProps {
   title: string;
@@ -8,7 +8,6 @@ interface LegalPageLayoutProps {
 }
 
 export default function LegalPageLayout({ title, markdownContent }: LegalPageLayoutProps) {
-  // Simple markdown parser to handle mammoth's output (paragraphs, headers, lists, links, bold)
   const renderMarkdown = (text: string) => {
     const blocks = text.split('\n\n');
     
@@ -26,20 +25,20 @@ export default function LegalPageLayout({ title, markdownContent }: LegalPageLay
 
       // Handle Headers
       if (trimmed.startsWith('# ')) {
-        return <h1 key={index} id={id} className="text-3xl font-serif font-bold text-[#1e234c] mb-6 mt-8">{formatInline(trimmed.replace(/^# /, ''))}</h1>;
+        return <h1 key={index} id={id} className="text-3xl font-display uppercase font-extrabold text-[var(--navy-ink)] mb-6 mt-8">{formatInline(trimmed.replace(/^# /, ''))}</h1>;
       }
       if (trimmed.startsWith('## ')) {
-        return <h2 key={index} id={id} className="text-2xl font-serif font-bold text-[#2A241C] mb-4 mt-8">{formatInline(trimmed.replace(/^## /, ''))}</h2>;
+        return <h2 key={index} id={id} className="text-2xl font-display uppercase font-bold text-[var(--navy-ink)] mb-4 mt-8">{formatInline(trimmed.replace(/^## /, ''))}</h2>;
       }
       if (trimmed.startsWith('### ')) {
-        return <h3 key={index} id={id} className="text-xl font-semibold text-[#2A241C] mb-3 mt-6">{formatInline(trimmed.replace(/^### /, ''))}</h3>;
+        return <h3 key={index} id={id} className="text-xl font-display uppercase font-semibold text-[var(--brown-gold)] mb-3 mt-6">{formatInline(trimmed.replace(/^### /, ''))}</h3>;
       }
 
       // Handle Lists (basic bullet points)
       if (trimmed.startsWith('- ')) {
         const items = trimmed.split('\n').map(item => item.replace(/^- /, '').trim());
         return (
-          <ul key={index} className="list-disc pl-5 mb-5 space-y-2 text-[#4A453F] leading-relaxed">
+          <ul key={index} className="list-disc pl-5 mb-5 space-y-2 text-[var(--ink)] leading-relaxed">
             {items.map((item, i) => (
               <li key={i}>{formatInline(item)}</li>
             ))}
@@ -49,7 +48,7 @@ export default function LegalPageLayout({ title, markdownContent }: LegalPageLay
 
       // Default to paragraph
       return (
-        <p key={index} id={id || undefined} className="mb-5 text-[#4A453F] leading-relaxed text-[15px]">
+        <p key={index} id={id || undefined} className="mb-5 text-[var(--ink)] leading-relaxed text-[15px]">
           {formatInline(trimmed)}
         </p>
       );
@@ -58,21 +57,21 @@ export default function LegalPageLayout({ title, markdownContent }: LegalPageLay
 
   const formatInline = (text: string) => {
     // Handle mammoth's escaped bold `__text__`
-    let parts = text.split(/__(.*?)__/g);
+    const parts = text.split(/__(.*?)__/g);
     return parts.map((part, i) => {
-      if (i % 2 === 1) return <strong key={i} className="font-bold text-[#2A241C]">{part}</strong>;
+      if (i % 2 === 1) return <strong key={i} className="font-bold text-[var(--navy-ink)]">{part}</strong>;
       
       // Handle escaped asterisks `\**` or similar if mammoth produces them
-      let subParts = part.replace(/\\\*/g, '*').replace(/\\\./g, '.').replace(/\\-/g, '-').split(/\[(.*?)\]\((.*?)\)/g);
+      const subParts = part.replace(/\\\*/g, '*').replace(/\\\./g, '.').replace(/\\-/g, '-').split(/\[(.*?)\]\((.*?)\)/g);
       
       // Handle basic links [text](url)
       if (subParts.length > 1) {
-        let linkElements = [];
+        const linkElements = [];
         for (let j = 0; j < subParts.length; j += 3) {
           linkElements.push(<React.Fragment key={j}>{subParts[j]}</React.Fragment>);
           if (j + 1 < subParts.length) {
             linkElements.push(
-              <a key={j+1} href={subParts[j+2]} className="text-[#A67C37] hover:underline font-medium">
+              <a key={j+1} href={subParts[j+2]} className="text-[var(--gold)] hover:text-[var(--gold-bright)] underline decoration-[var(--line-gold)] font-medium">
                 {subParts[j+1]}
               </a>
             );
@@ -86,24 +85,23 @@ export default function LegalPageLayout({ title, markdownContent }: LegalPageLay
   };
 
   return (
-    <main className="min-h-screen bg-[#FAF8F5] pb-20">
-
+    <main className="min-h-screen bg-[var(--cream)] pb-20 pt-8">
       {/* Content */}
-      <article className="max-w-4xl mx-auto px-6 mt-12 bg-white rounded-2xl shadow-sm border border-[#E5DEC9] p-8 md:p-12">
+      <article className="max-w-4xl mx-auto px-6 mt-8 bg-white rounded-[6px] shadow-[var(--shadow-card)] border border-[var(--gold)] p-8 md:p-12">
         <div className="mb-10 text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-12 h-[2px] bg-[#B38E46]" />
-            <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#1e234c] uppercase tracking-wider">{title}</h1>
-            <div className="w-12 h-[2px] bg-[#B38E46]" />
+          <div className="flex justify-center mb-3">
+            <CrownMark size="nav" variant="gold" />
+          </div>
+          <h1 className="text-3xl md:text-4xl font-display font-extrabold text-[var(--navy-ink)] uppercase tracking-wider">{title}</h1>
+          <div className="flex justify-center my-4">
+            <GoldRuleDot width="280px" />
           </div>
         </div>
         
-        <div className="prose max-w-none">
+        <div className="prose max-w-none text-[var(--ink)]">
           {renderMarkdown(markdownContent)}
         </div>
       </article>
-      
-
     </main>
   );
 }

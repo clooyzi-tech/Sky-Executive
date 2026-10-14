@@ -47,16 +47,16 @@ export default function GalleryClient() {
 
   return (
     <>
-      {/* Filters */}
-      <div className="flex flex-wrap justify-center gap-2">
+      {/* Filters: Pill, 40px high */}
+      <div className="flex flex-wrap justify-center gap-2.5">
         {gallery.categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
+            className={`h-[40px] rounded-full px-5 text-xs font-bold uppercase tracking-wider font-display transition-all duration-200 cursor-pointer ${
               activeCategory === cat
-                ? 'bg-accent text-white'
-                : 'bg-cream text-slate-deep hover:bg-cream-dark'
+                ? 'bg-[var(--navy-deep)] text-[var(--gold-bright)] border border-[var(--gold-bright)] shadow-sm'
+                : 'bg-white text-[var(--navy-ink)] border border-[var(--line-gold)] hover:bg-[var(--cream-deep)]'
             }`}
             id={`gallery-filter-${cat.toLowerCase()}`}
           >
@@ -65,39 +65,40 @@ export default function GalleryClient() {
         ))}
       </div>
 
-      {/* Gallery Grid */}
-      <div className="mt-10 columns-1 gap-4 sm:columns-2 lg:columns-3">
+      {/* Gallery Grid: 4px gaps, sharp corners */}
+      <div className="mt-10 columns-1 gap-1 sm:columns-2 lg:columns-3">
         {filtered.map((img, i) => (
           <AnimatedSection key={`${img.alt}-${i}`} delay={0.05 * (i % 6)}>
             <button
               onClick={() => openLightbox(i)}
-              className="mb-4 block w-full overflow-hidden rounded-xl transition-transform duration-300 hover:scale-[1.02] cursor-pointer"
+              className="mb-1 block w-full overflow-hidden rounded-none transition-transform duration-300 hover:scale-[1.02] cursor-pointer border border-[var(--line-gold)]/40"
               aria-label={`View ${img.alt}`}
             >
               <ImagePlaceholder
                 src={img.src}
                 alt={img.alt}
                 aspectRatio={i % 3 === 0 ? 'portrait' : i % 3 === 1 ? 'square' : 'video'}
+                className="rounded-none object-cover"
               />
             </button>
           </AnimatedSection>
         ))}
       </div>
 
-      {/* Lightbox */}
+      {/* Lightbox: Navy 92% overlay, gold close icon, arrows */}
       <AnimatePresence>
         {lightboxIndex !== null && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] flex items-center justify-center bg-charcoal/90 backdrop-blur-md"
+            className="fixed inset-0 z-[60] flex items-center justify-center bg-[var(--navy-deep)]/95 backdrop-blur-md p-4"
             onClick={closeLightbox}
           >
             {/* Close */}
             <button
               onClick={closeLightbox}
-              className="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+              className="absolute top-5 right-5 z-10 flex h-[44px] w-[44px] items-center justify-center rounded-full bg-[var(--gold)] text-[var(--navy-deep)] transition-colors hover:bg-[var(--gold-bright)] cursor-pointer shadow-lg"
               aria-label={gallery.lightbox.close}
               id="lightbox-close"
             >
@@ -107,21 +108,21 @@ export default function GalleryClient() {
             {/* Nav prev */}
             <button
               onClick={(e) => { e.stopPropagation(); goPrev(); }}
-              className="absolute left-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+              className="absolute left-5 z-10 flex h-[56px] w-[56px] items-center justify-center rounded-full bg-white/10 border border-[var(--gold-bright)]/50 text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold)] hover:text-[var(--navy-deep)] cursor-pointer"
               aria-label={gallery.lightbox.prev}
               id="lightbox-prev"
             >
-              <ChevronLeft className="h-5 w-5" />
+              <ChevronLeft className="h-6 w-6" />
             </button>
 
             {/* Nav next */}
             <button
               onClick={(e) => { e.stopPropagation(); goNext(); }}
-              className="absolute right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+              className="absolute right-5 z-10 flex h-[56px] w-[56px] items-center justify-center rounded-full bg-white/10 border border-[var(--gold-bright)]/50 text-[var(--gold-bright)] transition-colors hover:bg-[var(--gold)] hover:text-[var(--navy-deep)] cursor-pointer"
               aria-label={gallery.lightbox.next}
               id="lightbox-next"
             >
-              <ChevronRight className="h-5 w-5" />
+              <ChevronRight className="h-6 w-6" />
             </button>
 
             {/* Image */}
@@ -132,18 +133,22 @@ export default function GalleryClient() {
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-h-[80vh] max-w-[90vw]"
+              className="relative max-h-[80vh] max-w-[90vw] border-2 border-[var(--gold)] rounded-none overflow-hidden shadow-2xl"
             >
               <ImagePlaceholder
                 src={filtered[lightboxIndex].src}
                 alt={filtered[lightboxIndex].alt}
                 aspectRatio="video"
-                className="max-h-[80vh] w-auto rounded-xl"
+                className="max-h-[80vh] w-auto rounded-none"
               />
-              <p className="mt-3 text-center text-sm text-white/70">
-                {filtered[lightboxIndex].alt} —{' '}
-                {gallery.lightbox.counter(lightboxIndex + 1, filtered.length)}
-              </p>
+              <div className="bg-[var(--navy-deep)] py-3 px-4 text-center border-t border-[var(--line-gold-navy)]">
+                <p className="text-sm text-[var(--on-navy)] font-medium">
+                  {filtered[lightboxIndex].alt} —{' '}
+                  <span className="text-[var(--gold-bright)]">
+                    {gallery.lightbox.counter(lightboxIndex + 1, filtered.length)}
+                  </span>
+                </p>
+              </div>
             </motion.div>
           </motion.div>
         )}

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useRoom } from './RoomContext';
 
@@ -19,9 +20,15 @@ export default function WelcomeHeader() {
 
       <div className="relative">
         {/* Hotel logo text */}
-        <div className="mb-1 flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/15">
-            <span className="text-sm font-bold text-accent-gold">L</span>
+        <div className="mb-1 flex items-center gap-2.5">
+          <div className="relative h-8 w-8 rounded-full overflow-hidden border border-accent/40 shadow-xs shrink-0 bg-[#0B1F3F]">
+            <Image
+              src="/SE_Logo.jpeg"
+              alt={`${hotelName} logo`}
+              fill
+              sizes="32px"
+              className="object-cover"
+            />
           </div>
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-accent-gold/80">
             {hotelName}
@@ -33,7 +40,7 @@ export default function WelcomeHeader() {
           Welcome, Guest
         </h1>
         <p className="mt-1 text-sm text-white/60">
-          We're delighted to have you. Enjoy your stay.
+          We&apos;re delighted to have you. Enjoy your stay.
         </p>
 
         {/* Room badge */}

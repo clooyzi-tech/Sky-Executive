@@ -2,71 +2,278 @@
 
 :root {
   /* =========================================================================
-   * Hotel Sky Executive Global Palette
-   * Edit here to change colors across the entire application instantly.
+   * Hotel Sky Executive — Royal Navy + Antique Gold + Warm Cream Palette
+   * Exact theme tokens from specification:
    * ========================================================================= */
-  --navy: #0B2D46;                  /* Deep Navy Blue */
-  --navy-surface: #103957;          /* Secondary Navy Surface */
-  --navy-card: #154568;             /* Navy Card Background */
-  --charcoal: #343B40;              /* Charcoal */
-  --slate-deep: #2A3035;
-  --slate-medium: #5A636A;
+  --cream: #FBF5E9;                  /* Main page background */
+  --cream-deep: #F2E8D3;             /* Alternate sections, cards */
+  --navy-deep: #0B1F3F;              /* Dark bands, footer, deep background */
+  --navy-ink: #14284B;               /* Headings/links on cream */
+  --gold: #B8862B;                   /* Ornaments, rules, icon fills, large text */
+  --gold-bright: #D4A24C;            /* Text & rules on navy, buttons, footer band */
+  --gold-foil-light: #E7C27A;        /* Hover state on gold-bright */
+  --brown-gold: #6B4A1A;             /* Small headings/labels in gold family on cream */
+  --ink: #2B3445;                    /* Paragraphs/body text on cream */
+  --ink-muted: #5C6678;              /* Captions, helper text */
+  --on-navy: #F3ECDD;                /* Body text on navy */
+  --red-spark: #D62839;              /* Tiny highlights, max 2% */
   
-  --gold: #C69235;                  /* Warm Gold */
-  --gold-champagne: #E5D3B1;        /* Champagne Gold */
-  --gold-dark: #A17524;             /* Deep Warm Gold */
-  --gold-muted: rgba(198, 146, 53, 0.12);
+  --line-gold: rgba(184, 134, 43, 0.45);      /* 1px dividers on cream */
+  --line-gold-navy: rgba(212, 162, 76, 0.55);  /* 1px dividers on navy */
 
-  --ivory: #F8F2E8;                 /* Soft Ivory */
-  --cream: #F1E9DC;                 /* Cream Alternate Background */
-  --cream-dark: #E6DBC9;            /* Slightly Deeper Cream */
-  --white: #FFFFFF;                 /* Pure White */
+  /* Typography */
+  --font-display: var(--font-montserrat), "Montserrat", "Segoe UI", Arial, sans-serif;
+  --font-script: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-body: var(--font-source-sans), "Source Sans 3", system-ui, sans-serif;
+
+  /* Shapes & Shadows */
+  --r-card: 6px;
+  --r-pill: 999px;
+  --r-bar: 14px;
+  --shadow-card: 0 10px 28px rgba(11, 31, 63, 0.12);
+  --shadow-bar: 0 18px 40px rgba(11, 31, 63, 0.22);
+  --shadow-navy-hover: 0 14px 34px rgba(11, 31, 63, 0.16);
+
+  /* Layout */
+  --container: 1280px;
+  --gutter: 32px;
+  --header-h: 88px;
+  --section-y: 96px;
 
   /* Semantic Theme Bindings */
-  --background: var(--ivory);
-  --foreground: var(--charcoal);
-  --accent: var(--gold);
-  --accent-light: var(--gold-champagne);
+  --background: var(--cream);
+  --foreground: var(--ink);
+  --navy: var(--navy-deep);
+  --navy-surface: #0E274D;
+  --navy-card: #14284B;
+  --charcoal: var(--ink);
+  --slate-deep: var(--navy-ink);
+  --slate-medium: var(--ink-muted);
+  --accent: var(--gold-bright);
+  --accent-light: var(--gold-foil-light);
   --accent-gold: var(--gold);
-  --accent-dark: var(--gold-dark);
-  --accent-muted: var(--gold-muted);
+  --accent-dark: var(--brown-gold);
+  --accent-muted: rgba(184, 134, 43, 0.12);
 
-  --border: #E2D7C5;
-  --border-light: #ECE2D3;
-  --border-gold: rgba(198, 146, 53, 0.32);
+  --border: var(--line-gold);
+  --border-light: rgba(184, 134, 43, 0.25);
+  --border-gold: var(--gold);
+}
+
+@media (max-width: 1199px) {
+  :root {
+    --gutter: 24px;
+    --section-y: 72px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --gutter: 16px;
+    --section-y: 56px;
+    --header-h: 72px;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-ivory: var(--ivory);
   --color-cream: var(--cream);
-  --color-cream-dark: var(--cream-dark);
-  --color-navy: var(--navy);
+  --color-cream-deep: var(--cream-deep);
+  --color-navy: var(--navy-deep);
+  --color-navy-deep: var(--navy-deep);
+  --color-navy-ink: var(--navy-ink);
   --color-navy-surface: var(--navy-surface);
   --color-navy-card: var(--navy-card);
-  --color-charcoal: var(--navy);           /* Dark sections now inherit Executive Navy */
-  --color-charcoal-surface: var(--navy-surface);
-  --color-charcoal-card: var(--navy-card);
-  --color-slate-deep: var(--charcoal);
-  --color-slate-medium: var(--slate-medium);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-gold-foil: var(--gold-foil-light);
+  --color-gold-brown: var(--brown-gold);
+  --color-brown-gold: var(--brown-gold);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-on-navy: var(--on-navy);
+  --color-red-spark: var(--red-spark);
+  --color-spark: var(--red-spark);
+
+  --color-charcoal: var(--ink);
+  --color-slate-deep: var(--navy-ink);
+  --color-slate-medium: var(--ink-muted);
   --color-accent: var(--accent);
   --color-accent-light: var(--accent-light);
   --color-accent-gold: var(--accent-gold);
   --color-accent-dark: var(--accent-dark);
   --color-accent-muted: var(--accent-muted);
-  --color-gold: var(--gold);
-  --color-champagne: var(--gold-champagne);
   --color-border: var(--border);
   --color-border-light: var(--border-light);
   --color-border-gold: var(--border-gold);
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-playfair);
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-script);
   --font-script: var(--font-script);
+  --font-body: var(--font-body);
+
+  --radius-card: var(--r-card);
+  --radius-pill: var(--r-pill);
+  --radius-bar: var(--r-bar);
+
+  --shadow-card: var(--shadow-card);
+  --shadow-bar: var(--shadow-bar);
+}
+
+/* Typography Classes */
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--navy-ink);
+    letter-spacing: 0.01em;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
 }
 
 .font-script {
-  font-family: var(--font-script), 'Alex Brush', cursive;
+  font-family: var(--font-script);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* Section Rhythm Themes - Guarantee high contrast on navy */
+.on-navy,
+[class*="navy-deep"],
+[class*="navy-surface"],
+[class*="on-navy"] {
+  color: var(--on-navy);
+}
+
+.on-navy h1, .on-navy h2, .on-navy h3, .on-navy h4,
+[class*="navy-deep"] h1, [class*="navy-deep"] h2, [class*="navy-deep"] h3, [class*="navy-deep"] h4,
+[class*="on-navy"] h1, [class*="on-navy"] h2, [class*="on-navy"] h3, [class*="on-navy"] h4 {
+  color: #FFFFFF;
+}
+
+.on-navy .accent,
+[class*="navy-deep"] .accent {
+  color: var(--gold-bright);
+}
+
+/* Framed Feature Card (Section 5.6) */
+.card-framed {
+  background-color: var(--cream);
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  box-shadow: var(--shadow-card);
+  outline: 1px solid var(--line-gold);
+  outline-offset: -8px;
+}
+
+/* Gold Gradient Utilities */
+.gold-gradient-text,
+.gold-foil-text {
+  background: linear-gradient(135deg, #E7C27A 0%, #B8862B 48%, #8F6416 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-border {
+  border-image: linear-gradient(135deg, rgba(231, 194, 122, 0.7), rgba(184, 134, 43, 0.5)) 1;
+}
+
+/* Buttons */
+.btn-primary-gold {
+  background-color: var(--gold-bright);
+  color: var(--navy-deep);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  height: 52px;
+  padding: 0 32px;
+  border-radius: var(--r-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 180ms ease-out;
+}
+
+.btn-primary-gold:hover {
+  background-color: var(--gold-foil-light);
+  box-shadow: 0 6px 16px rgba(184, 134, 43, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-primary-gold:active {
+  background-color: var(--gold);
+  transform: translateY(0);
+}
+
+.btn-secondary-cream {
+  background-color: transparent;
+  border: 2px solid var(--navy-ink);
+  color: var(--navy-ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  height: 52px;
+  padding: 0 32px;
+  border-radius: var(--r-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 180ms ease-out;
+}
+
+.btn-secondary-cream:hover {
+  background-color: var(--navy-ink);
+  color: var(--cream);
+}
+
+.btn-secondary-navy {
+  background-color: transparent;
+  border: 2px solid var(--gold-bright);
+  color: var(--gold-bright);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  height: 52px;
+  padding: 0 32px;
+  border-radius: var(--r-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 180ms ease-out;
+}
+
+.btn-secondary-navy:hover {
+  background-color: var(--gold-bright);
+  color: var(--navy-deep);
 }
 
 /* Smooth scrolling & overflow protection */
@@ -76,20 +283,8 @@ html {
   max-width: 100%;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: clip;
-  max-width: 100%;
-  position: relative;
-}
-
 @supports not (overflow: clip) {
-  html,
-  body {
+  html, body {
     overflow-x: hidden;
   }
 }
@@ -98,10 +293,7 @@ body {
   html {
     scroll-behavior: auto;
   }
-
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -109,17 +301,21 @@ body {
   }
 }
 
-/* Focus styles */
+/* Focus styles (WCAG AA compliant) */
 *:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-  border-radius: 4px;
+  outline: 3px solid var(--gold-bright);
+  outline-offset: 3px;
+}
+
+.on-cream *:focus-visible {
+  outline: 3px solid var(--navy-ink);
+  outline-offset: 3px;
 }
 
 /* Selection */
 ::selection {
-  background: var(--accent-muted);
-  color: var(--navy);
+  background: rgba(184, 134, 43, 0.25);
+  color: var(--navy-deep);
 }
 
 /* Scrollbar */
@@ -132,31 +328,19 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-light);
+  background: var(--gold);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
+  background: var(--brown-gold);
 }
 
-/* Gold Gradient Utilities */
-.gold-gradient-text {
-  background: linear-gradient(135deg, #E5D3B1 0%, #C69235 50%, #A17524 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.gold-gradient-border {
-  border-image: linear-gradient(135deg, rgba(229, 211, 177, 0.6), rgba(198, 146, 53, 0.3)) 1;
-}
-
-/* Safe area for iOS devices with notch/home indicator */
+/* Safe area for iOS devices */
 .safe-area-bottom {
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-/* Hide scrollbar for horizontal scroll areas */
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;

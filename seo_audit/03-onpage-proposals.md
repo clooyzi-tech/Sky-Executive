@@ -67,8 +67,8 @@ This proposal covers the primary batch of **4 core URLs** (maximum 5) prioritize
 - **Link 4:** To `/contact` | Anchor: `connect with our 24/7 front desk team` | Placement: In Step 3 of `TimelineServices.tsx` | *Reason:* Immediate direct lead-generation link.
 
 ### 1.5 Image Optimization
-- Hero Slide 1: `/images/rooms/double_bed_room.webp` -> Alt: `Hotel Sky Executive Double Bed Room with Queen Bed in Lonikand Pune` (**VERIFIED**).
-- Hero Slide 2: `/images/property/interior_design.webp` -> Alt: `Hotel Sky Executive modern interior corridor and reception lighting` (**VERIFIED**).
+- Hero Slide 1: `/images/rooms/sky_executive_room.webp` -> Alt: `Hotel Sky Executive Double Bed Room with Queen Bed in Lonikand Pune` (**VERIFIED**).
+- Hero Slide 2: `/images/services/reception.jpg` -> Alt: `Hotel Sky Executive 24/7 Front Desk Reception and Executive Hospitality` (**VERIFIED**).
 - Hero Slide 3: `/images/property/building_exterior.webp` -> Alt: `Jaywant Towers exterior on Pune-Nagar Road housing Hotel Sky Executive` (**VERIFIED**).
 - Decorative SVGs (Sparkles, Chevron arrows) must have `aria-hidden="true"`.
 
@@ -113,7 +113,7 @@ This proposal covers the primary batch of **4 core URLs** (maximum 5) prioritize
 - **Link 3:** To `/contact` | Anchor: `submit a group or corporate stay enquiry` | Placement: In group consultation banner | *Reason:* High-intent lead generation path.
 
 ### 2.5 Image Optimization
-- Room Master Photo: `/images/rooms/double_bed_room.webp` -> Alt: `Hotel Sky Executive Double Bed Room with Queen Bed and Work Desk in Lonikand Pune` (**VERIFIED**).
+- Room Master Photo: `/images/rooms/sky_executive_room.webp` -> Alt: `Hotel Sky Executive Double Bed Room with Queen Bed and Work Desk in Lonikand Pune` (**VERIFIED**).
 - Bathroom Photo: `/images/services/bathroom.jpg` -> Alt: `Attached modern bathroom with 24-hour hot water at Hotel Sky Executive Pune` (**VERIFIED**).
 
 ### 2.6 Risk Notes
