@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { generatePageMetadata, breadcrumbJsonLd, hotelRoomJsonLd } from '@/lib/seo';
+import { generatePageMetadata, roomsPageJsonLd } from '@/lib/seo';
 import { STRINGS } from '@/config/strings';
 import { IMAGES } from '@/config/image';
 import { Building2, Trees } from '@/config/icons';
@@ -9,6 +9,9 @@ import AnimatedSection from '@/components/ui/AnimatedSection';
 import RoomsPreview from '@/components/home/RoomsPreview';
 import ExperienceSection from '@/components/home/ExperienceSection';
 import BookingCTA from '@/components/home/BookingCTA';
+import AnswerBlock from '@/components/ui/AnswerBlock';
+import FAQSection from '@/components/ui/FAQSection';
+import { AEO_CONTENT } from '@/content/aeo';
 
 export const metadata: Metadata = generatePageMetadata({
   title: STRINGS.seo.pages.rooms.title,
@@ -18,21 +21,14 @@ export const metadata: Metadata = generatePageMetadata({
 
 export default function RoomsPage() {
   const { rooms: roomsStrings } = STRINGS;
+  const { rooms: aeoRooms } = AEO_CONTENT;
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbJsonLd([{ name: roomsStrings.header.title, href: '/rooms' }])
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(hotelRoomJsonLd()),
+          __html: JSON.stringify(roomsPageJsonLd(aeoRooms.faqs)),
         }}
       />
 
@@ -61,6 +57,9 @@ export default function RoomsPage() {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Direct Answer Block (AEO Specs First) */}
+      <AnswerBlock data={aeoRooms.answerBlock} />
 
       {/* Inventory & Architectural Notice Banner */}
       <section className="border-b border-border bg-ivory py-6">
@@ -114,6 +113,13 @@ export default function RoomsPage() {
 
       {/* Property Facilities & Services — Premium Experience UI with All Available Services */}
       <ExperienceSection id="facilities" isAllServicesPage={true} />
+
+      {/* Visible Room FAQs */}
+      <FAQSection
+        faqs={aeoRooms.faqs}
+        title="Room & Booking FAQs"
+        subtitle="Verified details on room dimensions, extra bed policies, meal service, and check-in times."
+      />
 
       <BookingCTA />
     </>

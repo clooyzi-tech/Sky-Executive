@@ -225,3 +225,316 @@ export function breadcrumbJsonLd(items: { name: string; href: string }[]) {
     ],
   };
 }
+
+/**
+ * Generate standalone FAQPage JSON-LD node.
+ * Used within consolidated @graph collections.
+ */
+export function faqJsonLd(faqs: { question: string; answer: string }[]) {
+  return {
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+}
+
+/**
+ * Consolidated @graph JSON-LD schema for Homepage (/).
+ * Incorporates WebSite, Organization, Hotel (LodgingBusiness), and visible FAQPage.
+ */
+export function homepageJsonLd(faqs: { question: string; answer: string }[]) {
+  const siteUrl = seoConfig.siteUrl;
+  const logoUrl = `${siteUrl}${brand.logoPath}`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': `${siteUrl}/#website`,
+        name: brand.name,
+        url: siteUrl,
+        publisher: {
+          '@id': `${siteUrl}/#organization`,
+        },
+      },
+      {
+        '@type': 'Organization',
+        '@id': `${siteUrl}/#organization`,
+        name: brand.name,
+        legalName: brand.legalName,
+        url: siteUrl,
+        logo: logoUrl,
+        telephone: contact.phone,
+        email: contact.email,
+        contactPoint: {
+          '@type': 'ContactPoint',
+          telephone: contact.phone,
+          contactType: 'customer service',
+          areaServed: 'IN',
+          availableLanguage: ['en', 'hi', 'mr'],
+        },
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: contact.address.street,
+          addressLocality: contact.address.locality,
+          addressRegion: contact.address.state,
+          postalCode: contact.address.pincode,
+          addressCountry: 'IN',
+        },
+        sameAs: [contact.googleMapsUrl].filter(Boolean),
+      },
+      {
+        '@type': 'Hotel',
+        '@id': `${siteUrl}/#hotel`,
+        name: brand.name,
+        legalName: brand.legalName,
+        description: brand.description,
+        url: siteUrl,
+        logo: logoUrl,
+        image: [
+          logoUrl,
+          `${siteUrl}/images/property/building_exterior.webp`,
+          `${siteUrl}/images/rooms/double_bed_room.webp`,
+          `${siteUrl}/images/property/interior_design.webp`,
+          `${siteUrl}/images/property/nature_view.jpg`,
+        ],
+        telephone: contact.phone,
+        email: contact.email,
+        priceRange: '₹₹',
+        currenciesAccepted: 'INR',
+        paymentAccepted: 'Cash, Credit Card, Debit Card, UPI',
+        checkinTime: '11:00',
+        checkoutTime: '10:00',
+        petsAllowed: true,
+        hasMap: contact.googleMapsUrl,
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 18.6082,
+          longitude: 74.01528,
+        },
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: contact.address.street,
+          addressLocality: contact.address.locality,
+          addressRegion: contact.address.state,
+          postalCode: contact.address.pincode,
+          addressCountry: 'IN',
+        },
+        parentOrganization: {
+          '@id': `${siteUrl}/#organization`,
+        },
+        amenityFeature: [
+          { '@type': 'LocationFeatureSpecification', name: 'Free High-Speed Wi-Fi', value: true },
+          { '@type': 'LocationFeatureSpecification', name: 'Free On-Site Parking', value: true },
+          { '@type': 'LocationFeatureSpecification', name: 'In-House Cloud Kitchen', value: true },
+          { '@type': 'LocationFeatureSpecification', name: 'Air Conditioning', value: true },
+          { '@type': 'LocationFeatureSpecification', name: 'Elevator / Lift Access', value: true },
+          { '@type': 'LocationFeatureSpecification', name: '100% Power Backup', value: true },
+          { '@type': 'LocationFeatureSpecification', name: '24/7 Security & CCTV', value: true },
+          { '@type': 'LocationFeatureSpecification', name: 'Pet-Friendly Stay', value: true },
+          { '@type': 'LocationFeatureSpecification', name: 'Daily Housekeeping', value: true },
+          { '@type': 'LocationFeatureSpecification', name: '24/7 Front Desk Assistance', value: true },
+        ],
+      },
+      faqJsonLd(faqs),
+    ],
+  };
+}
+
+/**
+ * Consolidated @graph JSON-LD schema for Rooms Page (/rooms).
+ * Incorporates BreadcrumbList, HotelRoom (linked to #hotel), and visible FAQPage.
+ */
+export function roomsPageJsonLd(faqs: { question: string; answer: string }[]) {
+  const siteUrl = seoConfig.siteUrl;
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+          { '@type': 'ListItem', position: 2, name: 'Executive Rooms', item: `${siteUrl}/rooms` },
+        ],
+      },
+      {
+        '@type': 'HotelRoom',
+        '@id': `${siteUrl}/rooms#double-bed-room`,
+        name: 'Executive Double Bed Room',
+        description:
+          'Executive Double Bed Room at Hotel Sky Executive Pune measuring 200 sq. ft with Queen bed, en-suite bathroom with 24/7 hot water, air conditioning, smart TV, complimentary high-speed Wi-Fi, work desk, and in-room cloud kitchen dining.',
+        image: `${siteUrl}/images/rooms/double_bed_room.webp`,
+        bed: {
+          '@type': 'BedDetails',
+          numberOfBeds: 1,
+          typeOfBed: 'Queen Bed',
+        },
+        occupancy: {
+          '@type': 'QuantitativeValue',
+          minValue: 1,
+          maxValue: 3,
+        },
+        floorSize: {
+          '@type': 'QuantitativeValue',
+          value: 200,
+          unitCode: 'FTK',
+        },
+        amenityFeature: [
+          { '@type': 'LocationFeatureSpecification', name: 'Attached En-Suite Bathroom', value: true },
+          { '@type': 'LocationFeatureSpecification', name: '24/7 Hot Water', value: true },
+          { '@type': 'LocationFeatureSpecification', name: 'Individual Air Conditioning', value: true },
+          { '@type': 'LocationFeatureSpecification', name: 'High-Speed Wi-Fi', value: true },
+          { '@type': 'LocationFeatureSpecification', name: 'Smart TV', value: true },
+          { '@type': 'LocationFeatureSpecification', name: 'Work Desk & Chair', value: true },
+          { '@type': 'LocationFeatureSpecification', name: 'Nature Views', value: true },
+          { '@type': 'LocationFeatureSpecification', name: 'In-Room Cloud Kitchen Dining', value: true },
+        ],
+        isPartOf: {
+          '@id': `${siteUrl}/#hotel`,
+        },
+      },
+      faqJsonLd(faqs),
+    ],
+  };
+}
+
+/**
+ * Consolidated @graph JSON-LD schema for Location Page (/location).
+ * Incorporates BreadcrumbList, Place (with geo & hasMap), and visible FAQPage.
+ */
+export function locationPageJsonLd(faqs: { question: string; answer: string }[]) {
+  const siteUrl = seoConfig.siteUrl;
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+          { '@type': 'ListItem', position: 2, name: 'Location & Connectivity', item: `${siteUrl}/location` },
+        ],
+      },
+      {
+        '@type': 'Place',
+        '@id': `${siteUrl}/location#place`,
+        name: `${brand.name} Physical Location`,
+        hasMap: contact.googleMapsUrl,
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 18.6082,
+          longitude: 74.01528,
+        },
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: contact.address.street,
+          addressLocality: contact.address.locality,
+          addressRegion: contact.address.state,
+          postalCode: contact.address.pincode,
+          addressCountry: 'IN',
+        },
+      },
+      faqJsonLd(faqs),
+    ],
+  };
+}
+
+/**
+ * Consolidated @graph JSON-LD schema for Contact Page (/contact).
+ * Incorporates BreadcrumbList, ContactPage (linked to #organization), and visible FAQPage.
+ */
+export function contactPageJsonLd(faqs: { question: string; answer: string }[]) {
+  const siteUrl = seoConfig.siteUrl;
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+          { '@type': 'ListItem', position: 2, name: 'Contact & Stay Enquiry', item: `${siteUrl}/contact` },
+        ],
+      },
+      {
+        '@type': 'ContactPage',
+        '@id': `${siteUrl}/contact#webpage`,
+        url: `${siteUrl}/contact`,
+        name: `Contact Front Desk | ${brand.name}`,
+        mainEntity: {
+          '@id': `${siteUrl}/#organization`,
+        },
+      },
+      faqJsonLd(faqs),
+    ],
+  };
+}
+
+/**
+ * Consolidated @graph JSON-LD schema for Guest Information Portal (/guest-information).
+ * Incorporates BreadcrumbList, WebPage, and visible FAQPage.
+ */
+export function guestInfoPageJsonLd(faqs: { question: string; answer: string }[]) {
+  const siteUrl = seoConfig.siteUrl;
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+          { '@type': 'ListItem', position: 2, name: 'Guest Information', item: `${siteUrl}/guest-information` },
+        ],
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `${siteUrl}/guest-information#webpage`,
+        url: `${siteUrl}/guest-information`,
+        name: `Guest Portal & House Guidelines | ${brand.name}`,
+        isPartOf: {
+          '@id': `${siteUrl}/#website`,
+        },
+      },
+      faqJsonLd(faqs),
+    ],
+  };
+}
+
+/**
+ * Consolidated @graph JSON-LD schema for About Page (/about).
+ * Incorporates BreadcrumbList and AboutPage (linked to #organization).
+ */
+export function aboutPageJsonLd() {
+  const siteUrl = seoConfig.siteUrl;
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+          { '@type': 'ListItem', position: 2, name: 'About', item: `${siteUrl}/about` },
+        ],
+      },
+      {
+        '@type': 'AboutPage',
+        '@id': `${siteUrl}/about#webpage`,
+        url: `${siteUrl}/about`,
+        name: `About ${brand.name} | Executive Boutique Hospitality Pune`,
+        mainEntity: {
+          '@id': `${siteUrl}/#organization`,
+        },
+      },
+    ],
+  };
+}

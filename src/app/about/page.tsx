@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { generatePageMetadata, breadcrumbJsonLd } from '@/lib/seo';
+import { generatePageMetadata, aboutPageJsonLd } from '@/lib/seo';
 import { STRINGS } from '@/config/strings';
 import { IMAGES } from '@/config/image';
-import { getFacilityIcon, Building2, Trees, Sparkles, Clock, Check } from '@/config/icons';
+import { getFacilityIcon } from '@/config/icons';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import SectionHeading from '@/components/ui/SectionHeading';
 import BookingCTA from '@/components/home/BookingCTA';
@@ -23,9 +23,7 @@ export default function AboutPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbJsonLd([{ name: about.header.title, href: '/about' }])
-          ),
+          __html: JSON.stringify(aboutPageJsonLd()),
         }}
       />
 
@@ -191,6 +189,39 @@ export default function AboutPage() {
               </AnimatedSection>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Property Governance & Management Accountability */}
+      <section className="bg-ivory py-16 sm:py-20 border-t border-border">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <AnimatedSection>
+            <div className="rounded-3xl bg-white border border-border-gold p-6 sm:p-8 md:p-10 shadow-xs">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cream border border-border text-accent-dark text-[11px] font-semibold tracking-wider uppercase mb-4">
+                Entity Governance & Operational Accountability
+              </div>
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-charcoal mb-4">
+                Property Leadership & Operational Transparency
+              </h2>
+              <p className="text-sm sm:text-base text-slate-deep leading-relaxed mb-6">
+                Hotel Sky Executive operates as a verified hospitality entity located at Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse, Lonikand, Pune – 412216. Our on-site reception and security operations are staffed 24 hours daily to maintain rigorous standards of hygiene, quiet rest, and prompt guest care.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm text-slate-deep pt-4 border-t border-border-light">
+                <div>
+                  <span className="font-semibold text-charcoal block uppercase tracking-wider text-[11px]">Management Team</span>
+                  <span className="mt-1 block">Overseen by Hotel Sky Executive Management [OWNER TO CONFIRM: Founder / General Manager name]</span>
+                </div>
+                <div>
+                  <span className="font-semibold text-charcoal block uppercase tracking-wider text-[11px]">Direct Front Desk</span>
+                  <span className="mt-1 block">+91 80077 24646 (24/7 Hotline)</span>
+                </div>
+                <div>
+                  <span className="font-semibold text-charcoal block uppercase tracking-wider text-[11px]">Corporate Enquiries</span>
+                  <span className="mt-1 block">help.skyexecutive@gmail.com</span>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 

@@ -7,11 +7,14 @@ import {
   Sparkles,
   ExternalLink,
 } from '@/config/icons';
-import { generatePageMetadata, breadcrumbJsonLd } from '@/lib/seo';
+import { generatePageMetadata, contactPageJsonLd } from '@/lib/seo';
 import { STRINGS } from '@/config/strings';
 import { phoneUrl } from '@/lib/utils';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import ContactForm from '@/components/contact/ContactForm';
+import AnswerBlock from '@/components/ui/AnswerBlock';
+import FAQSection from '@/components/ui/FAQSection';
+import { AEO_CONTENT } from '@/content/aeo';
 
 export const metadata: Metadata = generatePageMetadata({
   title: STRINGS.seo.pages.contact.title,
@@ -27,9 +30,7 @@ export default function ContactPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbJsonLd([{ name: contactPage.header.title, href: '/contact' }])
-          ),
+          __html: JSON.stringify(contactPageJsonLd(AEO_CONTENT.contact.faqs)),
         }}
       />
 
@@ -49,6 +50,9 @@ export default function ContactPage() {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Direct Answer Block (AEO Contact & Booking Hotline First) */}
+      <AnswerBlock data={AEO_CONTENT.contact.answerBlock} />
 
       {/* Contact Info + Form */}
       <section className="py-20 md:py-28 bg-white">
@@ -219,6 +223,13 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      {/* Visible Contact & Booking FAQs */}
+      <FAQSection
+        faqs={AEO_CONTENT.contact.faqs}
+        title="Booking & Contact FAQs"
+        subtitle="Verified information on reservations, check-in requirements, and payments."
+      />
     </>
   );
 }

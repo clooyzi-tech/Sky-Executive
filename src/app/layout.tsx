@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { fontVariables } from '@/config/fonts';
 import { STRINGS } from '@/config/strings';
-import { websiteJsonLd, organizationJsonLd } from '@/lib/seo';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
@@ -75,20 +74,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="en"
       className={`${fontVariables} h-full antialiased`}
     >
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(websiteJsonLd()),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationJsonLd()),
-          }}
-        />
-      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground overflow-x-clip">
         <Header />
         <main className="flex-1 overflow-x-clip">{children}</main>

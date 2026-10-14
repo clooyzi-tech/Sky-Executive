@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { BRAND } from '@/config/strings';
-
 interface LegalPageLayoutProps {
   title: string;
   markdownContent: string;
@@ -58,16 +56,16 @@ export default function LegalPageLayout({ title, markdownContent }: LegalPageLay
 
   const formatInline = (text: string) => {
     // Handle mammoth's escaped bold `__text__`
-    let parts = text.split(/__(.*?)__/g);
+    const parts = text.split(/__(.*?)__/g);
     return parts.map((part, i) => {
       if (i % 2 === 1) return <strong key={i} className="font-bold text-[#2A241C]">{part}</strong>;
       
       // Handle escaped asterisks `\**` or similar if mammoth produces them
-      let subParts = part.replace(/\\\*/g, '*').replace(/\\\./g, '.').replace(/\\-/g, '-').split(/\[(.*?)\]\((.*?)\)/g);
+      const subParts = part.replace(/\\\*/g, '*').replace(/\\\./g, '.').replace(/\\-/g, '-').split(/\[(.*?)\]\((.*?)\)/g);
       
       // Handle basic links [text](url)
       if (subParts.length > 1) {
-        let linkElements = [];
+        const linkElements = [];
         for (let j = 0; j < subParts.length; j += 3) {
           linkElements.push(<React.Fragment key={j}>{subParts[j]}</React.Fragment>);
           if (j + 1 < subParts.length) {

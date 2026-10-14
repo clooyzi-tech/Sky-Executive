@@ -13,7 +13,7 @@ import {
   Plane,
   Train,
 } from '@/config/icons';
-import { generatePageMetadata, breadcrumbJsonLd, hotelJsonLd } from '@/lib/seo';
+import { generatePageMetadata, locationPageJsonLd } from '@/lib/seo';
 import { STRINGS } from '@/config/strings';
 import { contactConfig } from '@/content';
 import { phoneUrl } from '@/lib/utils';
@@ -21,6 +21,9 @@ import AnimatedSection from '@/components/ui/AnimatedSection';
 import SectionHeading from '@/components/ui/SectionHeading';
 import CTAButton from '@/components/ui/CTAButton';
 import BookingCTA from '@/components/home/BookingCTA';
+import AnswerBlock from '@/components/ui/AnswerBlock';
+import FAQSection from '@/components/ui/FAQSection';
+import { AEO_CONTENT } from '@/content/aeo';
 
 export const metadata: Metadata = generatePageMetadata({
   title: STRINGS.seo.pages.location.title,
@@ -45,15 +48,7 @@ export default function LocationPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbJsonLd([{ name: location.header.title, href: '/location' }])
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(hotelJsonLd()),
+          __html: JSON.stringify(locationPageJsonLd(AEO_CONTENT.location.faqs)),
         }}
       />
 
@@ -73,6 +68,9 @@ export default function LocationPage() {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Direct Answer Block (AEO Location & Transit First) */}
+      <AnswerBlock data={AEO_CONTENT.location.answerBlock} />
 
       {/* Address & Pune Map Area */}
       <section className="py-20 md:py-28 bg-white">
@@ -277,6 +275,13 @@ export default function LocationPage() {
           </div>
         </div>
       </section>
+
+      {/* Visible Location FAQs */}
+      <FAQSection
+        faqs={AEO_CONTENT.location.faqs}
+        title="Location & Travel FAQs"
+        subtitle="Verified directions, driving landmarks, parking, and transit distances."
+      />
 
       <BookingCTA />
     </>

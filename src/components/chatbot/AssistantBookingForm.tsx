@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, type FormEvent } from 'react';
+import React, { useState, type FormEvent } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Phone, X, AlertCircle, CheckCircle2, User, Mail, MessageSquare } from 'lucide-react';
@@ -44,20 +44,12 @@ export default function AssistantBookingForm({
   previousTab = 'home', selectedServices, onBack, onSubmitSuccess, isPopup = false, onClose, roomId, roomKey
 }: AssistantBookingFormProps) {
 
-  const [name,         setName]         = useState('');
-  const [phone,        setPhone]        = useState('');
-  const [email,        setEmail]        = useState('');
-  const [remark,       setRemark]       = useState('');
+  const [name,         setName]         = useState(() => loadFromStorage().name || '');
+  const [phone,        setPhone]        = useState(() => loadFromStorage().phone || '');
+  const [email,        setEmail]        = useState(() => loadFromStorage().email || '');
+  const [remark,       setRemark]       = useState(() => loadFromStorage().remark || '');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors,       setErrors]       = useState<{ name?: string; phone?: string }>({});
-
-  useEffect(() => {
-    const saved = loadFromStorage();
-    if (saved.name)   setName(saved.name);
-    if (saved.phone)  setPhone(saved.phone);
-    if (saved.email)  setEmail(saved.email);
-    if (saved.remark) setRemark(saved.remark);
-  }, []);
 
   const selectedList = Array.isArray(selectedServices) ? selectedServices : Object.keys(selectedServices).filter((k) => selectedServices[k]);
   const phoneDigits  = phone.replace(/\D/g, '');

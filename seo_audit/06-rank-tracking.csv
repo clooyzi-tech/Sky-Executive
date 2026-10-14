@@ -1,0 +1,21 @@
+keyword_id,keyword,cluster_id,target_url,priority,baseline_period,baseline_position,baseline_impressions,baseline_clicks,baseline_ctr,current_period,current_position,current_impressions,current_clicks,current_ctr,position_delta,movement_verdict,notes_caveats
+KW01,Hotel Sky Executive Pune,C1,https://hotelskyexecutive.in/,P1 - High,NOT AVAILABLE,,,,,TO BE FILLED,,,,,,NOT YET MEASURABLE,Primary brand entity query; awaiting initial GSC property export
+KW02,Hotel Sky Executive Lonikand,C1,https://hotelskyexecutive.in/,P1 - High,NOT AVAILABLE,,,,,TO BE FILLED,,,,,,NOT YET MEASURABLE,Brand + location query; target homepage
+KW03,Hotel Sky Executive contact number,C12,https://hotelskyexecutive.in/contact,P1 - High,NOT AVAILABLE,,,,,TO BE FILLED,,,,,,NOT YET MEASURABLE,High-intent transactional brand query; target contact page
+KW04,Hotel Sky Executive phone number,C12,https://hotelskyexecutive.in/contact,P1 - High,NOT AVAILABLE,,,,,TO BE FILLED,,,,,,NOT YET MEASURABLE,Direct calling intent; phone number visible in meta & page
+KW05,hotels in lonikand pune,C2,https://hotelskyexecutive.in/,P1 - High,NOT AVAILABLE,,,,,TO BE FILLED,,,,,,NOT YET MEASURABLE,Core local transactional cluster keyword; target homepage
+KW06,hotel in lonikand,C2,https://hotelskyexecutive.in/,P1 - High,NOT AVAILABLE,,,,,TO BE FILLED,,,,,,NOT YET MEASURABLE,High volume local commercial query; target homepage
+KW07,hotel rooms in lonikand pune,C7,https://hotelskyexecutive.in/rooms,P1 - High,NOT AVAILABLE,,,,,TO BE FILLED,,,,,,NOT YET MEASURABLE,Commercial room booking query; target rooms page
+KW08,executive double bed room hotel lonikand,C7,https://hotelskyexecutive.in/rooms,P1 - High,NOT AVAILABLE,,,,,TO BE FILLED,,,,,,NOT YET MEASURABLE,Long-tail specific room specification query; target rooms page
+KW09,ac rooms in lonikand,C7,https://hotelskyexecutive.in/rooms,P1 - High,NOT AVAILABLE,,,,,TO BE FILLED,,,,,,NOT YET MEASURABLE,Specific amenity room search query; target rooms page
+KW10,hotels on pune nagar road,C3,https://hotelskyexecutive.in/,P1 - High,NOT AVAILABLE,,,,,TO BE FILLED,,,,,,NOT YET MEASURABLE,Highway corridor commercial query; target homepage & location
+KW11,transit hotel near pune airport nagar road,C11,https://hotelskyexecutive.in/location,P1 - High,NOT AVAILABLE,,,,,TO BE FILLED,,,,,,NOT YET MEASURABLE,Transit traveler keyword (~15 km from airport); target location page
+KW12,hotel near pune nagar road transit,C11,https://hotelskyexecutive.in/location,P1 - High,NOT AVAILABLE,,,,,TO BE FILLED,,,,,,NOT YET MEASURABLE,Highway transit query; target location page
+KW13,hotel near sanaswadi midc pune,C4,https://hotelskyexecutive.in/location,P2 - Medium,NOT AVAILABLE,,,,,TO BE FILLED,,,,,,NOT YET MEASURABLE,Industrial corporate stay query; target location page
+KW14,hotel near wagholi pune,C5,https://hotelskyexecutive.in/location,P2 - Medium,NOT AVAILABLE,,,,,TO BE FILLED,,,,,,NOT YET MEASURABLE,Periphery commercial query (~2 km from Wagholi); target location page
+KW15,pet friendly hotel pune,C8,https://hotelskyexecutive.in/guest-information,P2 - Medium,NOT AVAILABLE,,,,,TO BE FILLED,,,,,,NOT YET MEASURABLE,High conversion niche; pet policy on guest-information & FAQs
+KW16,couple friendly hotel in lonikand,C9,https://hotelskyexecutive.in/guest-information,P2 - Medium,NOT AVAILABLE,,,,,TO BE FILLED,,,,,,NOT YET MEASURABLE,Local ID / couple-friendly policy query; target guest-information & contact
+KW17,hotel with parking and wifi in lonikand,C10,https://hotelskyexecutive.in/rooms#facilities,P2 - Medium,NOT AVAILABLE,,,,,TO BE FILLED,,,,,,NOT YET MEASURABLE,Verified amenity query (free secure parking & 100% backup)
+KW18,hotel sky executive check in time,C12,https://hotelskyexecutive.in/guest-information,P2 - Medium,NOT AVAILABLE,,,,,TO BE FILLED,,,,,,NOT YET MEASURABLE,Operational informational query (11:00 AM check-in, 24/7 reception)
+KW19,hotel sky executive directions jaywant towers,C11,https://hotelskyexecutive.in/location,P2 - Medium,NOT AVAILABLE,,,,,TO BE FILLED,,,,,,NOT YET MEASURABLE,Navigational landmark query; target location page with embed map
+KW20,best hotels in lonikand pune for corporate executives,C7,https://hotelskyexecutive.in/rooms,P2 - Medium,NOT AVAILABLE,,,,,TO BE FILLED,,,,,,NOT YET MEASURABLE,High-intent corporate accommodation query; target rooms page

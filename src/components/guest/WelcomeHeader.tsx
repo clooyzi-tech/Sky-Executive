@@ -33,7 +33,7 @@ export default function WelcomeHeader() {
           Welcome, Guest
         </h1>
         <p className="mt-1 text-sm text-white/60">
-          We're delighted to have you. Enjoy your stay.
+          We&apos;re delighted to have you. Enjoy your stay.
         </p>
 
         {/* Room badge */}

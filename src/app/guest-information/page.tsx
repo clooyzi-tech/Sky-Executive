@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import {
   Phone,
-  Mail,
   Wifi,
   Clock,
   AlertCircle,
@@ -10,10 +9,13 @@ import {
   getAttractionIcon,
   Sparkles,
 } from '@/config/icons';
-import { generatePageMetadata, breadcrumbJsonLd } from '@/lib/seo';
+import { generatePageMetadata, guestInfoPageJsonLd } from '@/lib/seo';
 import { STRINGS } from '@/config/strings';
 import { phoneUrl } from '@/lib/utils';
 import AnimatedSection from '@/components/ui/AnimatedSection';
+import AnswerBlock from '@/components/ui/AnswerBlock';
+import FAQSection from '@/components/ui/FAQSection';
+import { AEO_CONTENT } from '@/content/aeo';
 
 export const metadata: Metadata = generatePageMetadata({
   title: STRINGS.seo.pages.guestInfo.title,
@@ -29,11 +31,7 @@ export default function GuestInformationPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbJsonLd([
-              { name: guestInfo.header.title, href: '/guest-information' },
-            ])
-          ),
+          __html: JSON.stringify(guestInfoPageJsonLd(AEO_CONTENT.guestInfo.faqs)),
         }}
       />
 
@@ -53,6 +51,9 @@ export default function GuestInformationPage() {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Direct Answer Block (AEO Guest Guidelines First) */}
+      <AnswerBlock data={AEO_CONTENT.guestInfo.answerBlock} />
 
       <div className="mx-auto max-w-lg px-4 py-8 sm:px-6 md:max-w-2xl md:py-12">
         {/* Front Desk Support */}
@@ -238,6 +239,13 @@ export default function GuestInformationPage() {
           </div>
         </AnimatedSection>
       </div>
+
+      {/* Visible Guest Portal & House Guidelines FAQs */}
+      <FAQSection
+        faqs={AEO_CONTENT.guestInfo.faqs}
+        title="Guest Portal & House Guidelines FAQs"
+        subtitle="Verified information on Wi-Fi access, cloud kitchen meal windows, pet policy, and quiet hours."
+      />
     </>
   );
 }
