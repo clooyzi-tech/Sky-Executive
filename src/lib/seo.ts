@@ -21,7 +21,7 @@ export function generatePageMetadata({
   const pageDescription = description ?? seoConfig.defaultDescription;
   const siteUrl = seoConfig.siteUrl;
   const url = `${siteUrl}${path}`;
-  const image = ogImage || `${siteUrl}/images/property/building_exterior.webp`;
+  const image = ogImage || `${siteUrl}/images/property/sky_building_exterior.webp`;
 
   return {
     title: pageTitle,
@@ -77,9 +77,9 @@ export function hotelJsonLd() {
     logo: logoUrl,
     image: [
       logoUrl,
-      `${seoConfig.siteUrl}/images/property/building_exterior.webp`,
-      `${seoConfig.siteUrl}/images/rooms/double_bed_room.webp`,
-      `${seoConfig.siteUrl}/images/property/interior_design.webp`,
+      `${seoConfig.siteUrl}/images/property/sky_building_exterior.webp`,
+      `${seoConfig.siteUrl}/images/rooms/sky_executive_room.webp`,
+      `${seoConfig.siteUrl}/images/services/reception.jpg`,
       `${seoConfig.siteUrl}/images/property/nature_view.jpg`,
     ],
     telephone: contact.phone,
@@ -161,7 +161,7 @@ export function hotelRoomJsonLd() {
     name: 'Double Bed Room',
     description:
       'Double Bed Room at Hotel Sky Executive Pune featuring comfortable accommodation, air conditioning, smart TV, complimentary high-speed Wi-Fi, work desk, and attached en-suite bathroom with 24/7 hot water.',
-    image: `${seoConfig.siteUrl}/images/rooms/double_bed_room.webp`,
+    image: `${seoConfig.siteUrl}/images/rooms/sky_executive_room.webp`,
     bed: {
       '@type': 'BedDetails',
       numberOfBeds: 1,
@@ -300,9 +300,9 @@ export function homepageJsonLd(faqs: { question: string; answer: string }[]) {
         logo: logoUrl,
         image: [
           logoUrl,
-          `${siteUrl}/images/property/building_exterior.webp`,
-          `${siteUrl}/images/rooms/double_bed_room.webp`,
-          `${siteUrl}/images/property/interior_design.webp`,
+          `${siteUrl}/images/property/sky_building_exterior.webp`,
+          `${siteUrl}/images/rooms/sky_executive_room.webp`,
+          `${siteUrl}/images/services/reception.jpg`,
           `${siteUrl}/images/property/nature_view.jpg`,
         ],
         telephone: contact.phone,
@@ -371,7 +371,7 @@ export function roomsPageJsonLd(faqs: { question: string; answer: string }[]) {
         name: 'Executive Double Bed Room',
         description:
           'Executive Double Bed Room at Hotel Sky Executive Pune measuring 200 sq. ft with Queen bed, en-suite bathroom with 24/7 hot water, air conditioning, smart TV, complimentary high-speed Wi-Fi, work desk, and in-room cloud kitchen dining.',
-        image: `${siteUrl}/images/rooms/double_bed_room.webp`,
+        image: `${siteUrl}/images/rooms/sky_executive_room.webp`,
         bed: {
           '@type': 'BedDetails',
           numberOfBeds: 1,

@@ -11,11 +11,11 @@ import {
   MapPin,
   Clock,
   ArrowRight,
-  InstagramIcon,
 } from '@/config/icons';
 import { STRINGS } from '@/config/strings';
 import { IMAGES } from '@/config/image';
 import { cn, phoneUrl, whatsappUrl } from '@/lib/utils';
+import CrownMark from '@/components/ui/CrownMark';
 import MobileMenu from './MobileMenu';
 
 export default function Header() {
@@ -23,7 +23,6 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  // Robust scroll listener with hysteresis to guarantee no flicker or resize loops
   useEffect(() => {
     let ticking = false;
     const handleScroll = () => {
@@ -31,8 +30,8 @@ export default function Header() {
         window.requestAnimationFrame(() => {
           const y = window.scrollY;
           setScrolled((prev) => {
-            if (!prev && y > 60) return true;
-            if (prev && y < 15) return false;
+            if (!prev && y > 24) return true;
+            if (prev && y <= 10) return false;
             return prev;
           });
           ticking = false;
@@ -46,17 +45,13 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Split navigation: 3 equally divided options on Left, 3 options on Right
-  const leftNavLinks = [
+  const navLinks = [
     { label: 'HOME', href: '/' },
     { label: 'ABOUT', href: '/about' },
-    { label: 'ROOMS & FACILITIES', href: '/rooms' },
-  ];
-
-  const rightNavLinks = [
+    { label: 'ROOMS', href: '/rooms' },
     { label: 'GALLERY', href: '/gallery' },
     { label: 'LOCATION', href: '/location' },
-    { label: 'CONTACT & ENQUIRY', href: '/contact' },
+    { label: 'CONTACT', href: '/contact' },
   ];
 
   if (pathname?.startsWith('/guest') || pathname === '/chat') {
@@ -66,236 +61,175 @@ export default function Header() {
   return (
     <>
       {/* ============================================================ */}
-      {/* 1. TOP UTILITY BAR (Uses Global Ivory & Border Tokens)       */}
+      {/* 1. TOP UTILITY BAR (Warm Cream Deep & Gold Accent)           */}
       {/* ============================================================ */}
-      <div className="w-full border-b border-border bg-ivory text-slate-medium text-[11px] select-none overflow-hidden">
-        <div className="w-full max-w-[1600px] mx-auto flex h-9 sm:h-10 items-center justify-between px-3 sm:px-6 lg:px-8 xl:px-12">
-          {/* Left: Location & Luxury Tagline */}
+      <div className="w-full border-b border-[var(--line-gold)] bg-[var(--cream-deep)] text-[var(--navy-ink)] text-[12px] select-none">
+        <div className="w-full max-w-[1440px] mx-auto flex h-9 sm:h-10 items-center justify-between px-4 sm:px-6 lg:px-12">
+          {/* Left: Location & Tagline */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            <div className="flex items-center gap-1 sm:gap-1.5 font-medium text-foreground">
-              <MapPin className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-accent shrink-0" />
-              <span className="hidden sm:inline">Lonikand, Pune</span>
-              <span className="sm:hidden text-[10px]">Pune</span>
+            <div className="flex items-center gap-1.5 font-medium text-[var(--navy-ink)]">
+              <MapPin className="h-3.5 w-3.5 text-[var(--gold)] shrink-0" />
+              <span className="hidden sm:inline font-display font-semibold text-[11px] uppercase tracking-wider">
+                Lonikand, Pune–Nagar Road
+              </span>
+              <span className="sm:hidden text-[10px] font-semibold">Lonikand, Pune</span>
             </div>
-            <span className="hidden sm:inline text-border">|</span>
-            <span className="hidden sm:inline font-serif italic text-slate-medium">
-              {STRINGS.brand.tagline}
+            <span className="hidden md:inline text-[var(--gold)]/40">•</span>
+            <span className="hidden md:inline font-script text-[var(--brown-gold)] text-sm">
+              Executive Boutique Hospitality
             </span>
           </div>
 
-          {/* Right: WhatsApp, Phone Number, 24/7 Support & Socials */}
-          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
-            {/* WhatsApp Link/Button in Top Bar */}
+          {/* Right: WhatsApp, Phone Number & 24/7 Front Desk */}
+          <div className="flex items-center gap-3 sm:gap-5 shrink-0 text-[11px]">
             <a
               href={whatsappUrl(STRINGS.contact.prefilledMessages.heroEnquiry)}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 font-medium text-foreground hover:text-accent transition-colors"
+              className="inline-flex items-center gap-1.5 font-semibold text-[var(--navy-ink)] hover:text-[var(--gold)] transition-colors"
               id="topbar-whatsapp"
             >
               <MessageCircle className="h-3.5 w-3.5 text-[#25D366]" />
-              <span>WhatsApp</span>
+              <span className="hidden sm:inline">WhatsApp</span>
             </a>
 
-            <span className="hidden sm:inline text-border">|</span>
+            <span className="text-[var(--gold)]/40">•</span>
 
-            {/* Phone Number in Top Bar */}
             <a
               href={phoneUrl()}
-              className="inline-flex items-center gap-1 sm:gap-1.5 font-semibold text-foreground hover:text-accent transition-colors text-[10px] sm:text-[11px]"
+              className="inline-flex items-center gap-1.5 font-bold text-[var(--navy-ink)] hover:text-[var(--gold)] transition-colors"
               id="topbar-phone"
             >
-              <Phone className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-accent shrink-0" />
+              <Phone className="h-3 w-3 text-[var(--gold)]" />
               <span>{STRINGS.contact.phone}</span>
             </a>
 
-            <span className="hidden md:inline text-border">|</span>
+            <span className="hidden lg:inline text-[var(--gold)]/40">•</span>
 
-            {/* 24/7 Support */}
-            <div className="hidden md:flex items-center gap-1.5 text-slate-medium">
-              <Clock className="h-3.5 w-3.5 text-accent" />
+            <div className="hidden lg:flex items-center gap-1 text-[var(--ink-muted)]">
+              <Clock className="h-3 w-3 text-[var(--gold)]" />
               <span>24/7 Front Desk</span>
             </div>
-
-            {/* Social Links */}
-            {STRINGS.contact.social.instagram && (
-              <>
-                <span className="hidden lg:inline text-border">|</span>
-                <div className="hidden lg:flex items-center gap-2.5 text-slate-medium">
-                  <a
-                    href={STRINGS.contact.social.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                    className="hover:text-accent transition-colors"
-                  >
-                    <InstagramIcon className="h-3.5 w-3.5" />
-                  </a>
-                </div>
-              </>
-            )}
           </div>
         </div>
       </div>
 
       {/* ============================================================ */}
-      {/* 2. MAIN STICKY NAVBAR                                         */}
+      {/* 2. MAIN NAVBAR (Section 6.1 Theme Blueprint)                 */}
       {/* ============================================================ */}
-      <header className="sticky top-0 z-50 w-full border-b border-border bg-white shadow-[0_2px_12px_rgba(11,45,70,0.06)]">
-        <div className="relative w-full max-w-[1600px] mx-auto flex h-[74px] items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-12">
-          {/* -------------------------------------------------------- */}
-          {/* EXACT MATHEMATICAL CENTER: Circular Hotel Logo Emblem     */}
-          {/* -------------------------------------------------------- */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-40 pointer-events-auto">
-            <Link
-              href="/"
-              className="group relative flex items-center justify-center focus:outline-none"
-              id="header-center-logo"
-              aria-label={`${STRINGS.brand.name} Home`}
-            >
-              {/* Circular Emblem Frame with Outer Halo & Inner Gold Ring */}
-              <div
-                className={cn(
-                  'relative flex items-center justify-center rounded-full bg-white border border-border transition-all duration-300 ease-out group-hover:scale-105',
-                  scrolled
-                    ? 'h-12 w-12 sm:h-14 sm:w-14 p-0.5 shadow-md'
-                    : 'h-16 w-16 sm:h-24 sm:w-24 md:h-28 md:w-28 p-1 sm:p-1.5 shadow-xl translate-y-1.5 sm:translate-y-3 md:translate-y-4'
-                )}
-              >
-                {/* Inner Gold Ring & Navy Brand Emblem */}
-                <div className="relative h-full w-full rounded-full border-2 border-accent overflow-hidden bg-navy shadow-inner flex items-center justify-center">
-                  <Image
-                    src={IMAGES.brand.logo || '/sky-executive-logo.svg'}
-                    alt={STRINGS.brand.logoAlt}
-                    fill
-                    sizes={scrolled ? '56px' : '112px'}
-                    priority
-                    className="object-contain p-0.5 sm:p-1"
+      <header
+        className={cn(
+          'sticky top-0 z-50 w-full bg-[var(--cream)] border-b border-[var(--line-gold)] transition-all duration-300',
+          scrolled
+            ? 'h-[72px] shadow-[0_6px_18px_rgba(11,31,63,0.10)]'
+            : 'h-[88px]'
+        )}
+      >
+        <div className="w-full max-w-[1440px] mx-auto h-full flex items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-12 gap-3 sm:gap-4">
+          {/* Brand Logo Lockup: Crown/Logo + Brand Name */}
+          <Link
+            href="/"
+            className="group flex items-center gap-2.5 sm:gap-3 focus:outline-none shrink-0 mr-2 xl:mr-4"
+            id="header-center-logo"
+            aria-label={`${STRINGS.brand.name} Home`}
+          >
+            {/* Official Brand Logo Medallion */}
+            <div className="relative h-10 w-10 sm:h-11 sm:w-11 xl:h-12 xl:w-12 shrink-0 rounded-full overflow-hidden border border-[var(--gold)] shadow-xs transition-transform duration-300 group-hover:scale-105 bg-[#0B1F3F]">
+              <Image
+                src="/SE_Logo.jpeg"
+                alt={STRINGS.brand.logoAlt}
+                fill
+                priority
+                className="object-cover"
+              />
+            </div>
+
+            {/* Brand Typography */}
+            <div className="flex flex-col">
+              <span className="font-display text-base sm:text-lg xl:text-xl font-extrabold tracking-wider text-[var(--navy-ink)] uppercase leading-none group-hover:text-[var(--gold)] transition-colors whitespace-nowrap">
+                {STRINGS.brand.name}
+              </span>
+              <span className="font-display text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--brown-gold)] mt-0.5 sm:mt-1 whitespace-nowrap">
+                Lonikand, Pune
+              </span>
+            </div>
+          </Link>
+
+          {/* Desktop Nav Links (Cleanly centered with ample clearance) */}
+          <nav
+            className="hidden lg:flex items-center justify-center gap-4 xl:gap-6 2xl:gap-8 mx-auto px-2"
+            aria-label="Main navigation"
+          >
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    'relative py-1 font-display text-[13px] xl:text-[14px] 2xl:text-[15px] font-bold tracking-[0.08em] uppercase transition-all duration-200 group whitespace-nowrap',
+                    isActive
+                      ? 'text-[var(--gold)]'
+                      : 'text-[var(--navy-ink)] hover:text-[var(--gold)]'
+                  )}
+                  id={`nav-${link.href.replace('/', '') || 'home'}`}
+                >
+                  <span>{link.label}</span>
+
+                  {/* 2px Gold Underline growing from center on hover or active */}
+                  <span
+                    className={cn(
+                      'absolute -bottom-1.5 left-0 right-0 h-[2px] bg-[var(--gold)] transition-all duration-200',
+                      isActive
+                        ? 'opacity-100 scale-x-100'
+                        : 'opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100'
+                    )}
                   />
-                </div>
-              </div>
+
+                  {/* 6px Center Dot under active item */}
+                  {isActive && (
+                    <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[var(--gold)]" />
+                  )}
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Primary CTA Button (Gold-bright filled pill, height 44px, text navy) */}
+          <div className="hidden sm:flex items-center gap-3 shrink-0 ml-auto lg:ml-0">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-full bg-[var(--gold-bright)] hover:bg-[var(--gold-foil-light)] text-[var(--navy-deep)] font-display font-bold text-xs sm:text-[13px] xl:text-[14px] uppercase tracking-[0.08em] h-11 px-5 xl:px-6 shadow-xs hover:shadow-[0_6px_16px_rgba(184,134,43,0.35)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 whitespace-nowrap shrink-0"
+              id="header-enquire-pill"
+            >
+              <span>ENQUIRE NOW</span>
             </Link>
           </div>
 
-          {/* -------------------------------------------------------- */}
-          {/* DESKTOP (xl+): 3 EQUALLY DIVIDED OPTIONS ON LEFT          */}
-          {/* -------------------------------------------------------- */}
-          <div className="hidden xl:flex flex-1 items-center justify-end pr-16 2xl:pr-20">
-            <nav
-              className="flex items-center gap-6 2xl:gap-8"
-              aria-label="Left navigation"
+          {/* Mobile Right Controls: Call button + Hamburger drawer button */}
+          <div className="flex lg:hidden items-center gap-2 shrink-0">
+            <a
+              href={phoneUrl()}
+              className="sm:hidden flex items-center justify-center w-10 h-10 rounded-full bg-[var(--gold-bright)] text-[var(--navy-deep)] shadow-xs shrink-0"
+              aria-label="Call Front Desk"
+              id="mobile-header-call"
             >
-              {leftNavLinks.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={cn(
-                      'relative py-1 text-xs font-semibold tracking-[0.16em] uppercase transition-all duration-200 group whitespace-nowrap',
-                      isActive
-                        ? 'text-accent'
-                        : 'text-foreground hover:text-accent'
-                    )}
-                    id={`nav-${link.href.replace('/', '') || 'home'}`}
-                  >
-                    <span>{link.label}</span>
-                    {isActive && (
-                      <span className="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-accent" />
-                    )}
-                  </Link>
-                );
-              })}
-            </nav>
-          </div>
+              <Phone className="h-4 w-4" />
+            </a>
 
-          {/* -------------------------------------------------------- */}
-          {/* DESKTOP (xl+): 3 EQUALLY DIVIDED OPTIONS ON RIGHT + CTA   */}
-          {/* -------------------------------------------------------- */}
-          <div className="hidden xl:flex flex-1 items-center justify-between pl-16 2xl:pl-20">
-            {/* Right Navigation Links */}
-            <nav
-              className="flex items-center gap-6 2xl:gap-8"
-              aria-label="Right navigation"
+            <button
+              onClick={() => setMobileOpen(true)}
+              className="flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-[var(--line-gold)] bg-[var(--cream-deep)] text-[var(--navy-ink)] hover:text-[var(--gold)] focus:outline-none transition-colors shrink-0"
+              aria-label="Open mobile menu"
+              id="mobile-menu-trigger"
             >
-              {rightNavLinks.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={cn(
-                      'relative py-1 text-xs font-semibold tracking-[0.16em] uppercase transition-all duration-200 group whitespace-nowrap',
-                      isActive
-                        ? 'text-accent'
-                        : 'text-foreground hover:text-accent'
-                    )}
-                    id={`nav-${link.href.replace('/', '') || 'contact'}`}
-                  >
-                    <span>{link.label}</span>
-                    {isActive && (
-                      <span className="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-accent" />
-                    )}
-                  </Link>
-                );
-              })}
-            </nav>
-
-            {/* Primary Action Button Fixed on Far Right */}
-            <div className="flex items-center">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent via-accent-gold to-accent-dark px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-all duration-300 hover:brightness-105 hover:shadow-md active:scale-95 whitespace-nowrap"
-                id="header-enquire-pill"
-              >
-                <span>ENQUIRE NOW</span>
-                <ArrowRight className="h-3.5 w-3.5 text-white" />
-              </Link>
-            </div>
-          </div>
-
-          {/* -------------------------------------------------------- */}
-          {/* MOBILE & TABLET (< xl)                                   */}
-          {/* -------------------------------------------------------- */}
-          <div className="flex xl:hidden w-full items-center justify-between">
-            {/* Left: Quick Call */}
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              <a
-                href={phoneUrl()}
-                className="flex items-center gap-1 sm:gap-1.5 rounded-full border border-border bg-ivory px-2.5 sm:px-3 py-1.5 text-xs font-semibold text-foreground"
-                id="mobile-header-call"
-                aria-label="Call Front Desk"
-              >
-                <Phone className="h-3.5 w-3.5 text-accent shrink-0" />
-                <span className="hidden sm:inline">{STRINGS.contact.phone}</span>
-              </a>
-            </div>
-
-            {/* Spacer for center logo emblem on mobile */}
-            <div className="w-14 sm:w-20" />
-
-            {/* Right: Enquire CTA & Mobile Hamburger */}
-            <div className="flex items-center gap-2">
-              <Link
-                href="/contact"
-                className="hidden sm:inline-flex items-center rounded-full bg-gradient-to-r from-accent to-accent-dark px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-white"
-              >
-                Enquire
-              </Link>
-              <button
-                onClick={() => setMobileOpen(true)}
-                className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg border border-border bg-ivory text-foreground hover:bg-cream transition-colors"
-                aria-label={STRINGS.nav.aria.openMenu}
-                id="mobile-menu-toggle"
-              >
-                <Menu className="h-5 w-5 text-foreground" />
-              </button>
-            </div>
+              <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
+            </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Slide-in Drawer */}
       <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} />
     </>
   );

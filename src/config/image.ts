@@ -2,7 +2,7 @@
  * Centralized Image Configuration for Hotel Sky Executive (Pune)
  * 
  * Manages all image assets, brand logo, room photography, and gallery previews.
- * Brand identity uses the official Hotel Sky Executive logo in /sky-executive-logo.svg.
+ * Brand identity uses the official Hotel Sky Executive logo in /SE_Logo.jpeg.
  */
 
 export type GalleryCategory = 'property' | 'rooms' | 'nature' | 'dining';
@@ -18,31 +18,31 @@ export interface GalleryImageItem {
 
 export const IMAGES = {
   brand: {
-    logo: '/sky-executive-logo.svg',
+    logo: '/SE_Logo.jpeg',
     logoAlt: 'Hotel Sky Executive — Lonikand, Pune',
     favicon: '/favicon.ico',
-    ogImage: '/sky-executive-logo.svg',
+    ogImage: '/SE_Logo.jpeg',
   },
   patterns: {
     heroDots: 'radial-gradient(circle at 2px 2px, rgba(212, 175, 55, 0.15) 1px, transparent 0)',
     accentDots: 'radial-gradient(circle at 1px 1px, var(--accent) 1px, transparent 0)',
     ctaDots: 'radial-gradient(circle at 2px 2px, rgba(212, 175, 55, 0.2) 1px, transparent 0)',
   },
-  hero: '/images/property/building_exterior.webp',
-  building: '/images/property/building_exterior.webp',
-  interior: '/images/property/interior_design.webp',
+  hero: '/images/property/sky_building_exterior.webp',
+  building: '/images/property/sky_building_exterior.webp',
+  interior: '/images/services/reception.jpg',
   hero1: '/hero1.avif',
   natureView: '/images/property/nature_view.jpg',
   cloudKitchen: '/images/property/cloud_kitchen.jpg',
-  peacefulAmbience: '/images/property/interior_design.webp',
+  peacefulAmbience: '/images/property/peaceful_ambience.jpg',
   videos: {
     heroMp4: '/videos/hero-resort.mp4',
     heroWebm: '/videos/hero-resort.webm',
   },
   services: {
-    rooms: '/images/rooms/double_bed_room.webp',
+    rooms: '/images/rooms/sky_executive_room.webp',
     housekeeping: '/images/services/housekeeping.jpg',
-    reception: '/images/property/interior_design.webp',
+    reception: '/images/services/reception.jpg',
     wifi: '/images/services/wifi_desk.jpg',
     parking: '/images/services/parking.jpg',
     dining: '/images/property/cloud_kitchen.jpg',
@@ -51,31 +51,31 @@ export const IMAGES = {
     banner: '/images/services/banner.jpg',
   },
   rooms: {
-    'premium-room': '/images/rooms/double_bed_room.webp',
-    'double-room': '/images/rooms/double_bed_room.webp',
-    deluxe: '/images/rooms/double_bed_room.webp',
+    'premium-room': '/images/rooms/sky_executive_room.webp',
+    'double-room': '/images/rooms/sky_executive_room.webp',
+    deluxe: '/images/rooms/sky_executive_room.webp',
     executive: '/images/rooms/executive_room.jpg',
     twin: '/images/rooms/twin_room.jpg',
     suite: '/images/rooms/suite_room.jpg',
-    standard: '/images/rooms/double_bed_room.webp',
+    standard: '/images/rooms/sky_executive_room.webp',
   } as Record<string, string>,
   gallery: [
     {
       id: 'prop-1',
-      src: '/images/property/building_exterior.webp',
-      alt: 'Hotel Sky Executive Building Exterior in Pune',
+      src: '/images/property/sky_building_exterior.webp',
+      alt: 'Hotel Sky Executive Jaywant Tower Building Exterior in Lonikand, Pune',
       category: 'property',
     },
     {
       id: 'prop-2',
-      src: '/images/property/interior_design.webp',
-      alt: 'Designer Reception & Interior Ceiling with Warm Cove Lighting & Chandelier',
+      src: '/images/services/reception.jpg',
+      alt: '24/7 Front Desk Reception and Executive Hospitality at Hotel Sky Executive',
       category: 'property',
     },
     {
       id: 'rom-1',
-      src: '/images/rooms/double_bed_room.webp',
-      alt: 'Hotel Sky Executive Double Bed Room with Plush Queen Bed and Ambient Warmth',
+      src: '/images/rooms/sky_executive_room.webp',
+      alt: 'Hotel Sky Executive Double Bed Room with Plush Bed and Ample Space',
       category: 'rooms',
     },
     {

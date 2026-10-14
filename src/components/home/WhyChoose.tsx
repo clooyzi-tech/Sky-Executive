@@ -1,8 +1,10 @@
 'use client';
 
 import React from 'react';
-import { Star, Sparkles, MessageSquareQuote } from 'lucide-react';
+import { Star, MessageSquareQuote } from 'lucide-react';
 import { STRINGS } from '@/config/strings';
+import CrownMark from '@/components/ui/CrownMark';
+import GoldRuleDot from '@/components/ui/GoldRuleDot';
 
 const REVIEWS = [
   {
@@ -39,79 +41,76 @@ const REVIEWS = [
 
 export default function WhyChoose() {
   return (
-    <section className="py-20 sm:py-28 bg-cream relative overflow-hidden" id="testimonials">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      className="py-16 sm:py-24 bg-[var(--cream-deep)] relative overflow-hidden select-none"
+      id="testimonials"
+    >
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-20">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-ivory border border-border text-accent text-xs font-semibold tracking-wider uppercase mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Guest Feedback</span>
+        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--cream)] border border-[var(--line-gold)] text-[var(--brown-gold)] text-xs font-display font-bold tracking-wider uppercase mb-3">
+            <CrownMark size="sm" variant="gold" />
+            <span>Verified Guest Experiences</span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight">
+          <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-tight text-[var(--navy-ink)]">
             What Our Guests Say
           </h2>
-          <p className="mt-3 text-xs sm:text-sm md:text-base text-slate-medium leading-relaxed">
-            Real experiences from business executives and travelers who choose Hotel Sky Executive.
+          <p className="font-body mt-2.5 text-sm sm:text-base text-[var(--ink)] leading-relaxed">
+            Real guest reviews from corporate visitors and highway travelers who stay at Hotel Sky Executive.
           </p>
         </div>
 
-        {/* 3 Review Cards */}
+        {/* 3 Review Cards (Section 7: 6px radius, 1px gold border, shadow-card) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {REVIEWS.map((item) => (
             <div
               key={item.id}
-              className="rounded-3xl bg-white border border-border p-6 sm:p-7 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+              className="rounded-[6px] bg-[var(--cream)] border border-[var(--gold)] p-6 sm:p-7 shadow-[0_10px_28px_rgba(11,31,63,0.12)] hover:shadow-[0_14px_34px_rgba(11,31,63,0.16)] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
             >
-              {/* Subtle quote watermark */}
-              <MessageSquareQuote className="absolute right-4 top-4 h-16 w-16 text-border/40 pointer-events-none group-hover:text-accent/15 transition-colors" />
+              {/* Subtle watermark quote icon */}
+              <MessageSquareQuote className="absolute right-4 top-4 h-14 w-14 text-[var(--gold)]/15 pointer-events-none group-hover:text-[var(--gold)]/25 transition-colors" />
 
               <div className="relative z-10">
-                {/* 5 Stars */}
+                {/* 5 Stars in Gold Bright */}
                 <div className="flex gap-1 mb-4">
                   {[...Array(item.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-accent text-accent" />
+                    <Star key={i} className="w-4 h-4 fill-[var(--gold-bright)] text-[var(--gold-bright)]" />
                   ))}
                 </div>
 
-                {/* Review text */}
-                <p className="text-xs sm:text-sm text-foreground/85 leading-relaxed italic mb-6">
+                {/* Review Text in Playfair Italic font-script */}
+                <p className="font-script text-base sm:text-lg text-[var(--navy-ink)] leading-relaxed mb-6">
                   &ldquo;{item.review}&rdquo;
                 </p>
               </div>
 
               {/* Guest Details */}
-              <div className="relative z-10 pt-4 border-t border-border flex items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cream border border-border text-accent font-bold text-xs">
+              <div className="relative z-10 pt-4 border-t border-[var(--line-gold)] flex items-center gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--navy-deep)] border border-[var(--gold-bright)] text-[var(--gold-bright)] font-display font-bold text-xs shadow-xs">
                   {item.initials}
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-xs sm:text-sm font-bold text-foreground truncate">
+                  <h4 className="font-display font-bold text-sm text-[var(--navy-ink)] uppercase truncate">
                     {item.name}
                   </h4>
-                  <p className="text-[10.5px] text-slate-medium truncate">{item.role}</p>
+                  <p className="font-body text-xs text-[var(--ink-muted)] truncate">{item.role}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Google Reviews Badge Banner */}
+        {/* Google Reviews Trust Banner */}
         <div className="mt-12 text-center">
-          <a
-            href={STRINGS.contact.googleMapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-border shadow-xs hover:border-accent transition-colors group cursor-pointer"
-          >
-            <div className="flex gap-0.5">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-3.5 h-3.5 fill-accent text-accent" />
-              ))}
-            </div>
-            <span className="text-xs font-semibold text-foreground group-hover:text-accent transition-colors">
-              Verified Executive Hospitality • Enquire Today →
+          <div className="inline-flex flex-wrap items-center justify-center gap-3 rounded-full border border-[var(--line-gold)] bg-[var(--cream)] px-6 py-2.5 shadow-xs">
+            <span className="font-display font-bold text-xs uppercase tracking-wider text-[var(--navy-ink)]">
+              4.9/5 Average Guest Rating
             </span>
-          </a>
+            <span className="text-[var(--gold)]">•</span>
+            <span className="font-body text-xs text-[var(--brown-gold)] font-semibold">
+              Verified Executive Boutique Hospitality in Lonikand
+            </span>
+          </div>
         </div>
       </div>
     </section>

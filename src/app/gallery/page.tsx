@@ -4,6 +4,8 @@ import { STRINGS } from '@/config/strings';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import GalleryClient from '@/components/gallery/GalleryClient';
 import BookingCTA from '@/components/home/BookingCTA';
+import CrownMark from '@/components/ui/CrownMark';
+import GoldRuleDot from '@/components/ui/GoldRuleDot';
 
 export const metadata: Metadata = generatePageMetadata({
   title: STRINGS.seo.pages.gallery.title,
@@ -26,16 +28,21 @@ export default function GalleryPage() {
       />
 
       {/* Page Header */}
-      <section className="bg-charcoal py-20 md:py-28 text-white">
+      <section className="on-navy bg-[var(--navy-deep)] py-20 md:py-28 text-white select-none border-b border-[var(--gold)]/30">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <AnimatedSection>
-            <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-black/40 px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-accent-gold backdrop-blur-sm">
-              Visual Preview • Pune
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[var(--gold-bright)]/40 bg-[var(--navy-surface)] px-4 py-1.5 shadow-xs">
+              <CrownMark size="nav" variant="gold-bright" />
+              <span className="font-display font-bold text-xs uppercase tracking-[0.25em] text-[var(--gold-bright)]">
+                Visual Preview • Lonikand, Pune
+              </span>
             </div>
-            <h1 className="mt-4 font-serif text-4xl font-bold text-white md:text-5xl lg:text-6xl">
-              {gallery.header.title}
+            <h1 className="font-display text-3xl sm:text-5xl md:text-6xl font-extrabold uppercase !text-white tracking-tight drop-shadow-sm">
+              <span className="text-white">PHOTO & PROPERTY </span>
+              <span className="gold-foil-text drop-shadow-[0_2px_10px_rgba(212,162,76,0.4)]">GALLERY</span>
             </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-base text-white/80 md:text-lg font-light">
+            <GoldRuleDot width="sm" variant="gold-bright" className="my-4" />
+            <p className="font-body mx-auto max-w-2xl text-base sm:text-lg text-[var(--on-navy)] font-medium leading-relaxed">
               {gallery.header.subtitle}
             </p>
           </AnimatedSection>
@@ -43,7 +50,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Gallery Content */}
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-20 md:py-28 bg-[var(--cream)]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <GalleryClient />
         </div>

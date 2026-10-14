@@ -158,6 +158,10 @@ export default function EnquiryPopup() {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [isOpen]);
 
+  const inputClass =
+    'w-full text-xs px-3 py-2.5 rounded-[6px] border border-[var(--line-gold)] bg-white text-[var(--ink)] placeholder:text-[var(--ink-muted)]/60 focus:border-2 focus:border-[var(--gold)] focus:outline-none focus:ring-2 focus:ring-[var(--gold)]/18';
+  const labelClass = 'block text-[11px] font-bold uppercase tracking-wider text-[var(--brown-gold)] mb-1 font-display';
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -169,7 +173,7 @@ export default function EnquiryPopup() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={handleClose}
-            className="fixed inset-0 bg-black/65 backdrop-blur-xs"
+            className="fixed inset-0 bg-[var(--navy-deep)]/80 backdrop-blur-xs"
           />
 
           {/* Split Card Modal */}
@@ -178,58 +182,58 @@ export default function EnquiryPopup() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.94, y: 15 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="relative w-full max-w-2xl overflow-hidden rounded-3xl border border-border bg-white shadow-2xl z-10 my-auto grid grid-cols-1 md:grid-cols-12"
+            className="relative w-full max-w-2xl overflow-hidden rounded-[6px] border border-[var(--gold)] bg-white shadow-[var(--shadow-bar)] z-10 my-auto grid grid-cols-1 md:grid-cols-12"
           >
             {/* Top Close Button */}
             <button
               onClick={handleClose}
-              className="absolute top-3.5 right-3.5 z-30 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 border border-border text-slate-medium transition-all hover:bg-cream hover:text-foreground cursor-pointer shadow-xs"
+              className="absolute top-3.5 right-3.5 z-30 flex h-8 w-8 items-center justify-center rounded-full bg-[var(--cream)] border border-[var(--line-gold)] text-[var(--navy-ink)] transition-all hover:bg-[var(--gold)] hover:text-[var(--navy-deep)] cursor-pointer shadow-xs"
               aria-label="Close enquiry popup"
             >
               <X className="h-4 w-4" />
             </button>
 
             {/* Left Column: Navy Luxury Panel */}
-            <div className="hidden md:flex md:col-span-5 bg-navy text-white p-6 flex-col justify-between relative overflow-hidden border-r border-white/10">
+            <div className="hidden md:flex md:col-span-5 bg-[var(--navy-deep)] text-[var(--on-navy)] p-6 flex-col justify-between relative overflow-hidden border-r border-[var(--line-gold-navy)]">
               <div className="relative z-10">
-                {/* Gold emblem */}
-                <div className="relative h-16 w-16 mb-4 rounded-full border-2 border-accent overflow-hidden bg-white p-1">
+                <div className="relative h-14 w-14 rounded-full overflow-hidden border-2 border-[var(--gold-bright)] shadow-[0_0_12px_rgba(212,162,76,0.35)] mb-3 bg-[#0B1F3F]">
                   <Image
-                    src={STRINGS.brand.logoPath}
-                    alt={STRINGS.brand.logoAlt}
+                    src="/SE_Logo.jpeg"
+                    alt={`${STRINGS.brand.name} official logo`}
                     fill
-                    className="object-contain"
+                    sizes="56px"
+                    className="object-cover"
                   />
                 </div>
 
-                <span className="text-[10px] font-bold uppercase tracking-widest text-accent block mb-1">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--gold-bright)] block mt-3 mb-1 font-display">
                   Executive Hotel • Lonikand, Pune
                 </span>
-                <h3 className="font-serif text-2xl font-bold leading-tight">
+                <h3 className="font-display text-2xl font-extrabold text-white uppercase leading-tight">
                   Book Your Stay With Us
                 </h3>
-                <p className="text-xs text-white/80 mt-2 leading-relaxed">
+                <p className="text-xs text-[var(--on-navy)]/85 mt-2 leading-relaxed">
                   Executive rooms with 24/7 dining, high-speed Wi-Fi, and personalized front desk support.
                 </p>
               </div>
 
-              {/* Room photo at bottom */}
-              <div className="relative h-36 w-full rounded-2xl overflow-hidden border border-white/15 shadow-md mt-6 z-10">
+              {/* Room photo at bottom - sharp corners */}
+              <div className="relative h-36 w-full rounded-none overflow-hidden border border-[var(--gold)] shadow-md mt-6 z-10">
                 <Image
-                  src="/images/rooms/double_bed_room.webp"
+                  src="/images/rooms/sky_executive_room.webp"
                   alt="Executive Room at Hotel Sky Executive"
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                <div className="absolute bottom-2.5 left-3 right-3 text-[11px] font-medium text-white/90">
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--navy-deep)]/90 via-transparent to-transparent" />
+                <div className="absolute bottom-2.5 left-3 right-3 text-[11px] font-bold font-display uppercase tracking-wider text-white">
                   Executive Room (Queen Bed)
                 </div>
               </div>
             </div>
 
             {/* Right Column: Clean Booking Form */}
-            <div className="md:col-span-7 p-6 sm:p-7 flex flex-col justify-between max-h-[85vh] overflow-y-auto">
+            <div className="md:col-span-7 p-6 sm:p-7 flex flex-col justify-between max-h-[85vh] overflow-y-auto bg-white">
               {submitted ? (
                 /* Success Screen */
                 <motion.div
@@ -237,16 +241,16 @@ export default function EnquiryPopup() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="py-6 flex flex-col items-center text-center space-y-3"
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 shadow-xs">
-                    <CheckCircle className="h-8 w-8" />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--cream-deep)] text-[var(--gold)] shadow-xs">
+                    <CheckCircle className="h-8 w-8 text-[var(--gold)]" />
                   </div>
 
-                  <h3 className="font-serif text-xl font-bold text-foreground">
+                  <h3 className="font-display text-xl font-extrabold text-[var(--navy-ink)] uppercase">
                     Enquiry Received!
                   </h3>
 
-                  <p className="text-xs text-slate-medium max-w-sm leading-relaxed">
-                    Thank you, <strong className="text-foreground">{form.name}</strong>. Our front desk has received your request and will contact you directly to confirm your booking.
+                  <p className="text-xs text-[var(--ink)] max-w-sm leading-relaxed">
+                    Thank you, <strong className="text-[var(--navy-ink)]">{form.name}</strong>. Our front desk has received your request and will contact you directly to confirm your booking.
                   </p>
 
                   <div className="flex flex-col gap-2 w-full pt-2">
@@ -256,7 +260,7 @@ export default function EnquiryPopup() {
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full py-2.5 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm transition-all"
+                      className="btn-primary-gold w-full py-2.5 text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm transition-all"
                     >
                       <MessageCircle className="h-3.5 w-3.5" />
                       <span>Instant Confirm on WhatsApp</span>
@@ -265,7 +269,7 @@ export default function EnquiryPopup() {
                     <button
                       type="button"
                       onClick={handleClose}
-                      className="w-full py-2.5 rounded-full border border-border bg-white text-foreground hover:bg-cream text-xs font-semibold"
+                      className="btn-secondary-cream w-full py-2.5 text-xs font-semibold cursor-pointer"
                     >
                       Close
                     </button>
@@ -275,17 +279,17 @@ export default function EnquiryPopup() {
                 /* Form */
                 <form onSubmit={handleSubmit} className="space-y-3">
                   <div className="mb-2">
-                    <div className="inline-flex items-center gap-1 text-[10px] uppercase font-bold tracking-widest text-accent">
-                      <Sparkles className="h-3 w-3" />
+                    <div className="inline-flex items-center gap-1 text-[10px] uppercase font-bold tracking-widest text-[var(--brown-gold)] font-display">
+                      <Sparkles className="h-3 w-3 text-[var(--gold)]" />
                       <span>Direct Best Rate</span>
                     </div>
-                    <h2 className="font-serif text-xl font-bold text-foreground">
+                    <h2 className="font-display text-xl font-extrabold text-[var(--navy-ink)] uppercase">
                       Book Your Stay
                     </h2>
                   </div>
 
                   {error && (
-                    <div className="rounded-xl border border-red-200 bg-red-50 p-2 text-xs text-red-700">
+                    <div className="rounded-[6px] border border-[var(--red-spark)] bg-red-50 p-2 text-xs text-[var(--red-spark)]">
                       {error}
                     </div>
                   )}
@@ -293,44 +297,40 @@ export default function EnquiryPopup() {
                   {/* Check-In & Check-Out */}
                   <div className="grid grid-cols-2 gap-2.5">
                     <div>
-                      <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-medium mb-1">
+                      <label className={labelClass}>
                         Check In
                       </label>
-                      <div className="relative">
-                        <input
-                          type="date"
-                          value={form.checkIn}
-                          onChange={(e) => updateField('checkIn', e.target.value)}
-                          className="w-full text-xs px-2.5 py-1.5 rounded-xl border border-border bg-white focus:outline-none focus:border-accent"
-                        />
-                      </div>
+                      <input
+                        type="date"
+                        value={form.checkIn}
+                        onChange={(e) => updateField('checkIn', e.target.value)}
+                        className={inputClass}
+                      />
                     </div>
 
                     <div>
-                      <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-medium mb-1">
+                      <label className={labelClass}>
                         Check Out
                       </label>
-                      <div className="relative">
-                        <input
-                          type="date"
-                          value={form.checkOut}
-                          onChange={(e) => updateField('checkOut', e.target.value)}
-                          className="w-full text-xs px-2.5 py-1.5 rounded-xl border border-border bg-white focus:outline-none focus:border-accent"
-                        />
-                      </div>
+                      <input
+                        type="date"
+                        value={form.checkOut}
+                        onChange={(e) => updateField('checkOut', e.target.value)}
+                        className={inputClass}
+                      />
                     </div>
                   </div>
 
                   {/* Room & Guests */}
                   <div className="grid grid-cols-2 gap-2.5">
                     <div>
-                      <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-medium mb-1">
+                      <label className={labelClass}>
                         Room
                       </label>
                       <select
                         value={form.roomPreference}
                         onChange={(e) => updateField('roomPreference', e.target.value)}
-                        className="w-full text-xs px-2.5 py-1.5 rounded-xl border border-border bg-white focus:outline-none focus:border-accent truncate"
+                        className={`${inputClass} truncate`}
                       >
                         <option value="Executive Room">Executive Room</option>
                         <option value="Double Bed Room">Double Bed Room</option>
@@ -340,13 +340,13 @@ export default function EnquiryPopup() {
                     </div>
 
                     <div>
-                      <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-medium mb-1">
+                      <label className={labelClass}>
                         Guests
                       </label>
                       <select
                         value={form.guests}
                         onChange={(e) => updateField('guests', e.target.value)}
-                        className="w-full text-xs px-2.5 py-1.5 rounded-xl border border-border bg-white focus:outline-none focus:border-accent"
+                        className={inputClass}
                       >
                         <option value="1">1 Guest</option>
                         <option value="2">2 Guests</option>
@@ -359,7 +359,7 @@ export default function EnquiryPopup() {
                   {/* Name & Phone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     <div>
-                      <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-medium mb-1">
+                      <label className={labelClass}>
                         Your Name *
                       </label>
                       <input
@@ -368,16 +368,16 @@ export default function EnquiryPopup() {
                         value={form.name}
                         onChange={(e) => updateField('name', e.target.value)}
                         placeholder="Full Name"
-                        className="w-full text-xs px-2.5 py-1.5 rounded-xl border border-border bg-white focus:outline-none focus:border-accent"
+                        className={inputClass}
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-medium mb-1">
+                      <label className={labelClass}>
                         Phone *
                       </label>
-                      <div className="flex rounded-xl border border-border overflow-hidden focus-within:border-accent bg-white">
-                        <span className="inline-flex items-center px-2 text-[10px] font-semibold bg-cream text-foreground border-r border-border">
+                      <div className="flex rounded-[6px] border border-[var(--line-gold)] overflow-hidden focus-within:border-2 focus-within:border-[var(--gold)] bg-white">
+                        <span className="inline-flex items-center px-2.5 text-[11px] font-bold font-display bg-[var(--cream)] text-[var(--navy-ink)] border-r border-[var(--line-gold)]">
                           +91
                         </span>
                         <input
@@ -386,7 +386,7 @@ export default function EnquiryPopup() {
                           value={form.phone}
                           onChange={(e) => updateField('phone', e.target.value)}
                           placeholder="Phone number"
-                          className="flex-1 text-xs px-2 py-1.5 bg-white focus:outline-none"
+                          className="flex-1 text-xs px-2.5 py-2 bg-white text-[var(--ink)] focus:outline-none"
                         />
                       </div>
                     </div>
@@ -394,7 +394,7 @@ export default function EnquiryPopup() {
 
                   {/* Email */}
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-medium mb-1">
+                    <label className={labelClass}>
                       Email Address
                     </label>
                     <input
@@ -402,13 +402,13 @@ export default function EnquiryPopup() {
                       value={form.email}
                       onChange={(e) => updateField('email', e.target.value)}
                       placeholder="email@example.com (optional)"
-                      className="w-full text-xs px-2.5 py-1.5 rounded-xl border border-border bg-white focus:outline-none focus:border-accent"
+                      className={inputClass}
                     />
                   </div>
 
                   {/* Remark / Message */}
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-medium mb-1">
+                    <label className={labelClass}>
                       Special Requests
                     </label>
                     <textarea
@@ -416,16 +416,16 @@ export default function EnquiryPopup() {
                       value={form.message}
                       onChange={(e) => updateField('message', e.target.value)}
                       placeholder="Arrival time, extra bed, diet requirements..."
-                      className="w-full text-xs px-2.5 py-1.5 rounded-xl border border-border bg-white focus:outline-none focus:border-accent resize-none"
+                      className={`${inputClass} resize-none`}
                     />
                   </div>
 
                   {/* Submit Button */}
-                  <div className="pt-1">
+                  <div className="pt-2">
                     <button
                       type="submit"
                       disabled={submitting}
-                      className="w-full py-2.5 rounded-full bg-accent hover:bg-accent-dark text-white text-xs font-bold uppercase tracking-wider shadow-md transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-2 disabled:opacity-70"
+                      className="btn-primary-gold w-full py-3 text-xs font-bold uppercase tracking-wider cursor-pointer flex items-center justify-center gap-2 disabled:opacity-70"
                     >
                       {submitting ? (
                         <>

@@ -2,7 +2,6 @@
 
 import { useState, type FormEvent } from 'react';
 import { Send, Loader2, CheckCircle, AlertCircle, Info } from '@/config/icons';
-import CTAButton from '@/components/ui/CTAButton';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import { STRINGS } from '@/config/strings';
 
@@ -91,56 +90,55 @@ export default function ContactForm() {
   if (submitted) {
     return (
       <AnimatedSection>
-        <div className="flex flex-col items-center gap-4 rounded-3xl border border-border-gold bg-white p-10 text-center shadow-lg sm:p-12">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
-            <CheckCircle className="h-9 w-9" />
+        <div className="flex flex-col items-center gap-4 rounded-[6px] border border-[var(--gold)] bg-white p-10 text-center shadow-[var(--shadow-card)] sm:p-12">
+          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[var(--cream-deep)] text-[var(--gold)]">
+            <CheckCircle className="h-9 w-9 text-[var(--gold)]" />
           </div>
 
-          <h3 className="font-serif text-2xl sm:text-3xl font-bold text-charcoal">
+          <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-[var(--navy-ink)] uppercase">
             {formStrings.successTitle}
           </h3>
 
-          <p className="max-w-md text-sm sm:text-base leading-relaxed text-slate-deep">
+          <p className="max-w-md text-sm sm:text-base leading-relaxed text-[var(--ink)]">
             {formStrings.successMessage}
           </p>
 
-          <div className="rounded-xl border border-border-light bg-cream/50 p-4 text-xs text-slate-medium max-w-md">
+          <div className="rounded-[6px] border border-[var(--line-gold)] bg-[var(--cream)] p-4 text-xs text-[var(--ink-muted)] max-w-md">
             <p>
-              <strong>Please Note:</strong> An enquiry is not an immediate reservation confirmation. Our reservations desk will verify room availability and provide confirmed pricing.
+              <strong className="text-[var(--brown-gold)]">Please Note:</strong> An enquiry is not an immediate reservation confirmation. Our reservations desk will verify room availability and provide confirmed pricing.
             </p>
           </div>
 
-          <CTAButton
+          <button
             onClick={() => {
               setSubmitted(false);
               setForm(initialForm);
             }}
-            variant="outline"
-            className="mt-2"
+            className="btn-primary-gold mt-2 cursor-pointer"
             id="contact-send-another"
           >
             {formStrings.sendAnotherBtn}
-          </CTAButton>
+          </button>
         </div>
       </AnimatedSection>
     );
   }
 
   const inputClass =
-    'w-full rounded-xl border border-border bg-white px-4 py-3 text-charcoal placeholder:text-slate-medium/60 text-sm transition-all duration-200 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20';
-  const labelClass = 'block text-xs font-semibold uppercase tracking-wider text-charcoal mb-1.5';
+    'h-[56px] w-full rounded-[6px] border border-[var(--line-gold)] bg-white px-4 text-[var(--ink)] placeholder:text-[var(--ink-muted)]/60 text-sm transition-all duration-200 focus:border-2 focus:border-[var(--gold)] focus:outline-none focus:ring-4 focus:ring-[var(--gold)]/18';
+  const labelClass = 'block text-[13px] font-bold uppercase tracking-wider text-[var(--brown-gold)] mb-2 font-display';
 
   return (
     <AnimatedSection>
       <form
         onSubmit={handleSubmit}
-        className="space-y-6 rounded-3xl border border-border bg-white p-6 shadow-xs sm:p-10"
+        className="space-y-6 rounded-[6px] border border-[var(--gold)] bg-white p-6 shadow-[var(--shadow-card)] sm:p-10"
         noValidate
       >
         {/* Error Alert Banner */}
         {error && (
-          <div className="flex items-center gap-3 rounded-xl border border-red-200 bg-red-50 p-4 text-xs text-red-700">
-            <AlertCircle className="h-5 w-5 shrink-0" />
+          <div className="flex items-center gap-3 rounded-[6px] border border-[var(--red-spark)] bg-red-50 p-4 text-xs text-[var(--red-spark)]">
+            <AlertCircle className="h-5 w-5 shrink-0 text-[var(--red-spark)]" />
             <span>{error}</span>
           </div>
         )}
@@ -149,7 +147,7 @@ export default function ContactForm() {
         <div className="grid gap-6 sm:grid-cols-2">
           <div>
             <label htmlFor="contact-name" className={labelClass}>
-              {formStrings.nameLabel} <span className="text-red-500">{required}</span>
+              {formStrings.nameLabel} <span className="text-[var(--red-spark)]">{required}</span>
             </label>
             <input
               id="contact-name"
@@ -164,7 +162,7 @@ export default function ContactForm() {
 
           <div>
             <label htmlFor="contact-email" className={labelClass}>
-              {formStrings.emailLabel} <span className="text-red-500">{required}</span>
+              {formStrings.emailLabel} <span className="text-[var(--red-spark)]">{required}</span>
             </label>
             <input
               id="contact-email"
@@ -242,7 +240,7 @@ export default function ContactForm() {
           </div>
         </div>
 
-        {/* Room Category (Static verified selection) */}
+        {/* Room Category */}
         <div>
           <label htmlFor="contact-room" className={labelClass}>
             {formStrings.roomPrefLabel}
@@ -270,35 +268,35 @@ export default function ContactForm() {
             placeholder={formStrings.messagePlaceholder}
             value={form.message}
             onChange={(e) => update('message', e.target.value)}
-            className={`${inputClass} resize-none`}
+            className="w-full rounded-[6px] border border-[var(--line-gold)] bg-white p-4 text-[var(--ink)] placeholder:text-[var(--ink-muted)]/60 text-sm transition-all duration-200 focus:border-2 focus:border-[var(--gold)] focus:outline-none focus:ring-4 focus:ring-[var(--gold)]/18 resize-none"
           />
         </div>
 
         {/* Submission Disclaimer */}
-        <div className="flex items-start gap-2.5 rounded-xl bg-cream/50 p-3.5 text-xs text-slate-medium border border-border-light">
-          <Info className="h-4 w-4 shrink-0 text-accent mt-0.5" />
+        <div className="flex items-start gap-2.5 rounded-[6px] bg-[var(--cream)] p-4 text-xs text-[var(--ink-muted)] border border-[var(--line-gold)]">
+          <Info className="h-4 w-4 shrink-0 text-[var(--gold)] mt-0.5" />
           <p>{formStrings.disclaimer}</p>
         </div>
 
         {/* Submit Button */}
         <div className="pt-2">
-          <CTAButton
+          <button
             type="submit"
             id="contact-submit"
-            className="w-full sm:w-auto bg-accent text-charcoal font-semibold hover:bg-accent-light"
+            className="btn-primary-gold w-full sm:w-auto inline-flex items-center justify-center gap-2 cursor-pointer"
           >
             {submitting ? (
               <>
                 <Loader2 className="h-4 w-4 animate-spin" />
-                {formStrings.submittingBtn}
+                <span>{formStrings.submittingBtn}</span>
               </>
             ) : (
               <>
                 <Send className="h-4 w-4" />
-                {formStrings.submitBtn}
+                <span>{formStrings.submitBtn}</span>
               </>
             )}
-          </CTAButton>
+          </button>
         </div>
       </form>
     </AnimatedSection>

@@ -102,9 +102,9 @@ export const contactConfig: ContactConfig = {
 
   maps: {
     puneCityEmbedUrl:
-      'https://maps.google.com/maps?q=Jaywant+Towers+Pune+Nagar+Road+Lonikand+Pune+412216&t=&z=15&ie=UTF8&iwloc=&output=embed',
+      'https://maps.google.com/maps?q=18.6081064,74.0152976&t=&z=16&ie=UTF8&iwloc=&output=embed',
     googleMapsSearchUrl:
-      'https://www.google.com/maps/search/?api=1&query=Jaywant+Towers+Pune+Nagar+Road+Lonikand+Pune+412216',
+      'https://www.google.com/maps/place/FabHotel+Ace+Executive/@18.6081064,74.0152976,606a,61.9y,93.92h,82.97t/data=!3m7!1e1!3m5!1skvuYHWZgB7KHv7zVW_zR0A!2e0!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D7.0305408619603185%26panoid%3DkvuYHWZgB7KHv7zVW_zR0A%26yaw%3D93.91966873906634!7i16384!8i8192!4m16!1m5!3m4!2zMTjCsDM2JzI4LjkiTiA3NMKwMDAnNTYuNSJF!8m2!3d18.6080278!4d74.0156944!3m9!1s0x3bc2c5005566b215:0x95868d957642246b!5m3!1s2026-11-24!4m1!1i2!8m2!3d18.6082!4d74.01528!16s%2Fg%2F11wqq5xlwm?hl=en&entry=ttu&g_ep=EgoyMDI2MTAxMS4wIKXMDSoASAFQAw%3D%3D',
     disclaimer:
       'Exact address: Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse, Lonikand, Pune – 412216.',
   },

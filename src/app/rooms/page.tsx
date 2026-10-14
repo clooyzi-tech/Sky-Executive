@@ -4,13 +4,15 @@ import Link from 'next/link';
 import { generatePageMetadata, roomsPageJsonLd } from '@/lib/seo';
 import { STRINGS } from '@/config/strings';
 import { IMAGES } from '@/config/image';
-import { Building2, Trees } from '@/config/icons';
+import { Building2, Trees, Clock } from '@/config/icons';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import RoomsPreview from '@/components/home/RoomsPreview';
 import ExperienceSection from '@/components/home/ExperienceSection';
 import BookingCTA from '@/components/home/BookingCTA';
 import AnswerBlock from '@/components/ui/AnswerBlock';
 import FAQSection from '@/components/ui/FAQSection';
+import CrownMark from '@/components/ui/CrownMark';
+import GoldRuleDot from '@/components/ui/GoldRuleDot';
 import { AEO_CONTENT } from '@/content/aeo';
 
 export const metadata: Metadata = generatePageMetadata({
@@ -32,26 +34,31 @@ export default function RoomsPage() {
         }}
       />
 
-      {/* Page Header */}
-      <section className="relative overflow-hidden bg-charcoal py-20 md:py-28 text-white">
-        <div className="absolute inset-0 z-0 opacity-20">
+      {/* Page Header (Royal Navy Deep Band) */}
+      <section className="relative overflow-hidden on-navy bg-[var(--navy-deep)] py-20 md:py-28 text-white border-b border-[var(--gold)]/30 select-none">
+        <div className="absolute inset-0 z-0 opacity-25">
           <Image
             src={IMAGES.rooms['premium-room']}
             alt="Hotel Sky Executive Premium Room"
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-charcoal/80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--navy-deep)] via-[var(--navy-deep)]/80 to-[var(--navy-deep)]/90" />
         </div>
         <div className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <AnimatedSection>
-            <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-black/40 px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-accent-gold backdrop-blur-sm">
-              Accommodation • Pune, Maharashtra
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[var(--gold-bright)]/40 bg-[var(--navy-surface)] px-4 py-1.5 shadow-xs">
+              <CrownMark size="nav" variant="gold-bright" />
+              <span className="font-display font-bold text-xs uppercase tracking-[0.25em] text-[var(--gold-bright)]">
+                Boutique Accommodation • Pune–Nagar Road
+              </span>
             </div>
-            <h1 className="mt-4 font-serif text-4xl font-bold text-white md:text-5xl lg:text-6xl">
-              {roomsStrings.header.title}
+            <h1 className="font-display text-3xl sm:text-5xl md:text-6xl font-extrabold uppercase !text-white tracking-tight drop-shadow-sm">
+              <span className="text-white">EXECUTIVE </span>
+              <span className="gold-foil-text drop-shadow-[0_2px_10px_rgba(212,162,76,0.4)]">ROOMS & AMENITIES</span>
             </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-base text-white/80 md:text-lg font-light">
+            <GoldRuleDot width="sm" variant="gold-bright" className="my-4" />
+            <p className="font-body mx-auto max-w-2xl text-base sm:text-lg text-[var(--on-navy)] font-medium leading-relaxed">
               {roomsStrings.header.subtitle}
             </p>
           </AnimatedSection>
@@ -61,66 +68,66 @@ export default function RoomsPage() {
       {/* Direct Answer Block (AEO Specs First) */}
       <AnswerBlock data={aeoRooms.answerBlock} />
 
-      {/* Inventory & Architectural Notice Banner */}
-      <section className="border-b border-border bg-ivory py-6">
+      {/* Operational Notice Banner (Warm Cream Deep Band) */}
+      <section className="border-b border-[var(--line-gold)] bg-[var(--cream-deep)] py-5 select-none">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm text-slate-deep">
-            <span className="flex items-center gap-2 font-medium">
-              <Building2 className="h-4 w-4 text-accent" />
-              Boutique Accommodation & Calm Ambience
+          <div className="flex flex-wrap items-center justify-center gap-6 font-display text-xs sm:text-sm font-semibold uppercase tracking-wider text-[var(--navy-ink)]">
+            <span className="flex items-center gap-2">
+              <Building2 className="h-4 w-4 text-[var(--gold)]" />
+              200 Sq. Ft. Queen Bed Layout
             </span>
-            <span className="hidden sm:inline text-border-gold">•</span>
-            <span className="flex items-center gap-2 font-medium">
-              Check-in: 11:00 AM • Check-out: 10:00 AM (24/7 Front Desk)
+            <span className="hidden sm:inline text-[var(--gold)]/40">•</span>
+            <span className="flex items-center gap-2">
+              <Clock className="h-4 w-4 text-[var(--gold)]" />
+              Check-in: 11:00 AM • Check-out: 10:00 AM
             </span>
-            <span className="hidden sm:inline text-border-gold">•</span>
-            <span className="flex items-center gap-2 font-medium">
-              <Trees className="h-4 w-4 text-accent" />
-              Pleasant Nature-Oriented Views
+            <span className="hidden sm:inline text-[var(--gold)]/40">•</span>
+            <span className="flex items-center gap-2">
+              <Trees className="h-4 w-4 text-[var(--gold)]" />
+              Quiet Nature-Facing Ambience
             </span>
           </div>
         </div>
       </section>
 
-      {/* Room Showcase — Premium UI matching Reference Design */}
+      {/* Room Showcase — Signature Double Bed Room */}
       <RoomsPreview id="room-showcase" isAllRoomsPage={true} />
 
-      {/* Pricing Policy Disclaimer */}
-      <section className="bg-white pb-16">
+      {/* Best Rate Guarantee & Policy Box (Framed Card) */}
+      <section className="bg-[var(--cream)] pb-16 pt-6">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl border border-border bg-cream/50 p-6 text-center text-xs text-slate-deep">
-            <p className="font-semibold text-charcoal text-sm">
+          <div className="card-framed p-6 sm:p-8 text-center bg-[var(--cream-deep)]">
+            <h3 className="font-display font-extrabold text-base sm:text-lg uppercase text-[var(--navy-ink)]">
               Best Rate Direct Guarantee & Booking Policy
-            </p>
-            <p className="mt-1 max-w-3xl mx-auto leading-relaxed text-slate-medium">
+            </h3>
+            <p className="font-body mt-2 max-w-3xl mx-auto leading-relaxed text-xs sm:text-sm text-[var(--ink)]">
               Live seasonal tariffs, applicable taxes, and room availability are confirmed directly upon enquiry submission. Enjoy our{' '}
-              <Link href="/location" className="text-accent font-semibold hover:underline">
+              <Link href="/location" className="text-[var(--brown-gold)] font-bold underline hover:text-[var(--gold)]">
                 convenient location near Sanaswadi and Lonikand industrial belts
               </Link>
               , and{' '}
-              <Link href="/guest-information" className="text-accent font-semibold hover:underline">
+              <Link href="/guest-information" className="text-[var(--brown-gold)] font-bold underline hover:text-[var(--gold)]">
                 view complete guest policies and check-in guidelines
-              </Link>
-              . For group or corporate reservations, please{' '}
-              <Link href="/contact" className="text-accent font-semibold hover:underline">
-                submit a group or corporate stay enquiry
-              </Link>
-              .
+              </Link>{' '}
+              for digital arrival instructions.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Property Facilities & Services — Premium Experience UI with All Available Services */}
-      <ExperienceSection id="facilities" isAllServicesPage={true} />
+      {/* Facilities & Amenities Detail */}
+      <div id="facilities">
+        <ExperienceSection />
+      </div>
 
-      {/* Visible Room FAQs */}
+      {/* Visible FAQ Accordions */}
       <FAQSection
         faqs={aeoRooms.faqs}
-        title="Room & Booking FAQs"
-        subtitle="Verified details on room dimensions, extra bed policies, meal service, and check-in times."
+        title="Executive Room & Booking FAQs"
+        subtitle="Verified details on check-in, extra beds, cloud kitchen dining, and room amenities."
       />
 
+      {/* Lead Generation CTA Banner */}
       <BookingCTA />
     </>
   );

@@ -1,9 +1,10 @@
 'use client';
 
 import React from 'react';
-import { HelpCircle, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import type { FAQItem } from '@/content/aeo';
 import { cn } from '@/lib/utils';
+import CrownMark from '@/components/ui/CrownMark';
 
 interface FAQSectionProps {
   faqs: FAQItem[];
@@ -26,41 +27,41 @@ export default function FAQSection({
     <section
       id={id}
       aria-label={title}
-      className={cn('py-16 sm:py-24 bg-cream/40 border-t border-border-light relative overflow-hidden', className)}
+      className={cn('py-16 sm:py-24 bg-[var(--cream)] border-t border-[var(--line-gold)] relative overflow-hidden select-none', className)}
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-ivory border border-border text-accent-dark text-xs font-semibold tracking-wider uppercase mb-3">
-            <HelpCircle className="w-3.5 h-3.5 text-accent" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--cream-deep)] border border-[var(--line-gold)] text-[var(--brown-gold)] text-xs font-display font-bold tracking-wider uppercase mb-3">
+            <CrownMark size="sm" variant="gold" />
             <span>{badge}</span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-foreground tracking-tight">
+          <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl uppercase tracking-tight text-[var(--navy-ink)]">
             {title}
           </h2>
           {subtitle && (
-            <p className="mt-3 text-xs sm:text-sm md:text-base text-slate-medium leading-relaxed">
+            <p className="font-body mt-2.5 text-sm sm:text-base text-[var(--ink)] leading-relaxed">
               {subtitle}
             </p>
           )}
         </div>
 
-        {/* Collapsible Accordion List using Semantic HTML5 details/summary */}
-        <div className="space-y-4">
+        {/* Semantic HTML5 details/summary Accordion List (6px radius, 1px gold border) */}
+        <div className="space-y-3.5">
           {faqs.map((faq, index) => (
             <details
               key={index}
-              className="group rounded-2xl bg-white border border-border p-5 sm:p-6 shadow-xs hover:border-accent/40 transition-colors open:border-accent/60"
+              className="group rounded-[6px] bg-[var(--cream-deep)] border border-[var(--gold)]/70 p-5 sm:p-6 shadow-xs hover:border-[var(--gold)] transition-colors open:border-[var(--gold-bright)] open:shadow-md"
             >
               <summary className="flex items-center justify-between cursor-pointer list-none select-none gap-4">
-                <span className="font-serif text-base sm:text-lg font-semibold text-charcoal group-open:text-accent-dark transition-colors">
+                <span className="font-display text-sm sm:text-base font-bold uppercase text-[var(--navy-ink)] group-open:text-[var(--brown-gold)] transition-colors">
                   {faq.question}
                 </span>
-                <span className="p-1.5 rounded-full bg-cream group-open:bg-accent/15 group-open:rotate-180 transition-transform duration-200 shrink-0">
-                  <ChevronDown className="w-4 h-4 text-charcoal group-open:text-accent-dark" />
+                <span className="p-1.5 rounded-full bg-[var(--gold)]/15 group-open:bg-[var(--gold-bright)] group-open:text-[var(--navy-deep)] group-open:rotate-180 transition-all duration-200 shrink-0">
+                  <ChevronDown className="w-4 h-4 text-[var(--navy-ink)] group-open:text-[var(--navy-deep)]" />
                 </span>
               </summary>
-              <div className="mt-4 pt-4 border-t border-border-light text-xs sm:text-sm text-slate-deep leading-relaxed">
+              <div className="mt-4 pt-4 border-t border-[var(--line-gold)] font-body text-xs sm:text-sm text-[var(--ink)] leading-relaxed">
                 <p>{faq.answer}</p>
               </div>
             </details>

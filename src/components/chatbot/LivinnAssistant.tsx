@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Phone,
@@ -351,14 +352,25 @@ export default function LivinnAssistant({
           >
             {/* Overlay Header */}
             <header className="flex items-center justify-between px-4 py-3 border-b border-[#EBE4D5] bg-white shadow-2xs shrink-0">
-              <div className="flex flex-col">
-                <Link href="/" className="group inline-flex flex-col">
-                  <span className="font-serif text-lg sm:text-xl font-bold tracking-wider text-[#2A241C] group-hover:text-[#A67C37] transition-colors leading-none">
-                    {BRAND.name}
-                  </span>
-                  <span className="text-[7.5px] sm:text-[8.5px] tracking-widest text-[#9C8F7E] font-medium uppercase mt-0.5">
-                    {BRAND.tagline}
-                  </span>
+              <div className="flex items-center gap-2.5">
+                <Link href="/" className="group inline-flex items-center gap-2.5">
+                  <div className="relative h-9 w-9 rounded-full overflow-hidden border border-[#D4A24C] shadow-xs shrink-0 bg-[#0B1F3F]">
+                    <Image
+                      src="/SE_Logo.jpeg"
+                      alt={BRAND.name}
+                      fill
+                      sizes="36px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-serif text-lg sm:text-xl font-bold tracking-wider text-[#2A241C] group-hover:text-[#A67C37] transition-colors leading-none">
+                      {BRAND.name}
+                    </span>
+                    <span className="text-[7.5px] sm:text-[8.5px] tracking-widest text-[#9C8F7E] font-medium uppercase mt-0.5">
+                      {BRAND.tagline}
+                    </span>
+                  </div>
                 </Link>
               </div>
               <div className="flex items-center gap-2.5">
@@ -453,14 +465,25 @@ export default function LivinnAssistant({
       {/* 1. TOP HEADER */}
       <header className="flex items-center justify-between px-4 py-3 border-b border-[#EBE4D5] bg-white shadow-2xs z-20 shrink-0">
         {/* Left: Brand Logo & Slogan */}
-        <div className="flex flex-col">
-          <Link href="/" className="group inline-flex flex-col">
-            <span className="font-serif text-lg sm:text-xl font-bold tracking-wider text-[#2A241C] group-hover:text-[#A67C37] transition-colors leading-none">
-              {BRAND.name}
-            </span>
-            <span className="text-[7.5px] sm:text-[8.5px] tracking-widest text-[#9C8F7E] font-medium uppercase mt-0.5">
-              {BRAND.tagline}
-            </span>
+        <div className="flex items-center gap-2.5">
+          <Link href="/" className="group inline-flex items-center gap-2.5">
+            <div className="relative h-9 w-9 rounded-full overflow-hidden border border-[#D4A24C] shadow-xs shrink-0 bg-[#0B1F3F]">
+              <Image
+                src="/SE_Logo.jpeg"
+                alt={BRAND.name}
+                fill
+                sizes="36px"
+                className="object-cover"
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-serif text-lg sm:text-xl font-bold tracking-wider text-[#2A241C] group-hover:text-[#A67C37] transition-colors leading-none">
+                {BRAND.name}
+              </span>
+              <span className="text-[7.5px] sm:text-[8.5px] tracking-widest text-[#9C8F7E] font-medium uppercase mt-0.5">
+                {BRAND.tagline}
+              </span>
+            </div>
           </Link>
         </div>
 
@@ -1094,7 +1117,7 @@ export default function LivinnAssistant({
                     </a>
 
                     <a
-                      href="https://www.google.com/maps/search/?api=1&query=Hotel+Sky+Executive+Jaywant+Towers+Lonikand+Pune+412216"
+                      href="https://www.google.com/maps/place/FabHotel+Ace+Executive/@18.6081064,74.0152976,606a,61.9y,93.92h,82.97t/data=!3m7!1e1!3m5!1skvuYHWZgB7KHv7zVW_zR0A!2e0!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D7.0305408619603185%26panoid%3DkvuYHWZgB7KHv7zVW_zR0A%26yaw%3D93.91966873906634!7i16384!8i8192!4m16!1m5!3m4!2zMTjCsDM2JzI4LjkiTiA3NMKwMDAnNTYuNSJF!8m2!3d18.6080278!4d74.0156944!3m9!1s0x3bc2c5005566b215:0x95868d957642246b!5m3!1s2026-11-24!4m1!1i2!8m2!3d18.6082!4d74.01528!16s%2Fg%2F11wqq5xlwm?hl=en&entry=ttu&g_ep=EgoyMDI2MTAxMS4wIKXMDSoASAFQAw%3D%3D"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-between p-2.5 rounded-xl border border-[#EFE8DD] bg-[#FAF8F5] hover:border-[#B38E46] transition-all group"
