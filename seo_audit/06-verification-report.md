@@ -119,7 +119,7 @@ Validated across all 6 core page archetypes from the pre-rendered production bui
 **Analysis Mode:** Mode A (Production Build Pre-Rendered Codebase Analysis)  
 
 ### What Google Sees
-Google sees a clearly structured, single-location executive boutique hotel located on Pune–Nagar Road at Jaywant Towers in Lonikand, Pune (PIN 412216). It sees unambiguous physical contact information (+91 80077 24646, `help.skyexecutive@gmail.com`), GPS coordinates (`18.6082, 74.01528`), specific room specifications (200 sq.ft, Queen bed, AC, en-suite hot water bath, 2+1 occupancy), 24/7 front desk operations, 100% generator backup, free secure parking, and in-room cloud kitchen dining.
+Google sees a clearly structured, single-location executive boutique hotel located on Pune–Nagar Road at Jaywant Towers in Lonikand, Pune (PIN 412216). It sees unambiguous physical contact information (+91 92093 97362, `help.skyexecutive@gmail.com`), GPS coordinates (`18.6082, 74.01528`), specific room specifications (200 sq.ft, Queen bed, AC, en-suite hot water bath, 2+1 occupancy), 24/7 front desk operations, 100% generator backup, free secure parking, and in-room cloud kitchen dining.
 
 ### What's Missing
 While technical, geographical, and operational disclosures are rock solid, Google cannot verify the human leadership behind the hotel (General Manager or Managing Director names are unlisted). Furthermore, because the business has not yet claimed external directory profiles (Google Business Profile, Justdial, TripAdvisor), Google cannot cross-verify off-page trust signals or aggregate guest review sentiment.
@@ -299,7 +299,7 @@ None. All automated test, lint, type-check, and build scripts now pass with exit
 ### 1. DO FIRST (High Impact, Immediate Post-Deploy)
 1. **Deploy Production Build to Live Hosting (Vercel):** Make the site accessible to search crawlers and AI bots.
 2. **Submit `sitemap.xml` in Google Search Console:** Accelerate indexing of all 11 modernized routes.
-3. **Claim & Verify Google Business Profile:** Ensure exact match of business name, address at Jaywant Towers, and phone `+91 80077 24646`.
+3. **Claim & Verify Google Business Profile:** Ensure exact match of business name, address at Jaywant Towers, and phone `+91 92093 97362`.
 4. **Confirm Owner / GM Identity & Starting Tariff:** Replace remaining `[OWNER TO CONFIRM]` placeholders on `/about` and `/rooms`.
 
 ### 2. DO NEXT (Medium Impact, Month 1)

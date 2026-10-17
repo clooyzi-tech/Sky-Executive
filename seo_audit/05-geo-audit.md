@@ -82,7 +82,7 @@ AI crawlers (particularly lightweight retrieval bots like `OAI-SearchBot` and `P
 | **Server-Rendered Headings (`h1`, `h2`, `h3`)** | **PASSED** | All primary headings, section titles, and FAQ question summaries are pre-rendered into static HTML (`.next/server/app/`). | **VERIFIED** ([validate.mjs output](file:///C:/Users/DEVESH/.gemini/antigravity-ide/brain/d7648297-09a3-4f27-a0d5-5ae6372afd26/scratch/validate.mjs)) |
 | **AEO Direct Answer Blocks** | **PASSED** | Answer cards with verified property facts, transit corridors, and amenities are 100% present in initial HTML payload without client JS. | **VERIFIED** |
 | **Frequently Asked Questions (FAQ)** | **PASSED** | Rendered using semantic HTML5 `<details>` and `<summary>` tags. Crawlable and functional natively in all browsers without JavaScript. | **VERIFIED** |
-| **Contact Credentials & Phone Numbers** | **PASSED** | Direct phone (`+91 80077 24646`), email, and Jaywant Towers address exist as static HTML anchors (`tel:`, `mailto:`, plaintext). | **VERIFIED** |
+| **Contact Credentials & Phone Numbers** | **PASSED** | Direct phone (`+91 92093 97362`), email, and Jaywant Towers address exist as static HTML anchors (`tel:`, `mailto:`, plaintext). | **VERIFIED** |
 | **Pricing & Tariff Disclaimers** | **PASSED** | Booking policies and starting guidance ("from ₹1,499/night") are fully embedded in static DOM. | **VERIFIED** |
 | **Paywalls, Logins & Gating** | **PASSED** | 100% public access. Zero user-login walls, registration gates, or cookie barriers blocking bots. | **VERIFIED** |
 | **Interstitials / Blocking Modals** | **PASSED** | `EnquiryPopup` is non-blocking and lazy-loaded; does not obstruct underlying HTML content for search bots. | **VERIFIED** |
@@ -126,7 +126,7 @@ Layer Scores (0 to 10):
 
 The business owner must manually claim, verify, and standardize the following profiles with exact NAP (Name, Address, Phone):
 
-- [ ] **Google Business Profile (GBP):** Ensure name is strictly `Hotel Sky Executive`, category is `Hotel`, address matches `Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse, Lonikand, Pune – 412216`, phone is `+91 80077 24646`, and primary website URL is `https://hotelskyexecutive.in`.
+- [ ] **Google Business Profile (GBP):** Ensure name is strictly `Hotel Sky Executive`, category is `Hotel`, address matches `Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse, Lonikand, Pune – 412216`, phone is `+91 92093 97362`, and primary website URL is `https://hotelskyexecutive.in`.
 - [ ] **Bing Places for Business:** Claim and sync with verified Google Business Profile to ensure Copilot and Bing AI citations.
 - [ ] **Apple Business Connect:** Claim property listing to ground Applebot and Siri location cards.
 - [ ] **LinkedIn Company Page:** Create an official company profile for `Hotel Sky Executive` (Hospitality / Executive Lodging, Pune) and link to `https://hotelskyexecutive.in`.

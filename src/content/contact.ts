@@ -2,7 +2,7 @@
  * Contact, Location & Connectivity Configuration — Hotel Sky Executive (Pune)
  * 
  * Verified Property Details:
- * - Phone: +91 80077 24646 (Call & WhatsApp)
+ * - Phone: +91 92093 97362 (Call & WhatsApp)
  * - Address: Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse,
  *   Lonikand, Pune - 412216
  */
@@ -70,11 +70,11 @@ export interface ContactConfig {
 
 export const contactConfig: ContactConfig = {
   // Official Verified Phone & WhatsApp
-  phone: '+91 80077 24646',
-  phoneRaw: '+918007724646',
+  phone: '+91 92093 97362',
+  phoneRaw: '+919209397362',
   phoneStatus: 'verified',
 
-  whatsapp: '+918007724646',
+  whatsapp: '+919209397362',
   whatsappStatus: 'verified',
 
   email: 'help.skyexecutive@gmail.com',
@@ -160,7 +160,7 @@ export const contactConfig: ContactConfig = {
     emailLabel: 'Email Address',
     emailPlaceholder: 'you@example.com',
     phoneLabel: 'Phone Number',
-    phonePlaceholder: 'e.g. 8007724646',
+    phonePlaceholder: 'e.g. 9209397362',
     checkInLabel: 'Preferred Check-in Date',
     checkOutLabel: 'Preferred Check-out Date',
     guestsLabel: 'Number of Guests',

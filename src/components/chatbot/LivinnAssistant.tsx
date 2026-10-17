@@ -1099,7 +1099,7 @@ export default function LivinnAssistant({
                     </a>
 
                     <a
-                      href="https://wa.me/918007724646?text=Hello%20Hotel%20Sky%20Executive%20Pune"
+                      href="https://wa.me/919209397362?text=Hello%20Hotel%20Sky%20Executive%20Pune"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-between p-2.5 rounded-xl border border-[#EFE8DD] bg-[#FAF8F5] hover:border-[#B38E46] transition-all group"
@@ -1110,7 +1110,7 @@ export default function LivinnAssistant({
                         </div>
                         <div>
                           <h4 className="text-xs font-semibold text-[#2A241C]">WhatsApp Support</h4>
-                          <p className="text-[9.5px] text-[#7E7465]">+91 80077 24646</p>
+                          <p className="text-[9.5px] text-[#7E7465]">+91 92093 97362</p>
                         </div>
                       </div>
                       <ExternalLink className="w-3.5 h-3.5 text-[#B38E46] group-hover:translate-x-0.5 transition-transform" />

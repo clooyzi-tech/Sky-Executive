@@ -57,7 +57,7 @@ This proposal covers the primary batch of **4 core URLs** (maximum 5) prioritize
 - **Identified Friction Point:** The main Hero section currently lacks a direct CTA button within the center headline card. Users on mobile must scroll down to discover action triggers.
 - **Proposal:** Add dual hero CTA buttons directly below the H1 and description in [Hero.tsx](file:///d:/Devesh/Clooyzi/sky/src/components/home/Hero.tsx):
   1. *Primary (Pill Button):* `Check Room Availability` (Triggers enquiry modal).
-  2. *Secondary (Outline Button):* `Call Front Desk` (`tel:+918007724646`).
+  2. *Secondary (Outline Button):* `Call Front Desk` (`tel:+919209397362`).
 - **Verifiable Trust Signals:** 24/7 front desk hotline, 100% power backup, on-site secure parking, verified photo ID check.
 
 ### 1.4 Internal Linking Proposals (Contextual Placements)
@@ -178,12 +178,12 @@ This proposal covers the primary batch of **4 core URLs** (maximum 5) prioritize
 | Element | Current Implementation | Proposed Optimization | Rationale & Intent Match |
 | :--- | :--- | :--- | :--- |
 | **Title Tag** | `Contact & Stay Enquiry \| Hotel Sky Executive Pune` (53 chars) | **Option 1 (Recommended):** `Contact Hotel Sky Executive \| Phone & Stay Enquiry Lonikand Pune` (64 chars)<br>**Option 2:** `Contact Front Desk & Stay Enquiry \| Hotel Sky Executive Pune` (60 chars)<br>**Option 3:** `Hotel Sky Executive Contact Number & Booking Enquiry Pune` (57 chars) | Captures direct brand searches ("Hotel Sky Executive contact number") and local enquiry terms while remaining click-optimized. |
-| **Meta Description** | `Submit a stay enquiry for Hotel Sky Executive Pune. Check room availability, corporate bookings, and front desk assistance.` (124 chars) | `Contact Hotel Sky Executive in Lonikand, Pune. Call +91 80077 24646 or WhatsApp for room availability, corporate rates & 24/7 front desk reservations.` (151 chars) | Embeds verified phone number directly in the snippet for instantaneous mobile tap-to-call, alongside WhatsApp and corporate booking triggers. |
+| **Meta Description** | `Submit a stay enquiry for Hotel Sky Executive Pune. Check room availability, corporate bookings, and front desk assistance.` (124 chars) | `Contact Hotel Sky Executive in Lonikand, Pune. Call +91 92093 97362 or WhatsApp for room availability, corporate rates & 24/7 front desk reservations.` (151 chars) | Embeds verified phone number directly in the snippet for instantaneous mobile tap-to-call, alongside WhatsApp and corporate booking triggers. |
 | **H1 Heading** | `Contact & Enquiry` ([contact/page.tsx:L44](file:///d:/Devesh/Clooyzi/sky/src/app/contact/page.tsx#L44)) | `Contact Front Desk & Stay Enquiry \| Hotel Sky Executive` | Upgrades the generic heading to include brand authority and clear front desk intent. |
-| **Heading Hierarchy** | H1 (`Contact & Enquiry`) -> H2 (`Reach Out to Us`) -> H3s (`Front Desk`, `WhatsApp Chat`, `Email Enquiry`, `Property Address`) -> Form Title (`Reservation & Stay Enquiry`). | **Proposed Hierarchy:**<br>• **H1:** `Contact Front Desk & Stay Enquiry \| Hotel Sky Executive`<br>• **H2:** `24/7 Guest Assistance & Direct Booking Hotlines`<br>&nbsp;&nbsp;• **H3:** `Front Desk Direct Calling (+91 80077 24646)`<br>&nbsp;&nbsp;• **H3:** `Instant WhatsApp Chat Support`<br>&nbsp;&nbsp;• **H3:** `Email Inquiries & Corporate Bookings`<br>&nbsp;&nbsp;• **H3:** `Official Property Coordinates & Landmark`<br>• **H2:** `Online Stay Enquiry & Reservation Request Form`<br>• **H2:** `Frequently Asked Booking & Arrival Questions` | Organizes communication channels logically under descriptive H2 and H3 headings. |
+| **Heading Hierarchy** | H1 (`Contact & Enquiry`) -> H2 (`Reach Out to Us`) -> H3s (`Front Desk`, `WhatsApp Chat`, `Email Enquiry`, `Property Address`) -> Form Title (`Reservation & Stay Enquiry`). | **Proposed Hierarchy:**<br>• **H1:** `Contact Front Desk & Stay Enquiry \| Hotel Sky Executive`<br>• **H2:** `24/7 Guest Assistance & Direct Booking Hotlines`<br>&nbsp;&nbsp;• **H3:** `Front Desk Direct Calling (+91 92093 97362)`<br>&nbsp;&nbsp;• **H3:** `Instant WhatsApp Chat Support`<br>&nbsp;&nbsp;• **H3:** `Email Inquiries & Corporate Bookings`<br>&nbsp;&nbsp;• **H3:** `Official Property Coordinates & Landmark`<br>• **H2:** `Online Stay Enquiry & Reservation Request Form`<br>• **H2:** `Frequently Asked Booking & Arrival Questions` | Organizes communication channels logically under descriptive H2 and H3 headings. |
 
 ### 4.2 Content Quality (Helpful Content Audit)
-- **Strengths:** Real verified phone (`+91 80077 24646`), verified email (`help.skyexecutive@gmail.com`), active WhatsApp pre-filled chat links ([contact.ts:L72-L86](file:///d:/Devesh/Clooyzi/sky/src/content/contact.ts#L72-L86)), fully working Next.js API contact form.
+- **Strengths:** Real verified phone (`+91 92093 97362`), verified email (`help.skyexecutive@gmail.com`), active WhatsApp pre-filled chat links ([contact.ts:L72-L86](file:///d:/Devesh/Clooyzi/sky/src/content/contact.ts#L72-L86)), fully working Next.js API contact form.
 - **Gaps to Fill:**
   - *Response Time Clarity:* Add an assurance banner above the form: *"Direct Guest Support: Our front desk monitors phone calls and WhatsApp 24/7. Web enquiries receive prompt responses within [OWNER TO CONFIRM: 15–30 minutes]."*
   - *Accepted Payment Methods:* State accepted payment modes right next to the enquiry form: *"Accepted Payment Methods: UPI (Google Pay, PhonePe, Paytm), Cash, Credit/Debit Cards, and Bank Transfer."*
@@ -191,10 +191,10 @@ This proposal covers the primary batch of **4 core URLs** (maximum 5) prioritize
 
 ### 4.3 Conversion Path & Friction Points
 - **Primary CTAs:**
-  1. Phone tap-to-call: `tel:+918007724646`
-  2. WhatsApp chat button: `https://wa.me/918007724646`
+  1. Phone tap-to-call: `tel:+919209397362`
+  2. WhatsApp chat button: `https://wa.me/919209397362`
   3. "Submit Enquiry" button in `ContactForm.tsx`.
-- **Friction Points:** The form disclaimer currently states: *"Submitting an enquiry does not constitute a confirmed booking. Our team will verify room availability and contact you directly."* While transparent, it should be paired with proactive next steps: *"For immediate same-day reservations, call our front desk directly at +91 80077 24646."*
+- **Friction Points:** The form disclaimer currently states: *"Submitting an enquiry does not constitute a confirmed booking. Our team will verify room availability and contact you directly."* While transparent, it should be paired with proactive next steps: *"For immediate same-day reservations, call our front desk directly at +91 92093 97362."*
 
 ### 4.4 Internal Linking Proposals
 - **Link 1:** To `/rooms` | Anchor: `review Executive Double Bed Room amenities and specifications` | Placement: In sidebar stay overview card | *Reason:* Enables prospective guests to verify room specifications before submitting.

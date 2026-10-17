@@ -19,7 +19,7 @@ export default function WhatsAppButton() {
       rel="noopener noreferrer"
       aria-label={STRINGS.common.buttons.chatWhatsApp}
       id="whatsapp-float"
-      className="fixed right-3.5 bottom-[72px] sm:right-5 sm:bottom-[84px] z-50 flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-[#25D366]/30 transition-transform duration-300 hover:scale-110 hover:shadow-xl hover:shadow-[#25D366]/40"
+      className="fixed right-3.5 bottom-3.5 sm:right-5 sm:bottom-5 z-50 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-[#25D366]/30 transition-transform duration-300 hover:scale-110 hover:shadow-xl hover:shadow-[#25D366]/40"
     >
       {/* Pulse ring */}
       <span className="absolute h-full w-full animate-ping rounded-full bg-[#25D366] opacity-20" />

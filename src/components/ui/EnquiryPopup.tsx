@@ -255,7 +255,7 @@ export default function EnquiryPopup() {
 
                   <div className="flex flex-col gap-2 w-full pt-2">
                     <a
-                      href={`https://wa.me/918007724646?text=${encodeURIComponent(
+                      href={`https://wa.me/919209397362?text=${encodeURIComponent(
                         `Hi Hotel Sky Executive Front Desk, I submitted a booking enquiry for ${form.roomPreference} (Dates: ${form.checkIn || 'flexible'} to ${form.checkOut || 'flexible'}). Name: ${form.name}.`
                       )}`}
                       target="_blank"
