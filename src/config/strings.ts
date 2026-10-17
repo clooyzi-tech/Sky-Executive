@@ -761,7 +761,7 @@ export const STRINGS = {
       contact: {
         title: 'Contact Front Desk & Stay Enquiry',
         description:
-          'Contact Hotel Sky Executive in Lonikand, Pune. Call +91 80077 24646 or WhatsApp for room availability, corporate rates & 24/7 front desk reservations.',
+          'Contact Hotel Sky Executive in Lonikand, Pune. Call +91 92093 97362 or WhatsApp for room availability, corporate rates & 24/7 front desk reservations.',
       },
       guestInfo: {
         title: 'Guest Information',
@@ -792,8 +792,8 @@ export const BRAND = {
   tagline: 'Executive Comfort. Exceptional Hospitality.',
   developerBy: 'Developed by',
   developer: 'Jayaasi',
-  phoneNumber: '+918007724646',
-  phoneDisplay: '+91 80077 24646',
+  phoneNumber: '+919209397362',
+  phoneDisplay: '+91 92093 97362',
 } as const;
 
 // --- Assistant Header ---------------------------------------------------------
@@ -907,8 +907,8 @@ __Hotel Sky Executive__ is a hotel and accommodation property located at:
 
 __Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse, Lonikand, Pune, Maharashtra - 412216, India\.__
 
-__Phone:__ 8007724646  
-__WhatsApp:__ 8007724646  
+__Phone:__ 9209397362  
+__WhatsApp:__ 9209397362  
 __Email:__ [help\.skyexecutive@gmail\.com](mailto:help.skyexecutive@gmail.com)
 
 Hotel Sky Executive provides accommodation and related guest services including housekeeping, room service, laundry, food service, and other hotel facilities\.
@@ -995,7 +995,7 @@ These third\-party websites operate under their own privacy policies and terms\.
 If you have a question, concern, or request relating to your personal information or this Privacy Policy, you may contact Hotel Sky Executive using the contact details below\.
 
 __Email:__ [help\.skyexecutive@gmail\.com](mailto:help.skyexecutive@gmail.com)  
-__Phone/WhatsApp:__ 8007724646
+__Phone/WhatsApp:__ 9209397362
 
 We will consider and respond to requests in accordance with applicable law\.
 
@@ -1019,8 +1019,8 @@ __Hotel Sky Executive__
 Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse,  
 Lonikand, Pune, Maharashtra - 412216, India
 
-__Phone:__ 8007724646  
-__WhatsApp:__ 8007724646  
+__Phone:__ 9209397362  
+__WhatsApp:__ 9209397362  
 __Email:__ [help\.skyexecutive@gmail\.com](mailto:help.skyexecutive@gmail.com)
 
 __Last Updated:__20 September 2026`,
@@ -1237,8 +1237,8 @@ __Hotel Sky Executive__
 Jaywant Towers, Pune–Nagar Road, near Jaywant Warehouse,  
 Lonikand, Pune, Maharashtra - 412216, India
 
-__Phone:__ 8007724646  
-__WhatsApp:__ 8007724646  
+__Phone:__ 9209397362  
+__WhatsApp:__ 9209397362  
 __Email:__ [help\.skyexecutive@gmail\.com](mailto:help.skyexecutive@gmail.com)
 
 __Last Updated:__ 20 September 2026`,
@@ -1468,7 +1468,7 @@ The latest version will be made available on the website\.
 
 For assistance during your stay:
 
-__Phone / WhatsApp:__ 8007724646  
+__Phone / WhatsApp:__ 9209397362  
 __Email:__ [help\.skyexecutive@gmail\.com](mailto:help.skyexecutive@gmail.com)
 
 __Reception:__ 24 hours

@@ -262,7 +262,7 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <span className="font-display font-bold text-[var(--navy-ink)] block uppercase tracking-wider text-[11px]">Direct Front Desk</span>
-                  <span className="mt-1 block font-bold text-[var(--navy-ink)]">+91 80077 24646 (24/7 Hotline)</span>
+                  <span className="mt-1 block font-bold text-[var(--navy-ink)]">+91 92093 97362 (24/7 Hotline)</span>
                 </div>
                 <div>
                   <span className="font-display font-bold text-[var(--navy-ink)] block uppercase tracking-wider text-[11px]">Corporate Enquiries</span>

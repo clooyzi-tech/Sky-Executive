@@ -49,6 +49,7 @@ export default function AssistantBookingForm({
   const [email,        setEmail]        = useState(() => loadFromStorage().email || '');
   const [remark,       setRemark]       = useState(() => loadFromStorage().remark || '');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError,  setSubmitError]  = useState<string | null>(null);
   const [errors,       setErrors]       = useState<{ name?: string; phone?: string }>({});
 
   const selectedList = Array.isArray(selectedServices) ? selectedServices : Object.keys(selectedServices).filter((k) => selectedServices[k]);
@@ -64,12 +65,13 @@ export default function AssistantBookingForm({
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleNameChange  = (v: string) => { setName(v);  if (errors.name)  setErrors((p) => ({ ...p, name:  undefined })); };
-  const handlePhoneChange = (v: string) => { const c = v.replace(/[^\d]/g, '').slice(0, 10); setPhone(c); if (errors.phone) setErrors((p) => ({ ...p, phone: undefined })); };
+  const handleNameChange  = (v: string) => { setName(v);  if (errors.name)  setErrors((p) => ({ ...p, name:  undefined })); if (submitError) setSubmitError(null); };
+  const handlePhoneChange = (v: string) => { const c = v.replace(/[^\d]/g, '').slice(0, 10); setPhone(c); if (errors.phone) setErrors((p) => ({ ...p, phone: undefined })); if (submitError) setSubmitError(null); };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
+    setSubmitError(null);
     saveToStorage({ name: name.trim(), phone: phone.trim(), email: email.trim(), remark: remark.trim() });
     setIsSubmitting(true);
     const serviceSummary    = selectedList.length > 0 ? selectedList.join(', ') : 'General Assistance';
@@ -77,8 +79,9 @@ export default function AssistantBookingForm({
     const roomInfo = roomId ? `Room: ${roomId} (Key: ${roomKey})` : 'Unknown Room';
     const fullMessage       = `[Chatbot Assistant Request - ${formattedCategory}]\n${roomInfo}\n\nSelected Services:\n${serviceSummary}\n\nGuest Remarks:\n${remark.trim() || 'None'}`;
     try {
-      await fetch('/api/assistant', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
+      const res = await fetch('/api/assistant', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           name: name.trim(), 
           phone: `+91 ${phone.trim()}`, 
@@ -89,8 +92,19 @@ export default function AssistantBookingForm({
           message: fullMessage 
         }),
       });
-    } catch (err) { console.error('Error submitting assistant request:', err); }
-    finally { setIsSubmitting(false); onSubmitSuccess(); }
+
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to submit assistant request.');
+      }
+      onSubmitSuccess();
+    } catch (err: unknown) {
+      console.error('Error submitting assistant request:', err);
+      const msg = err instanceof Error ? err.message : 'Failed to send request. Please call reception directly at +91 92093 97362.';
+      setSubmitError(msg);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputBase = 'w-full text-sm px-4 py-3.5 rounded-xl border bg-white focus:outline-none transition-all duration-200 placeholder:text-[#B8AB98]';
@@ -138,6 +152,17 @@ export default function AssistantBookingForm({
               </div>
               <p className="text-[11px] text-[#7E7465] leading-relaxed">{BOOKING_FORM.sectionSubtitle}</p>
             </div>
+
+            {/* Error Message */}
+            {submitError && (
+              <div className="flex items-start gap-2.5 p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs">
+                <AlertCircle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+                <div className="flex-1">
+                  <p className="font-semibold text-red-800">Unable to send request</p>
+                  <p className="text-[11px] text-red-600 mt-0.5 leading-normal">{submitError}</p>
+                </div>
+              </div>
+            )}
 
             {/* Selected services chips */}
             {selectedList.length > 0 && (

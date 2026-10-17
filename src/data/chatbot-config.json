@@ -3,8 +3,8 @@
   "avatar": "/SE_Logo.jpeg",
   "greeting": "Hello! 👋 Welcome to Hotel Sky Executive. How can I assist you with your stay today?",
   "fallback": "I can help you with rooms, facilities, location, dining, and contacting our front desk. Please select an option below.",
-  "whatsappNumber": "+918007724646",
-  "phone": "+918007724646",
+  "whatsappNumber": "+919209397362",
+  "phone": "+919209397362",
   "menuTree": {
     "main": {
       "message": "What would you like to know about Hotel Sky Executive?",
@@ -54,7 +54,7 @@
       ]
     },
     "contact": {
-      "message": "**Contact Hotel Sky Executive Reception** 📞\n\n📱 Phone: +91 80077 24646\n💬 WhatsApp: +91 80077 24646\n📧 Email: help.skyexecutive@gmail.com\n\n🕐 Front desk is available **24 hours**.",
+      "message": "**Contact Hotel Sky Executive Reception** 📞\n\n📱 Phone: +91 92093 97362\n💬 WhatsApp: +91 92093 97362\n📧 Email: help.skyexecutive@gmail.com\n\n🕐 Front desk is available **24 hours**.",
       "options": [
         { "id": "call_contact", "label": "📞 Call Now", "action": "call" },
         { "id": "whatsapp_contact", "label": "💬 WhatsApp", "action": "whatsapp", "message": "Hi! I'd like to enquire about staying at Hotel Sky Executive Pune." },

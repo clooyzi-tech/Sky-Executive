@@ -56,7 +56,7 @@ export const AEO_CONTENT: Record<'home' | 'rooms' | 'location' | 'contact' | 'gu
         {
           label: 'Guest Inquiries',
           value:
-            'Live room availability and tariffs confirmed instantly via front desk phone (+91 80077 24646) or WhatsApp.',
+            'Live room availability and tariffs confirmed instantly via front desk phone (+91 92093 97362) or WhatsApp.',
         },
       ],
       ctaText: 'Explore Executive Rooms',
@@ -201,17 +201,17 @@ export const AEO_CONTENT: Record<'home' | 'rooms' | 'location' | 'contact' | 'gu
       badge: 'Direct Answer • 24/7 Front Desk Hotline',
       title: 'Instant Reservations & Guest Support Details',
       directAnswer:
-        'To contact Hotel Sky Executive for room reservations, corporate bookings, or immediate assistance, call our 24/7 front desk at +91 80077 24646 or message us on WhatsApp at +91 80077 24646. You can also email help.skyexecutive@gmail.com or submit our online stay enquiry form. Reception is staffed 24 hours a day at Jaywant Towers, Pune–Nagar Road, Lonikand.',
+        'To contact Hotel Sky Executive for room reservations, corporate bookings, or immediate assistance, call our 24/7 front desk at +91 92093 97362 or message us on WhatsApp at +91 92093 97362. You can also email help.skyexecutive@gmail.com or submit our online stay enquiry form. Reception is staffed 24 hours a day at Jaywant Towers, Pune–Nagar Road, Lonikand.',
       highlights: [
         {
           label: 'Direct Phone Hotline',
           value:
-            '+91 80077 24646 (Monitored 24 hours a day for instant room booking and guest care).',
+            '+91 92093 97362 (Monitored 24 hours a day for instant room booking and guest care).',
         },
         {
           label: 'Instant WhatsApp',
           value:
-            '+91 80077 24646 (Fast messaging channel for location, tariffs, and room availability).',
+            '+91 92093 97362 (Fast messaging channel for location, tariffs, and room availability).',
         },
         {
           label: 'Payment Modes',
@@ -225,13 +225,13 @@ export const AEO_CONTENT: Record<'home' | 'rooms' | 'location' | 'contact' | 'gu
         },
       ],
       ctaText: 'Call Front Desk Now',
-      ctaHref: 'tel:+918007724646',
+      ctaHref: 'tel:+919209397362',
     },
     faqs: [
       {
         question: 'What is the direct phone number and WhatsApp number for Hotel Sky Executive?',
         answer:
-          'You can reach our front desk 24 hours a day by phone at +91 80077 24646 and via WhatsApp at +91 80077 24646.',
+          'You can reach our front desk 24 hours a day by phone at +91 92093 97362 and via WhatsApp at +91 92093 97362.',
       },
       {
         question: 'How quickly does the hotel respond to online stay enquiries?',
@@ -261,7 +261,7 @@ export const AEO_CONTENT: Record<'home' | 'rooms' | 'location' | 'contact' | 'gu
         {
           label: 'Front Desk Hotline',
           value:
-            'Dial +91 80077 24646 anytime for housekeeping, extra linen, or room service.',
+            'Dial +91 92093 97362 anytime for housekeeping, extra linen, or room service.',
         },
         {
           label: 'Wi-Fi Network Access',
@@ -280,7 +280,7 @@ export const AEO_CONTENT: Record<'home' | 'rooms' | 'location' | 'contact' | 'gu
         },
       ],
       ctaText: 'Call Reception Desk',
-      ctaHref: 'tel:+918007724646',
+      ctaHref: 'tel:+919209397362',
     },
     faqs: [
       {

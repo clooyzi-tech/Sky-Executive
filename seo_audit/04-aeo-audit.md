@@ -93,7 +93,7 @@ Every question listed below is drawn directly from first-party user interaction 
 15. **"How can I reserve a room immediately or check same-day availability?"**  
     - **Tag:** **VERIFIED** ([contact.ts:L72-L86](file:///d:/Devesh/Clooyzi/sky/src/content/contact.ts#L72-L86); [strings.ts:L50-L63](file:///d:/Devesh/Clooyzi/sky/src/config/strings.ts#L50-L63))  
     - **Source:** Direct contact channels.  
-    - **Verified Fact:** Call the 24/7 reception desk at `+91 80077 24646`, message on WhatsApp at `+91 80077 24646`, or submit the online stay enquiry form.
+    - **Verified Fact:** Call the 24/7 reception desk at `+91 92093 97362`, message on WhatsApp at `+91 92093 97362`, or submit the online stay enquiry form.
 
 ### Stage 5: Support & In-Stay (Arrival, Wi-Fi & Guidelines)
 16. **"What are the check-in and check-out timings?"**  
@@ -150,8 +150,8 @@ Evaluating the 5 pages in scope against Google's published Search Quality Rater 
 | Audit Dimension | Evaluation & Findings | Tag |
 | :--- | :--- | :--- |
 | **Direct Answer Near Top** | **MODERATE.** Displays 4 contact cards (Phone, WhatsApp, Email, Address) and a form, but lacks a top direct answer block stating front desk operating hours, direct booking response times, and check-in ID policies. | **VERIFIED** ([contact/page.tsx:L36-L70](file:///d:/Devesh/Clooyzi/sky/src/app/contact/page.tsx#L36-L70)) |
-| **Specifics Provided** | • *What:* Direct communication channels with hotel management.<br>• *Who For:* Prospective guests, corporate booking coordinators, arriving travelers.<br>• *Process:* Phone call (instant), WhatsApp (fast), Web Form (inquiry confirmation).<br>• *Timeline:* Front desk available 24/7/365.<br>• *Cost Factors:* Direct booking eliminates third-party OTA commissions.<br>• *Limits:* Web form does not instantly confirm room; requires staff verification.<br>• *Next Step:* Call `+91 80077 24646` or tap WhatsApp. | **VERIFIED** ([contact.ts](file:///d:/Devesh/Clooyzi/sky/src/content/contact.ts); [ContactForm.tsx](file:///d:/Devesh/Clooyzi/sky/src/components/contact/ContactForm.tsx)) |
-| **Experience & Expertise Evidence** | Real callable telephone number (`+91 80077 24646`), active WhatsApp API link, monitored Gmail inbox, verified street address at Jaywant Towers. | **VERIFIED** |
+| **Specifics Provided** | • *What:* Direct communication channels with hotel management.<br>• *Who For:* Prospective guests, corporate booking coordinators, arriving travelers.<br>• *Process:* Phone call (instant), WhatsApp (fast), Web Form (inquiry confirmation).<br>• *Timeline:* Front desk available 24/7/365.<br>• *Cost Factors:* Direct booking eliminates third-party OTA commissions.<br>• *Limits:* Web form does not instantly confirm room; requires staff verification.<br>• *Next Step:* Call `+91 92093 97362` or tap WhatsApp. | **VERIFIED** ([contact.ts](file:///d:/Devesh/Clooyzi/sky/src/content/contact.ts); [ContactForm.tsx](file:///d:/Devesh/Clooyzi/sky/src/components/contact/ContactForm.tsx)) |
+| **Experience & Expertise Evidence** | Real callable telephone number (`+91 92093 97362`), active WhatsApp API link, monitored Gmail inbox, verified street address at Jaywant Towers. | **VERIFIED** |
 | **Google Quality Rater Assessment** | • **O (Offsite):** **PASS** (Phone and address match registered local listings).<br>• **U (Uniqueness):** **ORIGINAL SOURCE** (Only Hotel Sky Executive can publish their direct contact credentials).<br>• **R (Needs Met):** **HIGHLY MEETS** for `hotel sky executive contact number` and `hotel sky executive phone number`.<br>• **Quality Demotion Check:** **CLEAR**. Highly trustworthy E-E-A-T signals. | **EVALUATION** |
 | **AEO Status** | Perplexity and AI Overviews easily extract phone and address. Adding an Answer Block with response times and payment methods completes all user intents. | **AEO STRENGTH** |
 
@@ -265,7 +265,7 @@ All proposed content is formulated strictly from verified codebase facts and adh
 - **Supporting Detail (Bullet Points):**
   - **Location & Transit:** Jaywant Towers, Lonikand — ~15 km from Pune Airport, 2 km from Wagholi, and direct highway access to Sanaswadi MIDC.
   - **In-Room Comforts:** Plush Queen bed, en-suite bathroom with 24/7 hot water, high-speed Wi-Fi, smart TV, and dedicated work desk.
-  - **Guest Inquiries:** Live room availability and seasonal tariffs confirmed instantly via front desk phone (`+91 80077 24646`) or WhatsApp.
+  - **Guest Inquiries:** Live room availability and seasonal tariffs confirmed instantly via front desk phone (`+91 92093 97362`) or WhatsApp.
 
 #### 2. Visible FAQ Items (Curated for Homepage)
 1. **Q: What amenities are provided at Hotel Sky Executive Pune?**  
@@ -342,7 +342,7 @@ All proposed content is formulated strictly from verified codebase facts and adh
 #### 1. Proposed Answer Block (Add above contact channels grid)
 - **Placement:** Immediately beneath the header banner on `/contact`.
 - **Direct Answer (Short & Direct First):**  
-  > **To contact Hotel Sky Executive for room reservations, corporate bookings, or immediate assistance, call our 24/7 front desk at +91 80077 24646 or message us on WhatsApp at +91 80077 24646.** You can also email help.skyexecutive@gmail.com or submit our online stay enquiry form. Reception is staffed 24 hours a day at Jaywant Towers, Pune–Nagar Road, Lonikand.
+  > **To contact Hotel Sky Executive for room reservations, corporate bookings, or immediate assistance, call our 24/7 front desk at +91 92093 97362 or message us on WhatsApp at +91 92093 97362.** You can also email help.skyexecutive@gmail.com or submit our online stay enquiry form. Reception is staffed 24 hours a day at Jaywant Towers, Pune–Nagar Road, Lonikand.
 - **Supporting Detail (Bullet Points):**
   - **Instant Assistance:** Phone calls and WhatsApp messages are answered 24/7 by on-duty front desk staff.
   - **Accepted Payment Modes:** UPI (Google Pay, PhonePe, Paytm), Credit/Debit Cards, Net Banking, and Cash.
@@ -350,7 +350,7 @@ All proposed content is formulated strictly from verified codebase facts and adh
 
 #### 2. Visible FAQ Items (Curated for `/contact`)
 1. **Q: What is the direct phone number and WhatsApp number for Hotel Sky Executive?**  
-   *A:* You can reach our front desk 24 hours a day by phone at +91 80077 24646 and via WhatsApp at +91 80077 24646.
+   *A:* You can reach our front desk 24 hours a day by phone at +91 92093 97362 and via WhatsApp at +91 92093 97362.
 2. **Q: How quickly does the hotel respond to online stay enquiries?**  
    *A:* Web enquiry forms are reviewed by our reservations team promptly. For instant same-day confirmation, we recommend calling or messaging on WhatsApp directly.
 3. **Q: What payment methods are accepted at Hotel Sky Executive?**  

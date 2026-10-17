@@ -88,7 +88,7 @@ export default function GuestInformationPage() {
                   <span>Call Now</span>
                 </a>
                 <a
-                  href={`https://wa.me/918007724646?text=${encodeURIComponent(
+                  href={`https://wa.me/919209397362?text=${encodeURIComponent(
                     contact.prefilledMessages.guestAssistance
                   )}`}
                   target="_blank"

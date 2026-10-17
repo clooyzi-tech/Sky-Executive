@@ -112,7 +112,7 @@ export default function ContactPage() {
 
                     {/* WhatsApp */}
                     <a
-                      href={`https://wa.me/918007724646?text=${encodeURIComponent(
+                      href={`https://wa.me/919209397362?text=${encodeURIComponent(
                         contact.prefilledMessages.contactPageEnquiry
                       )}`}
                       target="_blank"
@@ -133,7 +133,7 @@ export default function ContactPage() {
                           </span>
                         </div>
                         <p className="font-display text-sm font-extrabold text-[var(--navy-ink)] mt-1">
-                          +91 80077 24646
+                          +91 92093 97362
                         </p>
                         <p className="font-body text-xs text-[var(--ink-muted)] mt-0.5">
                           Chat on WhatsApp for fast room queries

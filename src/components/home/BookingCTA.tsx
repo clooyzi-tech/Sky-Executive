@@ -83,7 +83,7 @@ export default function BookingCTA() {
             <span>• Premium Boutique Rooms</span>
             <span>• In-House Cloud Kitchen</span>
             <span>• Nature-Oriented Views</span>
-            <span className="text-[var(--gold-bright)]">• 24/7 Front Desk: 8007724646</span>
+            <span className="text-[var(--gold-bright)]">• 24/7 Front Desk: 9209397362</span>
           </div>
         </AnimatedSection>
       </div>
