@@ -49,9 +49,9 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
             className="fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col bg-[var(--navy-deep)] text-[var(--on-navy)] shadow-2xl border-l border-[var(--gold)]/30 overflow-y-auto"
           >
             {/* Top Brand Bar */}
-            <div className="flex items-center justify-between border-b border-[var(--line-gold-navy)] px-6 py-5">
-              <Link href="/" onClick={onClose} className="flex items-center gap-3">
-                <div className="relative h-10 w-10 rounded-full overflow-hidden border border-[var(--gold-bright)] shadow-[0_0_8px_rgba(212,162,76,0.3)] shrink-0 bg-[#0B1F3F]">
+            <div className="flex items-center justify-between border-b border-[var(--line-gold-navy)] px-4 sm:px-6 py-4 sm:py-5 gap-2">
+              <Link href="/" onClick={onClose} className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                <div className="relative h-9 w-9 sm:h-10 sm:w-10 rounded-full overflow-hidden border border-[var(--gold-bright)] shadow-[0_0_8px_rgba(212,162,76,0.3)] shrink-0 bg-[#0B1F3F]">
                   <Image
                     src="/SE_Logo.jpeg"
                     alt={`${STRINGS.brand.name} logo`}
@@ -60,11 +60,11 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                     className="object-cover"
                   />
                 </div>
-                <div className="flex flex-col">
-                  <span className="font-display text-base font-extrabold text-white tracking-wider uppercase">
+                <div className="flex flex-col min-w-0">
+                  <span className="font-display text-[13px] xs:text-sm sm:text-base font-extrabold text-white tracking-wider uppercase whitespace-nowrap">
                     {STRINGS.brand.name}
                   </span>
-                  <span className="font-display text-[9px] uppercase tracking-[0.2em] text-[var(--gold-bright)]">
+                  <span className="font-display text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-[var(--gold-bright)]">
                     Lonikand, Pune
                   </span>
                 </div>
@@ -72,10 +72,10 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
 
               <button
                 onClick={onClose}
-                className="flex items-center justify-center w-10 h-10 rounded-full border border-[var(--gold)]/40 text-[var(--gold-bright)] hover:bg-[var(--gold)]/15 transition-colors"
+                className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-[var(--gold)]/40 text-[var(--gold-bright)] hover:bg-[var(--gold)]/15 transition-colors shrink-0"
                 aria-label="Close menu"
               >
-                <X className="h-5 w-5" />
+                <X className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
               </button>
             </div>
 

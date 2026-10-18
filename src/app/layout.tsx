@@ -43,18 +43,10 @@ export const metadata: Metadata = {
       {
         url: `${siteUrl}/SE_Logo.jpeg`,
         secureUrl: `${siteUrl}/SE_Logo.jpeg`,
-        width: 1200,
-        height: 1200,
+        width: 1254,
+        height: 1254,
         type: 'image/jpeg',
         alt: `${STRINGS.brand.name} Official Emblem Logo`,
-      },
-      {
-        url: `${siteUrl}/images/property/sky_building_exterior.webp`,
-        secureUrl: `${siteUrl}/images/property/sky_building_exterior.webp`,
-        width: 1200,
-        height: 630,
-        type: 'image/webp',
-        alt: `${STRINGS.brand.name} Jaywant Tower Building Exterior`,
       },
     ],
   },
@@ -62,7 +54,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: STRINGS.seo.defaultTitle,
     description: STRINGS.seo.defaultDescription,
-    images: [`${siteUrl}/images/property/sky_building_exterior.webp`],
+    images: [`${siteUrl}/SE_Logo.jpeg`],
   },
   robots: {
     index: true,
@@ -83,6 +75,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="en"
       className={`${fontVariables} h-full antialiased`}
     >
+      <head>
+        <link rel="image_src" href={`${siteUrl}/SE_Logo.jpeg`} />
+      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground overflow-x-clip">
         <Header />
         <main className="flex-1 overflow-x-clip">{children}</main>

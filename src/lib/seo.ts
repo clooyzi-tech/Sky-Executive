@@ -21,7 +21,7 @@ export function generatePageMetadata({
   const pageDescription = description ?? seoConfig.defaultDescription;
   const siteUrl = seoConfig.siteUrl;
   const url = `${siteUrl}${path}`;
-  const image = ogImage || `${siteUrl}/images/property/sky_building_exterior.webp`;
+  const image = ogImage || `${siteUrl}/SE_Logo.jpeg`;
 
   return {
     title: pageTitle,
@@ -44,9 +44,9 @@ export function generatePageMetadata({
         {
           url: image.startsWith('http') ? image : `${siteUrl}${image}`,
           secureUrl: image.startsWith('http') ? image : `${siteUrl}${image}`,
-          width: 1200,
-          height: 630,
-          type: image.endsWith('.webp') ? 'image/webp' : 'image/jpeg',
+          width: image.includes('SE_Logo') ? 1254 : 1200,
+          height: image.includes('SE_Logo') ? 1254 : 630,
+          type: image.endsWith('.png') ? 'image/png' : image.endsWith('.webp') ? 'image/webp' : 'image/jpeg',
           alt: pageTitle,
         },
       ],

@@ -64,15 +64,15 @@ export default function Header() {
       {/* 1. TOP UTILITY BAR (Warm Cream Deep & Gold Accent)           */}
       {/* ============================================================ */}
       <div className="w-full border-b border-[var(--line-gold)] bg-[var(--cream-deep)] text-[var(--navy-ink)] text-[12px] select-none">
-        <div className="w-full max-w-[1440px] mx-auto flex h-9 sm:h-10 items-center justify-between px-4 sm:px-6 lg:px-12">
+        <div className="w-full max-w-[1440px] mx-auto flex h-8 sm:h-9 md:h-10 items-center justify-between px-3 sm:px-6 lg:px-12">
           {/* Left: Location & Tagline */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            <div className="flex items-center gap-1.5 font-medium text-[var(--navy-ink)]">
-              <MapPin className="h-3.5 w-3.5 text-[var(--gold)] shrink-0" />
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+            <div className="flex items-center gap-1 sm:gap-1.5 font-medium text-[var(--navy-ink)]">
+              <MapPin className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[var(--gold)] shrink-0" />
               <span className="hidden sm:inline font-display font-semibold text-[11px] uppercase tracking-wider">
                 Lonikand, Pune–Nagar Road
               </span>
-              <span className="sm:hidden text-[10px] font-semibold">Lonikand, Pune</span>
+              <span className="sm:hidden text-[10px] font-semibold tracking-tight">Lonikand, Pune</span>
             </div>
             <span className="hidden md:inline text-[var(--gold)]/40">•</span>
             <span className="hidden md:inline font-script text-[var(--brown-gold)] text-sm">
@@ -81,15 +81,15 @@ export default function Header() {
           </div>
 
           {/* Right: WhatsApp, Phone Number & 24/7 Front Desk */}
-          <div className="flex items-center gap-3 sm:gap-5 shrink-0 text-[11px]">
+          <div className="flex items-center gap-2 sm:gap-4 lg:gap-5 shrink-0 text-[10px] sm:text-[11px]">
             <a
               href={whatsappUrl(STRINGS.contact.prefilledMessages.heroEnquiry)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 font-semibold text-[var(--navy-ink)] hover:text-[var(--gold)] transition-colors"
+              className="inline-flex items-center gap-1 sm:gap-1.5 font-semibold text-[var(--navy-ink)] hover:text-[var(--gold)] transition-colors"
               id="topbar-whatsapp"
             >
-              <MessageCircle className="h-3.5 w-3.5 text-[#25D366]" />
+              <MessageCircle className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#25D366]" />
               <span className="hidden sm:inline">WhatsApp</span>
             </a>
 
@@ -97,10 +97,10 @@ export default function Header() {
 
             <a
               href={phoneUrl()}
-              className="inline-flex items-center gap-1.5 font-bold text-[var(--navy-ink)] hover:text-[var(--gold)] transition-colors"
+              className="inline-flex items-center gap-1 sm:gap-1.5 font-bold text-[var(--navy-ink)] hover:text-[var(--gold)] transition-colors"
               id="topbar-phone"
             >
-              <Phone className="h-3 w-3 text-[var(--gold)]" />
+              <Phone className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-[var(--gold)]" />
               <span>{STRINGS.contact.phone}</span>
             </a>
 
@@ -121,35 +121,36 @@ export default function Header() {
         className={cn(
           'sticky top-0 z-50 w-full bg-[var(--cream)] border-b border-[var(--line-gold)] transition-all duration-300',
           scrolled
-            ? 'h-[72px] shadow-[0_6px_18px_rgba(11,31,63,0.10)]'
-            : 'h-[88px]'
+            ? 'h-[62px] sm:h-[68px] lg:h-[72px] shadow-[0_6px_18px_rgba(11,31,63,0.10)]'
+            : 'h-[70px] sm:h-[78px] lg:h-[88px]'
         )}
       >
-        <div className="w-full max-w-[1440px] mx-auto h-full flex items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-12 gap-3 sm:gap-4">
+        <div className="w-full max-w-[1440px] mx-auto h-full flex items-center justify-between px-3 sm:px-6 lg:px-8 xl:px-12 gap-2 sm:gap-4">
           {/* Brand Logo Lockup: Crown/Logo + Brand Name */}
           <Link
             href="/"
-            className="group flex items-center gap-2.5 sm:gap-3 focus:outline-none shrink-0 mr-2 xl:mr-4"
+            className="group flex items-center gap-2 sm:gap-2.5 lg:gap-3 focus:outline-none min-w-0 mr-1 sm:mr-2 xl:mr-4"
             id="header-center-logo"
             aria-label={`${STRINGS.brand.name} Home`}
           >
             {/* Official Brand Logo Medallion */}
-            <div className="relative h-10 w-10 sm:h-11 sm:w-11 xl:h-12 xl:w-12 shrink-0 rounded-full overflow-hidden border border-[var(--gold)] shadow-xs transition-transform duration-300 group-hover:scale-105 bg-[#0B1F3F]">
+            <div className="relative h-9 w-9 sm:h-10 sm:w-10 lg:h-11 lg:w-11 xl:h-12 xl:w-12 shrink-0 rounded-full overflow-hidden border border-[var(--gold)] shadow-xs transition-transform duration-300 group-hover:scale-105 bg-[#0B1F3F]">
               <Image
                 src="/SE_Logo.jpeg"
                 alt={STRINGS.brand.logoAlt}
                 fill
                 priority
+                sizes="(max-width: 640px) 36px, (max-width: 1024px) 44px, 48px"
                 className="object-cover"
               />
             </div>
 
             {/* Brand Typography */}
-            <div className="flex flex-col">
-              <span className="font-display text-base sm:text-lg xl:text-xl font-extrabold tracking-wider text-[var(--navy-ink)] uppercase leading-none group-hover:text-[var(--gold)] transition-colors whitespace-nowrap">
+            <div className="flex flex-col min-w-0">
+              <span className="font-display text-[12.5px] xs:text-[14px] sm:text-base lg:text-lg xl:text-xl font-extrabold tracking-tight xs:tracking-normal sm:tracking-wider text-[var(--navy-ink)] uppercase leading-none group-hover:text-[var(--gold)] transition-colors whitespace-nowrap">
                 {STRINGS.brand.name}
               </span>
-              <span className="font-display text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--brown-gold)] mt-0.5 sm:mt-1 whitespace-nowrap">
+              <span className="font-display text-[8.5px] sm:text-[9.5px] lg:text-[10px] font-bold uppercase tracking-[0.16em] sm:tracking-[0.22em] text-[var(--brown-gold)] mt-0.5 sm:mt-1 whitespace-nowrap">
                 Lonikand, Pune
               </span>
             </div>
@@ -207,23 +208,23 @@ export default function Header() {
           </div>
 
           {/* Mobile Right Controls: Call button + Hamburger drawer button */}
-          <div className="flex lg:hidden items-center gap-2 shrink-0">
+          <div className="flex lg:hidden items-center gap-1.5 sm:gap-2 shrink-0">
             <a
               href={phoneUrl()}
-              className="sm:hidden flex items-center justify-center w-10 h-10 rounded-full bg-[var(--gold-bright)] text-[var(--navy-deep)] shadow-xs shrink-0"
+              className="sm:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[var(--gold-bright)] hover:bg-[var(--gold-foil-light)] text-[var(--navy-deep)] shadow-xs active:scale-95 transition-all shrink-0"
               aria-label="Call Front Desk"
               id="mobile-header-call"
             >
-              <Phone className="h-4 w-4" />
+              <Phone className="h-3.5 w-3.5" />
             </a>
 
             <button
               onClick={() => setMobileOpen(true)}
-              className="flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-[var(--line-gold)] bg-[var(--cream-deep)] text-[var(--navy-ink)] hover:text-[var(--gold)] focus:outline-none transition-colors shrink-0"
+              className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 lg:w-11 lg:h-11 rounded-full border border-[var(--line-gold)] bg-[var(--cream-deep)] text-[var(--navy-ink)] hover:text-[var(--gold)] hover:border-[var(--gold)] focus:outline-none active:scale-95 transition-all shrink-0"
               aria-label="Open mobile menu"
               id="mobile-menu-trigger"
             >
-              <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
+              <Menu className="h-4.5 w-4.5 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
             </button>
           </div>
         </div>
